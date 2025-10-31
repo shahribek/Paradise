@@ -380,3 +380,6 @@
 
 /// If any of the owner's robotic parts are being repaired right now
 #define TRAIT_REPAIRING_LIMB "repairing_limb"
+
+/// can't catch fire
+#define TRAIT_NO_FIRECATCH "no_firecatch"
