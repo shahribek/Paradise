@@ -14,6 +14,8 @@
 	blood_color = "#ada776"
 	burn_mod = 4 // holy shite, poor guys wont survive half a second cooking smores
 	brute_mod = 2 // damn, double wham, double dam
+	tox_mod = 0 // bro has no flesh or organs to be poisoned
+	clone_mod = 0 // ehm, how can a walking crystal take clone damage?
 
 	inherent_traits = list(
 		TRAIT_NO_BLOOD,
@@ -28,6 +30,7 @@
 		TRAIT_IGNOREDAMAGESLOWDOWN,
 		TRAIT_SUPERMATTERIMMUNE,
 		TRAIT_NO_FIRECATCH,
+		TRAIT_NO_DNA,
 	)
 	bodyflags = HAS_BODY_MARKINGS
 	dies_at_threshold = TRUE
