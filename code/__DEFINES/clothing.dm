@@ -44,43 +44,35 @@
 #define ITEM_SLOT_CLOTH_OUTER (1<<8)
 /// Jumpsuit slot
 #define ITEM_SLOT_CLOTH_INNER (1<<9)
-/// Left Glove slot
-#define ITEM_SLOT_GLOVES_LEFT (1<<10)
-/// Right Glove slot
-#define ITEM_SLOT_GLOVES_RIGHT (1<<11)
-/// Gloves slot
-#define ITEM_SLOT_GLOVES (ITEM_SLOT_GLOVES_LEFT|ITEM_SLOT_GLOVES_RIGHT)
+/// Glove slot
+#define ITEM_SLOT_GLOVES (1<<10)
 /// Glasses slot
-#define ITEM_SLOT_EYES (1<<12)
+#define ITEM_SLOT_EYES (1<<11)
 /// Mask slot
-#define ITEM_SLOT_MASK (1<<13)
+#define ITEM_SLOT_MASK (1<<12)
 /// Head slot (helmets, hats, etc.)
-#define ITEM_SLOT_HEAD (1<<14)
-/// Left Shoe slot
-#define ITEM_SLOT_LEFT_FOOT (1<<15)
-/// Right Shoe slot
-#define ITEM_SLOT_RIGHT_FOOT (1<<16)
+#define ITEM_SLOT_HEAD (1<<13)
 /// Shoe slot
-#define ITEM_SLOT_FEET (ITEM_SLOT_LEFT_FOOT|ITEM_SLOT_RIGHT_FOOT)
+#define ITEM_SLOT_FEET (1<<14)
 /// ID slot
-#define ITEM_SLOT_ID (1<<17)
+#define ITEM_SLOT_ID (1<<15)
 /// PDA slot
-#define ITEM_SLOT_PDA (1<<18)
+#define ITEM_SLOT_PDA (1<<16)
 /// Neck slot (ties, bedsheets, scarves)
-#define ITEM_SLOT_NECK (1<<19)
+#define ITEM_SLOT_NECK (1<<17)
 /// Suit storage slot
-#define ITEM_SLOT_SUITSTORE (1<<20)
+#define ITEM_SLOT_SUITSTORE (1<<18)
 /// Handcuff slot
-#define ITEM_SLOT_HANDCUFFED (1<<21)
+#define ITEM_SLOT_HANDCUFFED (1<<19)
 /// Legcuff slot (bolas, beartraps)
-#define ITEM_SLOT_LEGCUFFED (1<<22)
+#define ITEM_SLOT_LEGCUFFED (1<<20)
 /// Inside of a character's backpack
-#define ITEM_SLOT_BACKPACK (1<<23)
+#define ITEM_SLOT_BACKPACK (1<<21)
 /// Accessory slot. Tries to place item on jumpsuit
-#define ITEM_SLOT_ACCESSORY (1<<24)
+#define ITEM_SLOT_ACCESSORY (1<<22)
 
 /// Total amount of slots. Keep this up to date!
-#define SLOT_HUD_AMOUNT 25
+#define SLOT_HUD_AMOUNT 23
 
 // Additional flags used with slot_flags_2 variable
 /// Allows items with a w_class of WEIGHT_CLASS_NORMAL or WEIGHT_CLASS_BULKY to fit in pockets
