@@ -62,7 +62,6 @@
 	desc = "Основной орган центральной нервной системы гуманоида. Фактически, именно здесь и находится разум. Судя по кристаллизированной структуре, этот принадлежал нуклеату."
 	icon_state = "crystal-brain"
 	vital = FALSE
-	decoy_brain = TRUE
 	status = ORGAN_CRYSTAL
 
 /obj/item/organ/internal/brain/crystal/get_ru_names()
