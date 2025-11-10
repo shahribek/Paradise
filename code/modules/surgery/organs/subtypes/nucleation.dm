@@ -2,6 +2,7 @@
 /obj/item/organ/internal/nucleation
 	species_type = /datum/species/nucleation
 	name = "nucleation organ"
+	status = ORGAN_CRYSTAL
 
 /obj/item/organ/internal/nucleation/resonant_crystal
 	name = "resonant crystal"
@@ -43,6 +44,7 @@
 	icon_state = "crystal-eyes"
 	light_color = "#f7f792"
 	light_range = 2
+	status = ORGAN_CRYSTAL
 
 /obj/item/organ/internal/eyes/luminescent_crystal/get_ru_names()
 	return list(
@@ -61,6 +63,7 @@
 	icon_state = "crystal-brain"
 	vital = FALSE
 	decoy_brain = TRUE
+	status = ORGAN_CRYSTAL
 
 /obj/item/organ/internal/brain/crystal/get_ru_names()
 	return list(
