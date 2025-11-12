@@ -34,7 +34,7 @@
 
 	if(is_dead() || damage > 75)//solid ears
 		owner.Deaf(2 SECONDS)
-		owner.Mute(2 SECONDS)
+		owner.Silence(2 SECONDS)
 
 /obj/item/organ/internal/nucleation/strange_crystal
 	name = "strange crystal"
