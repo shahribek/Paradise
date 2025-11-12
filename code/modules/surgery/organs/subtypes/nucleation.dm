@@ -3,14 +3,16 @@
 	species_type = /datum/species/nucleation
 	name = "nucleation organ"
 
-/obj/item/organ/internal/nucleation/resonant_crystal
+/obj/item/organ/internal/ears/resonant_crystal
 	name = "resonant crystal"
 	desc = "Жёлтого цвета странно выглядящий кристалл. Судя по всему, он принадлежал нуклеату."
 	icon_state = "resonant-crystal"
 	parent_organ_zone = BODY_ZONE_HEAD
-	slot = INTERNAL_ORGAN_RESONANT_CRYSTAL
+	slot = INTERNAL_ORGAN_EARS
+	species_restrictions = list(SPECIES_NUCLEATION)
+	status = ORGAN_CRYSTALLIZED
 
-/obj/item/organ/internal/nucleation/resonant_crystal/get_ru_names()
+/obj/item/organ/internal/ears/resonant_crystal/get_ru_names()
 	return list(
 		NOMINATIVE = "резонантный кристалл",
 		GENITIVE = "резонантного кристалла",
@@ -19,6 +21,20 @@
 		INSTRUMENTAL = "резонантным кристаллом",
 		PREPOSITIONAL = "резонантном кристалле",
 	)
+
+/obj/item/organ/internal/ears/resonant_crystal/on_life()
+	if(!iscarbon(owner))
+		return
+
+	if(!istype(owner))
+		return
+
+	if(HAS_TRAIT_NOT_FROM(owner, TRAIT_DEAF, EAR_DAMAGE))
+		return
+
+	if(is_dead() || damage > 75)//solid ears
+		owner.Deaf(2 SECONDS)
+		owner.Mute(2 SECONDS)
 
 /obj/item/organ/internal/nucleation/strange_crystal
 	name = "strange crystal"

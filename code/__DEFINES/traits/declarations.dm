@@ -382,3 +382,6 @@
 
 /// If any of the owner's robotic parts are being repaired right now
 #define TRAIT_REPAIRING_LIMB "repairing_limb"
+
+/// Mos will require to have resosnant ears to talk
+#define TRAIT_RESONANT_VOCALS "resonant_vocals"

@@ -43,8 +43,7 @@
 		INTERNAL_ORGAN_HEART = /obj/item/organ/internal/heart,
 		INTERNAL_ORGAN_BRAIN = /obj/item/organ/internal/brain/crystal,
 		INTERNAL_ORGAN_EYES = /obj/item/organ/internal/eyes/luminescent_crystal, //Standard darksight of 2.
-		INTERNAL_ORGAN_EARS = /obj/item/organ/internal/ears,
-		INTERNAL_ORGAN_STRANGE_CRYSTAL = /obj/item/organ/internal/nucleation/strange_crystal,
+		INTERNAL_ORGAN_EARS = /obj/item/organ/internal/ears/strange_crystal,
 		INTERNAL_ORGAN_RESONANT_CRYSTAL = /obj/item/organ/internal/nucleation/resonant_crystal,
 	)
 
