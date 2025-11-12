@@ -9,7 +9,6 @@
 #define INTERNAL_ORGAN_EARS "ears"
 #define INTERNAL_ORGAN_BRAIN "brain"
 
-#define INTERNAL_ORGAN_RESONANT_CRYSTAL "resonant_crystal"
 #define INTERNAL_ORGAN_STRANGE_CRYSTAL "strange_crystal"
 #define INTERNAL_ORGAN_WAX_GLANDS "wax_glands"
 #define INTERNAL_ORGAN_HEADPOCKET "headpocket"
