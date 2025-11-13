@@ -85,16 +85,14 @@
 	if(translator?.active && !mind?.miming)
 		return TRUE // Cyberimps don't care if you need to breathe at all, but make some respect to mimes
 
+	if(HAS_TRAIT(src, TRAIT_RESONANT_VOCALS))
+		return can_hear()
+
 	if(HAS_TRAIT(src, TRAIT_MUTE))
 		return FALSE
 
 	if(TRAIT_NO_VOCAL_CORDS in dna?.species.inherent_traits)
 		return FALSE
-
-	if(HAS_TRAIT(src, TRAIT_RESONANT_VOCALS))
-		var/obj/item/organ/internal/ears/ears = get_organ_slot(INTERNAL_ORGAN_EARS)
-		if(!ears || ~(ears.status & ORGAN_CRYSTALLIZED))
-			return FALSE
 
 	// How do species that don't breathe talk? magic, that's what.
 	var/breathes = !HAS_TRAIT(src, TRAIT_NO_BREATH)

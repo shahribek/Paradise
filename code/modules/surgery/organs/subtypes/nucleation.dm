@@ -4,12 +4,12 @@
 	name = "nucleation organ"
 
 /obj/item/organ/internal/ears/resonant_crystal
+	species_type = /datum/species/nucleation
 	name = "resonant crystal"
 	desc = "Жёлтого цвета странно выглядящий кристалл. Судя по всему, он принадлежал нуклеату."
 	icon_state = "resonant-crystal"
 	parent_organ_zone = BODY_ZONE_HEAD
 	slot = INTERNAL_ORGAN_EARS
-	species_restrictions = list(SPECIES_NUCLEATION)
 	status = ORGAN_CRYSTALLIZED
 
 /obj/item/organ/internal/ears/resonant_crystal/get_ru_names()
@@ -33,8 +33,7 @@
 		return
 
 	if(is_dead() || damage > 75)//solid ears
-		owner.Deaf(2 SECONDS)
-		owner.Silence(2 SECONDS)
+		owner.Deaf(4 SECONDS)
 
 /obj/item/organ/internal/nucleation/strange_crystal
 	name = "strange crystal"
