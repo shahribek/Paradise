@@ -34,9 +34,11 @@
 #define GETPULSE_TOOL 1 //more accurate (med scanner, sleeper, etc)
 
 //Reagent Metabolization flags, defines the type of reagents that affect this mob
-#define PROCESS_ORG 1 //Only processes reagents with "ORGANIC" or "ORGANIC | SYNTHETIC"
-#define PROCESS_SYN 2 //Only processes reagents with "SYNTHETIC" or "ORGANIC | SYNTHETIC"
-#define PROCESS_DUO 4 //Only processes reagents with "ORGANIC | SYNTHETIC"
+#define PROCESS_ORG (1<<1) //Only processes reagents with "ORGANIC" or "ORGANIC | SYNTHETIC"
+#define PROCESS_SYN (1<<2) //Only processes reagents with "SYNTHETIC" or "ORGANIC | SYNTHETIC"
+#define PROCESS_DUO (PROCESS_ORG + PROCESS_SYN) //Only processes reagents with "ORGANIC | SYNTHETIC"
+#define PROCESS_NUC (1<<3) //only processes reagents with "NUCLEATIVE", either "ORGANIC | NUCLEATIVE" or "SYNTHETIC | NUCLEATIVE"
+#define PROCESS_ALL (PROCESS_ORG + PROCESS_SYN + PROCESS_NUC)
 
 #define HUMAN_STRIP_DELAY 40 //takes 40ds = 4s to strip someone.
 #define ALIEN_SELECT_AFK_BUFFER 1 // How many minutes that a person can be AFK before not being allowed to be an alien.
@@ -73,8 +75,9 @@
 #define TASTE_SENSITIVITY_NO_TASTE 101
 
 // Reagent type flags, defines the types of mobs this reagent will affect
-#define ORGANIC 1
-#define SYNTHETIC 2
+#define ORGANIC (1<<1)
+#define SYNTHETIC (1<<2)
+#define NUCLEATIVE (1<<3)
 
 // Reagent tag flags, define reagent behaviour (now use only for anti-stun reagents)
 #define REAGENT_TAG_ANTI_STUN (1<<0)

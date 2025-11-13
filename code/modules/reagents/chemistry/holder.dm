@@ -231,8 +231,7 @@
 		return TRUE
 	if((R.process_flags & ORGANIC) && (H.dna.species.reagent_tag & PROCESS_ORG))		//ORGANIC-oriented reagents require PROCESS_ORG
 		return TRUE
-	//Species with PROCESS_DUO are only affected by reagents that affect both organics and synthetics, like acid and hellwater
-	if((R.process_flags & ORGANIC) && (R.process_flags & SYNTHETIC) && (H.dna.species.reagent_tag & PROCESS_DUO))
+	if((R.process_flags & NUCLEATIVE) && (H.dna.species.reagent_tag & PROCESS_NUC))		//NUCLEATIVE-oriented reagents require PROCESS_NUC
 		return TRUE
 
 /datum/reagents/proc/metabolize(mob/living/M)

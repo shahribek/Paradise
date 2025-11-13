@@ -16,7 +16,7 @@
 	brute_mod = 2 // damn, double wham, double dam
 
 	inherent_traits = list(
-		TRAIT_NO_BLOOD,
+		TRAIT_EXOTIC_BLOOD,
 		TRAIT_HAS_LIPS,
 		TRAIT_NO_BREATH,
 		TRAIT_NO_SCAN,
@@ -38,7 +38,7 @@
 	//Default styles for created mobs.
 	default_hair = "Nucleation Crystals"
 
-	reagent_tag = PROCESS_ORG
+	reagent_tag = PROCESS_NUC
 	has_organ = list(
 		INTERNAL_ORGAN_HEART = /obj/item/organ/internal/heart,
 		INTERNAL_ORGAN_BRAIN = /obj/item/organ/internal/brain/crystal,
