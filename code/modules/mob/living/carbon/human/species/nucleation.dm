@@ -14,6 +14,10 @@
 	blood_color = "#ada776"
 	burn_mod = 4 // holy shite, poor guys wont survive half a second cooking smores
 	brute_mod = 2 // damn, double wham, double dam
+	tox_mod = 0 // nothing to intoxicate
+	clone_mod = 0
+	oxy_mod = 0 // no need to breathe
+	body_temperature = 290.15 // 17 С
 
 	inherent_traits = list(
 		TRAIT_EXOTIC_BLOOD,
@@ -31,6 +35,7 @@
 	bodyflags = HAS_BODY_MARKINGS
 	dies_at_threshold = TRUE
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
+	dangerous_existence = TRUE // the only fact of their existance is dangerous
 	var/touched_supermatter = FALSE
 
 	speciesbox = /obj/item/storage/box/survival_nucleation
