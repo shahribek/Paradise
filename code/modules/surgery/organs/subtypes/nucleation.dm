@@ -25,6 +25,8 @@
 	desc = "Жёлтого цвета странно выглядящий кристалл. Судя по всему, он принадлежал нуклеату."
 	icon_state = "strange-crystal"
 	slot = INTERNAL_ORGAN_STRANGE_CRYSTAL
+	var/stored_rad = 1000
+	var/max_stored_rad = 5000
 
 /obj/item/organ/internal/nucleation/strange_crystal/get_ru_names()
 	return list(
@@ -35,6 +37,10 @@
 		INSTRUMENTAL = "странным кристаллом",
 		PREPOSITIONAL = "странном кристалле",
 	)
+
+/obj/item/organ/internal/nucleation/strange_crystal/on_life()
+	. = ..()
+
 
 /obj/item/organ/internal/eyes/luminescent_crystal
 	species_type = /datum/species/nucleation
