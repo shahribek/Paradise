@@ -33,7 +33,6 @@
 		TRAIT_SUPERMATTERIMMUNE,
 	)
 	bodyflags = HAS_BODY_MARKINGS
-	dies_at_threshold = TRUE
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	dangerous_existence = TRUE // the only fact of their existance is dangerous
 	var/touched_supermatter = FALSE
