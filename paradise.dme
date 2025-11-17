@@ -128,6 +128,7 @@
 #include "code\__DEFINES\muzzle_flash.dm"
 #include "code\__DEFINES\newcaster.dm"
 #include "code\__DEFINES\ninja.dm"
+#include "code\__DEFINES\nucleations.dm"
 #include "code\__DEFINES\obj_flags.dm"
 #include "code\__DEFINES\organ_defines.dm"
 #include "code\__DEFINES\overlays.dm"

@@ -18,6 +18,7 @@
 	clone_mod = 0
 	oxy_mod = 0 // no need to breathe
 	body_temperature = 290.15 // 17 С
+	coldmod = 0
 
 	inherent_traits = list(
 		TRAIT_EXOTIC_BLOOD,
