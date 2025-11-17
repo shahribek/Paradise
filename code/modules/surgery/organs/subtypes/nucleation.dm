@@ -25,6 +25,7 @@
 	desc = "Жёлтого цвета странно выглядящий кристалл. Судя по всему, он принадлежал нуклеату."
 	icon_state = "strange-crystal"
 	slot = INTERNAL_ORGAN_STRANGE_CRYSTAL
+	unremovable = TRUE // only one per nucleation
 	var/stored_rad = 1000
 	var/max_stored_rad = 5000
 
