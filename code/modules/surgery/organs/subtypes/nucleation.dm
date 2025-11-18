@@ -1,4 +1,4 @@
-//NUCLEATION ORGAN
+//NUCLEATION INTERNAL ORGANS
 /obj/item/organ/internal/nucleation
 	species_type = /datum/species/nucleation
 	name = "nucleation organ"
@@ -114,4 +114,12 @@
 		return //no need to apply disease to nucleation
 	var/datum/disease/virus/nuclefication/D = new()
 	D.Contract(target, need_protection_check = FALSE)
+
+// NUCLEATION EXTERNAL ORGANS
+/obj/item/organ/external/chest/crystal
+	species_type = /datum/species/nucleation
+	name = "crystal chest"
+	desc = "Грудная клетка, состоящая из кристаллов. Судя по всему, она принадлежала нуклеату."
+	icon_state = "crystal-chest"
+	cannot_internal_bleed = TRUE
 
