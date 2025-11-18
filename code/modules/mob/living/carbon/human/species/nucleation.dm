@@ -37,6 +37,7 @@
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	dangerous_existence = TRUE // the only fact of their existance is dangerous
 	var/touched_supermatter = FALSE
+	var/target_rad_level = RADIATION_LEVEL_NORMAL
 
 	speciesbox = /obj/item/storage/box/survival/species/nucleation
 

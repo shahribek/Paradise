@@ -45,20 +45,18 @@
 	if(!owner)
 		return
 
-	if(stored_rad)
-		switch(owner.radiation)
-			if(0 to RADIATION_LEVEL_LOW - 1)
-				owner.apply_effect(min(stored_rad, RADIATION_LEVEL_LOW - owner.radiation), IRRADIATE, negate_armor = TRUE)
-				stored_rad -= min(stored_rad, RADIATION_LEVEL_LOW - owner.radiation)
-			if(RADIATION_LEVEL_LOW to RADIATION_LEVEL_NORMAL - 1)
-				owner.apply_effect(min(stored_rad, 10), IRRADIATE, negate_armor = TRUE)
-				stored_rad -= min(stored_rad, 10)
-			if(RADIATION_LEVEL_NORMAL to RADIATION_LEVEL_HIGH - 1)
-				owner.apply_effect(min(stored_rad, 5), IRRADIATE, negate_armor = TRUE)
-				stored_rad -= min(stored_rad, 5)
-			// TO-DO:
-			// make it work with heart-beat rate as irradiation multiplier
-			// make sure that reagent processing proc gives to this organ radiation
+	var/target_rad = owner.target_rad_level
+	var/rad = owner.radiation
+	var/boost = owner.pulse / 2
+
+	if(stored_rad && rad < target_rad)
+		irradiate(owner, round(5 * boost, 1))
+
+/obj/item/organ/internal/nucleation/strange_crystal/proc/irradiate(/mob/living/carbon/human/H, amount)
+	var/rad = min(stored_rad, amount)
+
+	H.apply_effect(rad, IRRADIATE, negate_armor = 1)
+	stored_rad -= rad
 
 /obj/item/organ/internal/eyes/luminescent_crystal
 	species_type = /datum/species/nucleation
