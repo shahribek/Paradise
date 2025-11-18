@@ -50,7 +50,7 @@
 	var/boost = owner.pulse / 2
 
 	if(stored_rad && rad < target_rad)
-		irradiate(owner, round(5 * boost, 1))
+		irradiate(owner, round(10 * boost, 1))
 
 /obj/item/organ/internal/nucleation/strange_crystal/proc/irradiate(/mob/living/carbon/human/H, amount)
 	var/rad = min(stored_rad, amount)
