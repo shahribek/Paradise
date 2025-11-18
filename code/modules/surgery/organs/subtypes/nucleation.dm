@@ -58,6 +58,22 @@
 	H.apply_effect(rad, IRRADIATE, negate_armor = 1)
 	stored_rad -= rad
 
+/obj/item/organ/internal/heart/crystal
+	species_type = /datum/species/nucleation
+	name = "crystallized heart"
+	desc = "Основной орган кровеносной системы гуманоида. Судя по кристаллизированной структуре, этот принадлежал нуклеату."
+	icon_state = "crystal-heart"
+
+/obj/item/organ/internal/heart/crystal/get_ru_names()
+	return list(
+		NOMINATIVE = "кристаллизированное сердце",
+		GENITIVE = "кристаллизированного сердца",
+		DATIVE = "кристаллизированному сердцу",
+		ACCUSATIVE = "кристаллизированное сердце",
+		INSTRUMENTAL = "кристаллизированным сердцем",
+		PREPOSITIONAL = "кристаллизированном сердце",
+	)
+
 /obj/item/organ/internal/eyes/luminescent_crystal
 	species_type = /datum/species/nucleation
 	name = "luminescent eyes"
