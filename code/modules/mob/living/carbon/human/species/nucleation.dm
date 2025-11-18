@@ -38,7 +38,7 @@
 	dangerous_existence = TRUE // the only fact of their existance is dangerous
 	var/touched_supermatter = FALSE
 
-	speciesbox = /obj/item/storage/box/survival_nucleation
+	speciesbox = /obj/item/storage/box/survival/species/nucleation
 
 	//Default styles for created mobs.
 	default_hair = "Nucleation Crystals"
