@@ -140,5 +140,5 @@
 		owner.bodytemperature += burn // ignoring any resistance cuz "balance"
 		burn = 0
 
-	..()
+	return ..()
 
