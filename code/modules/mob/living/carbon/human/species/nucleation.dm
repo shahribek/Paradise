@@ -22,10 +22,15 @@
 	heatmod = 0.25 // lead conducts heat very bad
 
 	body_temperature = 290.15 // 17 С so yellow phosphorite wont ignite itself
+	hazard_high_pressure = INFINITY
+	warning_high_pressure = INFINITY
+	warning_low_pressure = 0
+	hazard_low_pressure = 0
+	var/crack_chance = 0
 
 	heat_level_1 = 500 // also used as minimum required temprature for explosion on death and point of unstable state when nucleation starts to heat up for no reason
-	heat_level_2 = 1000
-	heat_level_3 = 1500
+	heat_level_2 = 750
+	heat_level_3 = 1000
 
 	inherent_traits = list(
 		TRAIT_EXOTIC_BLOOD,
@@ -44,7 +49,6 @@
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	dangerous_existence = TRUE // the only fact of their existance is dangerous
 	can_revive_by_healing = TRUE // if somehow it does not explode
-	var/touched_supermatter = FALSE
 
 	speciesbox = /obj/item/storage/box/survival/species/nucleation
 
@@ -80,6 +84,14 @@
 	H.light_color = null
 	H.set_light_on(FALSE)
 
+/datum/species/nucleation/handle_life(mob/living/carbon/human/H)
+
+	var/crack_chance = round(H.bodytemperature / 400) * 5 // approximately cracks 1 time every 20-40 seconds with temprature above 400 kelvins
+	if(prob(crack_chance))
+		H.visible_message(span_warning("Тело [H] трескается от перегрева!"))
+		playsound(H, SFX_BONEBREAK, 150, TRUE)
+		H.apply_damage(damage = 20) // total 40 brute damage. Hurts badly
+
 /datum/species/nucleation/handle_reagents(mob/living/carbon/human/H, datum/reagent/R)
 	if(R.id == "radium")
 		if(R.volume >= 1)
@@ -102,6 +114,6 @@
 	var/turf/turf = get_turf(human)
 
 	human.visible_message(span_warning("Тело [human] взрывается, оставляя после себя множество микроскопических кристаллов!"))
-	explosion(turf, devastation_range = round(human.bodytemperature / 2000), heavy_impact_range = round(human.bodytemperature / 1000), light_impact_range = round(human.bodytemperature / 500), flash_range = round(human.bodytemperature / 250), cause = human) // Create an explosion depended on nucleations body temperature
+	explosion(turf, devastation_range = round(human.bodytemperature / 1000), heavy_impact_range = round(human.bodytemperature / 750), light_impact_range = round(human.bodytemperature / 500), flash_range = round(human.bodytemperature / 250), cause = human) // Create an explosion depended on nucleations body temperature
 
 	qdel(human)
