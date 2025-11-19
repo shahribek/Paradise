@@ -122,6 +122,7 @@
 	name = "nucleation external organ"
 	desc = "внешний орган нуклеата."
 	cannot_internal_bleed = TRUE
+	burn_mod = 4 // as weak as before but won't blow up instantly >:]
 
 /obj/item/organ/external/nucleation/external_receive_damage(
 	brute = 0,
@@ -134,9 +135,9 @@
 	updating_health = TRUE,
 	silent = FALSE,
 )
-
+	burn *= burn_mod
 	if(burn)
-		owner.bodytemperature += burn
+		owner.bodytemperature += burn // ignoring any resistance cuz "balance"
 		burn = 0
 
 	..()

@@ -12,13 +12,17 @@
 	way as lepers were back on Earth."
 	language = LANGUAGE_SOL_COMMON
 	blood_color = "#ada776"
+
 	burn_mod = 4 // holy shite, poor guys wont survive half a second cooking smores
 	brute_mod = 2 // damn, double wham, double dam
 	tox_mod = 0 // nothing to intoxicate
 	clone_mod = 0
 	oxy_mod = 0 // no need to breathe
-	body_temperature = 290.15 // 17 С
 	coldmod = 0
+	heatmod = 0.25 // lead conducts heat very bad
+
+	body_temperature = 290.15 // 17 С so yellow phosphorite wont ignite itself
+
 	heat_level_1 = 500 // also used as minimum required temprature for explosion on death and point of unstable state when nucleation starts to heat up for no reason
 	heat_level_2 = 1000
 	heat_level_3 = 1500
@@ -39,6 +43,7 @@
 	bodyflags = HAS_BODY_MARKINGS
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	dangerous_existence = TRUE // the only fact of their existance is dangerous
+	can_revive_by_healing = TRUE // if somehow it does not explode
 	var/touched_supermatter = FALSE
 
 	speciesbox = /obj/item/storage/box/survival/species/nucleation
@@ -86,7 +91,7 @@
 	return ..()
 
 /datum/species/nucleation/handle_death(gibbed, mob/living/carbon/human/human)
-	if(human.health <= HEALTH_THRESHOLD_DEAD || !length(human.surgeries)) // Needed to prevent brain gib on surgery debrain
+	if(human.health <= HEALTH_THRESHOLD_DEAD && human.bodytemperature >= heat_level_1)
 		death_explosion(human)
 		return
 
@@ -97,6 +102,6 @@
 	var/turf/turf = get_turf(human)
 
 	human.visible_message(span_warning("Тело [human] взрывается, оставляя после себя множество микроскопических кристаллов!"))
-	explosion(turf, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 3, flash_range = 6, cause = human) // Create a small explosion burst upon death
+	explosion(turf, devastation_range = round(human.bodytemperature / 2000), heavy_impact_range = round(human.bodytemperature / 1000), light_impact_range = round(human.bodytemperature / 500), flash_range = round(human.bodytemperature / 250), cause = human) // Create an explosion depended on nucleations body temperature
 
 	qdel(human)
