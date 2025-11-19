@@ -44,13 +44,17 @@
 		TRAIT_NO_GERMS,
 		TRAIT_IGNOREDAMAGESLOWDOWN,
 		TRAIT_SUPERMATTERIMMUNE,
+		TRAIT_PIERCEIMMUNE,
 	)
 	bodyflags = HAS_BODY_MARKINGS
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	dangerous_existence = TRUE // the only fact of their existance is dangerous
 	can_revive_by_healing = TRUE // if somehow it does not explode
 
+	exotic_blood = "radiocaesium"
+	blood_color = "#9b8181"
 	speciesbox = /obj/item/storage/box/survival/species/nucleation
+	special_diet = MATERIAL_CLASS_TECH // our stomach can afford that
 
 	//Default styles for created mobs.
 	default_hair = "Nucleation Crystals"

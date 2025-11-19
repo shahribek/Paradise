@@ -1,4 +1,4 @@
-//===== Vox food =====
+//===== Vox and Nucleation food=====
 //Bad tech
 
 /obj/item/flashlight/add_eatable_component()

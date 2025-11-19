@@ -1456,3 +1456,14 @@
 			organ.internal_receive_damage(rand(5, 10))
 
 	return ..()
+
+/datum/reagent/radiocaesium
+	name = "Радиоцезий"
+	id = "radiocaesium"
+	description = "Цезий-137 так же известный как радиоцезий, очень опасна для тела обычного человека за счёт своей радиоактивности"
+	color = "#9b8181"
+	process_flags = ORGANIC // so nuclies won't gain buffs from just having it
+	taste_description = "металла"
+
+/datum/reagent/radiocaesium/on_mob_life(mob/living/M)
+	M.apply_effect(6, IRRADIATE, negate_armor = TRUE) // simple as hell but deadly as hell too >:]

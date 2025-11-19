@@ -320,6 +320,9 @@
 		if("cryoxadone")
 			blood_data["blood_color"] = dna.species.blood_color
 
+		if("radiocasesium")
+			blood_data["blood_color"] = dna.species.blood_color
+
 	return blood_data
 
 //get the id of the substance this mob use as blood.
@@ -363,7 +366,7 @@
 
 //to add a splatter of blood or other mob liquid.
 /mob/living/proc/add_splatter_floor(turf/T, small_drip, shift_x, shift_y)
-	var/static/list/acceptable_blood = list("blood", "cryoxadone", "slimejelly")
+	var/static/list/acceptable_blood = list("blood", "cryoxadone", "slimejelly", "radiocaesium")
 	var/check_blood = get_blood_id()
 	if(!check_blood || !(check_blood in acceptable_blood))//is it blood or welding fuel?
 		return
