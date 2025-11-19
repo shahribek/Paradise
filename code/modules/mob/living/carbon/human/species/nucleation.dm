@@ -19,6 +19,9 @@
 	oxy_mod = 0 // no need to breathe
 	body_temperature = 290.15 // 17 С
 	coldmod = 0
+	heat_level_1 = 500 // also used as minimum required temprature for explosion on death and point of unstable state when nucleation starts to heat up for no reason
+	heat_level_2 = 1000
+	heat_level_3 = 1500
 
 	inherent_traits = list(
 		TRAIT_EXOTIC_BLOOD,
@@ -37,7 +40,6 @@
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	dangerous_existence = TRUE // the only fact of their existance is dangerous
 	var/touched_supermatter = FALSE
-	var/target_rad_level = RADIATION_LEVEL_NORMAL
 
 	speciesbox = /obj/item/storage/box/survival/species/nucleation
 

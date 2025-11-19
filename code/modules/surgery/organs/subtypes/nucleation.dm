@@ -45,14 +45,15 @@
 	if(!owner)
 		return
 
-	var/target_rad = owner.target_rad_level
+
+	var/target_rad = RADIATION_LEVEL_NORMAL
 	var/rad = owner.radiation
 	var/boost = owner.pulse / 2
 
 	if(stored_rad && rad < target_rad)
 		irradiate(owner, round(10 * boost, 1))
 
-/obj/item/organ/internal/nucleation/strange_crystal/proc/irradiate(/mob/living/carbon/human/H, amount)
+/obj/item/organ/internal/nucleation/strange_crystal/proc/irradiate(mob/living/carbon/human/H, amount)
 	var/rad = min(stored_rad, amount)
 
 	H.apply_effect(rad, IRRADIATE, negate_armor = 1)
@@ -116,10 +117,27 @@
 	D.Contract(target, need_protection_check = FALSE)
 
 // NUCLEATION EXTERNAL ORGANS
-/obj/item/organ/external/chest/crystal
+/obj/item/organ/external/nucleation
 	species_type = /datum/species/nucleation
-	name = "crystal chest"
-	desc = "Грудная клетка, состоящая из кристаллов. Судя по всему, она принадлежала нуклеату."
-	icon_state = "crystal-chest"
+	name = "nucleation external organ"
+	desc = "внешний орган нуклеата."
 	cannot_internal_bleed = TRUE
+
+/obj/item/organ/external/nucleation/external_receive_damage(
+	brute = 0,
+	burn = 0,
+	blocked = 0,
+	sharp = FALSE,
+	used_weapon = null,
+	list/forbidden_limbs = null,
+	forced = FALSE,
+	updating_health = TRUE,
+	silent = FALSE,
+)
+
+	if(burn)
+		owner.bodytemperature += burn
+		burn = 0
+
+	..()
 
