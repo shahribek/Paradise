@@ -382,3 +382,6 @@
 
 /// If any of the owner's robotic parts are being repaired right now
 #define TRAIT_REPAIRING_LIMB "repairing_limb"
+
+/// makes you take burn damage instead of stamina  loss
+#define TRAIT_BURNING_STAMINA

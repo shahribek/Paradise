@@ -26,7 +26,8 @@
 	warning_high_pressure = INFINITY
 	warning_low_pressure = 0
 	hazard_low_pressure = 0
-	var/crack_chance = 0
+	stun_mod = 0 // no dam muscles
+	stamina_mod = 0.25 // lead is also bad at conducting electricity
 
 	heat_level_1 = 500 // also used as minimum required temprature for explosion on death and point of unstable state when nucleation starts to heat up for no reason
 	heat_level_2 = 750
@@ -45,6 +46,7 @@
 		TRAIT_IGNOREDAMAGESLOWDOWN,
 		TRAIT_SUPERMATTERIMMUNE,
 		TRAIT_PIERCEIMMUNE,
+		TRAIT_BURNING_STAMINA,
 	)
 	bodyflags = HAS_BODY_MARKINGS
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
@@ -94,7 +96,7 @@
 	if(prob(crack_chance))
 		H.visible_message(span_warning("Тело [H] трескается от перегрева!"))
 		playsound(H, SFX_BONEBREAK, 150, TRUE)
-		H.apply_damage(damage = 20) // total 40 brute damage. Hurts badly
+		H.apply_damage(damage = 10) // total 20 brute damage. Hurts badly :(
 
 /datum/species/nucleation/handle_reagents(mob/living/carbon/human/H, datum/reagent/R)
 	if(R.id == "radium")

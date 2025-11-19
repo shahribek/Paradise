@@ -730,6 +730,8 @@
 		amount *= get_incoming_damage_modifier(amount, STAMINA, used_weapon = used_weapon)
 		if(amount <= 0)
 			return STATUS_UPDATE_NONE
+	if(HAS_TRAIT(TRAIT_BURNING_STAMINA))
+		apply_damage(amount, BURN)
 	var/old_stamloss = getStaminaLoss()
 	staminaloss = clamp(round(staminaloss + amount, DAMAGE_PRECISION), 0, MAX_STAMINA_LOSS)
 	if(old_stamloss == getStaminaLoss())
