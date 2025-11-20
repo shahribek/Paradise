@@ -95,22 +95,28 @@
 /datum/species/nucleation/handle_life(mob/living/carbon/human/H)
 
 	// overheating damage
-	var/crackle_chance = 0 // chance to take 20 damage per tick
+	var/crack_chance = 0 // chance every tick to take damage from overheating
 
 	switch(H.bodytemperature)
 		if(heat_level_1 to heat_level_2 - 1)
-			crackle_chance = 5
+			crack_chance = 5
 		if(heat_level_2 to heat_level_3 - 1)
-			crackle_chance = 10
+			crack_chance = 10
 		if(heat_level_3 to INFINITY)
-			crackle_chance = 15
+			crack_chance = 15
 
-	if(prob(crackle_chance))
+	if(prob(crack_chance))
 		H.visible_message(span_warning("Кристаллы на теле [H] трескаются!"))
 		playsound(H, SFX_BONEBREAK, 150, TRUE)
-		H.apply_damage(20, BRUTE) // total 40 damage to the chest from just overheating
+		H.apply_damage(20, BRUTE) // total 40 damage to the chest from just overheating. Probably will also make a fracture and ignite mob
 
-	// blood_restore is handled by heart crystal organ
+	// ignition of nucleation while having 30C+ body temperature
+	if(H.bodytemperature > 303.15 && !H.on_fire)
+		var/fractures = 0
+		for(var/obj/item/organ/external/limb as anything in H.bodyparts)
+			fractures += limb.has_fracture() // logic :nerd_emoji:
+		H.fire_stacks += fractures
+		H.IgniteMob()
 
 /datum/species/nucleation/handle_reagents(mob/living/carbon/human/H, datum/reagent/R)
 	if(R.id == "radium")
