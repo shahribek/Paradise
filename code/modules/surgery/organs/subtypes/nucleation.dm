@@ -155,15 +155,4 @@
 		owner.bodytemperature += burn // ignoring any resistance cuz "balance"
 		burn = 0
 
-	return ..(
-		brute = brute,
-		burn = burn,
-		blocked = blocked,
-		sharp = sharp,
-		used_weapon = used_weapon,
-		list/forbidden_limbs = forbidden_limbs,
-		forced = forced,
-		updating_health = updating_health,
-		silent = silent,
-	)
-
+	return ..(brute, burn, blocked, sharp, used_weapon, forbidden_limbs, forced, updating_health, silent)

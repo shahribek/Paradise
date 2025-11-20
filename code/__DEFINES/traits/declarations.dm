@@ -384,4 +384,4 @@
 #define TRAIT_REPAIRING_LIMB "repairing_limb"
 
 /// makes you take burn damage instead of stamina  loss
-#define TRAIT_BURNING_STAMINA
+#define TRAIT_BURNING_STAMINA "burning_stamina"

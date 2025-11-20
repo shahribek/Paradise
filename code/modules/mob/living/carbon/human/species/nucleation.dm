@@ -50,6 +50,7 @@
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	dangerous_existence = TRUE // the only fact of their existance is dangerous
 	can_revive_by_healing = TRUE // if somehow it does not explode
+	var/touched_supermatter = FALSE
 
 	exotic_blood = "radiocaesium"
 	blood_color = "#9b8181"
@@ -106,7 +107,7 @@
 
 	if(prob(crackle_chance))
 		H.visible_message(span_warning("Кристаллы на теле [H] трескаются!"))
-		playsound(H, SOUND_CRACKLE, 150, TRUE)
+		playsound(H, SFX_BONEBREAK, 150, TRUE)
 		H.apply_damage(20, BRUTE) // total 40 damage to the chest from just overheating
 
 	// blood_restore is handled by heart crystal organ
