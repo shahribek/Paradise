@@ -73,7 +73,7 @@
 
 	var/radiation_consumption = 0
 
-	// quick blood restore depending on pulse and radiation level, why quick? why not?
+	// quick blood restore depending on pulse and radiation level, why quick? cuz high damage = high blood loss so we need to keep it +- stable and also for high cost >:]
 	if(owner.blood_volume < BLOOD_VOLUME_MAXIMUM && owner.pulse)
 		radiation_consumption += round(owner.radiation / 100 * (owner.pulse / 2), 1)
 		owner.blood_volume += min(round(0.5 * radiation_consumption, DAMAGE_PRECISION), BLOOD_VOLUME_MAXIMUM)
