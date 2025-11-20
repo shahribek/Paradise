@@ -65,6 +65,21 @@
 	desc = "Основной орган кровеносной системы гуманоида. Судя по кристаллизированной структуре, этот принадлежал нуклеату."
 	icon_state = "crystal-heart"
 
+/obj/item/organ/internal/heart/crystal/on_life()
+	. = ..()
+
+	if(!owner)
+		return
+
+	var/radiation_consumption = 0
+
+	// quick blood restore depending on pulse and radiation level, why quick? why not?
+	if(owner.blood_volume < BLOOD_VOLUME_MAXIMUM && owner.pulse)
+		radiation_consumption += round(owner.radiation / 100 * (owner.pulse / 2), 1)
+		owner.blood_volume += min(round(0.5 * radiation_consumption, DAMAGE_PRECISION), BLOOD_VOLUME_MAXIMUM)
+
+	owner.radiation = max(0, owner.radiation - radiation_consumption) // it's kinda still impossible to work in radiation below 100. but, whatever. Just in case
+
 /obj/item/organ/internal/heart/crystal/get_ru_names()
 	return list(
 		NOMINATIVE = "кристаллизированное сердце",
@@ -140,5 +155,15 @@
 		owner.bodytemperature += burn // ignoring any resistance cuz "balance"
 		burn = 0
 
-	return ..()
+	return ..(
+		brute = brute,
+		burn = burn,
+		blocked = blocked,
+		sharp = sharp,
+		used_weapon = used_weapon,
+		list/forbidden_limbs = forbidden_limbs,
+		forced = forced,
+		updating_health = updating_health,
+		silent = silent,
+	)
 

@@ -19,15 +19,13 @@
 	clone_mod = 0
 	oxy_mod = 0 // no need to breathe
 	coldmod = 0
-	heatmod = 0.25 // lead conducts heat very bad
-
 	body_temperature = 290.15 // 17 С so yellow phosphorite wont ignite itself
 	hazard_high_pressure = INFINITY
 	warning_high_pressure = INFINITY
 	warning_low_pressure = 0
 	hazard_low_pressure = 0
 	stun_mod = 0 // no dam muscles
-	stamina_mod = 0.25 // lead is also bad at conducting electricity
+	stamina_mod = 0.25 // it will become burn damage anyways and who will ever even think to use disablers to kill nuclies?
 
 	heat_level_1 = 500 // also used as minimum required temprature for explosion on death and point of unstable state when nucleation starts to heat up for no reason
 	heat_level_2 = 750
@@ -71,6 +69,9 @@
 		INTERNAL_ORGAN_RESONANT_CRYSTAL = /obj/item/organ/internal/nucleation/resonant_crystal,
 	)
 
+	var/static/list/alternate_limbs = list(
+
+	)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/humanoid/nucleation
 
 	age_sheet = list(
@@ -92,11 +93,23 @@
 
 /datum/species/nucleation/handle_life(mob/living/carbon/human/H)
 
-	var/crack_chance = round(H.bodytemperature / 400) * 5 // approximately cracks 1 time every 20-40 seconds with temprature above 400 kelvins
-	if(prob(crack_chance))
-		H.visible_message(span_warning("Тело [H] трескается от перегрева!"))
-		playsound(H, SFX_BONEBREAK, 150, TRUE)
-		H.apply_damage(damage = 10) // total 20 brute damage. Hurts badly :(
+	// overheating damage
+	var/crackle_chance = 0 // chance to take 20 damage per tick
+
+	switch(H.bodytemperature)
+		if(heat_level_1 to heat_level_2 - 1)
+			crackle_chance = 5
+		if(heat_level_2 to heat_level_3 - 1)
+			crackle_chance = 10
+		if(heat_level_3 to INFINITY)
+			crackle_chance = 15
+
+	if(prob(crackle_chance))
+		H.visible_message(span_warning("Кристаллы на теле [H] трескаются!"))
+		playsound(H, SOUND_CRACKLE, 150, TRUE)
+		H.apply_damage(20, BRUTE) // total 40 damage to the chest from just overheating
+
+	// blood_restore is handled by heart crystal organ
 
 /datum/species/nucleation/handle_reagents(mob/living/carbon/human/H, datum/reagent/R)
 	if(R.id == "radium")
