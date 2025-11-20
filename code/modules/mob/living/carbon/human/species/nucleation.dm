@@ -70,7 +70,7 @@
 		INTERNAL_ORGAN_RESONANT_CRYSTAL = /obj/item/organ/internal/nucleation/resonant_crystal,
 	)
 
-	var/static/list/alternate_limbs = list(
+	var/static/list/alternate_organ_types = list(
 
 	)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/humanoid/nucleation
@@ -117,6 +117,8 @@
 			fractures += limb.has_fracture() // logic :nerd_emoji:
 		H.fire_stacks += fractures
 		H.IgniteMob()
+
+	return ..()
 
 /datum/species/nucleation/handle_reagents(mob/living/carbon/human/H, datum/reagent/R)
 	if(R.id == "radium")
