@@ -55,6 +55,14 @@
 		sibyl_mod.toggleAuthorization(I, user)
 		return ATTACK_CHAIN_PROCEED_SUCCESS
 
+	if(istype(I, /obj/item/clockwork/clocklock))
+		isclockwork =TRUE
+		add_fingerprint(user)
+		if(sybyl_mod)
+			qdel(sibyl_mod)
+			sibyl_mod = null
+		return ATTACK_CHAIN_PROCEED_SUCCESS
+
 	return ..()
 
 /obj/item/gun/energy/proc/toggle_voice()
@@ -211,6 +219,10 @@
 
 	if(!. && !silent)
 		sibyl_mod?.sibyl_sound(user, 'sound/voice/dominator/battery.ogg', 5 SECONDS)
+
+	if(isclockwork && !isclocker(user))
+		return FALSE
+
 
 /obj/item/gun/energy/newshot()
 	if(!ammo_type || !cell)

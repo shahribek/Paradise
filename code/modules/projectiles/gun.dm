@@ -127,6 +127,8 @@
 	/// Responsible for the range of the throwing back when shooting at point blank range
 	var/pb_knockback = 0
 
+	var/isclockwork = FALSE
+
 /obj/item/gun/Initialize(mapload)
 	. = ..()
 	appearance_flags |= KEEP_TOGETHER
@@ -256,6 +258,8 @@
 //check if there's enough ammo/energy/whatever to shoot one time
 //i.e if clicking would make it shoot
 /obj/item/gun/proc/can_shoot(mob/user)
+	if(isclockwork && !isclocker(user))
+		return FALSE
 	return TRUE
 
 /obj/item/gun/proc/shoot_with_empty_chamber(mob/living/user)
@@ -526,6 +530,10 @@
 		var/obj/item/gun_module/module = I
 		if(module.try_attach(src, user))
 			return ATTACK_CHAIN_BLOCKED_ALL
+	if(istype(I, /obj/item/clockwork/clocklock))
+		isclockwork = TRUE
+		add_fingerprint(user)
+
 
 	return ..()
 

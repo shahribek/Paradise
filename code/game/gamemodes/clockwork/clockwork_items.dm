@@ -1857,3 +1857,10 @@
 /obj/effect/temp_visual/heart_particle
 	icon = 'icons/obj/clockwork.dmi'
 	icon_state = "heartbeat particles"
+
+/obj/item/clockwork/clocklock
+	name = "clock lock"
+	desc = "Маленький часовой механикм, используемый для запирания спусковых механизмов любого огнестрельного оружия \
+			и удаляющий все мешающие для её установки детали."
+	icon_state = "clocklock"
+	w_class = WEIGHT_CLASS_TINY
