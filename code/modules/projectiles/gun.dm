@@ -533,6 +533,7 @@
 	if(istype(I, /obj/item/clockwork/clocklock))
 		isclockwork = TRUE
 		add_fingerprint(user)
+		qdel(I)
 
 
 	return ..()

@@ -36,7 +36,7 @@
 		. += span_notice("Вы видите индикаторы модуля Sibyl System.")
 
 /obj/item/gun/energy/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/sibyl_system_mod))
+	if(istype(I, /obj/item/sibyl_system_mod) && !isclockwork)
 		add_fingerprint(user)
 		var/obj/item/sibyl_system_mod/new_sibyl = I
 		if(!can_add_sibyl_system)
@@ -56,8 +56,10 @@
 		return ATTACK_CHAIN_PROCEED_SUCCESS
 
 	if(istype(I, /obj/item/clockwork/clocklock))
-		isclockwork =TRUE
+		isclockwork = TRUE
 		add_fingerprint(user)
+		qdel(I)
+		to_chat(user, span_notice("Вы установили часовой замок на [src],
 		if(sybyl_mod)
 			qdel(sibyl_mod)
 			sibyl_mod = null
