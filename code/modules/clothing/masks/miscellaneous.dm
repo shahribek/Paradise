@@ -221,6 +221,8 @@
 			Обладает высокой степенью проницаемости газов и практически не пропускает вредные вещества."
 	icon_state = "sterile"
 	item_state = "sterile"
+	flags_inv = HIDENAME|HIDEFACIALHAIR
+	adjusted_flags_inv = HIDENAME|HIDEFACIALHAIR
 	w_class = WEIGHT_CLASS_TINY
 	flags_cover = MASKCOVERSMOUTH
 	gas_transfer_coefficient = 0.90

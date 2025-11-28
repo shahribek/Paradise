@@ -1735,6 +1735,13 @@
 	item = /obj/item/storage/box/syndie_kit/chameleon_counter
 	cost = 6
 
+/datum/uplink_item/stealthy_tools/fake_moustache
+	name = "Фальшивые усы"
+	desc = "Очень реалистичные фальшивые усы. Отличьный способ скрыть свою личность в толпе."
+	item = /obj/item/clothing/mask/fakemoustache
+	cost = 1
+	surplus = 50
+
 /**
  * MARK: Devices & Tools
  */
