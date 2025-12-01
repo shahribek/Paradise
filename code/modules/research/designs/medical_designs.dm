@@ -658,7 +658,7 @@
 /datum/design/cyberimp_reviver_advanced
 	name = "Advanced Reviver implant"
 	desc = "This implant will attempt to revive you if you lose consciousness. For the faint of heart!"
-	id = "ci-reviver_advanced"
+	id = "ci-reviveradvanced"
 	req_tech = list("materials" = 5, "programming" = 5, "biotech" = 6, "security" = 6)
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 80
