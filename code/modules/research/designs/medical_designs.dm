@@ -583,6 +583,7 @@
 	req_tech = list("materials" = 5, "programming" = 6, "biotech" = 5)
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
+	locked = TRUE
 	materials = list(MAT_METAL = 600, MAT_GLASS = 600, MAT_SILVER = 400, MAT_GOLD = 400)
 	build_path = /obj/item/organ/internal/cyberimp/brain/anti_drop
 	category = list("Medical")
@@ -594,6 +595,7 @@
 	req_tech = list("materials" = 6, "programming" = 5, "biotech" = 6)
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
+	locked = TRUE
 	materials = list(MAT_METAL = 600, MAT_GLASS = 600, MAT_SILVER = 500, MAT_GOLD = 1000)
 	build_path = /obj/item/organ/internal/cyberimp/brain/anti_stun
 	category = list("Medical")
@@ -651,6 +653,18 @@
 	construction_time = 60
 	materials = list(MAT_METAL = 800, MAT_GLASS = 800, MAT_GOLD = 300, MAT_URANIUM = 500)
 	build_path = /obj/item/organ/internal/cyberimp/chest/reviver
+	category = list("Medical")
+
+/datum/design/cyberimp_reviver_advanced
+	name = "Advanced Reviver implant"
+	desc = "This implant will attempt to revive you if you lose consciousness. For the faint of heart!"
+	id = "ci-reviver_advanced"
+	req_tech = list("materials" = 5, "programming" = 5, "biotech" = 6, "security" = 6)
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 80
+	materials = list(MAT_METAL = 1000, MAT_GLASS = 1000, MAT_GOLD = 500, MAT_URANIUM = 800, MAT_DIAMOND = 500)
+	build_path = /obj/item/organ/internal/cyberimp/chest/reviver/advanced
+	locked = TRUE
 	category = list("Medical")
 
 /datum/design/voice_retranslator

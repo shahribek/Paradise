@@ -357,9 +357,16 @@
 	implant_color = "#AD0000"
 	origin_tech = "materials=5;programming=4;biotech=4"
 	slot = INTERNAL_ORGAN_HEART_DRIVE
+	var/advanced = FALSE
 	var/revive_cost = 0
 	var/reviving = FALSE
 	var/cooldown = 0
+
+/obj/item/organ/internal/cyberimp/chest/reviver/advanced
+	name = "Advanced reviver implant"
+	desc = "An advanced version of the standard reviver implant, capable of reviving you faster and with less strain on your body and less vulnarable to EMP."
+	origin_tech = "materials=6;programming=5;biotech=5"
+	advanced = TRUE
 
 /obj/item/organ/internal/cyberimp/chest/reviver/hardened
 	name = "Hardened reviver implant"
@@ -389,17 +396,18 @@
 	var/heal_burn = 0
 	var/heal_tox = 0
 	var/heal_oxy = 0
+	var/heal_mod = advanced ? 2 : 1
 	if(prob(75) && owner.getBruteLoss())
-		heal_brute += 1
+		heal_brute += 1 * heal_mod
 		revive_cost += 20
 	if(prob(75) && owner.getFireLoss())
-		heal_burn += 1
+		heal_burn += 1 * heal_mod
 		revive_cost += 20
 	if(prob(40) && owner.getToxLoss())
-		heal_tox += 1
+		heal_tox += 1 * heal_mod
 		revive_cost += 50
 	if(prob(90) && owner.getOxyLoss())
-		heal_oxy += 3
+		heal_oxy += 3 * heal_mod
 		revive_cost += 5
 	owner.heal_damages(heal_brute, heal_burn, heal_tox, heal_oxy)
 
@@ -412,9 +420,9 @@
 		cooldown += 200
 	if(ishuman(owner))
 		var/mob/living/carbon/human/H = owner
-		if(H.stat != DEAD && prob(50 / severity))
+		if(H.stat != DEAD && prob(50 / severity / advanced ? 2 : 1))
 			H.set_heartattack(TRUE)
-			addtimer(CALLBACK(src, PROC_REF(undo_heart_attack)), 600 / severity)
+			addtimer(CALLBACK(src, PROC_REF(undo_heart_attack)), 600 / severity / advanced ? 2 : 1)
 
 /obj/item/organ/internal/cyberimp/chest/reviver/proc/undo_heart_attack()
 	var/mob/living/carbon/human/H = owner
