@@ -653,6 +653,15 @@
 	build_path = /obj/item/organ/internal/cyberimp/chest/reviver
 	category = list("Medical")
 
+/datum/design/cyberimp_holo_limb
+	name = "Holographic Limb Projector Implant"
+	desc = "An advanced cybernetic implant that projects a holographic limb over the user's lost limb, allowing for basic functionality, but lacks durability of holographic limbs"
+	id = "ci-hololimb"
+	build_type = PROTOLATHE | MECHFAB
+	materials = list(MAT_METAL = 800, MAT_GLASS = 800, MAT_SILVER = 400, MAT_GOLD = 400, MAT_DIAMOND = 500, MAT_URANIUM = 500)
+	build_path = /obj/item/organ/internal/cyberimp/holo_limb
+	category = list("Medical")
+
 /datum/design/voice_retranslator
 	name = "Psionic Voice Retranslator"
 	desc = "Имплант для перевода псионической речи греев в более понятные для других гуманоидов звуковые волны. Разработан специально для греев."

@@ -424,6 +424,24 @@
 	if(H.stat == CONSCIOUS)
 		to_chat(H, span_notice("You feel your heart beating again!"))
 
+/obj/item/organ/internal/cyberimp/chest/holo_limb
+	name = "Holographic limb projector"
+	desc = "Высокотехнологичный имплант, позволяющий проецировать голографические конечности взамен утраченных. Позволяет временно восстановить подвижность и функциональность утраченных конечностей до её замены."
+	implant_color = "#00FFFF"
+	slot = INTERNAL_ORGAN_CHEST_HOLO_LIMB
+	origin_tech = "materials=5;programming=5;biotech=6;magnets=6"
+	actions_types = list(/datum/action/item_action/organ_action/toggle)
+	var/active = FALSE
+
+/obj/item/organ/internal/cyberimp/chest/holo_limb/ui_action_click(mob/user, datum/action/action, leftclick)
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/H = user
+	active = !active
+	//todo: make it work, lol. >:]
+
+
 /obj/item/organ/internal/cyberimp/chest/exoframe
 	name = "Exoframe"
 	desc = "Несущая опора, выполняющая роль \"скелета\" в конструкции гуманоидных роботов. Стандартная модель, не отличающаяся выдающимися характеристиками."
