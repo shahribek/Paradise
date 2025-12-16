@@ -1464,3 +1464,7 @@
 	description = "Радиоактивный изотоп цезия, выделяющий гамма-излучение."
 	reagent_state = LIQUID
 	color = "#17ce37"
+
+/datum/reagent/radiocaesium/on_mob_life(mob/living/M)
+	. = ..()
+	M.apply_effect(2, IRRADIATE, 0, negate_armor = 0)
