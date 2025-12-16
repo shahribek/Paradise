@@ -1457,3 +1457,10 @@
 			organ.internal_receive_damage(rand(5, 10))
 
 	return ..()
+
+/datum/reagent/radiocaesium
+	name = "Радиоцезий"
+	id = "radiocaesium"
+	description = "Радиоактивный изотоп цезия, выделяющий гамма-излучение."
+	reagent_state = LIQUID
+	color = "#17ce37"
