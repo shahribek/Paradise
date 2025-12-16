@@ -18,7 +18,7 @@
 	clone_mod = 0
 
 	inherent_traits = list(
-		TRAIT_NO_BLOOD,
+		TRAIT_EXOTIC_BLOOD,
 		TRAIT_HAS_LIPS,
 		TRAIT_NO_BREATH,
 		TRAIT_NO_SCAN,
@@ -34,6 +34,8 @@
 	dies_at_threshold = TRUE
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	var/touched_supermatter = FALSE
+	exotic_blood = "radiocaesium"
+	blood_color = "#17ce37"
 
 	speciesbox = /obj/item/storage/box/survival/species/nucleation
 

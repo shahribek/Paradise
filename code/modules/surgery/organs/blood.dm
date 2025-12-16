@@ -422,6 +422,9 @@
 		if("cryoxadone")
 			blood_data["blood_color"] = dna.species.blood_color
 
+		if("radiocaesium")
+			blood_data["blood_color"] = dna.species.blood_color
+
 	return blood_data
 
 //get the id of the substance this mob use as blood.
