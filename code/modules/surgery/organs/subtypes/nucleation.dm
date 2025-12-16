@@ -3,14 +3,13 @@
 	species_type = /datum/species/nucleation
 	name = "nucleation organ"
 
-/obj/item/organ/internal/nucleation/resonant_crystal
+/obj/item/organ/internal/ears/resonant_crystal
 	name = "resonant crystal"
 	desc = "Жёлтого цвета странно выглядящий кристалл. Судя по всему, он принадлежал нуклеату."
 	icon_state = "resonant-crystal"
 	parent_organ_zone = BODY_ZONE_HEAD
-	slot = INTERNAL_ORGAN_RESONANT_CRYSTAL
 
-/obj/item/organ/internal/nucleation/resonant_crystal/get_ru_names()
+/obj/item/organ/internal/ears/resonant_crystal/get_ru_names()
 	return list(
 		NOMINATIVE = "резонантный кристалл",
 		GENITIVE = "резонантного кристалла",
@@ -20,13 +19,13 @@
 		PREPOSITIONAL = "резонантном кристалле",
 	)
 
-/obj/item/organ/internal/nucleation/strange_crystal
+/obj/item/organ/internal/heart/strange_crystal
 	name = "strange crystal"
 	desc = "Жёлтого цвета странно выглядящий кристалл. Судя по всему, он принадлежал нуклеату."
 	icon_state = "strange-crystal"
 	slot = INTERNAL_ORGAN_STRANGE_CRYSTAL
 
-/obj/item/organ/internal/nucleation/strange_crystal/get_ru_names()
+/obj/item/organ/internal/heart/strange_crystal/get_ru_names()
 	return list(
 		NOMINATIVE = "странный кристалл",
 		GENITIVE = "странного кристалла",
