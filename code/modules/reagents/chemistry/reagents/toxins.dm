@@ -1467,4 +1467,4 @@
 
 /datum/reagent/radiocaesium/on_mob_life(mob/living/M)
 	. = ..()
-	M.apply_effect(2, IRRADIATE, 0, negate_armor = 0)
+	M.apply_effect(2, IRRADIATE, negate_armor = 1)
