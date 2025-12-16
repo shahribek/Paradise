@@ -14,6 +14,8 @@
 	blood_color = "#ada776"
 	burn_mod = 4 // holy shite, poor guys wont survive half a second cooking smores
 	brute_mod = 2 // damn, double wham, double dam
+	tox_mod = 0 // no infection can survive this conditions
+	clone_mod = 0
 
 	inherent_traits = list(
 		TRAIT_NO_BLOOD,
