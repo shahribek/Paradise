@@ -530,8 +530,10 @@
 		var/obj/item/gun_module/module = I
 		if(module.try_attach(src, user))
 			return ATTACK_CHAIN_BLOCKED_ALL
+
 	if(istype(I, /obj/item/clockwork/clocklock))
 		isclockwork = TRUE
+		to_chat(user, span_notice("Вы модифицировали [declent_ru(ACCUSATIVE)] на часовой механизм. Теперь только часовые могут использовать это оружие."))
 		add_fingerprint(user)
 		qdel(I)
 

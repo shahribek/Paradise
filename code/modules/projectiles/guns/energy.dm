@@ -28,7 +28,6 @@
 
 	var/can_add_sibyl_system = TRUE	//if a sibyl system's mod can be added or removed if it already has one
 	var/obj/item/sibyl_system_mod/sibyl_mod = null
-	var/isclockwork = FALSE
 
 /obj/item/gun/energy/examine(mob/user)
 	. = ..()
@@ -59,8 +58,8 @@
 		isclockwork = TRUE
 		add_fingerprint(user)
 		qdel(I)
-		to_chat(user, span_notice("Вы установили часовой замок на [src],
-		if(sybyl_mod)
+		to_chat(user, span_notice("Вы установили часовой замок на [src]"))
+		if(sibyl_mod)
 			qdel(sibyl_mod)
 			sibyl_mod = null
 		return ATTACK_CHAIN_PROCEED_SUCCESS
