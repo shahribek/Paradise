@@ -186,6 +186,34 @@
 	materials = list(MAT_METAL = 1500)
 	projectile_type = /obj/projectile/bullet/midbullet3
 
+/obj/item/ammo_casing/c45colt
+	desc = "A .45 Colt bullet casing."
+	materials = list(MAT_METAL = 1000)
+	caliber = CALIBER_DOT_45_COLT
+	projectile_type = /obj/projectile/bullet/c45colt
+	muzzle_flash_strength = MUZZLE_FLASH_STRENGTH_NORMAL
+	muzzle_flash_range = MUZZLE_FLASH_RANGE_NORMAL
+	bullet_type = BULLET_TYPE_PLAIN
+
+/obj/item/ammo_casing/c45colt/rubber
+	desc = "A .45 Colt rubber bullet casing."
+	icon_state = "r-casing"
+	materials = list(MAT_METAL = 650)
+	projectile_type = /obj/projectile/bullet/rubber45colt
+	bullet_type = BULLET_TYPE_RUBBER
+
+/obj/item/ammo_casing/c45colt/hp
+	desc = "A .45 Colt expansive bullet casing."
+	materials = list(MAT_METAL = 1500)
+	projectile_type = /obj/projectile/bullet/c45colt/hp
+	bullet_type = BULLET_TYPE_EXPANSIVE
+
+/obj/item/ammo_casing/c45colt/ap
+	desc = "A .45 Colt armor piercing bullet casing."
+	materials = list(MAT_METAL = 1500)
+	projectile_type = /obj/projectile/bullet/c45colt/ap
+	bullet_type = BULLET_TYPE_ARMOR_PIERCING
+
 /obj/item/ammo_casing/revolver/improvised
 	name = "improvised shell"
 	desc = "Full metal shell leaking oil. This is clearly an unreliable bullet."
@@ -226,6 +254,7 @@
 	desc = "An 84mm High Explosive rocket. Fire at people and pray."
 	caliber = CALIBER_84MM
 	w_class = WEIGHT_CLASS_NORMAL //thats the rocket!
+	icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	icon_state = "84mm-he"
 	projectile_type = /obj/projectile/bullet/a84mm_he
 	casing_drop_sound = 'sound/weapons/gun_interactions/shotgun_fall.ogg'	// better than default casing but not ideal

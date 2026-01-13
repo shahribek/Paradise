@@ -31,19 +31,12 @@
 	. = ..()
 	chamber_round(TRUE)
 
-/obj/item/gun/projectile/revolver/process_chamber(eject_casing = FALSE, empty_chamber = TRUE)
+/obj/item/gun/projectile/revolver/handle_chamber(eject_casing = FALSE, empty_chamber = TRUE)
 	return ..()
 
-/obj/item/gun/projectile/revolver/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/ammo_box/speedloader) || istype(I, /obj/item/ammo_casing))
-		add_fingerprint(user)
-		var/num_loaded = magazine.reload(I, user)
-		if(num_loaded)
-			update_icon()
-			chamber_round(FALSE)
-			return ATTACK_CHAIN_BLOCKED_ALL
+/obj/item/gun/projectile/revolver/attackby(obj/item/item, mob/user, params)
+	if(speedloader_reload(item, user))
 		return ATTACK_CHAIN_PROCEED
-
 	return ..()
 
 /obj/item/gun/projectile/revolver/unload_act(mob/user)
@@ -73,7 +66,7 @@
 
 /obj/item/gun/projectile/revolver/verb/spin()
 	set name = "Вращать барабан"
-	set category = STATPANEL_OBJECT
+	set category = VERB_CATEGORY_OBJECT
 	set desc = "Click to spin your revolver's chamber."
 	set src in usr
 
@@ -151,6 +144,38 @@
 /obj/item/gun/projectile/revolver/detective/ComponentInitialize()
 	. = ..()
 	AddElement(/datum/element/item_skins)
+
+
+//Security revolver
+/obj/item/gun/projectile/revolver/taurus
+	name = "Taurus revolver"
+	desc = "Револьвер под калибр .45 Colt, используемый силовыми структурами \"Нанотрейзен\". \
+			Отличается простотой конструкции, высокой надёжностью и минимальным количеством движущихся частей. Произведён \"Оружейной Ауссек\"."
+	icon_state = "taurus"
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/taurus
+	fire_sound = 'sound/weapons/gunshots/1rev38.ogg'
+	accuracy = GUN_ACCURACY_PISTOL
+	recoil = GUN_RECOIL_MEDIUM
+	attachable_allowed = GUN_MODULE_CLASS_PISTOL_MUZZLE | GUN_MODULE_CLASS_PISTOL_UNDER | GUN_MODULE_CLASS_PISTOL_RAIL
+	attachable_offset = list(
+		ATTACHMENT_SLOT_MUZZLE = list("x" = 20, "y" = 2),
+		ATTACHMENT_SLOT_RAIL = list("x" = 6, "y" = 6),
+		ATTACHMENT_SLOT_UNDER = list("x" = 8, "y" = -6),
+	)
+
+/obj/item/gun/projectile/revolver/taurus/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/item_skins)
+
+/obj/item/gun/projectile/revolver/taurus/get_ru_names()
+	return list(
+		NOMINATIVE = "револьвер \"Таурус\"",
+		GENITIVE = "револьвера \"Таурус\"",
+		DATIVE = "револьверу \"Таурус\"",
+		ACCUSATIVE = "револьверу \"Таурус\"",
+		INSTRUMENTAL = "револьвером \"Таурус\"",
+		PREPOSITIONAL = "револьвере \"Таурус\"",
+	)
 
 /obj/item/gun/projectile/revolver/fingergun //Summoned by the Finger Gun spell, from advanced mimery traitor item
 	name = "finger gun"
