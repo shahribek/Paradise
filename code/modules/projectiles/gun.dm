@@ -534,6 +534,7 @@
 	if(istype(I, /obj/item/clockwork/clocklock))
 		isclockwork = TRUE
 		to_chat(user, span_notice("Вы модифицировали [declent_ru(ACCUSATIVE)] на часовой механизм. Теперь только часовые могут использовать это оружие."))
+		desc += " Спусковой механизм этого оружие заменён на часовой."
 		add_fingerprint(user)
 		qdel(I)
 

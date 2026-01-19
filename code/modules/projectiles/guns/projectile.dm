@@ -83,6 +83,9 @@
 	return
 
 /obj/item/gun/projectile/can_shoot(mob/user)
+	. = ..()
+	if(!.)
+		return FALSE
 	if(!magazine || !magazine.ammo_count(FALSE))
 		return FALSE
 	return TRUE
