@@ -21,6 +21,7 @@
 	icon = 'icons/obj/storage.dmi'
 	flags = BLOCKS_LIGHT
 	interaction_flags_click = ALLOW_RESTING | FORBID_TELEKINESIS_REACH
+	abstract_type = /obj/item/storage
 	/// No message on putting items in
 	var/silent = FALSE
 	/// List of objects which this item can store (if set, it can't store anything else)
@@ -120,11 +121,9 @@
 		playsound(loc, SFX_RUSTLE, 50, TRUE, -5)
 		target.handle_item_insertion(thing, user)
 
-/obj/item/storage/MouseDrop(atom/over_object, src_location, over_location, src_control, over_control, params)
+/obj/item/storage/mouse_drop_dragged(atom/over_object, mob/user, src_location, over_location, params)
 	if(!isliving(usr))
 		return FALSE
-
-	var/mob/living/user = usr
 
 	// Stops inventory actions in a mech, while ventcrawling and while being incapacitated
 	if(ismecha(user.loc) || is_ventcrawling(user) || user.incapacitated())
@@ -663,7 +662,7 @@
 			span_notice("[usr] начина[PLUR_ET_YUT(usr)] снимать [W.declent_ru(ACCUSATIVE)]."),
 			span_notice("Вы начинаете снимать [W.declent_ru(ACCUSATIVE)]."),
 		)
-		if(!do_after(usr, W.equip_delay_self, usr, max_interact_count = 1, cancel_on_max = TRUE))
+		if(!do_after(usr, W.equip_delay_self, usr, timed_action_flags = (DA_IGNORE_LYING|DA_IGNORE_USER_LOC_CHANGE), max_interact_count = 1, cancel_on_max = TRUE))
 			usr.balloon_alert(usr, "снятие прервано!")
 			return FALSE
 
@@ -838,7 +837,7 @@
 
 /obj/item/storage/verb/toggle_gathering_mode()
 	set name = "Режим сбора"
-	set category = STATPANEL_OBJECT
+	set category = VERB_CATEGORY_OBJECT
 
 	pickup_all_on_tile = !pickup_all_on_tile
 	switch(pickup_all_on_tile)
@@ -849,7 +848,7 @@
 
 /obj/item/storage/verb/quick_empty()
 	set name = "Выбросить содержимое"
-	set category = STATPANEL_OBJECT
+	set category = VERB_CATEGORY_OBJECT
 
 	if((!ishuman(usr) && (loc != usr)) || usr.incapacitated() || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
 		return

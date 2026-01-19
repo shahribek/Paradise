@@ -19,7 +19,7 @@ GLOBAL_LIST_EMPTY(safes)
  */
 /obj/structure/safe
 	name = "safe"
-	desc = "Огромный кусок металла со встроенным в него циферблатом. Мелким шрифтом на циферблате написано: \"Сейф от \"Скарборо Армс\" надёжно защитит ваши ценные вещи от любых посягательств, включая любопытных ассистентов\"."
+	desc = "Огромный кусок металла со встроенным в него циферблатом. Мелким шрифтом на циферблате написано: \"Сейф от концерна \"Скарборо\" надёжно защитит ваши ценные вещи от любых посягательств, включая любопытных ассистентов\"."
 	gender = MALE
 	icon_state = "safe"
 	anchored = TRUE
@@ -144,7 +144,9 @@ GLOBAL_LIST_EMPTY(safes)
 	if(istype(drill, /obj/item/thermal_drill))
 		var/drill_icon = istype(drill, /obj/item/thermal_drill/diamond_drill) ? "d" : "h"
 		var/state = "[initial(icon_state)]_[drill_icon]-drill-[drill_timer ? "on" : "off"]"
-		drill_overlay = image(icon = 'icons/effects/drill.dmi', icon_state = state, pixel_x = drill_x_offset, pixel_y = drill_y_offset)
+		drill_overlay = image(icon = 'icons/effects/drill.dmi', icon_state = state)
+		drill_overlay.pixel_w = drill_x_offset
+		drill_overlay.pixel_z = drill_y_offset
 		. += drill_overlay
 
 /obj/structure/safe/attack_ghost(mob/user)
@@ -446,7 +448,7 @@ GLOBAL_LIST_EMPTY(safes)
  */
 /obj/structure/safe/floor
 	name = "floor safe"
-	desc = "Огромный металлический люк со встроенным в него цифербалтом. Мелким шрифтом на циферблате написано: \"Напольный сейф от \"Скарборо Армс\" надёжно защитит ваши ценные вещи от любых посягательств, включая любопытных ассистентов\"."
+	desc = "Огромный металлический люк со встроенным в него цифербалтом. Мелким шрифтом на циферблате написано: \"Напольный сейф от концерна \"Скарборо\" надёжно защитит ваши ценные вещи от любых посягательств, включая любопытных ассистентов\"."
 	icon_state = "floorsafe"
 	density = FALSE
 	level = 1 //Under the floor

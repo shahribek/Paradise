@@ -25,7 +25,7 @@
 
 /obj/item/encryptionkey/syndicate
 	name = "syndicate encryption key"
-	desc = "Ключ шифрования, устанавливаемый в гарнитуру. Содержит в себе лучшее хакерское ПО, доступное на чёрном рынке и позволяющее получить доступ ко всем частотам Нанотрейзен."
+	desc = "Ключ шифрования, устанавливаемый в гарнитуру. Содержит в себе лучшее хакерское ПО, доступное на чёрном рынке и позволяющее получить доступ ко всем частотам \"Нанотрейзен\"."
 	icon_state = "syn_cypherkey"
 	channels = list(SYND_FREQ_NAME = 1)
 	origin_tech = "syndicate=1;engineering=3;bluespace=2"
@@ -36,12 +36,12 @@
 
 /obj/item/encryptionkey/syndicate/get_ru_names()
 	return list(
-		NOMINATIVE = "ключ-шифратор Синдиката",
-		GENITIVE = "ключа-шифратора Синдиката",
-		DATIVE = "ключу-шифратору Синдиката",
-		ACCUSATIVE = "ключ-шифратор Синдиката",
-		INSTRUMENTAL = "ключом-шифратором Синдиката",
-		PREPOSITIONAL = "ключе-шифраторе Синдиката",
+		NOMINATIVE = "ключ-шифратор \"Синдиката\"",
+		GENITIVE = "ключа-шифратора \"Синдиката\"",
+		DATIVE = "ключу-шифратору \"Синдиката\"",
+		ACCUSATIVE = "ключ-шифратор \"Синдиката\"",
+		INSTRUMENTAL = "ключом-шифратором \"Синдиката\"",
+		PREPOSITIONAL = "ключе-шифраторе \"Синдиката\"",
 	)
 
 /obj/item/encryptionkey/syndicate/Initialize(mapload)
@@ -61,13 +61,14 @@
 
 /obj/item/encryptionkey/syndicate/taipan/borg
 	channels = list(SYND_TAIPAN_FREQ_NAME = 1, SYND_FREQ_NAME = 1)
+
 /obj/item/encryptionkey/syndicate/taipan/tcomms_agent
 	icon_state = "ofcom_cypherkey"
 	channels = list(SYND_TAIPAN_FREQ_NAME = 1, SYND_FREQ_NAME = 1, PUB_FREQ_NAME = 1)
 
 /obj/item/encryptionkey/syndteam
 	name = "syndicate encryption key"
-	desc = "Ключ шифрования, устанавливаемый в гарнитуру. Содержит в себе лучшее хакерское ПО, доступное на чёрном рынке и позволяющее получить доступ ко всем частотам Нанотрейзен."
+	desc = "Ключ шифрования, устанавливаемый в гарнитуру. Содержит в себе лучшее хакерское ПО, доступное на чёрном рынке и позволяющее получить доступ ко всем частотам \"Нанотрейзен\"."
 	icon_state = "syn_cypherkey"
 	channels = list(SYNDTEAM_FREQ_NAME = 1, SYND_FREQ_NAME = 1)
 	origin_tech = "syndicate=4"
@@ -75,12 +76,12 @@
 
 /obj/item/encryptionkey/syndteam/get_ru_names()
 	return list(
-		NOMINATIVE = "ключ-шифратор Синдиката",
-		GENITIVE = "ключа-шифратора Синдиката",
-		DATIVE = "ключу-шифратору Синдиката",
-		ACCUSATIVE = "ключ-шифратор Синдиката",
-		INSTRUMENTAL = "ключом-шифратором Синдиката",
-		PREPOSITIONAL = "ключе-шифраторе Синдиката",
+		NOMINATIVE = "ключ-шифратор \"Синдиката\"",
+		GENITIVE = "ключа-шифратора \"Синдиката\"",
+		DATIVE = "ключу-шифратору \"Синдиката\"",
+		ACCUSATIVE = "ключ-шифратор \"Синдиката\"",
+		INSTRUMENTAL = "ключом-шифратором \"Синдиката\"",
+		PREPOSITIONAL = "ключе-шифраторе \"Синдиката\"",
 	)
 
 /obj/item/encryptionkey/soviet
@@ -421,12 +422,12 @@
 
 /obj/item/encryptionkey/heads/ntrep/get_ru_names()
 	return list(
-		NOMINATIVE = "ключ-шифратор представителя Нанотрейзен",
-		GENITIVE = "ключа-шифратора представителя Нанотрейзен",
-		DATIVE = "ключу-шифратору представителя Нанотрейзен",
-		ACCUSATIVE = "ключ-шифратор представителя Нанотрейзен",
-		INSTRUMENTAL = "ключом-шифратором представителя Нанотрейзен",
-		PREPOSITIONAL = "ключе-шифраторе представителя Нанотрейзен",
+		NOMINATIVE = "ключ-шифратор представителя \"Нанотрейзен\"",
+		GENITIVE = "ключа-шифратора представителя \"Нанотрейзен\"",
+		DATIVE = "ключу-шифратору представителя \"Нанотрейзен\"",
+		ACCUSATIVE = "ключ-шифратор представителя \"Нанотрейзен\"",
+		INSTRUMENTAL = "ключом-шифратором представителя \"Нанотрейзен\"",
+		PREPOSITIONAL = "ключе-шифраторе представителя \"Нанотрейзен\"",
 	)
 /obj/item/encryptionkey/heads/magistrate
 	name = "Magistrate's Encryption Key"

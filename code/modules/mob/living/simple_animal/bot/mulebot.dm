@@ -75,7 +75,7 @@
 /mob/living/simple_animal/bot/mulebot/Initialize(mapload)
 	. = ..()
 	wires = new /datum/wires/mulebot(src)
-	var/datum/job/cargo_tech/J = new/datum/job/cargo_tech
+	var/datum/job/supply/cargo_tech/J = new/datum/job/supply/cargo_tech
 	access_card.access = J.get_access()
 	prev_access = access_card.access
 	cell = new /obj/item/stock_parts/cell/upgraded(src)
@@ -228,7 +228,7 @@
 	. = ..()
 	if(load && !ismob(load))//buckling handles the mob offsets
 		var/image/load_overlay = image(icon = load.icon, icon_state = load.icon_state)
-		load_overlay.pixel_y = initial(load.pixel_y) + 9
+		load_overlay.pixel_z = initial(load.pixel_y) + 9
 		if(load.layer < layer)
 			load_overlay.layer = layer + 0.1
 		load_overlay.overlays = load.overlays
@@ -914,12 +914,6 @@
 
 	new /obj/effect/decal/cleanable/blood/oil(loc)
 	return ..()
-
-/mob/living/simple_animal/bot/mulebot/remove_air(amount) //To prevent riders suffocating
-	if(loc)
-		return loc.remove_air(amount)
-	else
-		return null
 
 /mob/living/simple_animal/bot/mulebot/run_resist()
 	. = ..()

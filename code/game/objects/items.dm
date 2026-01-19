@@ -1,4 +1,5 @@
 GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/goonstation/effects/fire.dmi', "fire"))
+
 /obj/item
 	name = "item"
 	icon = 'icons/obj/items.dmi'
@@ -211,6 +212,17 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 	var/lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	var/righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 
+	///The config type to use for greyscaled worn sprites. Both this and greyscale_colors must be assigned to work.
+	var/list/greyscale_config_worn
+	///The config type to use for greyscaled worn sprites. Both this and greyscale_colors must be assigned to work.
+	var/list/greyscale_config_worn_species
+	///The config type to use for greyscaled left inhand sprites. Both this and greyscale_colors must be assigned to work.
+	var/greyscale_config_inhand_left
+	///The config type to use for greyscaled right inhand sprites. Both this and greyscale_colors must be assigned to work.
+	var/greyscale_config_inhand_right
+	///The config type to use for greyscaled belt overlays. Both this and greyscale_colors must be assigned to work.
+	var/greyscale_config_belt
+
 	//Tooltip vars
 	var/tip_timer = 0
 
@@ -242,6 +254,31 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 
 	var/embed_disarm = FALSE
 
+	/// Available skins list (empty for default)
+	var/list/skins = null
+	/// The skin choice if we had a reskin
+	var/current_skin
+	/// Exists change skin
+	var/exists_skin_change = FALSE
+	//can you put this item in closets
+	var/can_put_in_closet = TRUE
+	/// Colored belt appearance for adding it as a belt overlay
+	var/icon/colored_belt_appearance
+
+	// Clothing vars moved from item/clothing to item because we can wear fucking items (papers, animals) and it runtimes
+
+	/// Special flags applied to clothing items only
+	var/clothing_flags = NONE
+	var/visor_flags = NONE
+	/// Same as visor_flags, but for flags_inv
+	var/visor_flags_inv = NONE
+	/// Same as visor_flags_inv, but for flags_inv_transparent
+	var/visor_flags_inv_transparent = NONE
+	/// Same as visor_flags_inv_transparent, but for flags_cover
+	var/visor_flags_cover = NONE
+	/// What to toggle when toggled with weldingvisortoggle()
+	var/visor_vars_to_toggle = VISOR_FLASHPROTECT|VISOR_TINT|VISOR_VISIONFLAGS|VISOR_DARKNESSVIEW|VISOR_INVISVIEW|VISOR_FULL_HUD
+
 /obj/item/Initialize(mapload)
 	. = ..()
 
@@ -250,17 +287,16 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 		item_flags |= IN_STORAGE
 
 	if(!hitsound)
-		if(damtype == "fire")
+		if(damtype == FIRE)
 			hitsound = 'sound/items/welder.ogg'
 
-		if(damtype == "brute")
-			hitsound = "swing_hit"
-	for(var/path in actions_types)
-		if(action_icon && action_icon_state)
-			new path(src, action_icon[path], action_icon_state[path])
+		if(damtype == BRUTE)
+			hitsound = SFX_SWING_HIT
 
-		else
-			new path(src)
+	// Handle adding item associated actions
+	for(var/path in actions_types)
+		add_item_action(path)
+	actions_types = null
 
 	if(!move_resist)
 		determine_move_resist()
@@ -309,13 +345,59 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 	else
 		remove_item_from_storage(get_turf(src))
 
-	//Reason behind why it's not QDEL_LIST: works badly with lazy removal in Destroy() of item_action
-	for(var/i in actions)
-		qdel(i)
+	// Handle cleaning up our actions list
+	for(var/datum/action/action as anything in actions)
+		remove_item_action(action)
 
 	QDEL_NULL(item_pixel_shift)
 
 	return ..()
+
+
+/// Called when an action associated with our item is deleted
+/obj/item/proc/on_action_deleted(datum/source)
+	SIGNAL_HANDLER
+
+	if(!(source in actions))
+		CRASH("An action ([source.type]) was deleted that was associated with an item ([src]), but was not found in the item's actions list.")
+
+	LAZYREMOVE(actions, source)
+
+/// Adds an item action to our list of item actions.
+/// Item actions are actions linked to our item, that are granted to mobs who equip us.
+/// This also ensures that the actions are properly tracked in the actions list and removed if they're deleted.
+/// Can be be passed a typepath of an action or an instance of an action.
+/obj/item/proc/add_item_action(action_or_action_type)
+
+	var/datum/action/action
+	if(ispath(action_or_action_type, /datum/action))
+		action = new action_or_action_type(src)
+	else if(istype(action_or_action_type, /datum/action))
+		action = action_or_action_type
+	else
+		CRASH("item add_item_action got a type or instance of something that wasn't an action.")
+
+	LAZYADD(actions, action)
+	RegisterSignal(action, COMSIG_QDELETING, PROC_REF(on_action_deleted))
+	grant_action_to_bearer(action)
+	return action
+
+/// Grant the action to anyone who has this item equipped to an appropriate slot
+/obj/item/proc/grant_action_to_bearer(datum/action/action)
+	if(!ismob(loc))
+		return
+	var/mob/holder = loc
+	give_item_action(action, holder, holder.get_slot_by_item(src))
+
+/// Removes an instance of an action from our list of item actions.
+/obj/item/proc/remove_item_action(datum/action/action)
+	if(!action)
+		return
+
+	UnregisterSignal(action, COMSIG_QDELETING)
+	LAZYREMOVE(actions, action)
+	qdel(action)
+
 
 /obj/item/proc/check_allowed_items(atom/target, not_inside, target_self)
 	if(((src in target) && !target_self) || (!isturf(target.loc) && !isturf(target) && not_inside))
@@ -382,6 +464,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 				. += span_notice("Обнаружено запечатанное заклинание \"[S.name]\" внутри.<br>")
 				break
 
+	if(exists_skin_change)
+		. += span_notice("Используйте <b>Alt+ЛКМ</b>, чтобы выбрать скин.")
+
+
 /obj/item/burn()
 	if(!QDELETED(src))
 		var/turf/T = get_turf(src)
@@ -447,7 +533,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 				span_notice("[user] начинает снимать [declent_ru(ACCUSATIVE)]..."),
 				span_notice("Вы начинаете снимать [declent_ru(ACCUSATIVE)]..."),
 			)
-			if(!do_after(user, equip_delay_self, user, max_interact_count = 1, cancel_on_max = TRUE, cancel_message = span_warning("Снятие [declent_ru(GENITIVE)] было прервано!")))
+			if(!do_after(user, equip_delay_self, user, timed_action_flags = (DA_IGNORE_LYING|DA_IGNORE_USER_LOC_CHANGE), max_interact_count = 1, cancel_on_max = TRUE, cancel_message = span_warning("Снятие [declent_ru(GENITIVE)] было прервано!")))
 				return
 
 		if(!user.temporarily_remove_item_from_inventory(src, silent = FALSE))
@@ -673,8 +759,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 	SHOULD_CALL_PARENT(TRUE)
 
 	// Give out actions our item has to people who equip it.
-	for(var/datum/action/action_item_has as anything in actions)
-		give_item_action(slot, user, action_item_has)
+	for(var/datum/action/action as anything in actions)
+		give_item_action(action, user, slot)
 
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	item_flags |= IN_INVENTORY
@@ -700,15 +786,17 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 	return TRUE
 
 /// Gives one of our item actions to a mob, when equipped to a certain slot
-/obj/item/proc/give_item_action(slot, mob/user, datum/action/action)
+/obj/item/proc/give_item_action(datum/action/action, mob/to_who, slot)
 	// Some items only give their actions buttons when in a specific slot.
-	if(!item_action_slot_check(slot, user, action) || SEND_SIGNAL(src, COMSIG_ITEM_UI_ACTION_SLOT_CHECKED, slot, user, action) & COMPONENT_ITEM_ACTION_SLOT_INVALID)
+	if(!item_action_slot_check(slot, to_who, action) || SEND_SIGNAL(src, COMSIG_ITEM_UI_ACTION_SLOT_CHECKED, to_who, action, slot) & COMPONENT_ITEM_ACTION_SLOT_INVALID)
 		// There is a chance we still have our item action currently,
 		// and are moving it from a "valid slot" to an "invalid slot".
 		// So call Remove() here regardless, even if excessive.
-		action.Remove(user)
+		action.Remove(to_who)
 		return
-	action.Grant(user)
+
+	action.Grant(to_who)
+
 
 /**
  * Some items only give their actions buttons when in a specific slot.
@@ -779,6 +867,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 			continue
 		if(container.can_be_inserted(src, TRUE))
 			return container.handle_item_insertion(src)
+
+	for(var/obj/item/mod/control/control in possible)
+		if(control.can_be_inserted(src, TRUE))
+			return control.handle_item_insertion(src)
 
 	if(drop_on_fail)
 		if(src in user.get_equipped_items(INCLUDE_POCKETS | INCLUDE_HELD))
@@ -1035,19 +1127,21 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 /obj/item/MouseEntered(location, control, params)
 	. = ..()
 	if(item_flags & (IN_INVENTORY|IN_STORAGE))
-		var/mob/living/user = usr
-		if(user.client.prefs.toggles2 & PREFTOGGLE_2_DESC_TIPS)
-			var/timedelay = 8
-			tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), timedelay, TIMER_STOPPABLE)
+		var/mob/user = usr
+		if(!(user.client.prefs.toggles2 & PREFTOGGLE_2_HIDE_ITEM_TOOLTIPS))
+			tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), 0.8 SECONDS, TIMER_STOPPABLE)
 
 		if(QDELETED(src))
 			return
+
 		if(!(user.client.prefs.toggles2 & PREFTOGGLE_2_SEE_ITEM_OUTLINES))
 			return
-		if(istype(user) && user.incapacitated())
-			apply_outline(user, COLOR_RED_GRAY) //if they're dead or handcuffed, let's show the outline as red to indicate that they can't interact with that right now
+
+		var/mob/living/living_user = user
+		if(istype(living_user) && living_user.incapacitated())
+			apply_outline(living_user, COLOR_RED_GRAY) //if they're dead or handcuffed, let's show the outline as red to indicate that they can't interact with that right now
 		else
-			apply_outline(user) //if the player's alive and well we send the command with no color set, so it uses the theme's color
+			apply_outline(living_user) //if the player's alive and well we send the command with no color set, so it uses the theme's color
 
 /obj/item/MouseExited()
 	deltimer(tip_timer) //delete any in-progress timer if the mouse is moved off the item before it finishes
@@ -1179,6 +1273,25 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 	. = ..()
 	update_equipped_item()
 
+/// Checks if this atom uses the GAS system and if so updates the worn and inhand icons
+/obj/item/update_greyscale()
+	. = ..()
+	if(!greyscale_colors)
+		return
+	if(greyscale_config_worn)
+		for(var/config in greyscale_config_worn)
+			onmob_sheets[config] = SSgreyscale.get_colored_icon_by_type(greyscale_config_worn[config], greyscale_colors)
+	if(greyscale_config_worn_species)
+		for(var/config in greyscale_config_worn_species)
+			sprite_sheets[config] = SSgreyscale.get_colored_icon_by_type(greyscale_config_worn_species[config], greyscale_colors)
+	if(greyscale_config_inhand_left)
+		lefthand_file = SSgreyscale.get_colored_icon_by_type(greyscale_config_inhand_left, greyscale_colors)
+	if(greyscale_config_inhand_right)
+		righthand_file = SSgreyscale.get_colored_icon_by_type(greyscale_config_inhand_right, greyscale_colors)
+	if(greyscale_config_belt)
+		colored_belt_appearance = SSgreyscale.get_colored_icon_by_type(greyscale_config_belt, greyscale_colors)
+	return
+
 /obj/item/proc/add_tape()
 	return
 
@@ -1241,7 +1354,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 		target_x -= 32
 	if(!direction)
 		target_y += 10
-		transfer_animation.pixel_x += 6 * (prob(50) ? 1 : -1)
+		transfer_animation.pixel_w += 6 * (prob(50) ? 1 : -1)
 
 	var/atom/movable/flick_visual/pickup = src.loc.flick_overlay_view(transfer_animation, 0.4 SECONDS)
 	var/matrix/animation_matrix = new(pickup.transform)
@@ -1306,7 +1419,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 /obj/item/proc/handle_openspace_click(turf/target, mob/user, proximity_flag, click_parameters)
 	stack_trace("Undefined handle_openspace_click() behaviour. Ascertain the openspace_item_click_handler element has been attached to the right item and that its proc override doesn't call parent.")
 
-/obj/item/hit_by_thrown_carbon(mob/living/carbon/human/C, datum/thrownthing/throwingdatum, damage, mob_hurt, self_hurt)
+/obj/item/hit_by_thrown_mob(mob/living/throwned_mob, datum/thrownthing/throwingdatum, damage, mob_hurt, self_hurt)
 	return
 
 /// Conditional proc that allows ventcrawling with an item, if it has trait TRAIT_VENTCRAWLER_ITEM_BASED.
@@ -1353,3 +1466,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 		delta += addition
 
 	return force + delta
+
+/// Returns the icon used for overlaying the object on a belt
+/obj/item/proc/get_belt_overlay()
+	var/icon_state_to_use = belt_icon || icon_state
+	if(colored_belt_appearance)
+		return mutable_appearance(colored_belt_appearance, icon_state_to_use)
+	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state_to_use)

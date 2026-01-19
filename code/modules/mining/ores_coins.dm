@@ -48,8 +48,8 @@
 	else
 		for(var/i in 1 to difference)
 			var/mutable_appearance/newore = mutable_appearance(icon, icon_state)
-			newore.pixel_x = rand(-8,8)
-			newore.pixel_y = rand(-8,8)
+			newore.pixel_w = rand(-8,8)
+			newore.pixel_z = rand(-8,8)
 			stack_overlays += newore
 
 	if(length(stack_overlays))
@@ -88,7 +88,7 @@
 		if(istype(arrived_mob.pulling, /obj/structure/ore_box))
 			arrived_mob.pulling.attackby(bag, arrived)
 
-/obj/item/stack/ore/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume, global_overlay = TRUE)
+/obj/item/stack/ore/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 	if(isnull(refined_type))
 		return
@@ -205,21 +205,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 		ACCUSATIVE = "вулканический пепел",
 		INSTRUMENTAL = "вулканическим пеплом",
 		PREPOSITIONAL = "вулканическом пепле",
-	)
-
-/obj/item/stack/ore/glass/basalt/ancient
-	name = "ancient sand"
-	item_state = "volcanic_sand"
-	singular_name = "ancient sand pile"
-
-/obj/item/stack/ore/glass/basalt/ancient/get_ru_names()
-	return list(
-		NOMINATIVE = "древний песок",
-		GENITIVE = "древнего песка",
-		DATIVE = "древнему песку",
-		ACCUSATIVE = "древний песок",
-		INSTRUMENTAL = "древним песком",
-		PREPOSITIONAL = "древнем песке",
 	)
 
 /obj/item/stack/ore/plasma
@@ -587,6 +572,9 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	if(cmineral && name_by_cmineral)
 		name = "[cmineral] coin"
 
+/obj/item/coin/get_item_credit_value()
+	return credits
+
 /obj/item/coin/gold
 	cmineral = "gold"
 	icon_state = "coin_gold_heads"
@@ -694,12 +682,12 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 
 /obj/item/coin/antagtoken/syndicate/get_ru_names()
 	return list(
-		NOMINATIVE = "монета Синдиката",
-		GENITIVE = "монеты Синдиката",
-		DATIVE = "монете Синдиката",
-		ACCUSATIVE = "монету Синдиката",
-		INSTRUMENTAL = "монетой Синдиката",
-		PREPOSITIONAL = "монете Синдиката",
+		NOMINATIVE = "монета \"Синдиката\"",
+		GENITIVE = "монеты \"Синдиката\"",
+		DATIVE = "монете \"Синдиката\"",
+		ACCUSATIVE = "монету \"Синдиката\"",
+		INSTRUMENTAL = "монетой \"Синдиката\"",
+		PREPOSITIONAL = "монете \"Синдиката\"",
 	)
 
 /obj/item/coin/update_overlays()

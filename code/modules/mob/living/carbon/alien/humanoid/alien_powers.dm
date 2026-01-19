@@ -47,7 +47,7 @@
 /datum/action/innate/small_sprite_alien/praetorian
 	small_icon_state = "aliens_running"
 
-/datum/action/innate/small_sprite_alien/Trigger(left_click = TRUE)
+/datum/action/innate/small_sprite_alien/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 	if(!.)
 		return
@@ -55,9 +55,9 @@
 	if(!small)
 		var/image/I = image(icon = small_icon, icon_state = small_icon_state, loc = owner)
 		I.override = TRUE
-		I.pixel_x -= owner.pixel_x
-		I.pixel_y -= owner.pixel_y
-		owner.add_alt_appearance("smallsprite", I, list(owner))
+		I.pixel_w -= owner.pixel_x
+		I.pixel_z -= owner.pixel_y
+		owner.add_alt_appearance(/datum/atom_hud/alternate_appearance/basic, "smallsprite", I, AA_TARGET_SEE_APPEARANCE | AA_MATCH_TARGET_OVERLAYS)
 		small = TRUE
 	else
 		owner.remove_alt_appearance("smallsprite")

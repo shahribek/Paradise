@@ -1,4 +1,5 @@
 /obj/item/antag_spawner
+	abstract_type = /obj/item/antag_spawner
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
@@ -101,7 +102,7 @@
 	poll_icon_file = 'icons/mob/robots.dmi'
 	poll_icon_state = "syndi-engi-preview"
 
-#define SYNDICATE_CYBORG "Борг Синдиката"
+#define SYNDICATE_CYBORG "Борг \"Синдиката\""
 #define NUCLEAR_OPERATIVE "Ядерный Оперативник"
 #define CANCER_SWITCH_ROLES_CHOICE "Не активировать этот робот-телепортатор"
 
@@ -189,6 +190,9 @@
 		type = "laughter"
 	var/list/candidates = SSghost_spawns.poll_candidates("Do you want to play as a [type] demon summoned by [user.real_name]?", ROLE_DEMON, TRUE, 10 SECONDS, source = demon_type)
 
+	if(QDELETED(src) || QDELETED(loc))
+		return
+
 	if(length(candidates) > 0)
 		var/mob/C = pick(candidates)
 		spawn_antag(C, get_turf(src.loc), initial(demon_type.name), user)
@@ -270,6 +274,9 @@
 
 	var/list/candidates = SSghost_spawns.poll_candidates("Do you want to play as a magical morph awakened by [user.real_name]?", ROLE_MORPH, 1, 10 SECONDS, source = morph_type)
 
+	if(QDELETED(src) || QDELETED(loc))
+		return
+
 	if(length(candidates) > 0)
 		var/mob/C = pick(candidates)
 		spawn_antag(C, get_turf(src.loc), initial(morph_type.name), user)
@@ -333,6 +340,9 @@
 	to_chat(user, span_notice("You break the seal on the bulb, waiting for the creature to spark to life..."))
 
 	var/list/candidates = SSghost_spawns.poll_candidates("Do you want to play as a pulse demon summoned by [user.real_name]?", ROLE_DEMON, TRUE, 10 SECONDS, source = demon_type)
+
+	if(QDELETED(T))
+		return
 
 	if(!length(candidates))
 		used = FALSE

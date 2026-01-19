@@ -26,14 +26,14 @@
 		TRAIT_VIRUSIMMUNE,
 		TRAIT_NO_GERMS,
 		TRAIT_IGNOREDAMAGESLOWDOWN,
-		TRAIT_SUPERMATTERIMMUNE,
+		TRAIT_SUPERMATTER_IMMUNE,
 	)
 	bodyflags = HAS_BODY_MARKINGS
 	dies_at_threshold = TRUE
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	var/touched_supermatter = FALSE
 
-	speciesbox = /obj/item/storage/box/survival_nucleation
+	speciesbox = /obj/item/storage/box/survival/species/nucleation
 
 	//Default styles for created mobs.
 	default_hair = "Nucleation Crystals"
@@ -59,13 +59,14 @@
 
 /datum/species/nucleation/on_species_gain(mob/living/carbon/human/H)
 	. = ..()
-	H.light_color = "#afaf21"
-	H.set_light_range(2)
+	H.light_color = COLOR_NUCLEATION_LIGHT
+	H.set_light_range(NUCLEATION_LIGHT_RANGE)
+	H.set_light_on(TRUE)
 
 /datum/species/nucleation/on_species_loss(mob/living/carbon/human/H)
 	. = ..()
 	H.light_color = null
-	H.set_light_on(FALSE)
+	H.set_light_on(FALSE) // turn off light after species loss
 
 /datum/species/nucleation/handle_reagents(mob/living/carbon/human/H, datum/reagent/R)
 	if(R.id == "radium")
@@ -78,7 +79,7 @@
 	return ..()
 
 /datum/species/nucleation/handle_death(gibbed, mob/living/carbon/human/human)
-	if(human.health <= HEALTH_THRESHOLD_DEAD || !length(human.surgeries)) // Needed to prevent brain gib on surgery debrain
+	if(human.health <= HEALTH_THRESHOLD_DEAD) // Needed to prevent brain gib on surgery debrain
 		death_explosion(human)
 		return
 
