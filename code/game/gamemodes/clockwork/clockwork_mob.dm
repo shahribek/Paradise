@@ -171,3 +171,6 @@
 
 /mob/living/simple_animal/mouse/clockwork/ratvar_act()
 	adjustBruteLoss(-maxHealth)
+
+/mob/living/carbon/human/machine/clockwork/brainless/Initialize(mapload)
+	. = ..(mapload, /datum/species/machine/clockwork)

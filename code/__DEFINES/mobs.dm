@@ -229,6 +229,7 @@
 #define SPECIES_HUMAN "Human"
 #define SPECIES_KIDAN "Kidan"
 #define SPECIES_MACNINEPERSON "Machine"
+#define SPECIES_MACHINEPERSON_CLOCKWORK "Clockwork Machine"
 #define SPECIES_MONKEY "Monkey"
 #define SPECIES_FARWA "Farwa"
 #define SPECIES_WOLPIN "Wolpin"

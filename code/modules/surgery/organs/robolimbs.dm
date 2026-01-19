@@ -284,6 +284,13 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	// Only available for IPCs and at Chargen
 	species_allowed = list(SPECIES_MACNINEPERSON)
 
+/datum/robolimb/clockwork
+	company = "Clockwork"
+	desc = "Strange robotic limb made of brass"
+	icon = 'icons/mob/human_races/cyberlimbs/clockwork/clockwork_main.dmi'
+	selectable = FALSE
+	species_allowed = list(SPECIES_MACHINEPERSON_CLOCKWORK)
+
 #undef MODEL
 #undef BRAND
 #undef CHILDLESS

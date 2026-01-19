@@ -54,6 +54,7 @@
 		CLOCK_DESIGN("Clocked Upgrade", /obj/item/borg/upgrade/clockwork, 1000, 200, 3),
 		CLOCK_DESIGN("Marauder", /obj/item/clockwork/marauder, 1200, 300, 5),
 		CLOCK_DESIGN("Strange Shard", /obj/item/clockwork/shard, 2000, 500, 8),
+		CLOCK_DESIGN("Clockwork IPC", /mob/living/carbon/human/machine/clockwork, 80000, 5000, 60), // holy expensive machines
 	)
 
 /obj/structure/clockwork/functional/workshop/Destroy()
