@@ -14,6 +14,8 @@
 	blood_color = "#ada776"
 	burn_mod = 4 // holy shite, poor guys wont survive half a second cooking smores
 	brute_mod = 2 // damn, double wham, double dam
+	tox_mod = 0 // no liver, no blood, also can't metabolism charcoal and any other chemicals so getting any amount of toxin damage would be permanent
+	clone_mod = 0 // no DNA
 
 	inherent_traits = list(
 		TRAIT_NO_BLOOD,
@@ -27,11 +29,11 @@
 		TRAIT_NO_GERMS,
 		TRAIT_IGNOREDAMAGESLOWDOWN,
 		TRAIT_SUPERMATTER_IMMUNE,
+		TRAIT_NO_DNA,
 	)
 	bodyflags = HAS_BODY_MARKINGS
 	dies_at_threshold = TRUE
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
-	var/touched_supermatter = FALSE
 
 	speciesbox = /obj/item/storage/box/survival/species/nucleation
 
