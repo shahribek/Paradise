@@ -74,6 +74,8 @@
 	return
 
 /obj/item/gun/projectile/automatic/speargun/can_shoot(mob/user)
+	if(isclockwork && !isclocker(user))
+		return FALSE
 	if(chambered)
 		return TRUE
 	return FALSE
@@ -126,6 +128,8 @@
 	return ..()
 
 /obj/item/gun/projectile/revolver/rocketlauncher/can_shoot(mob/user)
+	if(isclockwork && !isclocker(user))
+		return FALSE
 	if(chambered)
 		return TRUE
 	return FALSE

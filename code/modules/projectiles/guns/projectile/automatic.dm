@@ -68,6 +68,8 @@
 		A.UpdateButtonIcon()
 
 /obj/item/gun/projectile/automatic/can_shoot(mob/user)
+	if(isclockwork && !isclocker(user))
+		return FALSE
 	return get_ammo()
 
 /obj/item/gun/projectile/automatic/CtrlClick(mob/user)

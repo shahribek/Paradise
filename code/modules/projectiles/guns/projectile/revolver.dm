@@ -83,6 +83,8 @@
 		verbs -= /obj/item/gun/projectile/revolver/verb/spin
 
 /obj/item/gun/projectile/revolver/can_shoot(mob/user)
+	if(isclockwork && !isclocker(user))
+		return FALSE
 	return get_ammo(FALSE, FALSE)
 
 /obj/item/gun/projectile/revolver/get_ammo(countchambered = FALSE, countempties = TRUE)

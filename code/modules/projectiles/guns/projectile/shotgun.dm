@@ -28,6 +28,8 @@
 	return
 
 /obj/item/gun/projectile/shotgun/can_shoot(mob/user)
+	if(isclockwork && !isclocker(user))
+		return FALSE
 	if(!chambered)
 		return FALSE
 	return (chambered.BB ? TRUE : FALSE)

@@ -48,6 +48,8 @@
 	return ..(countchambered, countempties)
 
 /obj/item/gun/projectile/bombarda/can_shoot(mob/user)
+	if(isclockwork && !isclocker(user))
+		return FALSE
 	if(!chambered)
 		return FALSE
 	if(opened)
