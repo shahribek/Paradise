@@ -3132,7 +3132,9 @@
 
 ///Set level of a specific skill
 /datum/mind/proc/set_level(skill, newlevel)
+	var/oldlevel = get_skill_level(skill)
 	known_skills[skill] = newlevel
+	skill.on_level_change(src, newlevel, oldlevel)
 
 ///Gets the skill's singleton and returns the result of its get_skill_modifier
 /datum/mind/proc/get_skill_modifier(skill, modifier)
