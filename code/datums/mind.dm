@@ -95,6 +95,7 @@
 
 /datum/mind/New(new_key)
 	key = new_key
+	init_known_skills()
 	soulOwner = src
 
 /datum/mind/Destroy()
