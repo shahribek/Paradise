@@ -875,6 +875,7 @@
 #include "code\datums\ruins\bridges.dm"
 #include "code\datums\ruins\lavaland.dm"
 #include "code\datums\ruins\space.dm"
+#include "code\datums\skills\_skills.dm"
 #include "code\datums\skins\donat_skins.dm"
 #include "code\datums\spell_cooldown\spell_charges.dm"
 #include "code\datums\spell_cooldown\spell_cooldown.dm"
