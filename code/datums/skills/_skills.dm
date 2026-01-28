@@ -9,3 +9,6 @@ GLOBAL_LIST_INIT(skill_types, subtypesof(/datum/skill))
 
 /datum/skill/proc/get_skill_modifier(modifier, level)
 	return modifiers[modifier][level] //Levels range from 1 (None) to 7 (Legendary)
+
+/datum/skill/proc/on_level_change(datum/mind/mind, newlevel, oldlevel)
+	return

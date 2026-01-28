@@ -91,6 +91,8 @@
 	///a list of objectives that a player with this job could complete for space credit rewards
 	var/list/job_objectives = list()
 
+	var/list/known_skills = list()
+
 /datum/mind/New(new_key)
 	key = new_key
 	soulOwner = src
@@ -3120,3 +3122,41 @@
 	..()
 	mind.assigned_role = "Juggernaut"
 	mind.special_role = SPECIAL_ROLE_CULTIST
+
+//skills
+
+/datum/mind/proc/init_known_skills()
+	for (var/type in GLOB.skill_types)
+		known_skills[type] = SKILL_LEVEL_NONE
+
+///Set level of a specific skill
+/datum/mind/proc/set_level(skill, newlevel)
+	known_skills[skill] = newlevel
+
+///Gets the skill's singleton and returns the result of its get_skill_modifier
+/datum/mind/proc/get_skill_modifier(skill, modifier)
+	var/datum/skill/S = GetSkillRef(skill)
+	return S.get_skill_modifier(modifier, known_skills[skill])
+
+///Gets the player's current level number from the relevant skill
+/datum/mind/proc/get_skill_level(skill)
+	return known_skills[skill]
+
+/datum/mind/proc/get_skill_level_name(skill)
+	var/level = get_skill_level(skill)
+	return SSskills.level_names[level]
+
+/datum/mind/proc/print_levels(user)
+	var/list/shown_skills = list()
+	for(var/i in known_skills)
+		if(known_skills[i] > SKILL_LEVEL_NONE) //Do we actually have a level in this?
+			shown_skills += i
+	if(!length(shown_skills))
+		to_chat(user, span_notice("You don't seem to have any particularly outstanding skills."))
+		return
+	var/msg = "[span_blue("<EM>Your skills</EM>")]\n<span class='notice'>"
+	for(var/i in shown_skills)
+		var/datum/skill/the_skill = i
+		msg += "[initial(the_skill.name)] - [get_skill_level_name(the_skill)]\n"
+	msg += "</span>"
+	to_chat(user, chat_box_regular(msg))
