@@ -68,7 +68,7 @@
 		return
 
 	if(!user.mind.is_skill_available(SKILL_CLEANING))
-		user.balloon_alert(user, "???")
+		user.balloon_alert(user, user.mind.get_skill_unavailable_message(SKILL_CLEANING))
 		return
 
 	if(reagents.total_volume < 1)

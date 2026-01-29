@@ -33,7 +33,7 @@
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 
 	if(!user.mind.is_skill_available(SKILL_CLEANING))
-		user.balloon_alert(user, "???")
+		user.balloon_alert(user, user.mind.get_skill_unavailable_message(SKILL_CLEANING))
 		return
 
 	var/cleaning_speed = cleanspeed * user.mind.get_skill_modifier(SKILL_CLEANING, SKILL_SPEED_MODIFIER)

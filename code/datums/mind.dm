@@ -3147,6 +3147,10 @@
 /datum/mind/proc/is_skill_available(skill)
 	return known_skills[skill] > 0
 
+/datum/mind/proc/get_skill_unavailable_message(skill)
+	var/datum/skill/S = GetSkillRef(skill)
+	return S.unavailable_massage()
+
 ///Gets the player's current level number from the relevant skill
 /datum/mind/proc/get_skill_level(skill)
 	return known_skills[skill]

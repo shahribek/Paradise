@@ -26,6 +26,19 @@ GLOBAL_LIST_INIT(skill_names, list(
 /datum/skill/proc/on_level_change(datum/mind/mind, newlevel, oldlevel)
 	return
 
+/datum/skill/proc/unavailable_massage()
+	switch(rand(1, 100))
+		if(1)
+			return "Ты долбаёб"
+		if(2 to 25)
+			return "Слишком сложно!"
+		if(26 to 50)
+			return "Ты такое не умеешь!"
+		if(51 to 75)
+			return "Ты в недоумении!"
+		if(76 to 100)
+			return "Хмм..."
+
 proc/init_skills_list()
 	var/list/skills = subtypesof(/datum/skill)
 	var/list/output = list()
