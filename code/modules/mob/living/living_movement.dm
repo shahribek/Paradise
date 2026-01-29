@@ -51,10 +51,7 @@
 		current_turf_slowdown = 0
 
 /mob/living/proc/get_strength_pull_slowdown_modifier()
-	var/mod = 1
-	mind.get_skill_modifier(SKILL_CARRYING, SKILL_SPEED_MODIFIER)
-
-	return mod
+	return mind.get_skill_modifier(SKILL_CARRYING, SKILL_SPEED_MODIFIER)
 
 /mob/living/proc/update_pull_movespeed()
 	SEND_SIGNAL(src, COMSIG_LIVING_UPDATING_PULL_MOVESPEED)
