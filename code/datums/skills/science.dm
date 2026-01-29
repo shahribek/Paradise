@@ -1,24 +1,24 @@
 /datum/skill/research
 	name = "Исследование"
-	title = "Исследователь"
+	title = SKILL_RESEARCH
 	desc = "Мастерство эффективного использования мозгов"
 
-/datum/skill/coder
+/datum/skill/designing
 	name = "Печать"
-	title = "Кодер"
+	title = SKILL_DESIGNING
 	desc = "Мастерство эффективного создания чертежей"
 
 /datum/skill/mecha_consturtor
 	name = "Конструирование мехов"
-	title = "МЕХаник"
+	title = SKILL_EXO_CONSTRUCTION
 	desc = "Мастерство создание экзокостюмов(мехов)"
 
 /datum/skill/anomalist
 	name = "Обращение с аномалиями"
-	title = "Аномалист"
+	title = SKILL_ANOMALIES
 	desc = "Мастерство обращения с аномалиями"
 
 /datum/skill/xenobiology
 	name = "Ксенобиология"
-	title = "Ксенобиолог"
+	title = SKILL_XENOBIOLOGY
 	desc = "Мастерство дружбы со слаймами"

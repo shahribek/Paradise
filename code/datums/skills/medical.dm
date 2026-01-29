@@ -1,24 +1,24 @@
 /datum/skill/surgery
 	name = "Хирургия"
-	title = "Хирург"
+	title = SKILL_SURGERY
 	desc = "Мастерство проведения хирургических операций"
 
 /datum/skill/healing
 	name = "Лечение"
-	title = "Медик"
+	title = SKILL_HEALING
 	desc = "Мастерство владения бинтами"
 
 /datum/skill/chemistry
 	name = "Химия"
-	title = "Химик"
+	title = SKILL_CHEMISTRY
 	desc = "Мастерство варки зелей"
 
 /datum/skill/genetics
 	name = "Генетика"
-	title = "Генетик"
+	title = SKILL_GENETICS
 	desc = "Мастерство мутатций"
 
 /datum/skill/virology
 	name = "Вирусология"
-	title = "Вирусолог"
+	title = SKILL_VIROLOGY
 	desc = "Мастерство вирусологии"

@@ -1,3 +1,12 @@
+///Skill namings
+#define SKILL_UNAVAILABLE "UNAVAILABLE"
+#define SKILL_NONE "NONE"
+#define SKILL_NOVICE "NOVICE"
+#define SKILL_APPRENTICE "APPRENTICE"
+#define SKILL_JOURNEYMAN "JOURNEYMAN"
+#define SKILL_EXPERT "EXPERT"
+#define SKILL_MASTER "MASTER"
+#define SKILL_LEGENDARY "LEGENDARY"
 
 // Skill levels
 #define SKILL_LEVEL_UNAVAILABLE 0
@@ -20,7 +29,7 @@
 #define SKILL_VALUE_MODIFIER "skill_value_modifier"
 
 // Gets the reference for the skill type that was given
-#define GetSkillRef(A) (SSskills.all_skills[A])
+#define GetSkillRef(A) (GLOB.skill_types[A])
 
 //GENERAL SKILLS
 #define SKILL_CARRYING "carrying skill"
@@ -51,7 +60,7 @@
 #define SKILL_SURGERY "surgical skill"
 #define SKILL_HEALING "healing skill"
 #define SKILL_CHEMISTRY "chemistry skill"
-#define SKILL_GENTICS "genetic skill"
+#define SKILL_GENETICS "genetic skill"
 #define SKILL_VIROLOGY "virology skill"
 
 //SCIENCE SKILLS

@@ -3150,7 +3150,7 @@
 
 /datum/mind/proc/get_skill_level_name(skill)
 	var/level = get_skill_level(skill)
-	return SSskills.level_names[level]
+	return GLOB.skill_names[level]
 
 /datum/mind/proc/print_levels(user)
 	var/list/shown_skills = list()
