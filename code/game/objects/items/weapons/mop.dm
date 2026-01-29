@@ -67,6 +67,10 @@
 	if(!proximity || iseffect(atom))
 		return
 
+	if(!user.mind.is_skill_available(SKILL_CLEANING))
+		user.balloon_alert(user, "???")
+		return
+
 	if(reagents.total_volume < 1)
 		to_chat(user, span_warning("Your mop is dry!"))
 		return
@@ -83,6 +87,8 @@
 	if(!length(turfs))
 		return
 
+	var/mopping_speed = mopspeed * user.mind.get_skill_modifier(SKILL_CLEANING, SKILL_SPEED_MODIFIER)
+
 	user.visible_message(
 		"[user] начина[PLUR_ET_YUT(user)] возить по полу [declent_ru(INSTRUMENTAL)].",
 		ignored_mobs = user
@@ -91,9 +97,9 @@
 
 	var/list/bubbles = list()
 	for(var/turf/turf as anything in turfs)
-		bubbles += new /obj/effect/temp_visual/bubbles(turf, mopspeed)
+		bubbles += new /obj/effect/temp_visual/bubbles(turf, mopping_speed)
 
-	if(!do_after(user, mopspeed, clicked_turf))
+	if(!do_after(user, mopping_speed, clicked_turf))
 		QDEL_LAZYLIST(bubbles)
 		return
 
@@ -110,6 +116,7 @@
 		return list(click_turf)
 
 	var/list/turfs = list()
+	var/mopping_range = mop_range + user.mind.get_skill_modifier(SKILL_CLEANING, SKILL_VALUE_MODIFIER)
 	for(var/turf/simulated/turf in range(mop_range, click_turf) - user_turf)
 		if(abs(turf.x - click_turf.x) + abs(turf.y - click_turf.y) > mop_range)
 			continue
