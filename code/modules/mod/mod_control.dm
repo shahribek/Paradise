@@ -698,7 +698,7 @@
 
 /obj/item/mod/control/proc/update_speed()
 	var/total_slowdown = 0
-	total_slowdown += slowdown_deployed
+	total_slowdown += slowdown_deployed * wearer.mind.get_skill_modifier(SKILL_MOD_CONTROL, SKILL_SPEED_MODIFIER)
 
 	var/list/module_slowdowns = list()
 	SEND_SIGNAL(src, COMSIG_MOD_UPDATE_SPEED, module_slowdowns)

@@ -36,7 +36,7 @@
 //GENERAL SKILLS
 #define SKILL_CARRYING "carrying skill"
 #define SKILL_EXOSUIT_CONTROL "exosuit controlling skill"
-#define SKILL_SPACESUIT_CONTROL "spacesuit controlling skill"
+#define SKILL_MOD_CONTROL "MODsuit controlling skill"
 #define SKILL_COOKING "cooking skill"
 
 //SERVICE SKILLS

@@ -4,6 +4,9 @@
 /obj/item/mod/control/proc/choose_deploy(mob/user)
 	if(!length(mod_parts))
 		return
+	if(!wearer.mind.is_skill_availabe(SKILL_MOD_CONTROL))
+		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_massage())
+		return
 	var/list/display_names = list()
 	var/list/items = list()
 	var/list/parts = get_parts()
@@ -47,6 +50,9 @@
 
 /// Quickly deploys all parts (or retracts if all are on the wearer)
 /obj/item/mod/control/proc/quick_deploy(mob/user)
+	if(!wearer.mind.is_skill_availabe(SKILL_MOD_CONTROL))
+		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_massage())
+		return
 	if(activating)
 		balloon_alert(user, "уже [active ? "складывается" : "развёртывается"]!")
 		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
@@ -72,6 +78,9 @@
 
 /// Deploys a part of the suit onto the user
 /obj/item/mod/control/proc/deploy(mob/user, obj/item/part, instant = FALSE)
+	if(!user.mind.is_skill_availabe(SKILL_MOD_CONTROL))
+		user.balloon_alert(user, user.mind.get_skill_unavailable_massage())
+		return
 	var/datum/mod_part/part_datum = get_part_datum(part)
 	if(!wearer)
 		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
@@ -231,7 +240,8 @@
 
 /obj/item/mod/control/proc/delayed_seal_part(obj/item/clothing/part)
 	var/datum/mod_part/part_datum = get_part_datum(part)
-	if(!do_after(wearer, activation_step_time, wearer, MOD_ACTIVATION_STEP_FLAGS, max_interact_count = 1, extra_checks = CALLBACK(src, PROC_REF(get_wearer))))
+	var/skill_factor = wearer.mind.get_skill_modifier(SKILL_MOD_CONTROL, SKILL_SPEED_MODIFIER)
+	if(!do_after(wearer, activation_step_time * skill_factor, MOD_ACTIVATION_STEP_FLAGS, max_interact_count = 1, extra_checks = CALLBACK(src, PROC_REF(get_wearer))))
 		return FALSE
 
 	to_chat(wearer, span_notice("[DECLENT_RU_CAP(part, NOMINATIVE)] [!part_datum.sealed ? part_datum.sealed_message : part_datum.unsealed_message]."))
@@ -240,7 +250,7 @@
 	return TRUE
 
 /obj/item/mod/control/proc/delayed_activation()
-	if(!do_after(wearer, activation_step_time, wearer, MOD_ACTIVATION_STEP_FLAGS, extra_checks = CALLBACK(src, PROC_REF(get_wearer))))
+	if(!do_after(wearer, activation_step_time * skill_factor, wearer, MOD_ACTIVATION_STEP_FLAGS, extra_checks = CALLBACK(src, PROC_REF(get_wearer))))
 		return FALSE
 	control_activation(is_on = !active)
 	return TRUE
