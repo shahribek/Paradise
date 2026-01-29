@@ -15,8 +15,10 @@ GLOBAL_LIST_INIT(skill_names, list(
 	var/title = "Skiller"
 	var/desc = "the art of doing things"
 	///Dictionary of modifier type - list of modifiers (indexed by level). 7 entries in each list for all 7 skill levels.
-	var/modifiers = list(SKILL_SPEED_MODIFIER = list(1, 1, 1, 1, 1, 1, 1)) //Dictionary of modifier type - list of modifiers (indexed by level). 7 entries in each list for all 7 skill levels.
-
+	var/modifiers = list(
+		SKILL_SPEED_MODIFIER = list(2, 1.5, 1, 0.75, 0.5, 0.25, 0.1),
+		SKILL_EFFICIENCE_MODIFIER = list(0.5, 0.75, 1, 1.25, 1.5, 2, 3),
+	)
 /datum/skill/proc/get_skill_modifier(modifier, level)
 	return modifiers[modifier][level] //Levels range from 1 (None) to 7 (Legendary)
 

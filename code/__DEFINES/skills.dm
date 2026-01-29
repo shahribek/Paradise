@@ -21,12 +21,7 @@
 //Skill modifier types
 ///ideally added/subtracted in speed calculations to make you do stuff faster
 #define SKILL_SPEED_MODIFIER "skill_speed_modifier"
-///ideally added/subtracted where beneficial in prob(x) calls
-#define SKILL_PROBS_MODIFIER "skill_probability_modifier"
-///ideally added/subtracted where beneficial in rand(x,y) calls
-#define SKILL_RANDS_MODIFIER "skill_randomness_modifier"
-///ideally for addittive operations
-#define SKILL_VALUE_MODIFIER "skill_value_modifier"
+#define SKILL_EFFICIENCY_MODIFIER "skill officiency modifier"
 
 // Gets the reference for the skill type that was given
 #define GetSkillRef(A) (GLOB.skill_types[A])
