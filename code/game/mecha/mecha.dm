@@ -466,7 +466,8 @@
 	var/move_result = FALSE
 	var/move_type = FALSE
 	var/old_direction = dir //Initial direction of the mecha
-	var/step_in_final = strafe ? (step_in * strafe_speed_factor) : step_in //Modifies strafe speed, if "strafe_speed_factor" is anything other than 1
+	var/skill_factor = occupant.mind.get_skill_modifier(SKILL_EXOSUIT_CONTROL, SKILL_SPEED_MODIFIER)
+	var/step_in_final = strafe ? (step_in * strafe_speed_factor * skill_factor) : step_in * skill_factor //Modifies strafe speed, if "strafe_speed_factor" is anything other than 1
 	var/strafed_backwards = FALSE //Checks if mecha moved backwards, while strafe is active (used later to modify speed and energy drain)
 
 	var/keyheld = FALSE //Checks if player pressed ALT button down while strafe is active
@@ -528,7 +529,8 @@
 #undef STRAFE_BACKWARDS_FACTOR
 
 /obj/mecha/proc/aftermove(move_type)
-	use_power(step_energy_drain)
+	var/skill_factor = occupant.mind.get_skill_modifier(SKILL_EXOSUIT_CONTROL, SKILL_EFFICIENCY_MODIFIER)
+	use_power(round(step_energy_drain / skill_factor))
 	if(move_type & (MECHAMOVE_RAND | MECHAMOVE_STEP) && occupant)
 		var/obj/machinery/atmospherics/unary/portables_connector/possible_port = locate(/obj/machinery/atmospherics/unary/portables_connector) in loc
 		if(possible_port)
@@ -540,7 +542,7 @@
 	if(leg_overload_mode)
 		if(strafe) //No strafe while overload is active
 			toggle_strafe(silent = TRUE)
-		take_damage(1, BRUTE, FALSE, FALSE)
+		take_damage(round(1 / skill_factor, DAMAGE_PRECISION), BRUTE, FALSE, FALSE)
 		if(obj_integrity < max_integrity - max_integrity / 3)
 			leg_overload_mode = FALSE
 			step_in = initial(step_in)
@@ -1319,6 +1321,9 @@
 		return
 	if(user != M)
 		return
+	if(!user.mind.is_skill_available())
+		to_chat(user, span_warning(user.mind.get_skill_unavailable_massage))
+		return TRUE
 	if(occupant)
 		to_chat(user, span_warning("The [src] is already occupied!"))
 
@@ -1347,7 +1352,7 @@
 	return TRUE
 
 /obj/mecha/proc/put_in(mob/user)
-	if(do_after(user, mech_enter_time, src, category = DA_CAT_TOOL))
+	if(do_after(user, mech_enter_time * user.mind.get_skill_modifier(SKILL_EXOSUIT_CONTROL, SKILL_SPEED_MODIFIER), src, category = DA_CAT_TOOL))
 		if(obj_integrity <= 0)
 			to_chat(user, span_warning("You cannot get in the [name], it has been destroyed!"))
 		else if(occupant)
@@ -1401,6 +1406,9 @@
 		return FALSE
 	else if(!operation_allowed(user))
 		to_chat(user, span_warning("Access denied. [name] is secured with an ID lock."))
+		return FALSE
+	else if(!mmi_as_oc.brainmob.mind.is_skill_available(SKILL_EXOSUIT_CONTROL))
+		to_chat(user, span_warning("Conciousness is too dumb!"))
 		return FALSE
 
 	if(do_after(user, 4 SECONDS, src))
