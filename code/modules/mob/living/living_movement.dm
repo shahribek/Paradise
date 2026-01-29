@@ -52,10 +52,7 @@
 
 /mob/living/proc/get_strength_pull_slowdown_modifier()
 	var/mod = 1
-	var/list/mods = list()
-	SEND_SIGNAL(src, COMSIG_GET_PULL_SLOWDOWN_MODIFIERS, mods)
-	for(var/modifier in mods)
-		mod *= modifier
+	mind.get_skill_modifier(SKILL_CARRYING, SKILL_SPEED_MODIFIER)
 
 	return mod
 
