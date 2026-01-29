@@ -3139,6 +3139,8 @@
 
 ///Gets the skill's singleton and returns the result of its get_skill_modifier
 /datum/mind/proc/get_skill_modifier(skill, modifier)
+	if(known_skills[skill] == 0)
+		return // we return nothing so we tell that this skill is unavailable
 	var/datum/skill/S = GetSkillRef(skill)
 	return S.get_skill_modifier(modifier, known_skills[skill])
 

@@ -1,5 +1,6 @@
 
 // Skill levels
+#define SKILL_LEVEL_UNAVAILABLE 0
 #define SKILL_LEVEL_NONE 1
 #define SKILL_LEVEL_NOVICE 2
 #define SKILL_LEVEL_APPRENTICE 3
@@ -7,8 +8,6 @@
 #define SKILL_LEVEL_EXPERT 5
 #define SKILL_LEVEL_MASTER 6
 #define SKILL_LEVEL_LEGENDARY 7
-
-#define SKILL_LVL 1
 
 //Skill modifier types
 ///ideally added/subtracted in speed calculations to make you do stuff faster
@@ -22,3 +21,42 @@
 
 // Gets the reference for the skill type that was given
 #define GetSkillRef(A) (SSskills.all_skills[A])
+
+//GENERAL SKILLS
+#define SKILL_CARRYING "carrying skill"
+#define SKILL_EXOSUIT_CONTROL "exosuit controlling skill"
+#define SKILL_SPACESUIT_CONTROL "spacesuit controlling skill"
+#define SKILL_COOKING "cooking skill"
+
+//SERVICE SKILLS
+#define SKILL_DRINKING "drinking skill"
+#define SKILL_BOTANICS "botanical skill"
+#define SKILL_CLEANING "cleaning skill"
+
+//COMBAT SKILLS
+#define SKILL_ACCURACY "accuracy skill"
+#define SKILL_RANGED_WEAPONS "ranged weapon skill"
+#define SKILL_MELEE_WEAPONS "melee weapon skill"
+#define SKILL_CQC "close quarter combat skill"
+#define SKILL_SHIELDS "shield skill"
+
+//ENGINEERING SKILLS
+#define SKILL_BUILDING "building skill"
+#define SKILL_CONSTRUCTION "construction skill"
+#define SKILL_ELECTRICAL "electrical skill"
+#define SKILL_ATMOS "atmos skill"
+#define SKILL_HACKING "hacking skill"
+
+//MEDICAL SKILLS
+#define SKILL_SURGERY "surgical skill"
+#define SKILL_HEALING "healing skill"
+#define SKILL_CHEMISTRY "chemistry skill"
+#define SKILL_GENTICS "genetic skill"
+#define SKILL_VIROLOGY "virology skill"
+
+//SCIENCE SKILLS
+#define SKILL_RESEARCH "research skill"
+#define SKILL_DESIGNING "designing skill"
+#define SKILL_EXO_CONSTRUCTION "exostui construction skill"
+#define SKILL_ANOMALIES "anomalist skill"
+#define SKILL_XENOBIOLOGY "xenobiology"
