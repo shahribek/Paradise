@@ -42,6 +42,6 @@ GLOBAL_LIST_INIT(skill_names, list(
 proc/init_skills_list()
 	var/list/skills = subtypesof(/datum/skill)
 	var/list/output = list()
-	for(var/skill as anything in skills)
+	for(var/datum/skill/skill as anything in skills)
 		output[skill.title] = skill
 	return output

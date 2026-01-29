@@ -117,11 +117,11 @@
 
 	var/list/turfs = list()
 	var/mopping_range = mop_range + user.mind.get_skill_modifier(SKILL_CLEANING, SKILL_VALUE_MODIFIER)
-	for(var/turf/simulated/turf in range(mop_range, click_turf) - user_turf)
-		if(abs(turf.x - click_turf.x) + abs(turf.y - click_turf.y) > mop_range)
+	for(var/turf/simulated/turf in range(mopping_range, click_turf) - user_turf)
+		if(abs(turf.x - click_turf.x) + abs(turf.y - click_turf.y) > mopping_range)
 			continue
 
-		if(get_dist(user_turf, turf) > mop_range)
+		if(get_dist(user_turf, turf) > mopping_range)
 			continue
 
 		turfs |= turf

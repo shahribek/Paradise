@@ -1322,7 +1322,7 @@
 	if(user != M)
 		return
 	if(!user.mind.is_skill_available())
-		to_chat(user, span_warning(user.mind.get_skill_unavailable_massage))
+		to_chat(user, span_warning(user.mind.get_skill_unavailable_message()))
 		return TRUE
 	if(occupant)
 		to_chat(user, span_warning("The [src] is already occupied!"))

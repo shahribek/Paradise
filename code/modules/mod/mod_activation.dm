@@ -4,8 +4,8 @@
 /obj/item/mod/control/proc/choose_deploy(mob/user)
 	if(!length(mod_parts))
 		return
-	if(!wearer.mind.is_skill_availabe(SKILL_MOD_CONTROL))
-		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_massage())
+	if(!wearer.mind.is_skill_available(SKILL_MOD_CONTROL))
+		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_message())
 		return
 	var/list/display_names = list()
 	var/list/items = list()
@@ -50,8 +50,8 @@
 
 /// Quickly deploys all parts (or retracts if all are on the wearer)
 /obj/item/mod/control/proc/quick_deploy(mob/user)
-	if(!wearer.mind.is_skill_availabe(SKILL_MOD_CONTROL))
-		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_massage())
+	if(!wearer.mind.is_skill_available(SKILL_MOD_CONTROL))
+		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_message())
 		return
 	if(activating)
 		balloon_alert(user, "уже [active ? "складывается" : "развёртывается"]!")
@@ -78,8 +78,8 @@
 
 /// Deploys a part of the suit onto the user
 /obj/item/mod/control/proc/deploy(mob/user, obj/item/part, instant = FALSE)
-	if(!user.mind.is_skill_availabe(SKILL_MOD_CONTROL))
-		user.balloon_alert(user, user.mind.get_skill_unavailable_massage())
+	if(!user.mind.is_skill_available(SKILL_MOD_CONTROL))
+		user.balloon_alert(user, user.mind.get_skill_unavailable_message())
 		return
 	var/datum/mod_part/part_datum = get_part_datum(part)
 	if(!wearer)
@@ -250,6 +250,7 @@
 	return TRUE
 
 /obj/item/mod/control/proc/delayed_activation()
+	var/skill_factor = wearer.mind.get_skill_modifier(SKILL_MOD_CONTROL, SKILL_SPEED_MODIFIER)
 	if(!do_after(wearer, activation_step_time * skill_factor, wearer, MOD_ACTIVATION_STEP_FLAGS, extra_checks = CALLBACK(src, PROC_REF(get_wearer))))
 		return FALSE
 	control_activation(is_on = !active)
