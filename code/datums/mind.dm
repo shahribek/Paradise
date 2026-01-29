@@ -3131,7 +3131,7 @@
 		known_skills[type] = SKILL_LEVEL_NONE
 
 ///Set level of a specific skill
-/datum/mind/proc/set_level(skill, newlevel)
+/datum/mind/proc/set_skill_level(skill, newlevel)
 	var/oldlevel = get_skill_level(skill)
 	known_skills[skill] = newlevel
 	var/datum/skill/S = GetSkillRef(skill)

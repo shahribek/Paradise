@@ -96,6 +96,8 @@
 	/// Whether this is a head position
 	var/head_position = FALSE
 
+	var/list/skillset = list()
+
 #define MAX_START_MONEY_MULTIPLIER 3
 
 /datum/job/New()

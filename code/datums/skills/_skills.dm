@@ -2,12 +2,12 @@ GLOBAL_LIST_INIT(skill_types, init_skills_list())
 GLOBAL_LIST_INIT(skill_names, list(
 	SKILL_LEVEL_UNAVAILABLE = SKILL_UNAVAILABLE,
 	SKILL_LEVEL_NONE = SKILL_NONE,
-	SKILL_LEVEL_NOVICE = SKILL_NOVICE,
-	SKILL_LEVEL_APPRENTICE = SKILL_APPRENTICE,
-	SKILL_LEVEL_JOURNEYMAN = SKILL_JOURNEYMAN,
+	SKILL_LEVEL_BEGINNER = SKILL_BEGINNER,
+	SKILL_LEVEL_BASIC = SKILL_BASIC,
+	SKILL_LEVEL_ADVANCED = SKILL_ADVANCED,
+	SKILL_LEVEL_PROFESSIONAL = SKILL_EXPERT,
 	SKILL_LEVEL_EXPERT = SKILL_EXPERT,
-	SKILL_LEVEL_MASTER = SKILL_MASTER,
-	SKILL_LEVEL_LEGENDARY = SKILL_LEGENDARY,
+	SKILL_LEVEL_LEGEND = SKILL_LEGEND,
 ))
 
 /datum/skill
@@ -39,7 +39,7 @@ GLOBAL_LIST_INIT(skill_names, list(
 		if(76 to 100)
 			return "Хмм..."
 
-proc/init_skills_list()
+/proc/init_skills_list()
 	var/list/skills = subtypesof(/datum/skill)
 	var/list/output = list()
 	for(var/datum/skill/skill as anything in skills)

@@ -510,6 +510,7 @@ SUBSYSTEM_DEF(jobs)
 		human.mind.assigned_role = rank
 		alt_title = human.mind.role_alt_title
 
+		set_skillset(human, job)
 		CreateMoneyAccount(human, rank, job)
 	if(!job.announce_job)
 		return human
@@ -1048,3 +1049,8 @@ SUBSYSTEM_DEF(jobs)
 	SSdbcore.MassExecute(playtime_history_update_queries, TRUE, TRUE, FALSE, FALSE)
 
 	Debug("Successfully updated all EXP data in [stop_watch(start_time)]s")
+
+/datum/controller/subsystem/jobs/proc/set_skillset(mob/living/carbon/human/H, datum/job/job)
+	var/datum/mind/mind = H.mind
+	for(var/skill in job.skillset)
+		mind.set_skill_level(skill, max(job.skillset[skill], mind.get_skill_level(skill)))
