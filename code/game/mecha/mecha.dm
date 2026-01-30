@@ -466,7 +466,7 @@
 	var/move_result = FALSE
 	var/move_type = FALSE
 	var/old_direction = dir //Initial direction of the mecha
-	var/skill_factor = occupant.mind.get_skill_modifier(SKILL_EXOSUIT_CONTROL, SKILL_SPEED_MODIFIER)
+	var/skill_factor = occupant ? occupant.mind.get_skill_modifier(SKILL_EXOSUIT_CONTROL, SKILL_SPEED_MODIFIER) : 1
 	var/step_in_final = strafe ? (step_in * strafe_speed_factor * skill_factor) : step_in * skill_factor //Modifies strafe speed, if "strafe_speed_factor" is anything other than 1
 	var/strafed_backwards = FALSE //Checks if mecha moved backwards, while strafe is active (used later to modify speed and energy drain)
 
@@ -529,7 +529,7 @@
 #undef STRAFE_BACKWARDS_FACTOR
 
 /obj/mecha/proc/aftermove(move_type)
-	var/skill_factor = occupant.mind.get_skill_modifier(SKILL_EXOSUIT_CONTROL, SKILL_EFFICIENCY_MODIFIER)
+	var/skill_factor = occupant ? occupant.mind.get_skill_modifier(SKILL_EXOSUIT_CONTROL, SKILL_EFFICIENCY_MODIFIER) : 1
 	use_power(round(step_energy_drain / skill_factor))
 	if(move_type & (MECHAMOVE_RAND | MECHAMOVE_STEP) && occupant)
 		var/obj/machinery/atmospherics/unary/portables_connector/possible_port = locate(/obj/machinery/atmospherics/unary/portables_connector) in loc
@@ -1321,8 +1321,8 @@
 		return
 	if(user != M)
 		return
-	if(!user.mind.is_skill_available())
-		to_chat(user, span_warning(user.mind.get_skill_unavailable_message()))
+	if(!user.mind.is_skill_available(SKILL_EXOSUIT_CONTROL))
+		to_chat(user, span_warning(user.mind.get_skill_unavailable_message(SKILL_EXOSUIT_CONTROL)))
 		return TRUE
 	if(occupant)
 		to_chat(user, span_warning("The [src] is already occupied!"))

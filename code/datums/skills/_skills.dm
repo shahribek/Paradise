@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(skill_names, list(
 	///Dictionary of modifier type - list of modifiers (indexed by level). 7 entries in each list for all 7 skill levels.
 	var/modifiers = list(
 		SKILL_SPEED_MODIFIER = list(2, 1.5, 1, 0.75, 0.5, 0.25, 0.1),
-		SKILL_EFFICIENCE_MODIFIER = list(0.5, 0.75, 1, 1.25, 1.5, 2, 3),
+		SKILL_EFFICIENCY_MODIFIER = list(0.5, 0.75, 1, 1.25, 1.5, 2, 3),
 		SKILL_VALUE_MODIFIER = list(0, 0, 0, 1, 2, 3, 4)
 	)
 /datum/skill/proc/get_skill_modifier(modifier, level)
@@ -29,7 +29,7 @@ GLOBAL_LIST_INIT(skill_names, list(
 /datum/skill/proc/unavailable_massage()
 	switch(rand(1, 100))
 		if(1)
-			return "Ты долбаёб"
+			return "skill issue"
 		if(2 to 25)
 			return "Слишком сложно!"
 		if(26 to 50)
@@ -43,5 +43,5 @@ GLOBAL_LIST_INIT(skill_names, list(
 	var/list/skills = subtypesof(/datum/skill)
 	var/list/output = list()
 	for(var/datum/skill/skill as anything in skills)
-		output[skill.title] = skill
+		output[skill.title] = new skill()
 	return output

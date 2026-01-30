@@ -5,7 +5,7 @@
 	if(!length(mod_parts))
 		return
 	if(!wearer.mind.is_skill_available(SKILL_MOD_CONTROL))
-		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_message())
+		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_message(SKILL_MOD_CONTROL))
 		return
 	var/list/display_names = list()
 	var/list/items = list()
@@ -51,7 +51,7 @@
 /// Quickly deploys all parts (or retracts if all are on the wearer)
 /obj/item/mod/control/proc/quick_deploy(mob/user)
 	if(!wearer.mind.is_skill_available(SKILL_MOD_CONTROL))
-		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_message())
+		wearer.balloon_alert(wearer, wearer.mind.get_skill_unavailable_message(SKILL_MOD_CONTROL))
 		return
 	if(activating)
 		balloon_alert(user, "уже [active ? "складывается" : "развёртывается"]!")
@@ -66,7 +66,7 @@
 	playsound(src, 'sound/mecha/mechmove03.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	for(var/obj/item/part as anything in get_parts())
 		if(deploy && part.loc == src)
-			if(!deploy(null, part))
+			if(!deploy(user, part))
 				continue
 		else if(!deploy && part.loc != src)
 			retract(null, part)
@@ -79,7 +79,7 @@
 /// Deploys a part of the suit onto the user
 /obj/item/mod/control/proc/deploy(mob/user, obj/item/part, instant = FALSE)
 	if(!user.mind.is_skill_available(SKILL_MOD_CONTROL))
-		user.balloon_alert(user, user.mind.get_skill_unavailable_message())
+		user.balloon_alert(user, user.mind.get_skill_unavailable_message(SKILL_MOD_CONTROL))
 		return
 	var/datum/mod_part/part_datum = get_part_datum(part)
 	if(!wearer)
@@ -241,7 +241,7 @@
 /obj/item/mod/control/proc/delayed_seal_part(obj/item/clothing/part)
 	var/datum/mod_part/part_datum = get_part_datum(part)
 	var/skill_factor = wearer.mind.get_skill_modifier(SKILL_MOD_CONTROL, SKILL_SPEED_MODIFIER)
-	if(!do_after(wearer, activation_step_time * skill_factor, MOD_ACTIVATION_STEP_FLAGS, max_interact_count = 1, extra_checks = CALLBACK(src, PROC_REF(get_wearer))))
+	if(!do_after(wearer, activation_step_time * skill_factor, wearer, MOD_ACTIVATION_STEP_FLAGS, max_interact_count = 1, extra_checks = CALLBACK(src, PROC_REF(get_wearer))))
 		return FALSE
 
 	to_chat(wearer, span_notice("[DECLENT_RU_CAP(part, NOMINATIVE)] [!part_datum.sealed ? part_datum.sealed_message : part_datum.unsealed_message]."))
@@ -325,6 +325,6 @@
 /obj/item/mod/control/proc/quick_activation()
 	control_activation(is_on = TRUE)
 	for(var/obj/item/part as anything in get_parts())
-		deploy(null, part, instant = TRUE)
+		deploy(wearer, part, instant = TRUE)
 
 #undef MOD_ACTIVATION_STEP_FLAGS

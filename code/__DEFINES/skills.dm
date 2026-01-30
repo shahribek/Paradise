@@ -22,7 +22,7 @@
 ///ideally added/subtracted in speed calculations to make you do stuff faster
 #define SKILL_SPEED_MODIFIER "skill_speed_modifier"
 ///how perfecly we can it
-#define SKILL_EFFICIENCY_MODIFIER "skill officiency modifier"
+#define SKILL_EFFICIENCY_MODIFIER "skill efficiency modifier"
 ///ideally added/subtracted where beneficial in prob(x) calls
 #define SKILL_PROBS_MODIFIER "skill_probability_modifier"
 ///ideally added/subtracted where beneficial in rand(x,y) calls
