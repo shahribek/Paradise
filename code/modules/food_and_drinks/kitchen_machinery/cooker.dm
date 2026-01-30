@@ -152,7 +152,13 @@
 	if(!putIn(I, user))
 		return ATTACK_CHAIN_PROCEED
 
-	addtimer(CALLBACK(src, PROC_REF(cooking_end), I, user), cooktime)
+	var/skill_factor = 1
+	if(user?.mind)
+		if(!user.mind.is_skill_available(SKILL_COOKING))
+			balloon_alert(user, user.mind.get_skill_unavailable_message(SKILL_COOKING))
+			return ATTACK_CHAIN_BLOCKED_ALL
+		skill_factor = user.mind.get_skill_modifier(SKILL_COOKING, SKILL_SPEED_MODIFIER)
+	addtimer(CALLBACK(src, PROC_REF(cooking_end), I, user), cooktime * skill_factor)
 	return ATTACK_CHAIN_BLOCKED_ALL
 
 /obj/machinery/cooker/proc/cooking_end(obj/item/cooking, mob/cook)
