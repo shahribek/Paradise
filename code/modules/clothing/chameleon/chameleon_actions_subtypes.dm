@@ -187,3 +187,8 @@
 		UpdateButtonIcon()
 		return
 	..()
+
+// Cigpack
+/datum/action/item_action/chameleon/change/cigpack
+	chameleon_name = "cigarette packet"
+	chameleon_type = /obj/item/storage/fancy/cigarettes

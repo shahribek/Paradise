@@ -322,3 +322,46 @@ do { \
 
 #undef BREAK_CHAMELEON_ACTION
 
+//cham cigs
+#define MAX_LOADOUT_AMOUNT 5
+/obj/item/storage/fancy/cigarettes/chameleon
+	actions_types = list(/datum/action/item_action/chameleon/change/cigpack)
+	var/outfit_copies = list()
+	var/loadout_copies
+	description_antag = "You can use this device on other people up 3 tiles away from you to copy their clothing appearence.\b\
+						You can also use it on yourself to copy your loadout.\b\
+						CTRL + CLICK to open cinfiguration menu.\b"
+
+/obj/item/storage/fancy/cigarettes/chameleon/attack(mob/living/target, mob/living/user, params, def_zone, skip_attack_anim)
+	if(!ishuman(target))
+		return ..()
+	var/mob/living/carbon/human/human
+	if(!(length(copies) < MAX_LOADOUT_AMOUNT))
+		user.balloon_alert(user, "not enough memory!")
+		return ATTACK_CHAIN_BLOCKED_ALL
+	var/image/copy = image(human, dir = SOUTH)
+	outfit_copies["slot [length(copies) + 1]"] = copy
+	loadout_copies["slot [length(copies) + 1]"] = list(
+		ITEM_SLOT_CLOTH_INNER = human.w_uniform,
+		ITEM_SLOT_CLOTH_OUTER = human.wear_suit,
+		ITEM_SLOT_HEAD = human.head,
+		ITEM_SLOT_EAR_LEFT = human.l_ear,
+		ITEM_SLOT_EAR_RIGHT = human.r_ear,
+		ITEM_SLOT_GLOVES = human.gloves,
+		ITEM_SLOT_FEET = human.shoes,
+		ITEM_SLOT_NECK = human.neck,
+		ITEM_SLOT_BACKPACK = human.back,
+		ITEM_SLOT_EYES = human.glasses,
+		ITEM_SLOT_PDA = human.wear_pda,
+		ITEM_SLOT_ID = human.wear_id,
+		ITEM_SLOT_BELT = human.belt,
+	)
+
+/obj/item/storage/cigarettes/chameleon/attack_self(mob/user)
+	choice = show_radial_menu(user, src, outfit_copies)
+
+/obj/item/storage/fancy/cigarettes/chameleon/CtrlClick(mob/user)
+	if(!ishuman(user))
+		return ..()
+
+	var/mob/living/carbon/human/human = user
