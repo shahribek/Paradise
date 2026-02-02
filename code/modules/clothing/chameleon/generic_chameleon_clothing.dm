@@ -336,12 +336,13 @@ do { \
 	if(!ishuman(target))
 		return ..()
 	var/mob/living/carbon/human/human
-	if(!(length(copies) < MAX_LOADOUT_AMOUNT))
+	var/memory = length(outfit_copies)
+	if(!(memory < MAX_LOADOUT_AMOUNT))
 		user.balloon_alert(user, "not enough memory!")
 		return ATTACK_CHAIN_BLOCKED_ALL
 	var/image/copy = image(human, dir = SOUTH)
-	outfit_copies["slot [length(copies) + 1]"] = copy
-	loadout_copies["slot [length(copies) + 1]"] = list(
+	outfit_copies["slot [memory + 1]"] = copy
+	loadout_copies["slot [memory + 1]"] = list(
 		ITEM_SLOT_CLOTH_INNER = human.w_uniform,
 		ITEM_SLOT_CLOTH_OUTER = human.wear_suit,
 		ITEM_SLOT_HEAD = human.head,
