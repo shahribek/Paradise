@@ -35,6 +35,7 @@
 	var/broken_icon
 	var/dirty_icon
 	var/open_icon
+	var/skill_factor //used for speed multiplier depending on cooking skills(dont ask me why does this run faster with better cooking skills)
 
 /*******************
 *   Initialising
