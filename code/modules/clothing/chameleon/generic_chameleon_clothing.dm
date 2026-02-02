@@ -327,7 +327,7 @@ do { \
 /obj/item/storage/fancy/cigarettes/chameleon
 	actions_types = list(/datum/action/item_action/chameleon/change/cigpack)
 	var/outfit_copies = list()
-	var/loadout_copies
+	var/loadout_copies = list()
 	description_antag = "You can use this device on other people up 3 tiles away from you to copy their clothing appearence.\b\
 						You can also use it on yourself to copy your loadout.\b\
 						CTRL + CLICK to open cinfiguration menu.\b"
@@ -359,7 +359,7 @@ do { \
 	)
 
 /obj/item/storage/cigarettes/chameleon/attack_self(mob/user)
-	choice = show_radial_menu(user, src, outfit_copies)
+	var/choice = show_radial_menu(user, src, outfit_copies)
 
 /obj/item/storage/fancy/cigarettes/chameleon/CtrlClick(mob/user)
 	if(!ishuman(user))
