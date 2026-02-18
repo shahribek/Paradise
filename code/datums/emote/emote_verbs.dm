@@ -100,7 +100,7 @@
 	emote("clap", intentional = TRUE)
 
 /mob/living/carbon/human/verb/emote_fart()
-	set name = "▷ Пернуть "
+	set name = "▷ Пёрнуть "
 	set category = "Эмоции"
 	emote("fart", intentional = TRUE)
 
