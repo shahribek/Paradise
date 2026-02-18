@@ -99,6 +99,11 @@
 	set category = VERB_CATEGORY_EMOTIONS
 	emote("clap", intentional = TRUE)
 
+/mob/living/carbon/human/verb/emote_fart()
+	set name = "▷ Пёрнуть "
+	set category = "Эмоции"
+	emote("fart", intentional = TRUE)
+
 /mob/living/carbon/human/verb/emote_crack()
 	set name = "▷ Хрустеть пальцами "
 	set category = VERB_CATEGORY_EMOTIONS
