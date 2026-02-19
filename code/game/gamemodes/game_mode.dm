@@ -732,10 +732,10 @@
 
 /datum/game_mode/proc/replace_jobbanned_player(mob/living/player, role_type)
 	var/list/mob/dead/observer/candidates = SSghost_spawns.poll_candidates("Do you want to play as a [role_type]?", role_type, FALSE, 10 SECONDS)
-	
+
 	if(QDELETED(player))
 		return
-	
+
 	var/mob/dead/observer/theghost = null
 	if(length(candidates))
 		theghost = pick(candidates)
@@ -964,6 +964,36 @@
 
 /datum/game_mode/proc/late_join(mob/new_player/player)
 	return FALSE
+
+/proc/config_to_roles(list/check_list)
+	var/list/new_list = list()
+	for(var/index in check_list)
+		switch(index)
+			if("hijacker")
+				new_list += ROLE_HIJACKER
+				new_list[ROLE_HIJACKER] = check_list[index]
+			if("malfai")
+				new_list += ROLE_MALF_AI
+				new_list[ROLE_MALF_AI] = check_list[index]
+			if("prisoner")
+				new_list += ROLE_ESCAPING_PRISONER
+				new_list[ROLE_ESCAPING_PRISONER] = check_list[index]
+			if("ninja")
+				new_list += ROLE_NINJA
+				new_list[ROLE_NINJA] = check_list[index]
+			if("thief")
+				new_list += ROLE_THIEF
+				new_list[ROLE_THIEF] = check_list[index]
+			if("nothing")
+				new_list += ROLE_NONE
+				new_list[ROLE_NONE] = check_list[index]
+			if("devil")
+				new_list += ROLE_DEVIL
+				new_list[ROLE_DEVIL] = check_list[index]
+			else
+				new_list += index
+				new_list[index] = check_list[index]
+	return new_list
 
 #undef ROUNDSTART_LOGOUT_REPORT_TIME
 #undef STATION_GOAL_BUDGET
