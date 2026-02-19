@@ -1263,42 +1263,42 @@
 		Game() // updates the main game menu
 		.(href, list("f_secret"=1))
 
-	// else if(href_list["change_weights"])
-	// 	if(!check_rights(R_ADMIN))
-	// 		return
-	// 	if(SSticker?.mode)
-	// 		return tgui_alert(usr, "The game has already started.")
-	// 	if(GLOB.master_mode != "antag-paradise" && GLOB.secret_force_mode != "antag-paradise")
-	// 		return tgui_alert(usr, "The game mode has to be Antag Paradise!")
+	else if(href_list["change_weights"])
+		if(!check_rights(R_ADMIN))
+			return
+		if(SSticker?.mode)
+			return tgui_alert(usr, "The game has already started.")
+		if(GLOB.master_mode != "antag-paradise" && GLOB.secret_force_mode != "antag-paradise")
+			return tgui_alert(usr, "The game mode has to be Antag Paradise!")
 
-	// 	var/dat = {"<b>Edit the antag weights for minor antagonists. Higher the weight higher the chance for antag to roll. Press reset if you want default behavior.</b><hr>"}
-	// 	dat += {"<table><tr><td><b>Antag</b></td><td><b>Weight</b></td></tr>"}
-	// 	var/list/antags_list
-	// 	if(GLOB.antag_paradise_weights)
-	// 		antags_list = GLOB.antag_paradise_weights
-	// 	else
-	// 		antags_list = CONFIG_GET(keyed_list/antag_paradise_single_antags_weights)
-	// 		antags_list = antags_list.Copy()
+		var/dat = {"<b>Edit the antag weights for minor antagonists. Higher the weight higher the chance for antag to roll. Press reset if you want default behavior.</b><hr>"}
+		dat += {"<table><tr><td><b>Antag</b></td><td><b>Weight</b></td></tr>"}
+		var/list/antags_list
+		if(GLOB.antag_paradise_weights)
+			antags_list = GLOB.antag_paradise_weights
+		else
+			antags_list = CONFIG_GET(keyed_list/antag_paradise_single_antags_weights)
+			antags_list = antags_list.Copy()
 
-	// 	for(var/antag in antags_list)
-	// 		dat += {"<tr><td>[capitalize(antag)]</td><td><a href='byond://?src=[UID()];change_weights2=weights_normal_[antag]'>\[[antags_list[antag]]\]</a></td></tr>"}
+		for(var/antag in antags_list)
+			dat += {"<tr><td>[capitalize(antag)]</td><td><a href='byond://?src=[UID()];change_weights2=weights_normal_[antag]'>\[[antags_list[antag]]\]</a></td></tr>"}
 
-	// 	dat += {"</table><br><b>Edit the antag weights for special antag. Only one antag from below will be chosen for the mode. Rolling NOTHING means no special antag at all.</b><hr>"}
-	// 	dat += {"<table><tr><td><b>Antag</b></td><td><b>Weight</b></td></tr>"}
-	// 	var/list/special_antags_list = GLOB.antag_paradise_special_weights ? GLOB.antag_paradise_special_weights : config_to_roles(CONFIG_GET(keyed_list/antag_paradise_special_antags_weights))
-	// 	for(var/antag in special_antags_list)
-	// 		dat += {"<tr><td>[capitalize(antag)]</td><td><a href='byond://?src=[UID()];change_weights2=weights_special_[antag]'>\[[special_antags_list[antag]]\]</a></td></tr>"}
+		dat += {"</table><br><b>Edit the antag weights for special antag. Only one antag from below will be chosen for the mode. Rolling NOTHING means no special antag at all.</b><hr>"}
+		dat += {"<table><tr><td><b>Antag</b></td><td><b>Weight</b></td></tr>"}
+		var/list/special_antags_list = GLOB.antag_paradise_special_weights ? GLOB.antag_paradise_special_weights : config_to_roles(CONFIG_GET(keyed_list/antag_paradise_special_antags_weights))
+		for(var/antag in special_antags_list)
+			dat += {"<tr><td>[capitalize(antag)]</td><td><a href='byond://?src=[UID()];change_weights2=weights_special_[antag]'>\[[special_antags_list[antag]]\]</a></td></tr>"}
 
-	// 	dat += {"</table><br><b>Edit the chance to roll double antag ([capitalize(ROLE_VAMPIRE)]/[capitalize(ROLE_CHANGELING)]) for [capitalize(ROLE_TRAITOR)].</b><hr>"}
-	// 	dat += {"<table><tr><td>Chance = </td><td><a href='byond://?src=[UID()];change_weights2=chance'>[isnull(GLOB.antag_paradise_double_antag_chance) ? "[CONFIG_GET(number/antag_paradise_double_antag_chance)]" : "[GLOB.antag_paradise_double_antag_chance]%"]</a></td></tr></table>"}
+		dat += {"</table><br><b>Edit the chance to roll double antag ([capitalize(ROLE_VAMPIRE)]/[capitalize(ROLE_CHANGELING)]) for [capitalize(ROLE_TRAITOR)].</b><hr>"}
+		dat += {"<table><tr><td>Chance = </td><td><a href='byond://?src=[UID()];change_weights2=chance'>[isnull(GLOB.antag_paradise_double_antag_chance) ? "[CONFIG_GET(number/antag_paradise_double_antag_chance)]" : "[GLOB.antag_paradise_double_antag_chance]%"]</a></td></tr></table>"}
 
-	// 	dat += {"<br><a href='byond://?src=[UID()];change_weights2=reset'>Reset everything to default.</a><br>"}
+		dat += {"<br><a href='byond://?src=[UID()];change_weights2=reset'>Reset everything to default.</a><br>"}
 
-	// 	var/datum/browser/popup = new(usr, "change_weights", "<div align='center'>Antag Paradise Weights</div>", 900, 700)
-	// 	popup.set_content(dat)
-	// 	popup.set_window_options("can_close=1;can_minimize=0;can_maximize=0;can_resize=0;titlebar=1;")
-	// 	popup.open(TRUE)
-	// 	onclose(usr, "change_weights")
+		var/datum/browser/popup = new(usr, "change_weights", "<div align='center'>Antag Paradise Weights</div>", 900, 700)
+		popup.set_content(dat)
+		popup.set_window_options("can_close=1;can_minimize=0;can_maximize=0;can_resize=0;titlebar=1;")
+		popup.open(TRUE)
+		onclose(usr, "change_weights")
 
 	else if(href_list["change_weights2"])
 		if(!check_rights(R_ADMIN))
@@ -1336,16 +1336,16 @@
 			GLOB.antag_paradise_weights[antag] = choice
 			log_and_message_admins(span_notice("set the weight for [capitalize(antag)] as antagonist to [choice] in Antag Paradise gamemode."))
 
-		// else if(findtext(command, "weights_special_"))
-		// 	if(!GLOB.antag_paradise_special_weights)
-		// 		GLOB.antag_paradise_special_weights = config_to_roles(CONFIG_GET(keyed_list/antag_paradise_special_antags_weights))
-		// 	var/antag = replacetext(command, "weights_special_", "")
-		// 	var/choice = tgui_input_number(usr, "Adjust the weight for [capitalize(antag)]", "Antag Weight Adjustment", 0, min_value = 0, max_value = 100)
-		// 	if(isnull(choice))
-		// 		return
-		// 	GLOB.antag_paradise_special_weights[antag] = choice
-		// 	log_and_message_admins(span_notice("set the weight for [capitalize(antag)] as special antagonist to [choice] in Antag Paradise gamemode."))
-		// .(href, list("change_weights"=1))
+		else if(findtext(command, "weights_special_"))
+			if(!GLOB.antag_paradise_special_weights)
+				GLOB.antag_paradise_special_weights = config_to_roles(CONFIG_GET(keyed_list/antag_paradise_special_antags_weights))
+			var/antag = replacetext(command, "weights_special_", "")
+			var/choice = tgui_input_number(usr, "Adjust the weight for [capitalize(antag)]", "Antag Weight Adjustment", 0, min_value = 0, max_value = 100)
+			if(isnull(choice))
+				return
+			GLOB.antag_paradise_special_weights[antag] = choice
+			log_and_message_admins(span_notice("set the weight for [capitalize(antag)] as special antagonist to [choice] in Antag Paradise gamemode."))
+		.(href, list("change_weights"=1))
 
 	else if(href_list["monkeyone"])
 		if(!check_rights(R_SPAWN))
