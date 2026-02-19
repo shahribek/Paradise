@@ -49,7 +49,7 @@
 			/mob/living/simple_animal/mouse,
 			/mob/living/simple_animal/mouse/brown,
 			/mob/living/simple_animal/mouse/white,
-			/mob/living/simple_animal/mouse/blobinfected)
+			)
 
 /mob/living/simple_animal/mouse/Initialize(mapload)
 	. = ..()
@@ -410,50 +410,6 @@
 	tts_seed = "Arthas"
 	maxHealth = 10
 	health = 10
-
-/mob/living/simple_animal/mouse/blobinfected
-	maxHealth = 100
-	health = 100
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	gold_core_spawnable = NO_SPAWN
-
-/mob/living/simple_animal/mouse/blobinfected/Initialize(mapload)
-	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(get_mind)), MOUSE_REVOTE_TIME)
-
-/mob/living/simple_animal/mouse/blobinfected/ComponentInitialize()
-	. = ..()
-	AddComponent( \
-		/datum/component/animal_temperature, \
-		minbodytemp = 0, \
-	)
-
-/mob/living/simple_animal/mouse/blobinfected/get_scooped(mob/living/carbon/grabber)
-	to_chat(grabber, span_warning("You try to pick up [src], but they slip out of your grasp!"))
-	to_chat(src, span_warning("[src] tries to pick you up, but you wriggle free of their grasp!"))
-
-/mob/living/simple_animal/mouse/blobinfected/proc/get_mind()
-	if(mind || !SSticker || !SSticker.mode)
-		return
-	var/list/candidates = SSghost_spawns.poll_candidates("Вы хотите сыграть за мышь, зараженную Блобом?", ROLE_BLOB, TRUE, source = /mob/living/simple_animal/mouse/blobinfected)
-
-	if(QDELETED(src))
-		return
-
-	if(!length(candidates))
-		log_and_message_admins("There were no players willing to play as a mouse infected with a blob.")
-		return
-
-	var/mob/M = pick(candidates)
-	possess_by_player(M.key)
-	var/datum_type = mind.get_blob_infected_type()
-	var/datum/antagonist/blob_infected/blob_datum = new datum_type()
-	blob_datum.time_to_burst_hight = TIME_TO_BURST_MOUSE_HIGHT
-	blob_datum.time_to_burst_low = TIME_TO_BURST_MOUSE_LOW
-	mind.add_antag_datum(blob_datum)
-	to_chat(src, span_userdanger("Теперь вы мышь, заражённая спорами Блоба. Найдите какое-нибудь укромное место до того, как вы взорветесь и станете Блобом! Вы можете перемещаться по вентиляции, нажав Alt+ЛКМ на вентиляционном отверстии."))
-	log_game("[key] has become blob infested mouse.")
-	notify_ghosts("Заражённая мышь появилась в [get_area(src)].", source = src, action = NOTIFY_FOLLOW)
 
 /mob/living/simple_animal/mouse/fluff/clockwork
 	name = "Chip"

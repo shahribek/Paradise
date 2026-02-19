@@ -385,41 +385,6 @@
 	else
 		. += span_notice("No operatives detected within scanning range.")
 
-/obj/item/pinpointer/ninja
-	name = "spider clan pinpointer"
-	desc = "A pinpointer that leads to the first Spider Clan assassin detected."
-	modes = list(MODE_NINJA)
-
-/obj/item/pinpointer/ninja/process()
-	if(mode == MODE_NINJA)
-		scan_for_ninja()
-		pinpoint_at(target)
-
-/obj/item/pinpointer/ninja/proc/scan_for_ninja()
-	target = null //Resets nearest_ninja every time it scans
-	var/closest_distance = 1000
-	source_turf = get_turf(src)
-	if(!source_turf)
-		return
-	var/mob/living/carbon/human/holder = get(loc, /mob/living/carbon/human)
-	for(var/mob/living/carbon/human/potential_ninja as anything in (GLOB.human_list - holder))
-		if(isninja(potential_ninja))
-			target_turf = get_turf(potential_ninja)
-			if(!target_turf)
-				continue
-			var/new_dist = get_dist(source_turf, target_turf)
-			if(source_turf.z == target_turf.z && new_dist < closest_distance)
-				target = potential_ninja
-				closest_distance = new_dist
-
-/obj/item/pinpointer/ninja/examine(mob/user)
-	. = ..()
-	if(target)
-		var/mob/living/carbon/human/ninja = target
-		. += span_notice("Nearest ninja detected is <i>[ninja.real_name]</i>.")
-	else
-		. += span_notice("No ninjas detected within scanning range.")
-
 /obj/item/pinpointer/crew
 	name = "crew pinpointer"
 	desc = "A handheld tracking device that points to crew suit sensors."

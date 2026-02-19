@@ -39,10 +39,6 @@ emp_act
 	if(mind?.martial_art?.can_reflect) //Some martial arts users can even reflect projectiles!
 		if(body_position != LYING_DOWN && !HAS_TRAIT(src, TRAIT_HULK) && prob(mind.martial_art.reflection_chance)) //But only if they're not lying down, and hulks can't do it
 			var/checks_passed = TRUE
-			if(istype(mind.martial_art, /datum/martial_art/ninja_martial_art))
-				var/datum/martial_art/ninja_martial_art/creeping_widow = mind.martial_art
-				if(!creeping_widow.check_katana(mind.current))
-					checks_passed = FALSE
 			if(checks_passed)
 				visible_message(span_danger("[src] отража[PLUR_ET_YUT(src)] [P.declent_ru(ACCUSATIVE)]!"), \
 								span_userdanger("[src] отража[PLUR_ET_YUT(src)] [P.declent_ru(ACCUSATIVE)]!"))

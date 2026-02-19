@@ -166,8 +166,6 @@
 	cure_text = "Приём пищи или введение витаминов и питательных веществ"
 
 /datum/disease/critical/hypoglycemia/has_cure()
-	if(HAS_TRAIT(affected_mob, TRAIT_NO_HUNGER) && !isvampire(affected_mob))
-		return TRUE
 
 	if(ismachineperson(affected_mob))
 		return TRUE

@@ -365,8 +365,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 				"Syndicate Bloodhound" = /obj/item/robot_module/syndicate
 			)
 
-	if(mmi?.ninja)
-		forced_module = /obj/item/robot_module/ninja
 
 	if(mmi?.clock || isclocker(src))
 		forced_module = /obj/item/robot_module/clockwork

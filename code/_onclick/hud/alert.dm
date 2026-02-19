@@ -673,26 +673,6 @@
 #undef FLOAT_LAYER_STACKS
 #undef FLOAT_LAYER_SELECTOR
 
-/atom/movable/screen/alert/notify_soulstone
-	name = "Камень душ"
-	desc = "Кто-то пытается заключить вашу душу в камень. Нажмите, чтобы согласиться."
-	icon_state = "template"
-	timeout = 10 SECONDS
-	var/obj/item/soulstone/stone = null
-	var/stoner = null
-
-/atom/movable/screen/alert/notify_soulstone/Click()
-	if(!usr || !usr.client)
-		return
-	if(stone)
-		if(tgui_alert(usr, "[stoner] пытается заключить вашу душу в камень. \
-							Это уничтожит ваше тело и не позволит вернуться в игру как прежний персонаж. Согласны?", "Воскрешение", list("Нет", "Да")) ==  "Да")
-			stone?.opt_in = TRUE
-
-/atom/movable/screen/alert/notify_soulstone/Destroy()
-	stone = null
-	return ..()
-
 /atom/movable/screen/alert/notify_mapvote
 	name = "Голосование за карту"
 	desc = "Проголосуйте за следующую карту для игры!"

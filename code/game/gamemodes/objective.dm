@@ -1389,51 +1389,6 @@ GLOBAL_LIST_EMPTY(admin_objective_list)
 	explanation_text = "Используя свои перчатки, обратите на свою сторону хотя бы одного киборга, чтобы он помог вам в саботаже станции!"
 	needs_target = FALSE
 
-/datum/objective/plant_explosive
-	name = "Plant Explosive"
-	antag_menu_name = "Заложить бомбу"
-	///Where we should KABOOM
-	var/area/detonation_location
-	var/list/area_blacklist = list(
-		/area/engineering/engine, /area/engineering/supermatter,
-		/area/toxins/test_area, /area/turret_protected/ai)
-	needs_target = FALSE
-
-/datum/objective/plant_explosive/New(text, datum/team/team_to_join)
-	if(!choose_target_area())
-		explanation_text = "Свободная цель"
-	..()
-
-/datum/objective/plant_explosive/Destroy()
-	. = ..()
-	detonation_location = null
-
-/datum/objective/plant_explosive/proc/choose_target_area()
-	for(var/sanity in 1 to 100) // 100 checks at most.
-		var/area/selected_area = pick(get_sorted_areas())
-		if(selected_area && is_station_level(selected_area.z) && selected_area.valid_territory) //Целью должна быть зона на станции!
-			if(selected_area in area_blacklist)
-				continue
-			detonation_location = selected_area
-			break
-	. = detonation_location
-	if(.)
-		explanation_text = "Взорвите выданную вам бомбу в [detonation_location]. Учтите, что бомбу нельзя активировать на не предназначенной для подрыва территории!"
-
-/datum/objective/plant_explosive/proc/give_bomb(delayed = null)
-	if(isnull(delayed))
-		actual_give_bomb()
-	else if(isnum(delayed))
-		addtimer(CALLBACK(src, PROC_REF(actual_give_bomb)), delayed)
-
-/datum/objective/plant_explosive/proc/actual_give_bomb()
-	if(!owner || !owner.current || !detonation_location || completed)
-		return
-	var/mob/ninja = owner.current
-	var/obj/item/grenade/plastic/c4/ninja/bomb_item = new(ninja)
-	bomb_item.detonation_objective = src
-	ninja.equip_or_collect(bomb_item, ITEM_SLOT_POCKET_LEFT)
-
 /datum/objective/get_money
 	name = "Steal Money"
 	antag_menu_name = "Украсть деньги"

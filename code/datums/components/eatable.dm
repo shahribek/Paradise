@@ -145,8 +145,6 @@
 	var/obj/item/item = parent
 
 	playsound(target.loc, 'sound/items/eatfood.ogg', 50, FALSE)
-	if(!isvampire(target)) //Dont give nutrition to vampires
-		target.adjust_nutrition(nutritional_value)
 
 	SSticker.score.score_food_eaten++
 

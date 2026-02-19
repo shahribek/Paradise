@@ -249,10 +249,6 @@
 		if(isclocker(mind.current))
 			status_tab_data[++status_tab_data.len] = list("Заряд:", "[GLOB.clockwork_power]")
 
-		var/datum/antagonist/ninja/ninja = mind?.has_antag_datum(/datum/antagonist/ninja)
-		if(ninja?.my_suit)
-			status_tab_data[++status_tab_data.len] = list("Заряд костюма:","[ninja.get_cell_charge()]")
-			status_tab_data[++status_tab_data.len] = list("Заряд рывков:","[ninja.get_dash_charge()]")
 
 	if(isspacepod(loc))
 		var/obj/spacepod/S = loc
@@ -1655,11 +1651,6 @@ Eyes need to have significantly high darksight to shine unless the mob has the X
 		to_chat(src, "[mind.martial_art.no_guns_message]")
 		return FALSE
 
-	// ninjas will not use default ranged weapons
-	var/datum/antagonist/ninja/ninja = mind?.has_antag_datum(/datum/antagonist/ninja)
-	if(ninja && !ninja.allow_guns && !check_gun.ninja_weapon)
-		to_chat(src, "[ninja.no_guns_message]")
-		return FALSE
 
 /mob/living/carbon/human/proc/change_icobase(new_icobase, new_deform, owner_sensitive)
 	for(var/obj/item/organ/external/O as anything in bodyparts)

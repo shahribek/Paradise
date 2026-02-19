@@ -589,14 +589,6 @@
 	cost = 25
 	job = list(JOB_TITLE_LIBRARIAN)
 
-/datum/uplink_item/jobspecific/dice_of_fate
-	name = "Кости судьбы"
-	desc = "Мой девиз — всё или ничего."
-	item = /obj/item/dice/d20/fate/one_use
-	cost = 100
-	job = list(JOB_TITLE_LIBRARIAN)
-	surplus = 0
-
 /datum/uplink_item/jobspecific/death_book
 	name = "Летопись вашей погибели"
 	desc = "Магический артефакт, захваченный \"Синдикатом\" для своих агентов. Эта книга рассказывает о том, как погибали целые миры, и тот, кто её прочтёт, сможет на время ощутить себя одним из тех, кто несёт ответственность за эти события."

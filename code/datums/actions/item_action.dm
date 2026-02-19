@@ -629,32 +629,3 @@
 	else
 		background_icon_state = icon_state_disabled
 	UpdateButtonIcon()
-
-
-//Ninja action type
-/datum/action/item_action/advanced/ninja
-	coold_overlay_icon = 'icons/mob/actions/actions_ninja.dmi'
-	coold_overlay_icon_state = "background_green"
-	background_icon = 'icons/mob/actions/actions_ninja.dmi'
-	icon_state_active = "background_green_active"
-	icon_state_disabled = "background_green"
-	var/action_initialisation_text = null
-
-/datum/action/item_action/advanced/ninja/New(Target)
-	. = ..()
-	var/obj/item/clothing/suit/space/space_ninja/ninja_suit = target
-	if(istype(ninja_suit))
-		recharge_text_color = ninja_suit.color_choice
-		coold_overlay_icon_state = "background_[ninja_suit.color_choice]"
-
-/datum/action/item_action/advanced/ninja/IsAvailable(feedback = FALSE)
-	if(!target && !istype(target, /obj/item/clothing/suit/space/space_ninja))
-		return FALSE
-	return ..()
-
-/datum/action/item_action/advanced/ninja/toggle_button_on_off()
-	if(action_ready)
-		background_icon_state = icon_state_active
-	else
-		background_icon_state = icon_state_disabled
-	UpdateButtonIcon()

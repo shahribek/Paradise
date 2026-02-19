@@ -230,8 +230,6 @@
 
 /datum/component/muscles/proc/get_hunger_mod(user, list/modifiers)
 	SIGNAL_HANDLER
-	if(isvampire(user))
-		return
 
 	var/strength_level_part = get_strength_level_part(user)
 	if(strength_level_part == 0)

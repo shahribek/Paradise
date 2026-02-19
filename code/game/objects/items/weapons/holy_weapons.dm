@@ -333,7 +333,7 @@
 
 	var/list/mob/dead/observer/candidates = SSghost_spawns.poll_candidates("Do you want to play as the spirit of [user.real_name]'s blade?", ROLE_PAI, FALSE, 10 SECONDS, source = src)
 	var/mob/dead/observer/theghost = null
-	
+
 	if(QDELETED(src))
 		return
 
@@ -841,7 +841,7 @@
 		to_chat(missionary, span_notice("You successfully convert [target] to your cause. The following grows because of your faith!"))
 		faith -= 100
 	//if you made it this far: congratulations! you are now a religious zealot!
-	target.mind.make_zealot(missionary, convert_duration, team_color)
+	// target.mind.make_zealot(missionary, convert_duration, team_color)
 
 	SEND_SOUND(target, sound('sound/misc/wololo.ogg', volume = 25))
 	missionary.say("WOLOLO!")

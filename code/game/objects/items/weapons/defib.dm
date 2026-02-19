@@ -500,7 +500,7 @@
 	return
 
 /obj/item/twohanded/shockpaddles/borg/add_defib_component(mainunit)
-	var/is_combat_borg = istype(loc, /obj/item/robot_module/syndicate_medical) || istype(loc, /obj/item/robot_module/ninja)
+	var/is_combat_borg = istype(loc, /obj/item/robot_module/syndicate_medical)
 
 	AddComponent(/datum/component/defib, robotic = TRUE, ignore_hardsuits = is_combat_borg, safe_by_default = safety, emp_proof = TRUE)
 

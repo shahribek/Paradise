@@ -511,7 +511,6 @@
 						/obj/item/shield/changeling,
 						/obj/item/lava_staff,
 						/obj/item/hierophant_club,
-						/obj/item/melee/energy_katana,
 						/obj/item/his_grace,
 						/obj/item/gun/projectile/automatic/l6_saw,
 						/obj/item/gun/magic/staff/chaos,

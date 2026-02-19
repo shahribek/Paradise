@@ -1217,9 +1217,7 @@
 	icon_state = "bowman_conversion_tool"
 	var/static/list/valid_headset_types
 	var/static/list/forbidden_headset_types = list(
-		/obj/item/radio/headset/syndicate,
-		/obj/item/radio/headset/ninja,
-		/obj/item/radio/headset/abductor
+		/obj/item/radio/headset/syndicate
 	)
 	var/static/list/forbidden_headset_typecache
 

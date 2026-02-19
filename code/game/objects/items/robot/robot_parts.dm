@@ -309,16 +309,6 @@
 		lawsync = FALSE
 		laws_to_give = new /datum/ai_laws/syndicate_override
 
-	if(new_mmi.ninja)
-		aisync = FALSE
-		lawsync = FALSE
-		laws_to_give = new /datum/ai_laws/ninja_override
-
-	if(new_mmi.clock)
-		aisync = FALSE
-		lawsync = FALSE
-		laws_to_give = new /datum/ai_laws/ratvar
-
 	var/mob/living/silicon/robot/new_borg = new(loc, syndie = sabotaged, unfinished = TRUE, ai_to_sync_to = forced_ai, connect_to_AI = aisync)
 	if(QDELETED(new_borg))	// somehow??? jesus fucking christ
 		return .

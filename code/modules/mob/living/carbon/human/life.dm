@@ -35,15 +35,6 @@
 	name = get_visible_name()
 	pulse = handle_pulse(times_fired)
 
-	var/datum/antagonist/vampire/vamp = mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(vamp && life_tick == 1)
-		regenerate_icons() // Make sure the inventory updates
-
-	var/datum/antagonist/ninja/ninja = mind?.has_antag_datum(/datum/antagonist/ninja)
-	if(ninja)
-		ninja.handle_ninja()
-		if(life_tick == 1)
-			regenerate_icons() // Make sure the inventory updates
 
 	if(player_ghosted > 0 && stat == CONSCIOUS && job && !HAS_TRAIT(src, TRAIT_RESTRAINED))
 		handle_ghosted()
