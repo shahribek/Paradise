@@ -504,9 +504,6 @@
 	if(target.check_martial_art_defense(target, user, null, message))
 		return FALSE
 
-	var/datum/antagonist/vampire/vampire = user.mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(vampire?.get_ability(/datum/vampire_passive/upgraded_grab) && vampire.grab_act(user, target))
-		return TRUE
 
 	if(attacker_style && attacker_style.grab_act(user, target) == TRUE)
 		return TRUE
@@ -548,27 +545,6 @@
 		return FALSE
 
 	//Vampire code
-	var/datum/antagonist/vampire/vamp = user?.mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(vamp && !vamp.draining && user.zone_selected == BODY_ZONE_HEAD && target != user)
-		var/datum/antagonist/vampire/is_victim_vampire = target.mind?.has_antag_datum(/datum/antagonist/vampire)
-		if(!is_victim_vampire && (HAS_TRAIT(target, TRAIT_NO_BLOOD) || HAS_TRAIT(target, TRAIT_EXOTIC_BLOOD) || !target.blood_volume))
-			to_chat(user, span_warning("Отсутствует кровь!"))
-			return
-
-		if(HAS_TRAIT(target, TRAIT_SKELETON))
-			to_chat(user, span_warning("В скелете нет ни капли крови!"))
-			return
-
-		//we're good to suck the blood, blaah
-		if(is_victim_vampire)
-			to_chat(user, span_warning("Вы чувствуете, что [target.declent_ru(NOMINATIVE)] — ваш сородич."))
-
-		if(target.mind && (target.mind.has_antag_datum(/datum/antagonist/mindslave/thrall)))
-			to_chat(user, span_warning("Вы чувствуете на [target.declent_ru(PREPOSITIONAL)] метку другого вампира и понимаете, что это тралл."))
-
-		vamp.handle_bloodsucking(target)
-		add_attack_logs(user, target, "vampirebit")
-		return
 
 	var/message = span_warning("[target.declent_ru(NOMINATIVE)] блокиру[PLUR_ET_YUT(target)] атаку [user.declent_ru(GENITIVE)]!")
 	if(target.check_martial_art_defense(target, user, null, message))
@@ -1141,21 +1117,6 @@ It'll return null if the organ doesn't correspond, so include null checks when u
 		var/atom/atom = human.client.eye
 		if(atom && atom.update_remote_sight(human)) //returns 1 if we override all other sight updates.
 			return
-
-	var/datum/antagonist/vampire/vamp = human.mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(vamp)
-		if(vamp.get_ability(/datum/vampire_passive/xray))
-			human.add_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
-			human.nightvision += 8
-			human.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-		else if(vamp.get_ability(/datum/vampire_passive/full))
-			human.add_sight(SEE_MOBS)
-			human.nightvision += 8
-			human.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-		else if(vamp.get_ability(/datum/vampire_passive/vision))
-			human.add_sight(SEE_MOBS)
-			human.nightvision += 1 // base of 2, 2+1 is 3
-			human.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 
 	for(var/obj/item/organ/internal/cyberimp/eyes/cyber_eyes in human.internal_organs)
 		human.add_sight(cyber_eyes.vision_flags)

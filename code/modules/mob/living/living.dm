@@ -1062,27 +1062,6 @@
 	. = 100
 	if(!grabber || grabber.grab_state < GRAB_AGGRESSIVE)
 		return .
-	var/datum/antagonist/vampire/vampire = grabber.mind?.has_antag_datum(/datum/antagonist/vampire)
-	var/datum/vampire_passive/upgraded_grab/vampire_grab = vampire?.get_ability(/datum/vampire_passive/upgraded_grab)
-	switch(grabber.grab_state)
-		if(GRAB_AGGRESSIVE)
-			if(vampire_grab)
-				. = vampire_grab.grab_resist_chances[MARTIAL_GRAB_AGGRESSIVE]
-			else
-				var/martial_override = grabber.mind?.martial_art?.get_resist_chance(GRAB_AGGRESSIVE)
-				. = isnull(martial_override) ? GRAB_RESIST_CHANCE_AGGRESSIVE : martial_override
-		if(GRAB_NECK)
-			if(vampire_grab)
-				. = vampire_grab.grab_resist_chances[MARTIAL_GRAB_NECK]
-			else
-				var/martial_override = grabber.mind?.martial_art?.get_resist_chance(GRAB_NECK)
-				. = isnull(martial_override) ? GRAB_RESIST_CHANCE_NECK : martial_override
-		if(GRAB_KILL)
-			if(vampire_grab)
-				. = vampire_grab.grab_resist_chances[MARTIAL_GRAB_KILL]
-			else
-				var/martial_override = grabber.mind?.martial_art?.get_resist_chance(GRAB_KILL)
-				. = isnull(martial_override) ? GRAB_RESIST_CHANCE_KILL : martial_override
 	if(. > 0)
 		if(ishuman(src))
 			var/mob/living/carbon/human/human = src
@@ -1301,17 +1280,9 @@
 
 /mob/living/proc/check_eye_prot()
 	var/eye_prot = FLASH_PROTECTION_NONE
-	var/datum/antagonist/vampire/vampire = mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(vampire?.get_ability(/datum/vampire_passive/eyes_flash_protection))
-		eye_prot += FLASH_PROTECTION_FLASH
-	if(vampire?.get_ability(/datum/vampire_passive/eyes_welding_protection))
-		eye_prot += FLASH_PROTECTION_FLASH
 	return eye_prot
 
 /mob/living/proc/check_ear_prot()
-	var/datum/antagonist/vampire/vampire = mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(vampire?.get_ability(/datum/vampire_passive/ears_bang_protection))
-		return HEARING_PROTECTION_TOTAL
 	return HEARING_PROTECTION_NONE
 
 /mob/living/singularity_act()
@@ -1327,8 +1298,6 @@
 		step_towards(src,S)
 
 /mob/living/narsie_act()
-	if(client)
-		make_new_construct(/mob/living/simple_animal/hostile/construct/harvester, src, cult_override = TRUE)
 	spawn_dust()
 	gib()
 
@@ -1387,10 +1356,6 @@
 		if(cabin)
 			return cabin.temperature()
 		return environment.temperature()
-	if(isvampirecoffin(loc))
-		var/obj/structure/closet/coffin/vampire/coffin = loc
-		var/datum/gas_mixture/coffin_air = coffin.return_obj_air()
-		return coffin_air.temperature()
 	if(isspacepod(loc))
 		var/obj/spacepod/pod = loc
 		return pod.cabin_air.temperature()

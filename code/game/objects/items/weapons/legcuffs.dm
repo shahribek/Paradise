@@ -314,15 +314,6 @@
 	if(target.legcuffed || !target.has_organ_for_slot(ITEM_SLOT_LEGCUFFED))
 		return TRUE
 
-	var/datum/antagonist/vampire/vamp = target.mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(vamp && HAS_TRAIT_FROM(target, TRAIT_DEFLECT_BOLAS, VAMPIRE_TRAIT))
-		if(vamp.bloodusable)
-			vamp.bloodusable = max(vamp.bloodusable - 10, 0)
-			target.visible_message(span_danger("[target] отража[PLUR_ET_YUT(target)] [declent_ru(ACCUSATIVE)]!"),
-									span_notice("Вы отражаете [declent_ru(ACCUSATIVE)], это стоит вам 10 крови."))
-			return TRUE
-
-		REMOVE_TRAIT(target, TRAIT_DEFLECT_BOLAS, VAMPIRE_TRAIT)
 
 	if(HAS_TRAIT(target, TRAIT_DEFLECT_BOLAS))
 		target.visible_message(span_danger("[target] отража[PLUR_ET_YUT(target)] [declent_ru(ACCUSATIVE)]!"))

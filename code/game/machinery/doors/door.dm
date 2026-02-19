@@ -198,12 +198,6 @@
 	if(!HAS_TRAIT(user, TRAIT_FORCE_DOORS))
 		return FALSE
 
-	var/datum/antagonist/vampire/V = user.mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(V && HAS_TRAIT_FROM(user, TRAIT_FORCE_DOORS, VAMPIRE_TRAIT))
-		if(!V.bloodusable)
-			REMOVE_TRAIT(user, TRAIT_FORCE_DOORS, VAMPIRE_TRAIT)
-			return FALSE
-
 	if(welded)
 		to_chat(user, span_warning("The door is welded."))
 		return FALSE
@@ -216,9 +210,6 @@
 		visible_message(span_danger("[user] forces the door open!"))
 		playsound(loc, SFX_SPARKS, 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		open(TRUE)
-
-	if(V && HAS_TRAIT_FROM(user, TRAIT_FORCE_DOORS, VAMPIRE_TRAIT))
-		V.bloodusable = max(V.bloodusable - 5, 0)
 
 /obj/machinery/door/attack_ai(mob/user)
 	return attack_hand(user)

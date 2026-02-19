@@ -1,3 +1,65 @@
+/obj/item/melee/touch_attack
+	name = "outstretched hand"
+	desc = "High Five?"
+	icon_state = "syndballoon"
+	item_state = null
+	item_flags = ABSTRACT|DROPDEL
+	w_class = WEIGHT_CLASS_HUGE
+	throw_range = 0
+	throw_speed = 0
+	/// If defined caster will say this on afterattack
+	var/catchphrase = "High Five!"
+	/// Sound used on successful afterattack
+	var/on_use_sound = null
+
+	/// Special message shown on item deletion. Used as a part of [/obj/effect/proc_holder/spell/touch]. Do not change manually.
+	var/on_withdraw_message
+	/// Whether an item needs to show message stored in "on_remove_message". This is needed to distinguish actual [proc/discharge_hand] from any qdels. Do not change manually.
+	var/is_withdraw = FALSE
+	/// Spell this item belongs to
+	var/obj/effect/proc_holder/spell/touch/attached_spell
+	/// Current owner of the item
+	var/mob/living/carbon/owner
+
+/obj/item/melee/touch_attack/New(spell, owner)
+	attached_spell = spell
+	src.owner = owner
+	..()
+
+/obj/item/melee/touch_attack/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
+
+/obj/item/melee/touch_attack/Destroy()
+	if(owner)
+		if(is_withdraw && on_withdraw_message)
+			to_chat(owner, on_withdraw_message)
+		owner = null
+
+	if(attached_spell)
+		attached_spell.attached_hand = null
+		attached_spell.UnregisterSignal(attached_spell.action.owner, COMSIG_MOB_KEY_DROP_ITEM_DOWN)
+
+	return ..()
+
+/obj/item/melee/touch_attack/attack(mob/living/target, mob/living/user, params, def_zone, skip_attack_anim = FALSE)
+	if(!iscarbon(user)) //Look ma, no hands
+		return ATTACK_CHAIN_PROCEED|ATTACK_CHAIN_NO_AFTERATTACK
+	if(user.incapacitated() || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		to_chat(user, span_warning("You can't reach out!"))
+		return ATTACK_CHAIN_PROCEED|ATTACK_CHAIN_NO_AFTERATTACK
+	return ..()
+
+/obj/item/melee/touch_attack/afterattack(atom/target, mob/user, proximity, params)
+	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		return
+	if(catchphrase)
+		user.say(catchphrase)
+	playsound(get_turf(user), on_use_sound, 50, TRUE)
+	if(attached_spell)
+		attached_spell.perform(list())
+	qdel(src)
+
 /obj/effect/proc_holder/spell/touch
 	/// What type of item this spell summons
 	var/hand_path = /obj/item/melee/touch_attack
@@ -50,25 +112,3 @@
 	attached_hand.is_withdraw = TRUE
 	QDEL_NULL(attached_hand)
 	return COMPONENT_CANCEL_DROP
-
-/obj/effect/proc_holder/spell/touch/disintegrate
-	name = "Disintegrate"
-	desc = "This spell charges your hand with vile energy that can be used to violently explode victims."
-	hand_path = /obj/item/melee/touch_attack/disintegrate
-
-	base_cooldown = 60 SECONDS
-	cooldown_min = 20 SECONDS //100 deciseconds reduction per rank
-
-	action_icon_state = "gib"
-
-/obj/effect/proc_holder/spell/touch/flesh_to_stone
-	name = "Flesh to Stone"
-	desc = "This spell charges your hand with the power to turn victims into inert statues for a long period of time."
-	hand_path = /obj/item/melee/touch_attack/fleshtostone
-
-	school = "transmutation"
-	base_cooldown = 60 SECONDS
-	cooldown_min = 20 SECONDS //100 deciseconds reduction per rank
-
-	action_icon_state = "statue"
-

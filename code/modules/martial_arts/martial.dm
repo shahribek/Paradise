@@ -439,13 +439,6 @@
 /obj/item/sleeping_carp_scroll/attack_self(mob/living/carbon/human/user)
 	if(!istype(user) || !user)
 		return
-	if(user.mind && (ischangeling(user) || isvampire(user))) //Prevents changelings and vampires from being able to learn it
-		if(ischangeling(user)) //Changelings
-			to_chat(user, span_warning("Мы пытаемся много раз, но всё же не способны понять содержимое свитка!"))
-			return
-		else //Vampires
-			to_chat(user, span_warning("Твоя жажда крови не даёт тебе сконцентрироваться на изучении свитка!"))
-			return
 
 	if(istype(user.mind.martial_art, /datum/martial_art/the_sleeping_carp))
 		to_chat(user, span_warning("Ты уже изучил техники Спящего Карпа. Прочтение свитка ничего не даст."))

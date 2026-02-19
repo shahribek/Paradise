@@ -588,59 +588,6 @@
 	var/blood_cost_per_tick = 5
 	var/list/target_UIDs = list()
 	var/datum/antagonist/vampire/vamp
-
-/datum/status_effect/thrall_net/on_creation(mob/living/new_owner, datum/antagonist/vampire/V, ...)
-	. = ..()
-	vamp = V
-	START_PROCESSING(SSfastprocess, src)
-	target_UIDs += owner.UID()
-	var/list/view_cache = view(7, owner)
-	for(var/datum/mind/M in owner.mind.som.serv)
-		if(!M.has_antag_datum(/datum/antagonist/mindslave/thrall))
-			continue
-
-		if(!(M.current in view_cache))
-			continue
-
-		if(M.current.stat == DEAD)
-			continue
-
-		target_UIDs += M.current.UID()
-		M.current.Beam(owner, "sendbeam", time = 2 SECONDS, maxdistance = 7)
-
-/datum/status_effect/thrall_net/tick(seconds_between_ticks)
-	var/total_damage = 0
-	var/list/view_cache = view(7, owner)
-	for(var/uid in target_UIDs)
-		var/mob/living/L = locateUID(uid)
-		if(!(L in view_cache) || L.stat == DEAD)
-			target_UIDs -= uid
-			continue
-		total_damage += (L.maxHealth - L.health)
-		L.Beam(owner, "sendbeam", time = 2 SECONDS, maxdistance = 7)
-
-	var/average_damage = total_damage / length(target_UIDs)
-
-	for(var/uid in target_UIDs)
-		var/mob/living/L = locateUID(uid)
-		var/current_damage = L.maxHealth - L.health
-		if(current_damage == average_damage)
-			continue
-		if(current_damage > average_damage)
-			var/heal_amount = current_damage - average_damage
-			L.heal_ordered_damage(heal_amount, list(BRUTE, BURN, TOX, OXY, CLONE))
-		else
-			var/damage_amount = average_damage - current_damage
-			L.adjustFireLoss(damage_amount)
-
-	vamp.bloodusable = max(vamp.bloodusable - blood_cost_per_tick, 0)
-	if(!vamp.bloodusable || length(target_UIDs) <= 1) // if there is one left in the list, its only the vampire.
-		qdel(src)
-
-/datum/status_effect/thrall_net/on_remove()
-	. = ..()
-	vamp = null
-
 /datum/status_effect/bloodswell
 	id = "bloodswell"
 	duration = 30 SECONDS
@@ -668,12 +615,10 @@
 	human_owner.physiology.stamina_mod *= 0.3
 	human_owner.physiology.stun_mod *= 0.3
 
-	var/datum/antagonist/vampire/V = human_owner.mind.has_antag_datum(/datum/antagonist/vampire)
-	if(V.get_ability(/datum/vampire_passive/blood_swell_upgrade))
-		bonus_damage_applied = TRUE
-		human_owner.physiology.punch_damage_low += 14
-		human_owner.physiology.punch_damage_high += 14
-		human_owner.physiology.punch_stun_threshold += 10	//higher chance to stun but not 100%
+	bonus_damage_applied = TRUE
+	human_owner.physiology.punch_damage_low += 14
+	human_owner.physiology.punch_damage_high += 14
+	human_owner.physiology.punch_stun_threshold += 10	//higher chance to stun but not 100%
 
 /datum/status_effect/bloodswell/on_remove()
 	if(!ishuman(owner))

@@ -295,9 +295,6 @@ GLOBAL_LIST_EMPTY(parasites)
 		if(G.summoner == user)
 			to_chat(user, "У вас уже есть [mob_name]!")
 			return
-	if(user.mind && (ischangeling(user) || isvampire(user)))
-		to_chat(user, "[ling_failure]")
-		return
 	if(used == TRUE)
 		to_chat(user, "[used_message]")
 		return

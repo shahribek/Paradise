@@ -197,12 +197,6 @@ GLOBAL_DATUM_INIT(global_prizes, /datum/prizes, new())
 	typepath = /obj/item/toy/griffin
 	cost = 100
 
-/datum/prize_item/fakespell
-	name = "Fake Spellbook"
-	desc = "Абсолютно настоящая магия дезинтеграции человека на мелкие кусочки!"
-	typepath = /obj/item/spellbook/oneuse/fake_gib
-	cost = 100
-
 /datum/prize_item/fakefingergun
 	name = "Miming Manual : Finger Gun"
 	desc = "..."

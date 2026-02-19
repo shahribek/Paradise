@@ -249,10 +249,6 @@
 	var/icon/I = new(puzzle_icon,puzzle_state)
 	return I
 
-//Ruin version
-/obj/effect/sliding_puzzle/lavaland
-	reward_type = /obj/structure/closet/crate/necropolis/puzzle
-
 /obj/effect/sliding_puzzle/lavaland/dispense_reward()
 	if(prob(25))
 		//If it's not roaming somewhere else already.

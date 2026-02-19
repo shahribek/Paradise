@@ -137,29 +137,6 @@
 
 	return ..()
 
-// MARK: shadow_boxing
-/datum/status_effect/shadow_boxing
-	id = "shadow barrage"
-	alert_type = null
-	duration = 10 SECONDS
-	tick_interval = 0.4 SECONDS
-	var/damage = 8
-	var/source_UID
-
-/datum/status_effect/shadow_boxing/on_creation(mob/living/new_owner, mob/living/source)
-	. = ..()
-	source_UID = source.UID()
-
-/datum/status_effect/shadow_boxing/tick(seconds_between_ticks)
-	var/mob/living/attacker = locateUID(source_UID)
-	if(attacker in view(owner, 2))
-		var/turf/attacker_turf = get_turf(attacker)
-		var/turf/owner_turf = get_turf(owner)
-		attacker.do_attack_animation(owner, ATTACK_EFFECT_PUNCH)
-		owner.apply_damage(damage, BRUTE)
-		playsound(owner_turf, SFX_PUNCH, 30, TRUE, -1)
-		shadow_to_animation(attacker_turf, owner_turf, attacker)
-
 // MARK: saw_bleed
 /datum/status_effect/saw_bleed
 	id = "saw_bleed"
@@ -268,130 +245,6 @@
 
 /datum/status_effect/bluespace_slowdown/on_remove()
 	owner.next_move_modifier *= 0.5
-
-// MARK: Vampire mark_prey
-/datum/status_effect/mark_prey
-	id = "mark_prey"
-	duration = 5 SECONDS
-	alert_type = null
-	var/mutable_appearance/marked_overlay
-	var/datum/antagonist/vampire/vamp
-	var/t_eyes
-	var/t_hearts
-	var/static/list/trash_talk = list("СКАЖИ ПРИВЕТ МОЕМУ МАЛЕНЬКОМУ ДРУГУ!!!",
-									"АРРРРРГГГГГХХХ!!!",
-									"МОЯ ГОЛОВА!!!",
-									"ПОМОГИТЕ! МОИ РУКИ ДВИГАЮТСЯ САМИ ПО СЕБЕ!!!",
-									"ЭТО ДЕЛАЕТ [pick("МОЙ БРАТ БЛИЗНЕЦ", "БОРЕР", "СИНДИКАТ", "ВОЛШЕБНИК")]!!!",
-									"ОН УКРАЛ МОЙ СЛАДКИЙ РУЛЕТ!!!",
-									"Я ПРОСТО ДОЖЕВАЛ ЖВАЧКУ!!!",
-									"ПРИШЕЛ ДЕНЬ РАСПЛАТЫ!!!",
-									"ЖИВОТНЫЕ НЕ ЧЛЕНЫ ЭКИПАЖА!!!")
-
-/datum/status_effect/mark_prey/on_creation(mob/living/new_owner, datum/antagonist/vampire/antag_datum)
-	if(antag_datum)
-		vamp = antag_datum
-		var/t_kidneys = vamp.get_trophies(INTERNAL_ORGAN_KIDNEYS)
-		duration += t_kidneys SECONDS	// 15s. MAX
-		t_eyes = vamp.get_trophies(INTERNAL_ORGAN_EYES)
-		t_hearts = vamp.get_trophies(INTERNAL_ORGAN_HEART)
-	return ..()
-
-/datum/status_effect/mark_prey/Destroy()
-	if(owner)
-		owner.cut_overlay(marked_overlay)
-	QDEL_NULL(marked_overlay)
-	vamp = null
-	return ..()
-
-/datum/status_effect/mark_prey/on_apply()
-	if(owner.stat == DEAD || !vamp)
-		return FALSE
-
-	owner.Slowed(duration)
-	to_chat(owner, span_danger("Вы чувствуете невыносимую тяжесть бытия..."))
-	new /obj/effect/temp_visual/cult/sparks(get_turf(owner))
-
-	marked_overlay = mutable_appearance('icons/effects/effects.dmi', "cult_halo1")
-	marked_overlay.pixel_z = 3
-	owner.add_overlay(marked_overlay)
-	return ..()
-
-/datum/status_effect/mark_prey/tick(seconds_between_ticks)
-	if(owner.stat == DEAD)
-		qdel(src)
-		return
-
-	if(owner.resting)	// abuses are not allowed
-		owner.set_resting(FALSE, instant = TRUE)
-
-	if(t_hearts && prob(t_hearts * 10))	// 60% on MAX
-		owner.adjustFireLoss(t_hearts)	// 6 MAX
-
-	if(!owner.incapacitated() && !HAS_TRAIT(owner, TRAIT_HANDS_BLOCKED) && prob(30 + t_eyes * 7))	// 100% on MAX
-		// lets check our arms first
-		var/obj/item/left_hand = owner.l_hand
-		var/obj/item/right_hand = owner.r_hand
-
-		// next we will find THE GUN .\_/.
-		var/obj/item/gun/found_gun
-		if(isgun(left_hand))
-			found_gun = left_hand
-
-		if(!found_gun && isgun(right_hand))
-			found_gun = right_hand
-
-		// now we will find the target
-		var/new_range = found_gun ? 7 : 1	// we need to check close range only if no guns found
-		var/mob/living/target
-		for(var/mob/living/check in (view(new_range, owner) - owner))
-			if(!check.mind || check.stat == DEAD || isvampire(check) || isvampirethrall(check))
-				continue
-			target = check
-			if(target)
-				if(prob(30))
-					owner.say(pick(trash_talk))
-				break
-
-		// if nothing is found we are the target
-		if(!target)
-			target = owner
-
-		// if no gun found or target is owner we will attack ourselves in HARM intent
-		if(!found_gun || target == owner)
-			if(target != owner)
-				owner.face_atom(target)
-
-			if(owner.a_intent != INTENT_HARM)
-				owner.a_intent_change(INTENT_HARM)
-
-			// empty hands or not a human = unarmed attack
-			if((!left_hand && !right_hand) || !ishuman(owner))
-				owner.UnarmedAttack(target)
-				return
-
-			// otherwise lets find a better weapon
-			var/force_left = left_hand ? left_hand.force : 0
-			var/force_right = right_hand ? right_hand.force : 0
-			if(force_left > force_right)
-				if(!owner.hand)
-					owner.swap_hand()
-				left_hand.attack(target, owner, def_zone = BODY_ZONE_HEAD)	// yes! right in the neck
-			else if(force_right)
-				if(owner.hand)
-					owner.swap_hand()
-				right_hand.attack(target, owner, def_zone = BODY_ZONE_HEAD)
-			return
-
-		// here goes nothing!
-		if(found_gun)
-			owner.face_atom(target)
-			if(owner.a_intent != INTENT_HARM)
-				owner.a_intent_change(INTENT_HARM)
-			if(owner.hand && owner.l_hand != found_gun)
-				owner.swap_hand()
-			found_gun.process_fire(target, owner, zone_override = BODY_ZONE_HEAD)	// hell yeah! few headshots for mr. vampire!
-			found_gun.attack(owner, owner, def_zone = BODY_ZONE_HEAD)	// attack ourselves also in case gun has no ammo
 
 // start of `living` level status procs.
 
@@ -803,10 +656,6 @@
 	var/brute_heal = 0
 	var/burn_heal = 0
 	update |= dreamer.heal_damage_type(10, STAMINA, FALSE)
-	if(isvampire(dreamer) && istype(dreamer.loc, /obj/structure/closet/coffin))
-		brute_heal += 1
-		burn_heal += 1
-		update |= dreamer.heal_damage_type(1, TOX, FALSE)
 	dreamer.handle_dreams()
 	var/comfort = 1
 	if(istype(dreamer.buckled, /obj/structure/bed))

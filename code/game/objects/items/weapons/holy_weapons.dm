@@ -47,17 +47,6 @@
 	if(!ATTACK_CHAIN_SUCCESS_CHECK(.))
 		return .
 
-	var/datum/antagonist/vampire/vamp = target.mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(ishuman(user) && vamp && !vamp.get_ability(/datum/vampire_passive/full) && user.mind.isholy)
-		to_chat(target, span_warning("The nullrod's power interferes with your own!"))
-		switch(vamp.nullification)
-			if(OLD_NULLIFICATION)
-				vamp.base_nullification()
-
-			if(NEW_NULLIFICATION)
-				vamp.adjust_nullification(30 + sanctify_force, 15 + sanctify_force)
-		return .
-
 /obj/item/nullrod/pickup(mob/living/user)
 	if(sanctify_force && !user.mind?.isholy)
 		user.take_overall_damage(force, sanctify_force)
@@ -609,18 +598,6 @@
 		praying = FALSE
 		return .|ATTACK_CHAIN_SUCCESS
 
-	var/datum/antagonist/vampire/vamp = target.mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(vamp && !vamp.get_ability(/datum/vampire_passive/full)) // Getting a full prayer off on a vampire will interrupt their powers for a large duration.
-		switch(vamp.nullification)
-			if(OLD_NULLIFICATION)
-				vamp.adjust_nullification(120, 120)
-
-			if(NEW_NULLIFICATION)
-				vamp.adjust_nullification(120, 50)
-		to_chat(target, span_userdanger("[user]'s prayer to [SSticker.Bible_deity_name] has interfered with your power!"))
-		praying = FALSE
-		return .|ATTACK_CHAIN_SUCCESS
-
 	if(!prob(25))
 		praying = FALSE
 		return .
@@ -641,12 +618,6 @@
 	var/mob/living/carbon/human/holder = loc
 	if(!holder.l_hand == src && !holder.r_hand == src) // Holding this in your hand will
 		return
-	for(var/mob/living/carbon/human/target in range(5, loc))
-		var/datum/antagonist/vampire/vamp = target.mind?.has_antag_datum(/datum/antagonist/vampire)
-		if(vamp && vamp.nullification == OLD_NULLIFICATION && !vamp.get_ability(/datum/vampire_passive/full))
-			vamp.adjust_nullification(5, 2)
-			if(prob(10))
-				to_chat(target, span_userdanger("Being in the presence of [holder]'s [src] is interfering with your powers!"))
 
 /obj/item/nullrod/salt
 	name = "Holy Salt"
@@ -810,7 +781,6 @@
 		to_chat(missionary, span_warning("Your concentration was broken!"))
 
 /obj/item/nullrod/missionary_staff/proc/do_convert(mob/living/carbon/human/target, mob/living/carbon/human/missionary)
-	var/convert_duration = 10 MINUTES
 
 	if(!target || !ishuman(target) || !missionary || !ishuman(missionary))
 		return

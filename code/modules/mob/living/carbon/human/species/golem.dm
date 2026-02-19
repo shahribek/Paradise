@@ -716,7 +716,6 @@ GLOBAL_LIST_EMPTY(cached_heal_materials)
 
 /datum/species/golem/wood/handle_life(mob/living/carbon/human/H)
 	var/light_amount = 0 // How much light there is in the place, affects receiving nutrition and healing
-	var/is_vamp = isvampire(H)
 	if(isturf(H.loc)) // Else, there's considered to be no light
 		var/turf/T = H.loc
 		light_amount = min(1, T.get_lumcount()) - 0.5
@@ -724,10 +723,9 @@ GLOBAL_LIST_EMPTY(cached_heal_materials)
 			H.clear_alert("nolight")
 		else
 			H.throw_alert("nolight", /atom/movable/screen/alert/nolight)
-		if(!is_vamp)
-			H.adjust_nutrition(light_amount * 10)
-			if(H.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
-				H.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
+		H.adjust_nutrition(light_amount * 10)
+		if(H.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
+			H.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
 		if(light_amount > 0.2 && !H.suiciding) // If there's enough light, heal
 			var/update = NONE
 			update |= H.heal_overall_damage(1, 1, updating_health = FALSE)
@@ -735,7 +733,7 @@ GLOBAL_LIST_EMPTY(cached_heal_materials)
 			if(update)
 				H.updatehealth()
 
-	if(!is_vamp && H.nutrition < NUTRITION_LEVEL_STARVING + 50)
+	if(H.nutrition < NUTRITION_LEVEL_STARVING + 50)
 		H.adjustBruteLoss(2)
 	..()
 

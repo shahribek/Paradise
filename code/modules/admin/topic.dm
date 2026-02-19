@@ -1803,21 +1803,6 @@
 
 		check_teams()
 
-	else if(href_list["edit_blob_win_count"])
-		if(!check_rights(R_ADMIN))
-			return
-		var/blob_win_count = tgui_input_number(usr, "Ввидите новое число критической массы", "Критическая масса:" , SSticker.mode.blob_win_count)
-		if(!blob_win_count)
-			return
-
-		if(!SSticker || !SSticker.mode)
-			return
-
-		SSticker.mode.blob_win_count = blob_win_count
-		SSticker.mode.update_blob_objective()
-		log_admin("[key_name(usr)] has enter new blob win count: [blob_win_count]")
-		message_admins("[key_name_admin(usr)] enter new blob win count: [blob_win_count]")
-
 	else if(href_list["send_warning"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -3317,30 +3302,6 @@
 			if("rolldice")
 				SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Roll The Dice")
 				usr.client.roll_dices()
-			if("guns")
-				if(!you_realy_want_do_this())
-					return
-				SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Summon Guns")
-				var/survivor_probability = 0
-				switch(tgui_alert(usr, "Do you want this to create survivors antagonists?", , list("No Antags", "Some Antags", "All Antags!")))
-					if("Some Antags")
-						survivor_probability = 25
-					if("All Antags!")
-						survivor_probability = 100
-
-				rightandwrong(SUMMON_GUNS, usr, survivor_probability)
-			if("magic")
-				if(!you_realy_want_do_this())
-					return
-				SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Summon Magic")
-				var/survivor_probability = 0
-				switch(tgui_alert(usr, "Do you want this to create survivors antagonists?", , list("No Antags", "Some Antags", "All Antags!")))
-					if("Some Antags")
-						survivor_probability = 25
-					if("All Antags!")
-						survivor_probability = 100
-
-				rightandwrong(SUMMON_MAGIC, usr, survivor_probability)
 			if("tdomereset")
 				var/delete_mobs = tgui_alert(usr, "Clear all mobs?", "Confirm", list("Yes", "No", "Cancel"))
 				if(delete_mobs == "Cancel")

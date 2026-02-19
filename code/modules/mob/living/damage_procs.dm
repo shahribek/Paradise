@@ -106,9 +106,6 @@
 	var/list/damage_mods = list()
 	SEND_SIGNAL(src, COMSIG_MOB_APPLY_DAMAGE_MODIFIERS, damage_mods, damage, damagetype, def_zone, sharp, used_weapon)
 
-	. = 1 * get_vampire_bonus(damagetype)
-	for(var/new_mod in damage_mods)
-		. *= new_mod
 
 /// Applies multiple damages at once via [apply_damage][/mob/living/proc/apply_damage]
 /mob/living/proc/apply_damages(

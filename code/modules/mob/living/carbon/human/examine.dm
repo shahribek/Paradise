@@ -362,9 +362,6 @@
 	if(dna.species.can_be_pale && blood_volume < BLOOD_VOLUME_PALE && ((get_covered_bodyparts() & FULL_BODY) != FULL_BODY))
 		msg += span_warning("У н[GEND_HIS_HER(src)] бледная кожа.\n")
 
-	var/datum/antagonist/vampire/vampire_datum = mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(istype(vampire_datum) && vampire_datum.draining)
-		msg += span_warning("<b>[GEND_HE_SHE_CAP(src)] впил[GEND_SYA_AS_OS_IS(src)] своими клыками в шею [vampire_datum.draining].\n</b>")
 
 	for(var/obj/item/organ/external/bodypart as anything in bodyparts)
 		if(!bodypart.tourniquet)

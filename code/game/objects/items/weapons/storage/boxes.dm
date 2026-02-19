@@ -979,36 +979,6 @@
 	playsound(loc, SFX_RUSTLE, 50, TRUE, -5)
 	user.visible_message(span_notice("[user] hugs \the [src]."),span_notice("You hug \the [src]."))
 
-/obj/item/storage/box/wizard
-	name = "magical box"
-	desc = "It's just an ordinary magical box."
-	icon_state = "box_wiz"
-	item_state = "wizard"
-
-/obj/item/storage/box/wizard/hardsuit
-	name = "Battlemage Armour Bundle"
-	desc = "This box contains a bundle of Battlemage Armour"
-
-/obj/item/storage/box/wizard/hardsuit/populate_contents()
-	new /obj/item/clothing/suit/space/hardsuit/wizard/shielded(src)
-	new /obj/item/clothing/shoes/magboots/wizard(src)
-
-/obj/item/storage/box/wizard/recharge
-	name = "Armour Recharge Bundle"
-	desc = "This box contains a bundle of Battlemage Armour Recharges"
-
-/obj/item/storage/box/wizard/recharge/populate_contents()
-	for(var/I in 1 to 3)
-		new /obj/item/wizard_armour_charge(src)
-
-/obj/item/storage/box/wizard/kit_spell_book
-	name = "набор волшебных книг"
-	desc = "Набор волшебных книг, купленных в волшебной книге, для волшебников, чтобы делать волшебство! ЗВУЧИТ ПРОСТО ВОЛШЕБНО!"
-
-/obj/item/storage/box/wizard/kit_spell_book/populate_contents()
-	for(var/i in 1 to 4)
-		new /obj/item/spellbook/oneuse/random(src)
-
 /obj/item/storage/box/hardsuit
 	icon_state = "box_ert"
 	item_state = "ert"

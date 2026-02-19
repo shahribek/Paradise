@@ -20,7 +20,6 @@
 		if(2)
 			new /obj/item/lava_staff(src)
 		if(3)
-			new /obj/item/spellbook/oneuse/sacredflame(src)
 			new /obj/item/gun/magic/wand/fireball(src)
 		if(4)
 			new /obj/item/dragons_blood(src)

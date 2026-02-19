@@ -105,7 +105,7 @@
 	if(no_gravity())
 		return .
 
-	if(nutrition && stat != DEAD && !isvampire(src))
+	if(nutrition && stat != DEAD)
 		var/hunger = HUNGER_FACTOR * 0.1 * dna.species.hunger_drain_mod * physiology.hunger_mod
 		if(m_intent == MOVE_INTENT_RUN)
 			hunger *= 2

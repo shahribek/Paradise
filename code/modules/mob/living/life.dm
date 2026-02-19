@@ -54,9 +54,6 @@
 
 	handle_fire()
 
-	var/datum/antagonist/vampire/vamp = mind?.has_antag_datum(/datum/antagonist/vampire)
-	if(vamp)
-		vamp.handle_vampire()
 
 	if(pulledby && pulledby.grab_state > GRAB_PASSIVE)
 		pull_on_life()

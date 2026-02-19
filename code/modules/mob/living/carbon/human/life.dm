@@ -400,9 +400,6 @@
 		adjust_bodytemperature(11 * (1 - thermal_protection_secondary))
 	else
 		adjust_bodytemperature((BODYTEMP_HEATING_MAX + (fire_stacks * 12)) * (1 - thermal_protection_secondary))
-		var/datum/antagonist/vampire/vamp = mind?.has_antag_datum(/datum/antagonist/vampire)
-		if(vamp && !vamp.get_ability(/datum/vampire_passive/full) && stat != DEAD)
-			vamp.bloodusable = max(vamp.bloodusable - 5, 0)
 
 /mob/living/carbon/human/proc/get_main_thermal_protection()
 	if(HAS_TRAIT(src, TRAIT_RESIST_HEAT))
@@ -613,9 +610,7 @@
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
 		return 0	//godmode
 
-	var/is_vamp = isvampire(src)
-
-	if(!HAS_TRAIT(src, TRAIT_NO_HUNGER) || is_vamp)
+	if(!HAS_TRAIT(src, TRAIT_NO_HUNGER))
 		if(HAS_TRAIT_FROM(src, TRAIT_FAT, FATNESS_TRAIT))
 			if(overeatduration < 100)
 				REMOVE_TRAIT(src, TRAIT_FAT, FATNESS_TRAIT)
@@ -626,7 +621,7 @@
 		// nutrition decrease
 		if(nutrition >= 0 && stat != DEAD)
 			// THEY HUNGER
-			var/hunger_rate = is_vamp ? HUNGER_FACTOR_VAMPIRE : HUNGER_FACTOR * dna.species.hunger_drain_mod * physiology.hunger_mod
+			var/hunger_rate = HUNGER_FACTOR * dna.species.hunger_drain_mod * physiology.hunger_mod
 			if(satiety > 0)
 				satiety--
 

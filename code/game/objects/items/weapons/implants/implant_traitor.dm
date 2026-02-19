@@ -19,13 +19,6 @@
 		return FALSE
 
 	// Fails if they're already a mindslave of someone, or if they're mindshielded.
-	if(ismindslave(mindslave_target) || ismindshielded(mindslave_target) || isvampirethrall(mindslave_target))
-		mindslave_target.visible_message(
-			span_warning("[mindslave_target] seems to resist the bio-chip!"),
-			span_warning("You feel a strange sensation in your head that quickly dissipates."),
-		)
-		qdel(src)
-		return FALSE
 
 	// Mindslaving yourself.
 	if(mindslave_target == user)

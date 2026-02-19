@@ -412,23 +412,8 @@
 
 /obj/item/gem/bloodstone/examine(mob/user)
 	. = ..()
-	if(isvampire(user) && !used)
-		. += span_warning("Вы чувствуете опьяняющий запах крови, исходящий от кристалла.")
 	if(user.mind.has_antag_datum(/datum/antagonist/traitor))
 		. += span_warning("Судя по всему, этот кристалл можно использовать, чтобы зарядить ваш аплинк.")
-
-/obj/item/gem/bloodstone/attack_self(mob/user)
-	var/datum/antagonist/vampire/vampire = user.mind.has_antag_datum(/datum/antagonist/vampire)
-	if(vampire && !used)
-		user.visible_message(span_warning("[user] начина[PLUR_ET_YUT(user)] сжимать [declent_ru(ACCUSATIVE)] в своих руках!"), \
-							span_notice("вы сжимаете [declent_ru(ACCUSATIVE)] в ваших руках."))
-		if(!do_after(user, 10 SECONDS, user, max_interact_count = 1, cancel_on_max = TRUE, cancel_message = span_warning("Вы ослабили хватку.")))
-			return
-		user.visible_message(span_warning("[user] начина[PLUR_ET_YUT(user)] впитывать в себя содержимое [declent_ru(GENITIVE)]!"), \
-						span_notice("Вы пожираете содержимое [declent_ru(GENITIVE)]. Энергия от кристалла насыщает вас."))
-		vampire.bloodusable += blood
-		used = TRUE
-		set_light_range_power_color(3, 2, "#ac2626")
 
 /obj/item/gem/bloodstone/afterattack(obj/item/I, mob/user, proximity, params)
 	if(!proximity)

@@ -147,7 +147,6 @@
 			/obj/item/reagent_containers/food/snacks/sugar_coal,
 			/obj/item/soap/deluxe,
 			/obj/item/sord,
-			/obj/item/spellbook/oneuse/fake_gib,
 			/obj/item/stack/tile/fakespace/loaded,
 			/obj/item/storage/belt/champion,
 			/obj/item/storage/belt/utility/full,

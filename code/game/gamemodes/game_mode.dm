@@ -246,8 +246,6 @@
 
 	SScargo_quests.roll_start_quests()
 	generate_station_goals()
-	GLOB.start_state = new /datum/station_state()
-	GLOB.start_state.count()
 	return TRUE
 
 /datum/game_mode/proc/set_mode_in_db()	// I wonder what this could do guessing by the name
@@ -946,6 +944,12 @@
 
 /datum/game_mode/proc/late_join(mob/new_player/player)
 	return FALSE
+
+
+/datum/game_mode/proc/end_game()
+	if(!SSticker)
+		return
+	SSticker.current_state = GAME_STATE_FINISHED
 
 /proc/config_to_roles(list/check_list)
 	var/list/new_list = list()

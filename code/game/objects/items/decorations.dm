@@ -392,50 +392,6 @@
 	var/pick_flower = pick("mixedbouquet", "poppybouquet", "rosebouquet", "sunbouquet")
 	icon_state = "[pick_flower]"
 
-////// Cultist's crystal
-
-/obj/structure/decorative_structures/cult_crystal
-	name = "Bloody crystal"
-	icon_state = "cult_crystal"
-	max_integrity = 120
-	anchored = TRUE
-
-/obj/structure/decorative_structures/cult_crystal/Initialize(mapload)
-	. = ..()
-	set_light(2, 1, COLOR_RED)
-
-/obj/structure/decorative_structures/cult_crystal/attackby(obj/item/I, mob/user, params)
-	. = ..()
-	if(ATTACK_CHAIN_CANCEL_CHECK(.))
-		return .
-	. |= ATTACK_CHAIN_SUCCESS
-	electrocute_mob(user, get_area(src), src, 0.5, TRUE)
-	to_chat(user, span_warning("When you touch it, you feel some dark energy."))
-
-/obj/structure/decorative_structures/cult_crystal/attack_hand(mob/living/user)
-	electrocute_mob(user, get_area(src), src, 0.5, TRUE)
-	to_chat(user, span_warning("When you touch it, you feel some dark energy."))
-	..()
-
-/obj/structure/decorative_structures/cult_crystal/Destroy()
-	playsound(src, 'sound/effects/glassbr3.ogg', 30, FALSE)
-	var/turf/T = get_turf(src)
-	var/mob/living/simple_animal/crystal_soul = new /mob/living/simple_animal/hostile/construct/armoured/hostile(T)
-	crystal_soul.loot = list(pick(
-		/obj/item/gun/magic/wand/resurrection,
-		/obj/item/gun/magic/wand/fireball,
-		/obj/item/gun/magic/wand/slipping,
-		/obj/item/spellbook/oneuse/sacredflame,
-		/obj/item/spellbook/oneuse/smoke,
-		/obj/item/spellbook/oneuse/forcewall,
-		/obj/item/soulstone/anybody,
-	))
-
-	new /obj/effect/particle_effect/fluid/smoke/vomiting(T)
-	new /obj/effect/decal/cleanable/blood/gibs(T)
-	new /obj/effect/decal/cleanable/blood(T)
-	..()
-
 /obj/structure/decorative_structures/snowcloud
 	name = "snow cloud"
 	desc = "Let it snow, let it snow, let it snow!"

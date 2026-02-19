@@ -125,7 +125,6 @@
 
 /datum/species/diona/handle_life(mob/living/carbon/human/H)
 	var/light_amount = 0 //how much light there is in the place, affects receiving nutrition and healing
-	var/is_vamp = isvampire(H)
 	if(isturf(H.loc)) //else, there's considered to be no light
 		var/turf/T = H.loc
 		light_amount = min(1, T.get_lumcount()) - 0.1
@@ -134,10 +133,9 @@
 		else
 			H.throw_alert("nolight", /atom/movable/screen/alert/nolight)
 
-		if(!is_vamp)
-			H.adjust_nutrition(light_amount * 10)
-			if(H.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
-				H.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
+		H.adjust_nutrition(light_amount * 10)
+		if(H.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
+			H.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
 
 		if(light_amount > 0.2 && !H.suiciding) //if there's enough light, heal
 			if(!pod && H.health <= 0)
@@ -150,7 +148,7 @@
 			if(H.blood_volume < BLOOD_VOLUME_NORMAL)
 				H.AdjustBlood(0.5)
 
-	if(!is_vamp && H.nutrition < NUTRITION_LEVEL_STARVING + 50)
+	if(H.nutrition < NUTRITION_LEVEL_STARVING + 50)
 		H.adjustBruteLoss(2)
 	..()
 

@@ -473,22 +473,6 @@
 	new /obj/item/grenade/flashbang(src)
 	update_icon()
 
-/obj/item/storage/belt/soulstone
-	name = "soul stone belt"
-	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away"
-	icon_state = "soulstonebelt"
-	item_state = "soulstonebelt"
-	storage_slots = 6
-	use_item_overlays = TRUE
-	can_hold = list(
-		"/obj/item/soulstone",
-	)
-
-/obj/item/storage/belt/soulstone/full/populate_contents()
-	for(var/I in 1 to 7)
-		new /obj/item/soulstone(src)
-	update_icon()
-
 /obj/item/storage/belt/champion
 	name = "championship belt"
 	desc = "Proves to the world that you are the strongest!"

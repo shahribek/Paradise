@@ -114,8 +114,7 @@
 	var/huffable = istype(src, /obj/item/toy/crayon/spraycan)
 	playsound(loc, 'sound/items/eatfood.ogg', 50, FALSE)
 	to_chat(user, span_notice("You take a [huffable ? "huff" : "bite"] of the [name]. Delicious!"))
-	if(!isvampire(user))
-		user.adjust_nutrition(5)
+	user.adjust_nutrition(5)
 
 	if(!uses)
 		return .

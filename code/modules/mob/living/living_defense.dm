@@ -444,11 +444,6 @@
 	if(!grabber.mind)
 		return GRAB_UPGRADE_TIME
 
-	var/datum/antagonist/vampire/vampire = grabber.mind.has_antag_datum(/datum/antagonist/vampire)
-	var/datum/vampire_passive/upgraded_grab/vampire_grab = vampire?.get_ability(/datum/vampire_passive/upgraded_grab)
-	if(vampire_grab)
-		return vampire_grab.grab_speed
-
 	var/mod = 1
 	var/list/mods = list()
 	SEND_SIGNAL(src, COMSIG_GET_GRAB_SPEED_MODIFIERS, mods)

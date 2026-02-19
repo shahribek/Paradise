@@ -408,47 +408,13 @@ ADMIN_VERB(respawn_character, R_SPAWN, "Respawn Character", "Respawn a player th
 	*/
 
 	//Now for special roles and equipment.
-	switch(new_character.mind.special_role)
-		if("traitor")
-			if(new_character.mind.has_antag_datum(/datum/antagonist/traitor))
-				var/datum/antagonist/traitor/T = new_character?.mind?.has_antag_datum(/datum/antagonist/traitor)
-				T.give_uplink()
-			else
-				new_character.mind.add_antag_datum(/datum/antagonist/traitor)
-		if("Wizard")
-			new_character.forceMove(pick(GLOB.wizardstart))
-			//ticker.mode.learn_basic_spells(new_character)
-			SSticker.mode.equip_wizard(new_character)
-		if("Syndicate")
-			var/obj/effect/landmark/synd_spawn = locate(/obj/effect/landmark/spawner/syndie)
-			if(synd_spawn)
-				new_character.forceMove(get_turf(synd_spawn))
-			var/datum/antagonist/nuclear_operative/datum = new_character.mind.has_antag_datum(/datum/antagonist/nuclear_operative)
-			if(!datum)
-				datum = new_character.mind.add_antag_datum(/datum/antagonist/nuclear_operative, /datum/team/nuclear_team)
-			datum.equip()
-
-		if("Death Commando")//Leaves them at late-join spawn.
-			new_character.equipOutfit(/datum/outfit/admin/death_commando)
-			new_character.update_action_buttons_icon()
-		else//They may also be a cyborg or AI.
-			switch(new_character.mind.assigned_role)
-				if(JOB_TITLE_CYBORG)//More rigging to make em' work and check if they're traitor.
-					new_character = new_character.Robotize()
-					if(new_character.mind.special_role=="traitor")
-						new_character.mind.add_antag_datum(/datum/antagonist/traitor)
-					SSticker?.score?.save_silicon_laws(new_character, user.mob, additional_info = "admin respawn", log_all_laws = TRUE)
-				if(JOB_TITLE_AI)
-					new_character = new_character.AIize()
-					var/mob/living/silicon/ai/ai_character = new_character
-					ai_character.moveToAILandmark()
-					if(new_character.mind.special_role=="traitor")
-						new_character.mind.add_antag_datum(/datum/antagonist/traitor)
-					SSticker?.score?.save_silicon_laws(ai_character, user.mob, additional_info = "admin respawn", log_all_laws = TRUE)
-				//Add aliens.
-				else
-					SSjobs.AssignRank(new_character, new_character.mind.assigned_role, 0)
-					SSjobs.EquipRank(new_character, new_character.mind.assigned_role, 1)//Or we simply equip them.
+	// switch(new_character.mind.special_role)
+	// 	if("traitor")
+	// 		if(new_character.mind.has_antag_datum(/datum/antagonist/traitor))
+	// 			var/datum/antagonist/traitor/T = new_character?.mind?.has_antag_datum(/datum/antagonist/traitor)
+	// 			T.give_uplink()
+	// 		else
+	// 			new_character.mind.add_antag_datum(/datum/antagonist/traitor)
 
 	//Announces the character on all the systems, based on the record.
 	if(!issilicon(new_character))//If they are not a cyborg/AI.

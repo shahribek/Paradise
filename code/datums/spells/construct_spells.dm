@@ -5,11 +5,6 @@
 	action_background_icon_state = "bg_cult"
 	human_req = FALSE
 
-/obj/effect/proc_holder/spell/aoe/conjure/construct/lesser/holy
-	action_icon_state = "artificer_holy"
-	action_background_icon_state = "bg_spell"
-	summon_type = list(/obj/structure/constructshell/holy)
-
 /obj/effect/proc_holder/spell/aoe/conjure/build
 	aoe_range = 0
 	one_per_turf = TRUE
@@ -60,24 +55,6 @@
 	delay = 5 SECONDS
 	//holy_area_cancast = FALSE //Stops cult magic from working on holy ground eg: chapel
 	summon_type = list(/turf/simulated/wall/r_wall)
-
-/obj/effect/proc_holder/spell/aoe/conjure/build/soulstone
-	name = "Summon Soulstone"
-	desc = "This spell reaches into Redspace, summoning one of the legendary fragments across time and space"
-	action_icon_state = "summonsoulstone"
-	action_background_icon_state = "bg_cult"
-	school = "conjuration"
-	base_cooldown = 5 MINUTES
-	clothes_req = FALSE
-	human_req = FALSE
-	holy_area_cancast = FALSE //Stops cult magic from working on holy ground eg: chapel
-	one_per_turf = FALSE
-	summon_type = list(/obj/item/soulstone)
-
-/obj/effect/proc_holder/spell/aoe/conjure/build/soulstone/holy
-	action_icon_state = "summonsoulstone_holy"
-	action_background_icon_state = "bg_spell"
-	summon_type = list(/obj/item/soulstone/anybody/purified)
 
 /obj/effect/proc_holder/spell/aoe/conjure/build/pylon
 	name = "Cult Pylon"

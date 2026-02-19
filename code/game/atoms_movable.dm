@@ -1553,8 +1553,6 @@
 	if(victim.mind)
 		add_attack_logs(gourmet, src, "Devoured")
 
-	if(!isvampire(gourmet))
-		gourmet.adjust_nutrition(2 * victim.health)
 
 	for(var/datum/disease/virus/virus in victim.diseases)
 		if(virus.spread_flags > NON_CONTAGIOUS)

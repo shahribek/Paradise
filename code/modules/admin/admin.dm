@@ -565,28 +565,15 @@ ADMIN_VERB(delay, R_SERVER, "Delay Pre-Game", "Delay the game start.", ADMIN_CAT
 	if(!SSticker.mode || !istype(M) || !M.mind)
 		return FALSE
 
-	if(M.mind in SSticker.mode.head_revolutionaries)
-		antag_list += "Head Rev"
-	if(M.mind in SSticker.mode.revolutionaries)
-		antag_list += "Revolutionary"
-	if(M.mind in SSticker.mode.cult)
-		antag_list += "Cultist"
-	if(M.mind.has_antag_datum(/datum/antagonist/nuclear_operative))
-		antag_list += "Nuclear Operative"
-	if(M.mind in SSticker.mode.wizards)
-		antag_list += "Wizard"
-	if(M.mind in SSticker.mode.changelings)
-		antag_list += "Changeling"
-	if(M.mind in SSticker.mode.abductors)
-		antag_list += "Abductor"
-	if(M.mind.has_antag_datum(/datum/antagonist/vampire))
-		antag_list += "Vampire"
-	if(M.mind.has_antag_datum(/datum/antagonist/mindslave/thrall))
-		antag_list += "Vampire Thrall"
-	if(M.mind.has_antag_datum(/datum/antagonist/traitor))
-		antag_list += "Traitor"
-	if(M.mind.has_antag_datum(/datum/antagonist/mindslave, FALSE))
-		antag_list += "Mindslave"
+	// if(M.mind.has_antag_datum(/datum/antagonist/nuclear_operative)) // just a deleted reference
+	// 	antag_list += "Nuclear Operative"
+	// if(M.mind in SSticker.mode.wizards)
+	// 	antag_list += "Wizard"
+	// if(M.mind in SSticker.mode.changelings)
+	// 	antag_list += "Changeling"
+	// if(M.mind in SSticker.mode.abductors)
+	// 	antag_list += "Abductor"
+	// if(M.mind.has_antag_datum(/datum/antagonist/traitor))
 	if(isrobot(M))
 		var/mob/living/silicon/robot/R = M
 		if(R.emagged)

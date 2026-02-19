@@ -350,13 +350,6 @@
 //Chaplain
 //Translation of uplink items into Russian continues from here
 
-/datum/uplink_item/jobspecific/voodoo
-	name = "Кукла Вуду"
-	desc = "Кукла, созданная колдунами \"Синдиката\", состоит из различных ингредиентов: ниток, частей головы, тела, а также секретных трав вуду и глутамата натрия."
-	item = /obj/item/voodoo
-	cost = 11
-	job = list(JOB_TITLE_CHAPLAIN)
-
 /datum/uplink_item/jobspecific/missionary_kit
 	name = "Стартовый набор миссионера"
 	desc = "В комплект входят миссионерский посох, миссионерская одежда и Библия. \
@@ -581,20 +574,6 @@
 	job = list(JOB_TITLE_LIBRARIAN)
 	surplus = 0
 	hijack_only = TRUE
-
-/datum/uplink_item/jobspecific/random_spell_book
-	name = "Случайный гримуар"
-	desc = "Случайный гримуар, который мы позаимствовали у Федерации Космических Волшебников."
-	item = /obj/item/spellbook/oneuse/random
-	cost = 25
-	job = list(JOB_TITLE_LIBRARIAN)
-
-/datum/uplink_item/jobspecific/death_book
-	name = "Летопись вашей погибели"
-	desc = "Магический артефакт, захваченный \"Синдикатом\" для своих агентов. Эта книга рассказывает о том, как погибали целые миры, и тот, кто её прочтёт, сможет на время ощутить себя одним из тех, кто несёт ответственность за эти события."
-	item = /obj/item/death_book
-	cost = 60
-	job = list(JOB_TITLE_LIBRARIAN)
 
 //Botanist
 

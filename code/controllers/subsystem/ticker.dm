@@ -558,10 +558,6 @@ SUBSYSTEM_DEF(ticker)
 	if(toggle_gv)
 		set_observer_default_invisibility(0) //spooks things up
 
-	var/list/end_of_round_info = list()
-	end_of_round_info += "<br>[TAB]Shift Duration: <b>[SHIFT_TIME_TEXT()]</b>"
-	end_of_round_info += "<br>[TAB]Station Integrity: <b>[mode.station_was_nuked ? "<font color='red'>Destroyed</font>" : "[station_integrity]%"]</b>"
-	end_of_round_info += "<br>"
 	var/speed_round = FALSE
 	if(world.time - SSticker.round_start_time <= SPEEDRUN_ROUND_TIME)
 		speed_round = TRUE

@@ -241,10 +241,6 @@
 			status_tab_data[++status_tab_data.len] = list("Объём химикатов:", "[cling.chem_charges]/[cling.chem_storage]")
 			status_tab_data[++status_tab_data.len] = list("ДНК поглощено:", "[cling.absorbed_count]")
 
-		var/datum/antagonist/vampire/vamp = mind.has_antag_datum(/datum/antagonist/vampire)
-		if(vamp)
-			status_tab_data[++status_tab_data.len] = list("Всего крови:", "[vamp.bloodtotal]")
-			status_tab_data[++status_tab_data.len] = list("Доступная кровь:", "[vamp.bloodusable]")
 
 		if(isclocker(mind.current))
 			status_tab_data[++status_tab_data.len] = list("Заряд:", "[GLOB.clockwork_power]")
@@ -1484,8 +1480,6 @@ Eyes need to have significantly high darksight to shine unless the mob has the X
 	apply_effect(current_size * 3, IRRADIATE)
 
 /mob/living/carbon/human/narsie_act(obj/singularity/god/narsie/narsie)
-	if(iswizard(src) && iscultist(src)) //Wizard cultists are immune to narsie because it would prematurely end the wiz round that's about to end by the automated shuttle call anyway
-		return
 	if(narsie)
 		narsie.soul_devoured++
 	..()
@@ -1769,13 +1763,13 @@ Eyes need to have significantly high darksight to shine unless the mob has the X
 	. += "---"
 
 /mob/living/carbon/human/adjust_nutrition(change, forced)
-	if(!forced && HAS_TRAIT(src, TRAIT_NO_HUNGER) && !isvampire(src))
+	if(!forced && HAS_TRAIT(src, TRAIT_NO_HUNGER))
 		return FALSE
 	. = ..()
 	try_update_nutrition_level()
 
 /mob/living/carbon/human/set_nutrition(change, forced)
-	if(!forced && HAS_TRAIT(src, TRAIT_NO_HUNGER) && !isvampire(src))
+	if(!forced && HAS_TRAIT(src, TRAIT_NO_HUNGER))
 		return FALSE
 	. = ..()
 	try_update_nutrition_level()

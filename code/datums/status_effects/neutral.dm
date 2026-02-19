@@ -93,31 +93,6 @@
 		return FALSE
 	. = ..()
 
-	var/mob/living/carbon/user = owner
-	var/is_wiz = iswizard(user)
-	var/both_wiz = FALSE
-	for(var/mob/living/carbon/check in (orange(1, user) - user))
-		if(!check.has_status_effect(type))
-			continue
-		if(is_wiz && iswizard(check))
-			user.visible_message(span_biggerdanger("<b>[user.name]</b> и <b>[check.name]</b> [critical_success]"))
-			ADD_TRAIT(user, TRAIT_GODMODE, UNIQUE_TRAIT_SOURCE(src))
-			ADD_TRAIT(check, TRAIT_GODMODE, UNIQUE_TRAIT_SOURCE(src))
-			explosion(get_turf(user), devastation_range = 5, heavy_impact_range = 2, light_impact_range = 1, flash_range = 3, cause = id)
-			// explosions have a spawn so this makes sure that we don't get gibbed
-			addtimer(CALLBACK(src, PROC_REF(wiz_cleanup), user, check), 0.3 SECONDS) //I want to be sure this lasts long enough, with lag.
-			add_attack_logs(user, check, "caused a wizard [id] explosion")
-			both_wiz = TRUE
-		user.do_attack_animation(check, no_effect = TRUE)
-		check.do_attack_animation(user, no_effect = TRUE)
-		playsound(user, sound_effect, 80)
-		if(!both_wiz)
-			user.visible_message(span_notice("<b>[user.name]</b> и <b>[check.name]</b> [success]"))
-			user.remove_status_effect(type)
-			check.remove_status_effect(type)
-			return FALSE
-		return TRUE // DO NOT AUTOREMOVE
-
 	owner.custom_emote(EMOTE_VISIBLE, request)
 	//owner.create_point_bubble_from_path(item_path, FALSE)	// later
 
@@ -140,7 +115,6 @@
 	success = "побратались!"
 	request = "ищ%(ет,ут)% с кем бы побрататься..."
 	sound_effect = 'sound/effects/snap.ogg'
-	item_path = /obj/item/melee/touch_attack/fake_disintegrate  // EI-NATH!
 
 /datum/status_effect/high_five/dap/get_missed_message()
 	return "печально, вы не может найти никого, кому можно дать пятюню, и с кем бы побрататься. Стыдно."

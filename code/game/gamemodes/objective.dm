@@ -1076,41 +1076,6 @@ GLOBAL_LIST_EMPTY(admin_objective_list)
 	explanation_text = "Украдите минимум 5 стволов!"
 	wanted_items = list(/obj/item/gun)
 
-/datum/objective/steal_five_of_type/summon_magic
-	antag_menu_name = "Украсть минимум 5 магических артефактов"
-	explanation_text = "Украдите минимум 5 магических артефактов!"
-	wanted_items = list()
-
-/datum/objective/steal_five_of_type/summon_magic/New()
-	wanted_items = GLOB.summoned_magic_objectives
-	..()
-
-/datum/objective/steal_five_of_type/summon_magic/check_completion()
-	var/stolen_count = 0
-	var/list/owners = get_owners()
-	var/list/all_items = list()
-
-	for(var/datum/mind/player in owners)
-		if(!isliving(player.current))
-			continue
-		all_items += player.current.get_all_contents()	//this should get things in cheesewheels, books, etc.
-
-	for(var/obj/item in all_items) //Check for wanted items
-		if(istype(item, /obj/item/spellbook) && !istype(item, /obj/item/spellbook/oneuse))
-			var/obj/item/spellbook/spellbook = item
-			if(spellbook.uses) //if the book still has powers...
-				stolen_count++ //it counts. nice.
-
-		if(istype(item, /obj/item/spellbook/oneuse))
-			var/obj/item/spellbook/oneuse/oneuse = item
-			if(!oneuse.used)
-				stolen_count++
-
-		else if(is_type_in_typecache(item, wanted_items))
-			stolen_count++
-
-	return stolen_count >= 5
-
 /datum/objective/blood
 	name = "Spread blood"
 	antag_menu_name = "Накопить кровь"
