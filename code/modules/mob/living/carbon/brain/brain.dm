@@ -20,9 +20,6 @@
 /mob/living/carbon/brain/ex_act() //you cant blow up brainmobs because it makes transfer_to() freak out when borgs blow up.
 	return
 
-/mob/living/carbon/brain/blob_act(obj/structure/blob/B)
-	return
-
 /mob/living/carbon/brain/incapacitated(ignore_flags)
 	return FALSE
 

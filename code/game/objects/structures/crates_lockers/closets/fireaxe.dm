@@ -139,11 +139,6 @@
 
 	operate_panel()
 
-/obj/structure/closet/fireaxecabinet/blob_act(obj/structure/blob/B)
-	if(fireaxe)
-		fireaxe.forceMove(loc)
-	qdel(src)
-
 /obj/structure/closet/fireaxecabinet/attack_tk(mob/user)
 	if(localopened && fireaxe)
 		fireaxe.forceMove(loc)
@@ -237,11 +232,6 @@
 
 	return ..()
 
-/obj/structure/fishingrodcabinet/blob_act(obj/structure/blob/B)
-	if(olreliable)
-		olreliable.forceMove(loc)
-	qdel(src)
-
 /obj/structure/fishingrodcabinet/attack_hand(mob/user)
 	if(!olreliable)
 		return ..()
@@ -312,11 +302,6 @@
 	balloon_alert(user, "кувалда извлечена")
 	sledgehammer = null
 	update_icon(UPDATE_ICON_STATE)
-
-/obj/structure/closet/sechammercabinet/blob_act(obj/structure/blob/B)
-	if(sledgehammer)
-		sledgehammer.forceMove(loc)
-	qdel(src)
 
 /obj/structure/closet/sechammercabinet/update_icon_state()
 	if(sledgehammer)

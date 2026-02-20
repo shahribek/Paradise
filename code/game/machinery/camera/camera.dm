@@ -493,8 +493,6 @@
 /obj/machinery/camera/mortar/isXRay()
 	return TRUE
 
-/obj/machinery/camera/mortar/blob_act(obj/structure/blob/B)
-	return
 
 /obj/machinery/camera/mortar/fire_act(exposed_temperature, exposed_volume)
 	return

@@ -172,10 +172,6 @@
 #define COMSIG_ATOM_FIRE_ACT "atom_fire_act"
 ///from base of atom/bullet_act(): (/obj/projectile, def_zone)
 #define COMSIG_ATOM_BULLET_ACT "atom_bullet_act"
-///from base of atom/blob_act(): (/obj/structure/blob)
-#define COMSIG_ATOM_BLOB_ACT "atom_blob_act"
-	/// if returned, forces nothing to happen when the atom is attacked by a blob
-	#define COMPONENT_CANCEL_BLOB_ACT (1<<0)
 ///from base of atom/acid_act(): (acidpwr, acid_volume)
 #define COMSIG_ATOM_ACID_ACT "atom_acid_act"
 ///from base of atom/emag_act(): (/mob/user)

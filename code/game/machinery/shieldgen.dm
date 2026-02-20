@@ -49,10 +49,6 @@
 			if(prob(50))
 				qdel(src)
 
-/obj/machinery/shield/blob_act()
-	if(!QDELETED(src))
-		qdel(src)
-
 /obj/machinery/shield/cult
 	name = "cult barrier"
 	desc = "A shield summoned by cultists to keep heretics away."

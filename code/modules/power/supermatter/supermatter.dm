@@ -776,26 +776,6 @@
 	qdel(src)
 	return gain
 
-/obj/machinery/atmospherics/supermatter_crystal/blob_act(obj/structure/blob/blob)
-	if(!blob && isspaceturf(loc)) //does nothing in space
-		return
-
-	playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)
-	damage += blob.obj_integrity * 0.5 //take damage equal to 50% of remaining blob health before it tried to eat us
-
-	if(blob.obj_integrity > 100)
-		blob.visible_message(
-			span_danger("[capitalize(blob)] strikes at [src] and flinches away!"),
-			span_hear("You hear a loud crack as you are washed with a wave of heat."),
-		)
-		blob.take_damage(100, BURN)
-	else
-		blob.visible_message(
-			span_danger("[capitalize(blob)] strikes at [src] and rapidly flashes to ash."),
-			span_hear("You hear a loud crack as you are washed with a wave of heat."),
-		)
-		Consume(blob)
-
 /obj/machinery/atmospherics/supermatter_crystal/attack_tk(mob/user)
 	if(!iscarbon(user))
 		return

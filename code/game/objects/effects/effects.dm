@@ -32,9 +32,6 @@
 /obj/effect/mech_melee_attack(obj/mecha/M)
 	return 0
 
-/obj/effect/blob_act(obj/structure/blob/B)
-	return
-
 /obj/effect/experience_pressure_difference(flow_x, flow_y)
 	return // Immune to gas flow.
 
@@ -92,9 +89,6 @@
 	return
 
 /obj/effect/abstract/ex_act(severity, target)
-	return
-
-/obj/effect/abstract/blob_act()
 	return
 
 /obj/effect/abstract/acid_act()

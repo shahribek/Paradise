@@ -9,9 +9,6 @@
 	icon_state = "chempuff"
 	pass_flags = PASSTABLE | PASSGRILLE
 
-/obj/effect/decal/chempuff/blob_act(obj/structure/blob/B)
-	return
-
 /obj/effect/decal/snow
 	name = "snow"
 	layer = TURF_DECAL_LAYER

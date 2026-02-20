@@ -222,12 +222,6 @@
 	. = status_tab_data
 	status_tab_data[++status_tab_data.len] = show_silenced()
 
-/mob/living/silicon/pai/blob_act()
-	if(stat != DEAD)
-		adjustBruteLoss(60)
-		return TRUE
-	return FALSE
-
 /mob/living/silicon/pai/emp_act(severity)
 	// Silence for 2 minutes
 	// 20% chance to kill

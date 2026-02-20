@@ -324,27 +324,6 @@
 
 #undef ex_armor_reduction
 
-/mob/living/carbon/human/blob_act(obj/structure/blob/B)
-	if(stat == DEAD)
-		return
-	SEND_SIGNAL(src, COMSIG_ATOM_BLOB_ACT, B)
-	show_message(span_userdanger("Вас атакует блоб!"))
-	var/dam_zone = list(
-		BODY_ZONE_CHEST,
-		BODY_ZONE_PRECISE_GROIN,
-		BODY_ZONE_HEAD,
-		BODY_ZONE_L_ARM,
-		BODY_ZONE_R_ARM,
-		BODY_ZONE_L_LEG,
-		BODY_ZONE_R_LEG,
-		BODY_ZONE_PRECISE_L_HAND,
-		BODY_ZONE_PRECISE_R_HAND,
-		BODY_ZONE_PRECISE_L_FOOT,
-		BODY_ZONE_PRECISE_R_FOOT,
-	)
-	var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
-	apply_damage(5, BRUTE, affecting, run_armor_check(affecting, MELEE))
-
 /// Get rank from ID from hands, wear_id, pda, and then from uniform
 /mob/living/carbon/human/proc/get_authentification_rank(if_no_id = "Без ID", if_no_job = "Без должности")
 	var/obj/item/card/id/id = get_id_card()

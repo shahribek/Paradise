@@ -165,10 +165,6 @@
 				bloss = bloss / 1.5
 			adjustBruteLoss(bloss)
 
-/mob/living/basic/blob_act(obj/structure/blob/B)
-	adjustBruteLoss(20)
-	return
-
 /mob/living/basic/do_attack_animation(atom/A, visual_effect_icon, used_item, no_effect)
 	if(!no_effect && !visual_effect_icon && melee_damage)
 		if(melee_damage < 10)

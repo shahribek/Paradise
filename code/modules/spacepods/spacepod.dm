@@ -238,9 +238,6 @@
 /obj/spacepod/AllowDrop()
 	return TRUE
 
-/obj/spacepod/blob_act(obj/structure/blob/B)
-	deal_damage(30)
-
 /obj/spacepod/force_eject_occupant(mob/target)
 	if(target == pilot)
 		eject_pilot()

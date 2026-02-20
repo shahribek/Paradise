@@ -769,10 +769,6 @@
 		attack_generic(user, animal_damage, user.melee_damage_type, MELEE, play_soundeffect)
 		return TRUE
 
-/obj/mecha/blob_act(obj/structure/blob/B)
-	B?.overmind?.blobstrain?.attack_mech(src)
-	take_damage(30, BRUTE, MELEE, 0, get_dir(src, B))
-
 /obj/mecha/attack_tk()
 	return
 

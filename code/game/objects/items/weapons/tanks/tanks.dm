@@ -112,17 +112,6 @@
 	. += span_notice("На ощупь <b>[descriptive]</b>.")
 	. += span_notice("Манометр показывает <b>[round(air_contents.return_pressure())]</b> кПа.")
 
-/obj/item/tank/blob_act(obj/structure/blob/B)
-	if(B && B.loc == loc && !QDELETED(src))
-		var/turf/location = get_turf(src)
-		if(!location)
-			qdel(src)
-
-		if(air_contents)
-			location.blind_release_air(air_contents)
-
-		qdel(src)
-
 /obj/item/tank/deconstruct(disassembled = TRUE)
 	if(!disassembled)
 		var/turf/T = get_turf(src)

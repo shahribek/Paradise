@@ -62,9 +62,6 @@
 	new /obj/structure/lattice/clockwork(loc)
 	qdel(src)
 
-/obj/structure/lattice/blob_act(obj/structure/blob/B)
-	return
-
 /obj/structure/lattice/singularity_pull(S, current_size)
 	if(current_size >= STAGE_FOUR)
 		deconstruct()

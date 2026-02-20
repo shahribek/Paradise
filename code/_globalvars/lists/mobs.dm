@@ -54,8 +54,6 @@ GLOBAL_LIST_EMPTY(taipan_players_active)	//List of all Taipan operatives active
 
 GLOBAL_LIST_EMPTY(emote_list)
 
-GLOBAL_LIST_EMPTY(uplink_items)
-
 GLOBAL_LIST_EMPTY(mining_vendor_items)
 
 GLOBAL_LIST_EMPTY(item_skins)
@@ -77,13 +75,6 @@ GLOBAL_LIST_INIT(halo_overlays, list(
 	"his_grace" = mutable_appearance('icons/effects/32x64.dmi', "toolbox_halo", -HALO_LAYER, appearance_flags = RESET_TRANSFORM),
 ))
 
-/// Callback checks for datum/element/halo_attach
-GLOBAL_LIST_INIT(halo_callbacks, list(
-	"cult" = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(iscultist_ascended)),
-	"clockwork" = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(isclocker_ascended)),
-	"his_grace" = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(is_grace_ascended)),
-))
-GLOBAL_LIST_EMPTY(wryn_structures)
 
 GLOBAL_LIST_EMPTY(robot_skins)
 

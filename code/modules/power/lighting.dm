@@ -118,10 +118,6 @@
 
 	return ..()
 
-/obj/machinery/light_construct/blob_act(obj/structure/blob/B)
-	if(B && B.loc == loc && !QDELETED(src))
-		qdel(src)
-
 /obj/machinery/light_construct/deconstruct(disassembled = TRUE)
 	if(!(obj_flags & NODECONSTRUCT))
 		new /obj/item/stack/sheet/metal(loc, sheets_refunded)

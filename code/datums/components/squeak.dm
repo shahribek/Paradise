@@ -40,7 +40,6 @@
 /datum/component/squeak/Initialize(custom_sounds, volume_override, chance_override, step_delay_override, use_delay_override, squeak_on_move, extrarange, falloff_exponent, falloff_distance, dead_check = FALSE)
 	if(!isatom(parent) || isarea(parent))
 		return COMPONENT_INCOMPATIBLE
-	RegisterSignal(parent, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_BLOB_ACT, COMSIG_ATOM_HULK_ATTACK, COMSIG_PARENT_ATTACKBY), PROC_REF(play_squeak))
 	if(ismovable(parent))
 		RegisterSignal(parent, list(COMSIG_MOVABLE_BUMP, COMSIG_MOVABLE_IMPACT), PROC_REF(play_squeak))
 		AddComponent(/datum/component/connect_loc_behalf, parent, item_connections)

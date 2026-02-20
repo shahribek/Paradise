@@ -187,9 +187,6 @@
 
 	return TRUE
 
-/turf/simulated/wall/blob_act(obj/structure/blob/B)
-	add_dent(WALL_DENT_HIT)
-
 /turf/simulated/wall/blob_consume()
 	dismantle_wall()
 

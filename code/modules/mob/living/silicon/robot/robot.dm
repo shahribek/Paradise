@@ -632,14 +632,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 		ion_trail.stop()
 		remove_movespeed_modifier(/datum/movespeed_modifier/robot_jetpack_upgrade)
 
-/mob/living/silicon/robot/blob_act(obj/structure/blob/B)
-	if(stat != DEAD)
-		adjustBruteLoss(30)
-	else
-		gib()
-
-	return TRUE
-
 // this function displays the cyborgs current cell charge in the stat panel
 /mob/living/silicon/robot/proc/show_cell_power()
 	return list("Заряд:", cell ? "[cell.charge]/[cell.maxcharge]" : "Батарея не обнаружена!")

@@ -192,10 +192,6 @@
 	emergencyShutdown()
 	return ..()
 
-/obj/machinery/computer/HolodeckControl/blob_act(obj/structure/blob/B)
-	emergencyShutdown()
-	return ..()
-
 /obj/machinery/computer/HolodeckControl/process()
 	for(var/item in holographic_items) // do this first, to make sure people don't take items out when power is down.
 		if(!(get_turf(item) in linkedholodeck))

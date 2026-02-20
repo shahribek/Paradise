@@ -34,11 +34,6 @@ GLOBAL_LIST_EMPTY(gravity_generators) // We will keep track of this by adding ne
 	if(severity >= EXPLODE_DEVASTATE) // Very sturdy.
 		set_broken()
 
-/obj/machinery/gravity_generator/blob_act(obj/structure/blob/B)
-	blob_hits++
-	if(blob_hits >= BLOB_HITS_NEED)
-		set_broken()
-
 /obj/machinery/gravity_generator/zap_act(power, zap_flags)
 	. = ..()
 	if(zap_flags & ZAP_MACHINE_EXPLOSIVE)

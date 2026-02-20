@@ -151,9 +151,6 @@
 /obj/flamer_fire/extinguish()
 	firelevel /= 2
 
-/obj/flamer_fire/blob_act(obj/structure/blob/B)
-	firelevel /= 2
-
 /obj/flamer_fire/proc/on_entered(datum/source, atom/movable/entered)
 	if(!isliving(entered))
 		return

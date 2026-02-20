@@ -36,12 +36,6 @@
 		qdel(old_cam)
 	new /obj/machinery/camera/mortar(deploy_turf)
 
-/obj/item/mortar_shell/blob_act(obj/structure/blob/B)
-	if(sended)
-		return
-	handle_fire()
-	return ..()
-
 /obj/item/mortar_shell/fire_act(exposed_temperature, exposed_volume)
 	if(sended)
 		return

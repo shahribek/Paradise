@@ -57,10 +57,6 @@
 	if(!(resistance_flags & FIRE_PROOF)) // Non fire proof decal or being burned by lava.
 		qdel(src)
 
-/obj/effect/decal/blob_act(obj/structure/blob/blob)
-	if(blob?.loc == loc && !QDELETED(src))
-		qdel(src)
-
 // MARK: turf_decal
 /obj/effect/turf_decal
 	icon = 'icons/turf/decals.dmi'

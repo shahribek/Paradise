@@ -495,22 +495,6 @@ GLOBAL_VAR(bomb_set)
 				GLOB.bomb_set = FALSE
 				SSshuttle?.remove_hostile_environment(src)
 
-/obj/machinery/nuclearbomb/blob_act(obj/structure/blob/B)
-	if(exploded)
-		return
-	if(timing)	//boom
-		INVOKE_ASYNC(src, PROC_REF(explode))
-		return
-	//if no boom then we need to let the blob capture our nuke
-	var/turf/T = get_turf(src)
-	if(!T)
-		return
-	if(locate(/obj/structure/blob) in T)
-		return
-	var/obj/structure/blob/special/captured_nuke/N = new(T, src)
-	N.overmind = B.overmind
-	N.update_blob()
-
 /obj/machinery/nuclearbomb/zap_act(power, zap_flags)
 	. = ..()
 	if(zap_flags & ZAP_MACHINE_EXPLOSIVE)

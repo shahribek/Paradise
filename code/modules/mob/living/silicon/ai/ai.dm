@@ -681,12 +681,6 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	user.reset_perspective(current)
 	return TRUE
 
-/mob/living/silicon/ai/blob_act(obj/structure/blob/B)
-	if(stat != DEAD)
-		adjustBruteLoss(60)
-		return TRUE
-	return TRUE
-
 /mob/living/silicon/ai/emp_act(severity)
 	..()
 	if(prob(30))

@@ -113,9 +113,6 @@ GLOBAL_LIST_INIT(icons_to_ignore_at_floor_init, list("damaged1","damaged2","dama
 		return FALSE
 	return TRUE
 
-/turf/simulated/floor/blob_act(obj/structure/blob/B)
-	return
-
 /turf/simulated/floor/update_overlays()
 	. = ..()
 	update_visuals()

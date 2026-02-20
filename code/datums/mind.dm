@@ -350,9 +350,6 @@
 	// 	/** TRAITOR ***/
 	// 	sections["traitor"] = memory_edit_traitor()
 
-	if(isAI(current))
-		sections["malf_ai"] = memory_edit_malf_ai()
-
 	sections["eventmisc"] = memory_edit_eventmisc(H)
 
 	/** SILICON ***/

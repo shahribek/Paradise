@@ -121,9 +121,6 @@ GLOBAL_LIST_EMPTY(default_lighting_underlays_by_z)
 /atom/movable/lighting_object/singularity_pull()
 	return
 
-/atom/movable/lighting_object/blob_act(obj/structure/blob/B)
-	return
-
 /atom/movable/lighting_object/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer)
 	return ..()
 

@@ -110,10 +110,6 @@
 	griefProtection()
 	return ..()
 
-/obj/machinery/r_n_d/server/blob_act(obj/structure/blob/B)
-	griefProtection()
-	return ..()
-
 // Backup files to CentComm to help admins recover data after griefer attacks
 /obj/machinery/r_n_d/server/proc/griefProtection()
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachines.get_by_type(/obj/machinery/r_n_d/server/centcom))

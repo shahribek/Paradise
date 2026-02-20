@@ -695,10 +695,6 @@
 	update_icon(UPDATE_ICON_STATE)
 	name = initial(name)
 
-//Attacks/effects.
-/obj/machinery/cryopod/blob_act()
-	return //Sorta gamey, but we don't really want these to be destroyed.
-
 /obj/machinery/computer/cryopod/robot
 	name = "robotic storage console"
 	desc = "Интерфейс управления системой контроля за робо-хранилищем."

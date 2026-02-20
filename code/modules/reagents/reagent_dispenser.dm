@@ -128,9 +128,6 @@
 		reagents.set_reagent_temp(1000) //uh-oh
 	qdel(src)
 
-/obj/structure/reagent_dispensers/fueltank/blob_act(obj/structure/blob/B)
-	boom()
-
 /obj/structure/reagent_dispensers/fueltank/ex_act()
 	boom()
 
@@ -294,11 +291,6 @@
 	icon_state = "beer"
 	reagent_id = "beer"
 	var/has_lid = TRUE
-
-/obj/structure/reagent_dispensers/beerkeg/blob_act(obj/structure/blob/B)
-	explosion(loc, devastation_range = 0, heavy_impact_range = 3, light_impact_range = 5, flash_range = 7, flame_range = 10, cause = "[src.name] got blobbed")
-	if(!QDELETED(src))
-		qdel(src)
 
 /obj/structure/reagent_dispensers/beerkeg/proc/add_lid()
 		container_type = DRAINABLE | AMOUNT_VISIBLE

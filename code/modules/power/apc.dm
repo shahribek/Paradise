@@ -1598,9 +1598,6 @@
 	update_icon()
 	update()
 
-/obj/machinery/power/apc/blob_act(obj/structure/blob/B)
-	set_broken()
-
 /obj/machinery/power/apc/zap_act(power, zap_flags)
 	if(obj_integrity <= 0)
 		zap_flags &= ~(ZAP_OBJ_DAMAGE | ZAP_MACHINE_EXPLOSIVE)

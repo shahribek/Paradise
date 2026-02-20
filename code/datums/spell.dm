@@ -606,31 +606,16 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell))
 				to_chat(user, "Mmmf mrrfff!")
 			return FALSE
 
-	if(ishuman(user))
 
-		var/obj/item/clothing/robe = h_user.wear_suit
-		var/obj/item/clothing/hat = h_user.head
-		var/obj/item/clothing/shoes = h_user.shoes
-		if(!robe || !hat || !shoes)
-			if(show_message)
-				to_chat(h_user, span_notice("Your outfit isn't complete, you should put on your robe and wizard hat, as well as sandals"))
-			return FALSE
+	if(clothes_req || human_req)
+		if(show_message)
+			to_chat(user, span_notice("This spell can only be cast by humans!"))
+		return FALSE
 
-		if(!robe.magical || !hat.magical || !shoes.magical)
-			if(show_message)
-				to_chat(h_user, span_notice("Your outfit isn't magical enough, you should put on your robe and wizard hat, as well as your sandals."))
-			return FALSE
-
-	else
-		if(clothes_req || human_req)
-			if(show_message)
-				to_chat(user, span_notice("This spell can only be cast by humans!"))
-			return FALSE
-
-		if(nonabstract_req && (isbrain(user) || ispAI(user)))
-			if(show_message)
-				to_chat(user, span_notice("This spell can only be cast by physical beings!"))
-			return FALSE
+	if(nonabstract_req && (isbrain(user) || ispAI(user)))
+		if(show_message)
+			to_chat(user, span_notice("This spell can only be cast by physical beings!"))
+		return FALSE
 
 	if(custom_handler && !custom_handler.can_cast(user, charge_check, show_message, src))
 		return FALSE

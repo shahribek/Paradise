@@ -734,17 +734,6 @@
 /atom/proc/ex_act(severity, target)
 	return
 
-/**
- * React to a hit by a blob object
- *
- * default behaviour is to send the [COMSIG_ATOM_BLOB_ACT] signal
- */
-/atom/proc/blob_act(obj/structure/blob/attacking_blob)
-	var/blob_act_result = SEND_SIGNAL(src, COMSIG_ATOM_BLOB_ACT, attacking_blob)
-	if(blob_act_result & COMPONENT_CANCEL_BLOB_ACT)
-		return FALSE
-	return TRUE
-
 /atom/proc/blob_vore_act(obj/structure/blob/special/core/voring_core)
 	return TRUE
 

@@ -182,7 +182,6 @@ SUBSYSTEM_DEF(ticker)
 		reboot_helper("Round ended.", "proper completion")
 
 /datum/controller/subsystem/ticker/proc/setup()
-	cultdat = setupcult()
 	score = new()
 
 	// Create and announce mode

@@ -18,9 +18,6 @@
 /turf/simulated/wall/indestructible/ex_act(severity, target)
 	return
 
-/turf/simulated/wall/indestructible/blob_act(obj/structure/blob/B)
-	return
-
 /turf/simulated/wall/indestructible/singularity_act()
 	return
 

@@ -92,9 +92,6 @@
 /obj/singularity/Process_Spacemove(movement_dir = NONE, continuous_move = FALSE) //The singularity stops drifting for no man!
 	return FALSE
 
-/obj/singularity/blob_act(obj/structure/blob/B)
-	return
-
 /obj/singularity/ex_act(severity, target)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
