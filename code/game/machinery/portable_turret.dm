@@ -1059,64 +1059,6 @@ GLOBAL_LIST_EMPTY(turret_icons)
 	req_access = list(ACCESS_SYNDICATE)
 	var/area/syndicate_depot/core/depotarea
 
-/obj/machinery/porta_turret/syndicate/die()
-	. = ..()
-	if(istype(depotarea))
-		depotarea.turret_died()
-
-	density = FALSE
-
-/obj/machinery/porta_turret/syndicate/shootAt(mob/living/target)
-	if(istype(depotarea))
-		depotarea.list_add(target, depotarea.hostile_list)
-		depotarea.declare_started()
-	return ..(target)
-
-/obj/machinery/porta_turret/syndicate/update_icon_state()
-	if(stat & BROKEN)
-		icon_state = icon_state_destroyed
-	else if(enabled)
-		icon_state = icon_state_active
-	else
-		icon_state = icon_state_initial
-
-/obj/machinery/porta_turret/syndicate/setup()
-	return
-
-/obj/machinery/porta_turret/syndicate/assess_perp(mob/living/carbon/human/perp)
-	return 10 //Syndicate turrets shoot everything not in their faction
-
-/obj/machinery/porta_turret/syndicate/pod
-	health = 40
-	projectile = /obj/projectile/bullet/weakbullet3
-	eprojectile = /obj/projectile/bullet/weakbullet3
-
-/obj/machinery/porta_turret/syndicate/interior
-	name = "machine gun turret (.45)"
-	desc = "Syndicate interior defense turret chambered for .45 rounds. Designed to down intruders without damaging the hull."
-	projectile = /obj/projectile/bullet/midbullet
-	eprojectile = /obj/projectile/bullet/midbullet
-
-/obj/machinery/porta_turret/syndicate/exterior
-	name = "machine gun turret (7.62)"
-	desc = "Syndicate exterior defense turret chambered for 7.62 rounds. Designed to down intruders with heavy calliber bullets."
-
-/obj/machinery/porta_turret/syndicate/grenade
-	name = "mounted grenade launcher (40mm)"
-	desc = "Syndicate 40mm grenade launcher defense turret. If you've had this much time to look at it, you're probably already dead."
-	icon_state = "syndieturret01"
-	icon_state_initial = "syndieturret01"
-	icon_state_active = "syndieturret01"
-	projectile = /obj/projectile/bullet/a40mm
-	eprojectile = /obj/projectile/bullet/a40mm
-
-/obj/machinery/porta_turret/syndicate/assault_pod
-	name = "machine gun turret (4.6x30mm)"
-	desc = "Syndicate exterior defense turret chambered for 4.6x30mm rounds. Designed to be fitted to assault pods, it uses low calliber bullets to save space."
-	health = 100
-	projectile = /obj/projectile/bullet/weakbullet3
-	eprojectile = /obj/projectile/bullet/weakbullet3
-
 #undef TURRET_BUILD_LOOSEN
 #undef TURRET_BUILD_ANCHORED
 #undef TURRET_BUILD_ARMORED

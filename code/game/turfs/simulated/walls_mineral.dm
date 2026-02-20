@@ -145,16 +145,6 @@
 		PlasmaBurn(500)
 	..()
 
-/turf/simulated/wall/mineral/alien
-	name = "alien wall"
-	desc = "A strange-looking alien wall."
-	icon = 'icons/turf/walls/plasma_wall.dmi'
-	icon_state = "plasma_wall-0"
-	base_icon_state = "plasma_wall"
-	canSmoothWith = SMOOTH_GROUP_PLASMA_WALLS
-	smoothing_groups = SMOOTH_GROUP_PLASMA_WALLS
-	sheet_type = /obj/item/stack/sheet/mineral/abductor
-
 /turf/simulated/wall/mineral/wood
 	name = "wooden wall"
 	desc = "A wall with wooden plating. Stiff."
@@ -196,18 +186,6 @@
 	sheet_amount = 5
 	canSmoothWith = SMOOTH_GROUP_IRON_WALLS
 	smoothing_groups = SMOOTH_GROUP_IRON_WALLS
-
-/turf/simulated/wall/mineral/abductor
-	name = "alien wall"
-	desc = "A wall with alien alloy plating."
-	icon = 'icons/turf/walls/abductor_wall.dmi'
-	icon_state = "abductor_wall-0"
-	base_icon_state = "abductor_wall"
-	smooth = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
-	sheet_type = /obj/item/stack/sheet/mineral/abductor
-	explosion_block = 3
-	canSmoothWith = SMOOTH_GROUP_ABDUCTOR_WALLS
-	smoothing_groups = SMOOTH_GROUP_ABDUCTOR_WALLS
 
 /turf/simulated/wall/mineral/abductor/Initialize(mapload)
 	. = ..()

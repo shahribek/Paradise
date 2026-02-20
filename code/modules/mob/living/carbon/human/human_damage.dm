@@ -89,10 +89,6 @@
 	if(sponge)
 		return min(sponge.damage, maxHealth * 2)
 
-	if(ischangeling(src))
-		// if a changeling has no brain, they have no brain damage.
-		return 0
-
 	return 200
 
 /mob/living/carbon/human/adjustHeartLoss(amount, updating_health = TRUE)

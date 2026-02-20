@@ -410,11 +410,6 @@
 		PREPOSITIONAL = "кровавом ихоре",
 	)
 
-/obj/item/gem/bloodstone/examine(mob/user)
-	. = ..()
-	if(user.mind.has_antag_datum(/datum/antagonist/traitor))
-		. += span_warning("Судя по всему, этот кристалл можно использовать, чтобы зарядить ваш аплинк.")
-
 /obj/item/gem/bloodstone/afterattack(obj/item/I, mob/user, proximity, params)
 	if(!proximity)
 		return

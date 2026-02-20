@@ -229,23 +229,6 @@
 			status_tab_data[++status_tab_data.len] = list("Давление на выходе:", "[internal.distribute_pressure]")
 
 	// I REALLY need to split up status panel things into datums
-	var/mob/living/simple_animal/borer/borer = has_brain_worms()
-	if(borer?.controlling)
-		status_tab_data[++status_tab_data.len] = list("Объём химикатов:", borer.chemicals)
-		status_tab_data[++status_tab_data.len] = list("Стадия:", borer.antag_datum.borer_rank.rankname)
-		status_tab_data[++status_tab_data.len] = list("Очки эволюции:", borer.antag_datum.evo_points)
-
-	if(mind)
-		var/datum/antagonist/changeling/cling = mind.has_antag_datum(/datum/antagonist/changeling)
-		if(cling)
-			status_tab_data[++status_tab_data.len] = list("Объём химикатов:", "[cling.chem_charges]/[cling.chem_storage]")
-			status_tab_data[++status_tab_data.len] = list("ДНК поглощено:", "[cling.absorbed_count]")
-
-
-		if(isclocker(mind.current))
-			status_tab_data[++status_tab_data.len] = list("Заряд:", "[GLOB.clockwork_power]")
-
-
 	if(isspacepod(loc))
 		var/obj/spacepod/S = loc
 		status_tab_data[++status_tab_data.len] = list("Заряд челнока:", "[istype(S.battery) ? "[(S.battery.charge / S.battery.maxcharge) * 100]" : "Батарея отсутствует"]")
@@ -1524,7 +1507,7 @@ Eyes need to have significantly high darksight to shine unless the mob has the X
 	return (health <= HEALTH_THRESHOLD_CRIT && stat == UNCONSCIOUS)
 
 /mob/living/carbon/human/IsAdvancedToolUser()
-	if(dna.species.has_fine_manipulation || ischangeling(src) || BorerControlling())
+	if(dna.species.has_fine_manipulation)
 		return TRUE
 	return FALSE
 
@@ -1792,8 +1775,6 @@ Eyes need to have significantly high darksight to shine unless the mob has the X
 	special_check_for_transplantation()
 	if(!mind)
 		return
-	if(mind.assigned_role == "Cluwne") //HUNKE your suffering never stops
-		makeCluwne()
 	if(LAZYIN(mind.curses, "high_rp")) // Probably need to make a new proc to handle curses in case if there will be new ones
 		curse_high_rp()
 

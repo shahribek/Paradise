@@ -78,9 +78,6 @@
 			if(!(affected.status & ORGAN_ROBOT) && !(valid_starting_types & SURGERY_INITIATOR_ORGANIC))
 				return
 
-	if(L.has_status_effect(STATUS_EFFECT_SUMMONEDGHOST))
-		user.balloon_alert(user, "неподходящая цель!")
-		return //no cult ghost surgery please
 	INVOKE_ASYNC(src, PROC_REF(do_initiate_surgery_moment), target, user)
 	// This signal is actually part of the attack chain, so it needs to return COMPONENT_CANCEL_ATTACK_CHAIN to stop it
 	return COMPONENT_CANCEL_ATTACK_CHAIN

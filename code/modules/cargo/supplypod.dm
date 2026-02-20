@@ -253,15 +253,6 @@
 		living.dust() //no mercy
 		CHECK_TICK
 
-	for(var/core in GLOB.blob_cores)
-		var/turf/turf = get_turf(core)
-
-		if(!(turf && (turf.z == z)))
-			continue
-
-		qdel(core)
-		CHECK_TICK
-
 	SSticker.mode.end_game()
 
 /obj/structure/closet/supplypod/Initialize(mapload, customStyle = FALSE)

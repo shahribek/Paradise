@@ -724,6 +724,7 @@ Difficulty: Medium
 	ranged_cooldown = world.time + ranged_cooldown_time
 	fire_stream()
 
+// sparkle_path is deleted. restore or make new one
 /obj/effect/proc_holder/spell/aoe/repulse/spacedragon
 	name = "Удар хвостом"
 	desc = "Отбрасывайте нападающих ударом хвоста."
@@ -732,7 +733,7 @@ Difficulty: Medium
 	clothes_req = FALSE
 	human_req = FALSE
 	invocation_type = "none"
-	sparkle_path = /obj/effect/temp_visual/dir_setting/tailsweep
+	// sparkle_path = /obj/effect/temp_visual/dir_setting/tailsweep
 	action_icon_state = "tailsweep"
 	action_background_icon_state = "bg_alien"
 

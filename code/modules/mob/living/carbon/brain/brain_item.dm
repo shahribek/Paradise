@@ -83,14 +83,6 @@
 		return ..() // Probably a redundant removal; just bail
 
 	var/obj/item/organ/internal/brain/our_brain = src
-	if(!special)
-		var/mob/living/simple_animal/borer/borer = owner.has_brain_worms()
-		if(borer)
-			borer.leave_host() //Should remove borer if the brain is removed - RR
-
-		if(owner.mind && !decoy_brain && !HAS_TRAIT(owner, TRAIT_DECOY_BRAIN))	//don't transfer if the owner does not have a mind.
-			our_brain.transfer_identity(user)
-
 	if(ishuman(owner))
 		owner.update_hair()
 
@@ -107,10 +99,6 @@
 
 		var/mob/living/carbon/human/H = target
 		H.update_hair()
-
-	var/target_changeling = ischangeling(target)
-	if(target_changeling)
-		decoy_brain = TRUE
 
 	if(!brain_already_exists)
 		if(brainmob && !target_changeling)
@@ -161,12 +149,3 @@
 /obj/item/organ/internal/brain/Destroy() //copypasted from MMIs.
 	QDEL_NULL(brainmob)
 	return ..()
-
-/obj/item/organ/internal/brain/cluwne
-
-/obj/item/organ/internal/brain/cluwne/insert(mob/living/target, special = ORGAN_MANIPULATION_DEFAULT, make_cluwne = TRUE)
-	..(target, special)
-	if(ishuman(target) && make_cluwne)
-		var/mob/living/carbon/human/H = target
-		H.makeCluwne() //No matter where you go, no matter what you do, you cannot escape
-

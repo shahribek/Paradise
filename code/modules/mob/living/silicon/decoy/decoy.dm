@@ -16,35 +16,3 @@
 
 /mob/living/silicon/decoy/welder_act()
 	return
-
-/mob/living/silicon/decoy/syndicate
-	faction = list("syndicate")
-	bubble_icon = "syndibot"
-	name = "R.O.D.G.E.R"
-	desc = "Red Operations, Depot General Emission Regulator"
-	icon_state = "ai-magma"
-
-/mob/living/silicon/decoy/syndicate/Initialize(mapload)
-	. = ..()
-	icon_state = "ai-magma"
-
-/mob/living/silicon/decoy/syndicate/depot
-	universal_speak = TRUE
-	universal_understand = TRUE
-	var/raised_alert = FALSE
-
-/mob/living/silicon/decoy/syndicate/depot/proc/raise_alert()
-	raised_alert = TRUE
-	var/area/syndicate_depot/core/depotarea = get_area(src) // Cannot use myArea as it wont be defined for this mob type
-	if(istype(depotarea))
-		depotarea.increase_alert("AI Unit Offline")
-	else
-		say("Connection failure!")
-
-/mob/living/silicon/decoy/syndicate/depot/death(gibbed)
-	if(!raised_alert)
-		raise_alert()
-	. = ..()
-
-/mob/living/silicon/decoy/syndicate/depot/ex_act(severity, target)
-	adjustBruteLoss(250)

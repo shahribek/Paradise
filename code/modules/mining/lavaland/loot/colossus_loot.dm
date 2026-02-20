@@ -153,7 +153,6 @@
 	switch(terrain_theme)
 		if("lavaland")//Depressurizes the place... and free cult metal, I guess.
 			NewTerrainFloors = /turf/simulated/floor/plating/asteroid/basalt // Needs to be updated after turf update
-			NewTerrainWalls = /turf/simulated/wall/cult
 			NewFlora = list(/mob/living/simple_animal/hostile/asteroid/goldgrub)
 			florachance = 1
 		if("winter") //Snow terrain is slow to move in and cold! Get the assistants to shovel your driveway.
@@ -174,8 +173,6 @@
 		if("alien") //Beneficial, turns stuff into alien alloy which is useful to cargo and research. Also repairs atmos.
 			NewTerrainFloors = /turf/simulated/floor/mineral/abductor
 			NewTerrainWalls = /turf/simulated/wall/mineral/abductor
-			NewTerrainChairs = /obj/structure/bed/abductor //ayys apparently don't have chairs. An entire species of people who only recline.
-			NewTerrainTables = /obj/structure/table/abductor
 
 /obj/machinery/anomalous_crystal/theme_warp/ActivationReaction(mob/user, method)
 	if(..())
@@ -354,9 +351,9 @@
 	cooldown_add = 50
 	activation_sound = 'sound/magic/timeparadox2.ogg'
 	var/list/banned_items_typecache = list(
-		/obj/item/storage, /obj/item/implant, /obj/item/implanter, /obj/item/disk/nuclear,
-		/obj/projectile, /obj/item/spellbook, /obj/item/clothing/mask/facehugger, /obj/item/contractor_uplink,
-		/obj/item/gem, /obj/item/guardiancreator, /obj/item/dna_upgrader, /obj/item/mod,
+		/obj/item/storage, /obj/item/implant, /obj/item/implanter,
+		/obj/projectile, /obj/item/spellbook, /obj/item/clothing/mask/facehugger,
+		/obj/item/gem, /obj/item/dna_upgrader, /obj/item/mod,
 		/obj/item/autoimplanter
 	)
 

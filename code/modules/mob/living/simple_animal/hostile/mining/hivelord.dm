@@ -430,7 +430,7 @@
 	H.force_gene_block(GLOB.smallsizeblock, TRUE)
 
 /obj/effect/mob_spawn/human/corpse/damaged/legioninfested/Initialize(mapload)
-	var/type = pickweight(list("Miner" = 66, "Ashwalker" = 10, "Golem" = 10,"Clown" = 10, pick(list("Shadow", "YeOlde","Operative", "Cultist")) = 4))
+	var/type = pickweight(list("Miner" = 66, "Ashwalker" = 10, "Golem" = 10,"Clown" = 10)
 	switch(type)
 		if("Miner")
 			mob_species = pickweight(list(/datum/species/human = 72, /datum/species/unathi = 28))
@@ -491,34 +491,3 @@
 				back = /obj/item/bedsheet/rd/royal_cape
 			if(prob(10))
 				l_pocket = pick(list(/obj/item/crowbar/power, /obj/item/wrench/power, /obj/item/weldingtool/experimental))
-		if("YeOlde")
-			mob_gender = FEMALE
-			uniform = /obj/item/clothing/under/maid
-			gloves = /obj/item/clothing/gloves/color/white
-			shoes = /obj/item/clothing/shoes/laceup
-			head = /obj/item/clothing/head/helmet/riot/knight
-			suit = /obj/item/clothing/suit/armor/riot/knight
-			back = /obj/item/shield/riot/buckler
-			belt = /obj/item/nullrod/claymore
-			r_pocket = /obj/item/tank/internals/emergency_oxygen
-			mask = /obj/item/clothing/mask/breath
-		if("Operative")
-			id_job = "Operative"
-			outfit = /datum/outfit/syndicatecommandocorpse
-		if("Shadow")
-			mob_species = /datum/species/shadow
-			uniform = /obj/item/clothing/under/color/black
-			shoes = /obj/item/clothing/shoes/color/black
-			suit = /obj/item/clothing/suit/storage/labcoat
-			glasses = /obj/item/clothing/glasses/sunglasses/blindfold/black
-			back = /obj/item/tank/internals/oxygen
-			mask = /obj/item/clothing/mask/breath
-		if("Cultist")
-			uniform = /obj/item/clothing/under/roman
-			suit = /obj/item/clothing/suit/hooded/cultrobes
-			suit_store = /obj/item/tome
-			r_pocket = /obj/item/restraints/legcuffs/bola/cult
-			l_pocket = /obj/item/melee/cultblade/dagger
-			glasses =  /obj/item/clothing/glasses/hud/health/night
-			backpack_contents = list(/obj/item/reagent_containers/food/drinks/bottle/unholywater = 1, /obj/item/cult_shift = 1, /obj/item/flashlight/flare = 1, /obj/item/stack/sheet/runed_metal = 15)
-	. = ..()

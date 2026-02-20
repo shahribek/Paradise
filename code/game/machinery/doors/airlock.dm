@@ -1648,43 +1648,6 @@ GLOBAL_LIST_EMPTY(airlock_emissive_underlays)
 	update_icon()
 	return TRUE
 
-/obj/machinery/door/airlock/narsie_act(weak = FALSE)
-	var/turf/T = get_turf(src)
-	var/runed = prob(20)
-	var/obj/machinery/door/airlock/cult/A
-	if(weak)
-		A = new/obj/machinery/door/airlock/cult/weak(T)
-	else
-		if(glass)
-			if(runed)
-				A = new/obj/machinery/door/airlock/cult/glass(T)
-			else
-				A = new/obj/machinery/door/airlock/cult/unruned/glass(T)
-		else
-			if(runed)
-				A = new/obj/machinery/door/airlock/cult(T)
-			else
-				A = new/obj/machinery/door/airlock/cult/unruned(T)
-	A.name = name
-	A.stealth_icon = icon
-	A.stealth_overlays = overlays_file
-	A.stealth_opacity = opacity
-	A.stealth_glass = glass
-	A.stealth_airlock_material = airlock_material
-	qdel(src)
-
-/obj/machinery/door/airlock/ratvar_act(weak = FALSE)
-	var/obj/machinery/door/airlock/clockwork/A
-	if(weak)
-		A = new/obj/machinery/door/airlock/clockwork/weak(get_turf(src))
-	else
-		if(glass)
-			A = new/obj/machinery/door/airlock/clockwork/glass(get_turf(src))
-		else
-			A = new/obj/machinery/door/airlock/clockwork(get_turf(src))
-	A.name = name
-	qdel(src)
-
 /obj/machinery/door/airlock/rcd_deconstruct_act(mob/user, obj/item/rcd/our_rcd)
 	. = ..()
 	if(our_rcd.checkResource(20, user))

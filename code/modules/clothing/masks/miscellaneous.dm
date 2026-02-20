@@ -650,8 +650,6 @@
 	var/mob/living/carbon/human/H = user
 	if(istype(H) && slot == ITEM_SLOT_MASK)
 		to_chat(H, span_danger("[src] grips your face!"))
-		if(H.mind && H.mind.assigned_role != "Cluwne")
-			H.makeCluwne()
 
 /obj/item/clothing/mask/cursedclown/suicide_act(mob/user)
 	user.visible_message(span_danger("[user] gazes into the eyes of [src]. [src] gazes back!"))

@@ -304,7 +304,6 @@
 /obj/structure/closet/secure_closet/blueshield/populate_contents()
 	new /obj/item/storage/briefcase(src)
 	new	/obj/item/storage/firstaid/adv(src)
-	new /obj/item/pinpointer/crew(src)
 	new /obj/item/storage/belt/security/sec(src)
 	new /obj/item/clothing/gloves/combat/swat(src)
 	new /obj/item/flashlight/seclite(src)

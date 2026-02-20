@@ -626,38 +626,6 @@
 	flags = RESTRICTED | HIVEMIND | NOBABEL
 	follow = TRUE
 
-/datum/language/ling
-	name = LANGUAGE_HIVE_CHANGELING
-	desc = "Хотя обычно Генокрады относятся друг к другу с осторожностью и подозрением, они могут общаться на расстоянии."
-	speech_verbs = list("сообща%(ет,ют)%")
-	colour = "changeling"
-	key = "g"
-	flags = RESTRICTED | HIVEMIND | NOBABEL
-	follow = TRUE
-
-/datum/language/ling/broadcast(mob/living/speaker, message, speaker_mask)
-	var/datum/antagonist/changeling/cling = speaker?.mind?.has_antag_datum(/datum/antagonist/changeling)
-	if(cling)
-		..(speaker, message, cling.changelingID)
-	else
-		..(speaker,message)
-
-/datum/language/eventling
-	name = LANGUAGE_HIVE_EVENTLING
-	desc = "Хотя обычно Генокрады относятся друг к другу с осторожностью и подозрением, они могут общаться на расстоянии."
-	speech_verbs = list("сообща%(ет,ют)%")
-	colour = "changeling"
-	key = "gi"
-	flags = RESTRICTED | HIVEMIND | NOBABEL
-	follow = TRUE
-
-/datum/language/eventling/broadcast(mob/living/speaker, message, speaker_mask)
-	var/datum/antagonist/changeling/evented/cling = speaker?.mind?.has_antag_datum(/datum/antagonist/changeling/evented)
-	if(cling)
-		..(speaker, message, cling.changelingID)
-	else
-		..(speaker,message)
-
 /datum/language/shadowling
 	name = LANGUAGE_HIVE_SHADOWLING
 	desc = "Тенеморфы и их рабы способны общаться через псионический коллективный разум."
@@ -703,27 +671,6 @@
 
 /datum/language/abductor/golem/check_special_condition(mob/living/carbon/human/other, mob/living/carbon/human/speaker)
 	return TRUE
-
-/datum/language/borer
-	name = LANGUAGE_HIVE_BORER
-	desc = "Бореры обладают псионической связью между своими крошечными разумами."
-	colour = "alien"
-	key = "bo"
-	flags = RESTRICTED | HIVEMIND | NOBABEL
-	follow = TRUE
-
-/datum/language/borer/broadcast(mob/living/speaker, message, speaker_mask)
-	var/mob/living/simple_animal/borer/B
-
-	if(iscarbon(speaker))
-		var/mob/living/carbon/M = speaker
-		B = M.has_brain_worms()
-	else if(istype(speaker,/mob/living/simple_animal/borer))
-		B = speaker
-
-	if(B)
-		speaker_mask = B.truename
-	..(speaker,message,speaker_mask)
 
 /datum/language/binary
 	name = LANGUAGE_BINARY
@@ -846,8 +793,6 @@
 
 /datum/language/angel/proc/get_spans(mob/speaker)
 	. = colour //reset spans, just in case someone gets deculted or the cords change owner
-	if(iscultist(speaker))
-		. += " narsiesmall"
 
 /datum/language/angel/format_message(message, mob/speaker)
 	return span_message("<span class='[get_spans(speaker)]'>[message]</span>")

@@ -127,31 +127,6 @@
 	try_shake_up(user, target)
 	. = ..()
 
-/obj/item/gripper/cogscarab
-	name = "ancient gripper"
-	desc = "Латунный захватывающий инструмент для поддержки коллег."
-	icon_state = "clock_gripper"
-
-/obj/item/gripper/cogscarab/get_ru_names()
-	return list(
-		NOMINATIVE = "древний захват",
-		GENITIVE = "древнего захвата",
-		DATIVE = "древнему захвату",
-		ACCUSATIVE = "древний захват",
-		INSTRUMENTAL = "древним захватом",
-		PREPOSITIONAL = "древнем захвате",
-	)
-
-/obj/item/gripper/cogscarab/New()
-	//Has a list of items that it can hold.
-	can_hold += list(
-		/obj/item/clockwork/integration_cog,
-		/obj/item/clockwork/shard,
-		/obj/item/stack/sheet,
-		/obj/item/mmi/robotic_brain/clockwork
-	)
-	..()
-
 /obj/item/gripper/universal
 	name = "Universal gripper"
 	desc = "Универсальный захватывающий инструмент, используемый для выполнения сверх секретных заданий клана паука."
@@ -216,7 +191,6 @@
 	name = "Nuclear gripper"
 	desc = "Создан для всех ваших ядерных нужд."
 	icon_state = "diskgripper"
-	can_hold = list(/obj/item/disk/nuclear)
 
 /obj/item/gripper/nuclear/get_ru_names()
 	return list(

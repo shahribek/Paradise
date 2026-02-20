@@ -82,13 +82,6 @@
 	chameleon_name = "Hat"
 	chameleon_type = /obj/item/clothing/head
 
-/datum/action/item_action/chameleon/change/hat/initialize_blacklist()
-	. = ..()
-	chameleon_blacklist |= typecacheof(list(
-		/obj/item/clothing/head/helmet/changeling,
-		/obj/item/clothing/head/helmet/space/changeling,
-	), only_root_path = TRUE)
-
 // Gloves
 /datum/action/item_action/chameleon/change/gloves
 	chameleon_name = "Gloves"
@@ -117,14 +110,6 @@
 /datum/action/item_action/chameleon/change/suit
 	chameleon_name = "Suit"
 	chameleon_type = /obj/item/clothing/suit
-
-/datum/action/item_action/chameleon/change/suit/initialize_blacklist()
-	. = ..()
-	chameleon_blacklist |= typecacheof(list(
-		/obj/item/clothing/suit/armor/abductor,
-		/obj/item/clothing/suit/armor/changeling,
-		/obj/item/clothing/suit/space/changeling,
-	), only_root_path = TRUE)
 
 /datum/action/item_action/chameleon/change/suit/apply_outfit(datum/outfit/applying_from, list/all_items_to_apply)
 	. = ..()

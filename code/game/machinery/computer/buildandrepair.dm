@@ -839,21 +839,6 @@
 /obj/structure/computerframe/HONKputer/circuit_compatibility_check(obj/item/circuitboard/circuit)
 	return circuit.board_type == "HONKputer"
 
-/obj/structure/computerframe/abductor
-	icon_state = "comp_frame_alien1"
-
-/obj/structure/computerframe/abductor/update_icon_state()
-	icon_state = "comp_frame_alien[state]"
-
-/obj/structure/computerframe/abductor/on_construction(obj/machinery/computer/computer)
-	..()
-	computer.abductor = TRUE
-	computer.max_integrity = 400
-	computer.update_integrity(400)
-
-/obj/structure/computerframe/abductor/drop_computer_materials(location)
-	new /obj/item/stack/sheet/mineral/abductor(location, 4)
-
 /obj/structure/computerframe/cargo
 	name = "cargo R&D console frame"
 	icon = 'icons/obj/machines/computer.dmi'

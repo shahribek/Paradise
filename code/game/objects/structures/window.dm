@@ -151,18 +151,6 @@ GLOBAL_LIST_INIT(wcCommon, pick(list("#379963", "#0d8395", "#58b5c3", "#49e46e",
 	if(!anchored && !fulltile)
 		. += span_notice("<b>Alt+ЛКМ</b> для поворота.")
 
-/obj/structure/window/narsie_act()
-	color = NARSIE_WINDOW_COLOUR
-	for(var/obj/item/shard/shard in debris)
-		shard.color = NARSIE_WINDOW_COLOUR
-
-/obj/structure/window/ratvar_act()
-	if(!fulltile)
-		new/obj/structure/window/reinforced/clockwork(get_turf(src), dir)
-	else
-		new/obj/structure/window/reinforced/clockwork/fulltile(get_turf(src))
-	qdel(src)
-
 /obj/structure/window/rpd_act()
 	return
 

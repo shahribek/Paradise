@@ -32,7 +32,6 @@
 		/obj/item/stack/ore/titanium
 	)
 	healable = FALSE
-	loot = list(/obj/effect/decal/cleanable/robot_debris)
 	del_on_death = TRUE
 	light_system = MOVABLE_LIGHT
 	light_range = 6

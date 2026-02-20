@@ -335,17 +335,6 @@
 	if(exposed_temperature > 300)
 		burnbabyburn()
 
-/obj/structure/falsewall/alien
-	name = "alien wall"
-	desc = "A strange-looking alien wall."
-	icon = 'icons/turf/walls/plasma_wall.dmi'
-	icon_state = "plasma_wall-0"
-	base_icon_state = "plasma_wall"
-	mineral = /obj/item/stack/sheet/mineral/abductor
-	walltype = /turf/simulated/wall/mineral/abductor
-	canSmoothWith = SMOOTH_GROUP_PLASMA_WALLS
-	smoothing_groups = SMOOTH_GROUP_PLASMA_WALLS
-
 /obj/structure/falsewall/bananium
 	name = "bananium wall"
 	desc = "A wall with bananium plating. Honk!"
@@ -390,18 +379,6 @@
 	walltype = /turf/simulated/wall/mineral/iron
 	canSmoothWith = SMOOTH_GROUP_IRON_WALLS
 	smoothing_groups = SMOOTH_GROUP_IRON_WALLS
-
-/obj/structure/falsewall/abductor
-	name = "alien wall"
-	desc = "A wall with alien alloy plating."
-	icon = 'icons/turf/walls/abductor_wall.dmi'
-	icon_state = "abductor_wall-0"
-	base_icon_state = "abductor_wall"
-	smooth = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
-	mineral = /obj/item/stack/sheet/mineral/abductor
-	walltype = /turf/simulated/wall/mineral/abductor
-	canSmoothWith = SMOOTH_GROUP_ABDUCTOR_WALLS
-	smoothing_groups = SMOOTH_GROUP_ABDUCTOR_WALLS
 
 /obj/structure/falsewall/gingerbread
 	name = "gingerbread wall"

@@ -615,59 +615,6 @@ GLOBAL_LIST_EMPTY(cached_heal_materials)
 	)
 
 /**
- * Alien Alloy Golem - Best stats, but mute
- *
- * Can't speak, but has the most speed of all.
- * Also regenerates health passively.
- */
-/datum/species/golem/alloy
-	name = SPECIES_GOLEM_ALLOY
-	golem_colour = rgb(51, 51, 51)
-	skinned_type = /obj/item/stack/sheet/mineral/abductor
-	language = LANGUAGE_HIVE_GOLEM
-	default_language = LANGUAGE_HIVE_GOLEM
-	speed_mod = 1 // Faster
-	prefix = "Инопланетн"
-	special_names = list(
-		MALE = list("Инопришеленец", "Технологичный Голем", "Наблюдатель", "Незнакомец", "Странник", "Чужак", "Посланник", "Минерал", "Мужик", "Пришеленец", "Пупс"),
-		FEMALE = null,
-		NEUTER = null
-		)
-	special_name_chance = 40
-	chance_name_female = 30
-
-	material_heal = 50
-	amount_required_for_heal = 1
-	self_heal_delay = 1 SECONDS
-
-/datum/species/golem/alloy/get_info_text()
-	return info_text = "Будучи [span_danger("големом из инопланетных сплавов")], вы быстрее двигаетесь и со временем регенерируете. Однако, вы можете разговаривать только с големами из того же материала, что и вы."
-
-//Regenerates because self-repairing super-advanced alien tech
-/datum/species/golem/alloy/handle_life(mob/living/carbon/human/human)
-	var/update = NONE
-
-	update |= human.heal_overall_damage(2, 2, updating_health = FALSE)
-	update |= human.heal_damages(tox = 2, oxy = 2, updating_health = FALSE)
-
-	if(update)
-		human.updatehealth()
-
-/datum/species/golem/alloy/can_understand(mob/other) // Can understand everyone, but they can only speak over their mindlink
-	return TRUE
-
-/datum/species/golem/alloy/on_species_gain(mob/living/carbon/human/H)
-	. = ..()
-	LAZYREINITLIST(H.languages)
-	H.add_language(LANGUAGE_HIVE_GOLEM)
-	H.add_language(LANGUAGE_GREY) // Still grey enouhg to speak in psi link
-
-/datum/species/golem/alloy/get_heal_material_types()
-	return list(
-		/obj/item/stack/sheet/mineral/abductor
-	)
-
-/**
  * Wood Golem
  *
  * Regenerates health slowly when in light.
@@ -1236,8 +1183,7 @@ GLOBAL_LIST_EMPTY(cached_heal_materials)
 	H.equip_to_slot_or_del(new	/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing(H), ITEM_SLOT_POCKET_RIGHT)
 	H.equip_to_slot_or_del(new	/obj/item/cane(H), ITEM_SLOT_HAND_LEFT)
 	if(H.mind)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe/conjure/build/mime_wall(null))
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/mime/speak(null))
+		// loser can't talk
 		H.mind.miming = TRUE
 
 /datum/species/golem/tranquillite/get_heal_material_types()
@@ -1248,52 +1194,6 @@ GLOBAL_LIST_EMPTY(cached_heal_materials)
 
 /datum/unarmed_attack/golem/tranquillite
 	attack_sound = null
-
-/**
- * Clockwork Golem - Servant of Ratvar
- *
- * Fragile but empowered by Ratvar. Becomes a clock cultist upon creation.
- * Features brass construction and special cult abilities.
- */
-/datum/species/golem/clockwork
-	name = SPECIES_GOLEM_CLOCKWORK
-	prefix = "Латунн"
-	special_names = null
-	golem_colour = rgb(176, 136, 32)
-	skinned_type = /obj/item/stack/sheet/brass
-	special_names = list(
-		MALE = list("Сплав", "Брусок", "Кусок", "Мужик", "Кирпич", "Минерал", "Буреходец", "Пожарник", "Лавоходец", "Лавоплавунец", "Тяжеступ", "Работяга", "Тяжеловес", "Увалень", "Бугай", "Пупс"),
-		FEMALE = list("Дева"),
-		NEUTER = null,
-	)
-	speed_mod = 0
-	chance_name_male = 70
-	chance_name_neuter = 10
-	special_name_chance = 40
-
-	material_heal = 40
-	amount_required_for_heal = 2
-	self_heal_delay = 1 SECONDS
-
-/datum/species/golem/clockwork/get_info_text()
-	return info_text = "Будучи [span_danger("латунный големом")], вы очень хрупкие, но взамен имеете силу Ратвара."
-
-/datum/species/golem/clockwork/on_species_gain(mob/living/carbon/human/H)
-	. = ..()
-	if(!isclocker(H))
-		SSticker.mode.add_clocker(H.mind)
-
-/datum/species/golem/clockwork/handle_death(gibbed, mob/living/carbon/human/H)
-	H.visible_message(span_danger("[H] crumbles into cogs and gears! Then leftovers suddenly dusts!"))
-	for(var/obj/item/W in H)
-		H.drop_item_ground(W)
-	new /obj/item/clockwork/clockgolem_remains(get_turf(H))
-	H.dust() // One-try only
-
-/datum/species/golem/clockwork/get_heal_material_types()
-	return list(
-		/obj/item/stack/sheet/brass,
-	)
 
 #undef GOLEM_END_PR_1
 #undef GOLEM_END_PR_2

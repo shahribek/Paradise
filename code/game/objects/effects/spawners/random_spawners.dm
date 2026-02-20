@@ -345,7 +345,6 @@
 		/obj/item/stock_parts/cell/bluespace = 1,
 		/obj/item/card/emag = 1,
 		/obj/item/encryptionkey/binary = 1,
-		/obj/item/pinpointer/advpinpointer = 1,
 		/obj/item/borg/upgrade/vtec = 1,
 		/obj/item/borg/upgrade/syndicate = 1,
 		/obj/item/borg/upgrade/selfrepair = 1,

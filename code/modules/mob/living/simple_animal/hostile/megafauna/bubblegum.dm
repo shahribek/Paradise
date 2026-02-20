@@ -374,27 +374,6 @@ Difficulty: Hard
 				addtimer(CALLBACK(src, PROC_REF(devour), L), 2)
 	SLEEP_CHECK_DEATH(src, 1)
 
-/mob/living/simple_animal/hostile/megafauna/bubblegum/proc/hit_up_narsi()
-	SetRecoveryTime(20)
-	visible_message(
-	span_colossus("<b>[pick("[SSticker.cultdat.entity_name], я взываю к ТЕБЕ для одной услуги, которую ты мне должен!","[SSticker.cultdat.entity_title1], я взываю к тебе за поддержкой...","Давай посмотрим, как тебе понравятся приспешники [SSticker.cultdat.entity_title2]!","О, [SSticker.cultdat.entity_title3] присоединись ко мне, чтобы РАЗОРВАТЬ ЭТОГО ЩЕНКА НА ЧАСТИ!")]</b>"))
-	var/list/turfs = list()
-	var/constructs = 0
-	for(var/turf/T in view(6, target))
-		if(T.density)
-			continue
-		if(T in range(2, target))
-			continue
-		turfs += T
-		var/amount = second_life ? 4 : 3
-		while(constructs < amount && length(turfs))
-			var/turf/spot = pick_n_take(turfs)
-			if(!spot)
-				return
-			var/mob/living/simple_animal/hostile/construct/wraith/hostile/bubblegum/summon = new /mob/living/simple_animal/hostile/construct/wraith/hostile/bubblegum(spot)
-			summon.faction = faction.Copy()
-			constructs++
-
 /mob/living/simple_animal/hostile/megafauna/bubblegum/proc/blood_warp()
 	if(Adjacent(target))
 		return FALSE
@@ -709,6 +688,7 @@ Difficulty: Hard
 /mob/living/simple_animal/hostile/megafauna/bubblegum/hallucination/try_bloodattack()
 	return
 
+// projectile type is deleted. restore or make new if you want to use the hard mode bublegum
 /mob/living/simple_animal/hostile/megafauna/bubblegum/round_2
 	desc = "О, он просто В БЕШЕНСТВЕ. И довольно сильно ранен..."
 	health = 750
@@ -717,7 +697,7 @@ Difficulty: Hard
 	second_life = TRUE
 	enraged = TRUE
 	rapid_melee = 12
-	projectiletype = /obj/projectile/magic/arcane_barrage/blood
+	// projectiletype = /obj/projectile/magic/arcane_barrage/blood
 	projectilesound = 'sound/effects/splat.ogg'
 	deathmessage = null
 	death_sound = 'sound/hallucinations/veryfar_noise.ogg'

@@ -21,13 +21,6 @@
 	if(nuking)
 		SSsecurity_level.set_level(SEC_LEVEL_RED)
 		nuking = 0
-		for(var/obj/item/pinpointer/point in GLOB.pinpointer_list)
-			point.the_disk = null //Point back to the disk.
-
-	if(doomsday_device)
-		doomsday_device.timing = 0
-		SSshuttle.remove_hostile_environment(doomsday_device, 'sound/AI/eshuttle_dock.ogg')
-		qdel(doomsday_device)
 
 	if(explosive)
 		spawn(10)

@@ -87,14 +87,6 @@
 	if(flipped)
 		clear_smooth_overlays()
 
-/obj/structure/table/narsie_act()
-	new /obj/structure/table/wood(loc)
-	qdel(src)
-
-/obj/structure/table/ratvar_act()
-	new /obj/structure/table/reinforced/brass(loc)
-	qdel(src)
-
 /obj/structure/table/do_climb(mob/living/user)
 	. = ..()
 	item_placed(user)

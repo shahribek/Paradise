@@ -177,43 +177,6 @@
 	ADD_TRAIT(target, TRAIT_NO_CLONE, ADMIN_TRAIT)
 	usr.client.create_eventmob_for(target, 1)
 
-// MARK: Hunter-traitor
-/datum/smite/traitor_hunter
-	name = SMITE_TRAITORHUNTER
-	desc = "Отправьте за грешником агента \"Синдиката\", созданного среди экипажа."
-	logmsg = "crew traitor."
-	category = SMITE_CATEGORY_DEATH
-
-/datum/smite/traitor_hunter/apply_effect(mob/living/carbon/human/target, reason) // silent
-	var/list/possible_traitors = list()
-	for(var/mob/living/carbon/human/player in GLOB.alive_player_list)
-		if(player.mind.special_role)
-			continue
-
-		if(ismindshielded(player))
-			continue
-
-		if(!(ROLE_TRAITOR in player.client.prefs.be_special) || jobban_isbanned(player, ROLE_TRAITOR) || jobban_isbanned(player, ROLE_SYNDICATE))
-			continue
-
-		possible_traitors += player.mind
-
-	if(!length(possible_traitors))
-		to_chat(usr, span_warning("Не удалось найти кандидатов на предателя — охотника."), confidential = TRUE)
-		return
-
-	var/datum/mind/newtraitormind = pick(possible_traitors)
-	var/datum/objective/assassinate/kill_objective = new()
-	kill_objective.target = target.mind
-	kill_objective.owner = newtraitormind
-	kill_objective.explanation_text = "Убейте [target.mind.name], [target.mind.assigned_role]."
-	newtraitormind.objectives += kill_objective
-	var/datum/antagonist/traitor/turf = new()
-	turf.give_objectives = FALSE
-	to_chat(newtraitormind.current, "[span_danger("ВНИМАНИЕ:")] [span_warning("Время отдать свой долг \"Синдикату\"!")]")
-	to_chat(newtraitormind.current, span_boldwarning("Цель: УБЕЙТЕ [target.real_name]. Сейчас находится в [get_area(target.loc)].</b>"))
-	newtraitormind.add_antag_datum(turf)
-
 // MARK: Transform
 /datum/smite/transform
 	name = SMITE_TRANSFORM

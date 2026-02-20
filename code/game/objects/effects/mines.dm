@@ -63,15 +63,6 @@
 	if(isliving(victim))
 		victim.Weaken(stun_time)
 
-/obj/effect/mine/depot
-	name = "sentry mine"
-
-/obj/effect/mine/depot/mineEffect(mob/living/victim)
-	var/area/syndicate_depot/core/depotarea = get_area(src)
-	if(istype(depotarea))
-		if(depotarea.mine_triggered(victim))
-			explosion(loc, devastation_range = 1, heavy_impact_range = 0, light_impact_range = 0, flash_range = 1) // devastate the tile you are on, but leave everything else untouched
-
 /obj/effect/mine/dnascramble
 	name = "Radiation Mine"
 	var/radiation_amount

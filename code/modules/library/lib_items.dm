@@ -62,9 +62,7 @@
 /obj/structure/bookcase/proc/generate_allowed_books()
 	allowed_books = typecacheof(list(
 		/obj/item/book,
-		/obj/item/spellbook,
 		/obj/item/storage/bible,
-		/obj/item/tome,
 	))
 
 /// This is called on Initialize to add contents on the tile

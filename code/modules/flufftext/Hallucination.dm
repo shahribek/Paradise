@@ -741,8 +741,7 @@ GLOBAL_LIST_INIT(major_hallutinations, list("fake"=20,"death"=10,"xeno"=10,"sing
 	return
 
 GLOBAL_LIST_INIT(non_fakeattack_weapons, list(/obj/item/gun/projectile, /obj/item/ammo_box/speedloader/a357,\
-	/obj/item/gun/energy/kinetic_accelerator/crossbow,\
-	/obj/item/storage/box/syndicate, /obj/item/storage/box/emps,\
+	/obj/item/gun/energy/kinetic_accelerator/crossbow, /obj/item/storage/box/emps,\
 	/obj/item/cartridge/syndicate, /obj/item/clothing/under/chameleon,\
 	/obj/item/clothing/shoes/chameleon/noslip, /obj/item/card/id/syndicate,\
 	/obj/item/clothing/mask/chameleon, /obj/item/clothing/glasses/thermal,\
@@ -753,7 +752,7 @@ GLOBAL_LIST_INIT(non_fakeattack_weapons, list(/obj/item/gun/projectile, /obj/ite
 	/obj/item/toy/syndicateballoon, /obj/item/gun/energy/laser/captain,\
 	/obj/item/hand_tele, /obj/item/rcd, /obj/item/tank/jetpack,\
 	/obj/item/clothing/under/rank/captain, /obj/item/aicard,\
-	/obj/item/clothing/shoes/magboots, /obj/item/areaeditor/blueprints, /obj/item/disk/nuclear,\
+	/obj/item/clothing/shoes/magboots, /obj/item/areaeditor/blueprints,\
 	/obj/item/clothing/suit/space/nasavoid, /obj/item/tank))
 
 /obj/effect/hallucination/bolts

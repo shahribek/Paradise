@@ -204,12 +204,6 @@ GLOBAL_LIST_INIT(ungibbable_items_types, get_ungibbable_items_types())
 	typepath = /obj/item/clothing/accessory/medal/gold/captain
 	protected_jobs = list(JOB_TITLE_CAPTAIN)
 
-/datum/theft_objective/highrisk/nukedisc
-	id = "nuke_disc"
-	name = "the nuclear authentication disk"
-	typepath = /obj/item/disk/nuclear
-	protected_jobs = list(JOB_TITLE_CAPTAIN)
-
 /datum/theft_objective/highrisk/reactive
 	id = "reactive_armor"
 	name = "the reactive teleport armor"

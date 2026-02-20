@@ -1183,9 +1183,6 @@ It'll return null if the organ doesn't correspond, so include null checks when u
 		human.add_sight(SEE_TURFS)
 		human.lighting_alpha = min(human.lighting_alpha, LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE)
 
-	if(human.has_status_effect(STATUS_EFFECT_SUMMONEDGHOST))
-		human.set_invis_see(SEE_INVISIBLE_OBSERVER)
-
 	human.sync_lighting_plane_alpha()
 
 /datum/species/proc/water_act(mob/living/carbon/human/M, volume, temperature, source, method = REAGENT_TOUCH)

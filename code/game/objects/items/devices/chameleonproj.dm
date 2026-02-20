@@ -51,7 +51,7 @@
 	if(target.invisibility)
 		return
 	if(!active_dummy)
-		if(isitem(target) && !istype(target, /obj/item/disk/nuclear))
+		if(isitem(target))
 			playsound(get_turf(src), 'sound/weapons/flash.ogg', 100, TRUE, -6)
 			to_chat(user, span_notice("Scanned [target]."))
 			var/obj/temp = new /obj()

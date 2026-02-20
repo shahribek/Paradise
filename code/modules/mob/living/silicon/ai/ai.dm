@@ -703,18 +703,6 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 			if(stat != 2)
 				apply_damage(30)
 
-/mob/living/silicon/ai/ratvar_act()
-	if(isclocker(src))
-		return
-	SSticker.mode.add_clocker(mind)
-	laws = new /datum/ai_laws/ratvar
-	add_overlay("clockwork_frame")
-	for(var/mob/living/silicon/robot/R in connected_robots)
-		to_chat(R, span_danger("ERROR: Master AI has be&# &#@)!-"))
-		to_chat(R, span_clocklarge("\"Your master is under my control, so do you\""))
-		R.ratvar_act(TRUE)
-		SSticker?.score?.save_silicon_laws(R, additional_info = "Ratvar act via master AI conversion", log_all_laws = TRUE)
-
 /mob/living/silicon/ai/Topic(href, href_list)
 	if(usr != src)
 		return
@@ -1396,44 +1384,6 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	if(client?.prefs.toggles2 & PREFTOGGLE_2_RUNECHAT)
 		create_chat_message(M, message_clean, list("radio"))
 	show_message(rendered, 2)
-
-/mob/living/silicon/ai/proc/malfhacked(obj/machinery/power/apc/apc)
-	malfhack = null
-	malfhacking = 0
-	clear_alert("hackingapc")
-
-	if(!istype(apc) || QDELETED(apc) || apc.stat & BROKEN)
-		to_chat(src, span_danger("Hack aborted. The designated APC no longer exists on the power network."))
-		playsound(get_turf(src), 'sound/machines/buzz-two.ogg', 50, TRUE)
-	else if(apc.aidisabled)
-		to_chat(src, span_danger("Hack aborted. [apc] is no longer responding to our systems."))
-		playsound(get_turf(src), 'sound/machines/buzz-sigh.ogg', 50, TRUE)
-	else
-		malf_picker.processing_time += 10
-
-		apc.malfai = parent || src
-		apc.malfhack = TRUE
-		apc.locked = TRUE
-
-		playsound(get_turf(src), 'sound/machines/ding.ogg', 50, TRUE)
-		to_chat(src, "Hack complete. [apc] is now under your exclusive control.")
-		apc.update_icon()
-
-/mob/living/silicon/ai/proc/add_malf_picker()
-	to_chat(src, "In the top right corner of the screen you will find the Malfunctions tab, where you can purchase various abilities, from upgraded surveillance to station ending doomsday devices.")
-	to_chat(src, "You are also capable of hacking APCs, which grants you more points to spend on your Malfunction powers. The drawback is that a hacked APC will give you away if spotted by the crew. Hacking an APC takes 60 seconds.")
-	view_core() //A BYOND bug requires you to be viewing your core before your verbs update
-	malf_picker = new /datum/module_picker
-	modules_action = new(malf_picker)
-	modules_action.Grant(src)
-
-///Removes all malfunction-related /datum/action's from the target AI.
-/mob/living/silicon/ai/proc/remove_malf_abilities()
-	QDEL_NULL(modules_action)
-	for(var/datum/AI_Module/AM in current_modules)
-		for(var/datum/action/A in actions)
-			if(istype(A, initial(AM.power_type)))
-				qdel(A)
 
 /mob/living/silicon/ai/proc/open_nearest_door(mob/living/target)
 	if(!istype(target))

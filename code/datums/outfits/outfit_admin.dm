@@ -57,109 +57,6 @@
 	belt = /obj/item/tank/internals/emergency_oxygen/double/vox
 	box = /obj/item/storage/box/survival/species/vox
 
-/datum/outfit/admin/syndicate
-	name = "Syndicate Agent"
-
-	uniform = /obj/item/clothing/under/syndicate
-	back = /obj/item/storage/backpack
-	belt = /obj/item/storage/belt/utility/full/multitool
-	gloves = /obj/item/clothing/gloves/combat
-	shoes = /obj/item/clothing/shoes/combat
-	l_ear = /obj/item/radio/headset/syndicate
-	id = /obj/item/card/id/syndicate
-	backpack_contents = list(
-		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/flashlight = 1,
-		/obj/item/card/emag = 1,
-		/obj/item/reagent_containers/food/snacks/syndidonkpocket = 1,
-	)
-
-	var/id_access = SYNDICATE_AGENT
-	var/uplink_uses = 100
-
-/datum/outfit/admin/syndicate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(visualsOnly)
-		return
-
-	var/obj/item/card/id/I = H.wear_id
-	if(istype(I))
-		apply_to_card(I, H, get_syndicate_access(id_access), name, "syndie")
-
-
-	var/obj/item/radio/R = H.l_ear
-	if(istype(R))
-		R.set_frequency(SYND_FREQ)
-	H.faction |= "syndicate"
-
-/datum/outfit/admin/syndicate_infiltrator
-	name = "Syndicate Infiltrator"
-
-/datum/outfit/admin/syndicate_infiltrator/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = H.equip_syndicate_infiltrator(0, 20, FALSE)
-	H.update_hud_set()
-	if(!visualsOnly)
-		H.faction |= "syndicate"
-
-/datum/outfit/admin/syndicate_strike_team
-	name = "Syndicate Strike Team Commando"
-	uniform = /obj/item/clothing/under/syndicate
-	back = /obj/item/storage/backpack/security
-	shoes =	/obj/item/clothing/shoes/combat
-	gloves = /obj/item/clothing/gloves/combat/swat/syndicate
-	l_ear = /obj/item/radio/headset/syndicate/alt/syndteam
-	l_pocket = /obj/item/card/emag
-	r_pocket = /obj/item/melee/energy/sword/saber/red
-	id = /obj/item/card/id/syndicate
-	box = /obj/item/storage/box/survival/survival_syndi
-	backpack_contents = list(
-		/obj/item/grenade/plastic/x4 = 2,
-		/obj/item/reagent_containers/hypospray/combat/nanites = 1,
-		/obj/item/gun/projectile/revolver = 1,
-		/obj/item/ammo_box/speedloader/a357 = 1,
-	)
-	implants = list(/obj/item/implant/dust)
-	can_be_admin_equipped = FALSE
-
-/datum/outfit/admin/syndicate_strike_team/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	..()
-	var/obj/item/card/id/syndicate/I = H.wear_id
-	I.icon_state = "syndie"
-	I.name = "[H.real_name]’s ID Card"
-	I.assignment = "Syndicate Commando"
-	I.access += get_syndicate_access(I.assignment)
-	I.registered_name = H.real_name
-	if(!visualsOnly)
-		H.faction += "syndicate"
-
-/datum/outfit/admin/syndicate_strike_team/full_gear
-	can_be_admin_equipped = TRUE
-	toggle_helmet = TRUE
-	suit = /obj/item/clothing/suit/space/hardsuit/syndi/elite/sst
-	belt = /obj/item/storage/belt/military/sst
-	shoes = /obj/item/clothing/shoes/magboots/syndie/advance
-	glasses = /obj/item/clothing/glasses/thermal/sunglasses
-	l_hand = /obj/item/gun/projectile/automatic/l6_saw
-
-	backpack_contents = list(
-		/obj/item/tank/jetpack/oxygen/harness = 1,
-		/obj/item/ammo_box/magazine/a762x51 = 1,
-		/obj/item/grenade/plastic/x4 = 2,
-		/obj/item/reagent_containers/hypospray/combat/nanites = 1,
-		/obj/item/gun/projectile/revolver = 1,
-		/obj/item/ammo_box/speedloader/a357 = 1,
-	)
-
-/datum/outfit/admin/syndicate/spy
-	name = "Syndicate Spy"
-	uniform = /obj/item/clothing/under/suit_jacket/really_black
-	shoes = /obj/item/clothing/shoes/chameleon/noslip
-	uplink_uses = 200
-
-	implants = list(
-		/obj/item/implant/dust,
-	)
-
 /datum/outfit/admin/nt_vip
 	name = "VIP Guest"
 
@@ -396,14 +293,6 @@
 		apply_to_card(I, H, get_centcom_access("Death Commando"), "Death Commando", "deathsquad")
 		I.photo = get_id_photo(H, custom_job = JOB_TITLE_REPRESENTATIVE) // They should go die with a good photo instead of assistants grey shorts xD
 	H.update_hud_set()
-
-/datum/outfit/admin/death_commando/officer
-	name = "NT Death Commando officer"
-	can_be_admin_equipped = FALSE
-
-/datum/outfit/admin/death_commando/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	.=..()
-	H.back.contents += new /obj/item/disk/nuclear/unrestricted
 
 /datum/outfit/admin/pirate
 	name = "Space Pirate"
@@ -893,7 +782,6 @@
 	belt = /obj/item/melee/baton/security/loaded
 	l_hand = null
 	suit_store = /obj/item/gun/projectile/automatic/pistol/deagle
-	l_pocket = /obj/item/pinpointer/advpinpointer
 	l_ear = /obj/item/radio/headset/ert/alt/commander/solgov
 	backpack_contents = list(
 		/obj/item/storage/box/survival/responseteam = 1,

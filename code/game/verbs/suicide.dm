@@ -17,11 +17,6 @@
 
 	var/confirm = null
 	if(!forced)
-		if(ischangeling(src))
-			// the alternative is to allow clings to commit suicide, but then you'd probably have them
-			// killing themselves as soon as they're in cuffs
-			to_chat(src, span_warning("Мы не пойдем по лёгкому пути."))
-			return
 		confirm = tgui_alert(src, "Вы уверены, что хотите покончить с собой?", "Подтвердить самоубийство", list("Да", "Нет"))
 
 	if(stat == DEAD || suiciding) //We check again, because alerts sleep until a choice is made

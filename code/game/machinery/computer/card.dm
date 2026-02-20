@@ -34,7 +34,6 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 		/datum/job/ntspecops/solgovspecops,
 		/datum/job/civilian,
 		/datum/job/civilian/prisoner,
-		/datum/job/syndicateofficer,
 		/datum/job/civilian/team3,
 		/datum/job/civilian/team2,
 		/datum/job/civilian/team1,

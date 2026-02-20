@@ -2,7 +2,6 @@
 	mob_type_allowed_typecache = /mob/living
 	mob_type_blacklist_typecache = list(
 		/mob/living/carbon/brain,	// nice try
-		/mob/living/captive_brain,
 		/mob/living/silicon,
 		/mob/living/simple_animal/bot,
 		/mob/living/simple_animal/slime,
@@ -106,7 +105,6 @@
 
 	mob_type_blacklist_typecache = list(
 		/mob/living/carbon/brain,
-		/mob/living/captive_brain,
 	)
 
 /datum/emote/living/deathgasp/select_message_type(mob/user, msg, intentional)
@@ -263,7 +261,6 @@
 		// Humans and silicons get specialized scream.
 		/mob/living/carbon/human,
 		/mob/living/silicon,
-		/mob/living/captive_brain,
 		/mob/living/simple_animal/slime,
 	)
 	vary = TRUE
@@ -423,7 +420,6 @@
 	emote_type = EMOTE_AUDIBLE|EMOTE_MOUTH
 	mob_type_blacklist_typecache = list(
 		/mob/living/carbon/brain,
-		/mob/living/captive_brain,
 		/mob/living/simple_animal/slime,
 	)
 
@@ -462,7 +458,6 @@
 	message = null
 	mob_type_blacklist_typecache = list(
 		/mob/living/carbon/brain,	// nice try
-		/mob/living/captive_brain,
 	)
 
 	// Custom emotes should be able to be forced out regardless of context.

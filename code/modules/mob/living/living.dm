@@ -775,12 +775,6 @@
 			C.reagents.clear_reagents()
 			QDEL_LIST(C.reagents.addiction_list)
 			C.reagents.addiction_threshold_accumulated.Cut()
-		if(iscultist(src))
-			if(SSticker.mode.cult_risen)
-				SSticker.mode.rise(src)
-			if(SSticker.mode.cult_ascendant)
-				SSticker.mode.ascend(src)
-
 		QDEL_LIST(C.processing_patches)
 
 // rejuvenate: Called by `revive` to get the mob into a revivable state
@@ -1296,40 +1290,6 @@
 		throw_at(S, 14, 3, src, TRUE)
 	else if(!mob_negates_gravity())
 		step_towards(src,S)
-
-/mob/living/narsie_act()
-	spawn_dust()
-	gib()
-
-/mob/living/ratvar_act(weak = FALSE)
-	if(weak)
-		return //It's too weak to break a flesh!
-	if(client)
-		switch(rand(1,3))
-			if(1)
-				var/mob/living/simple_animal/hostile/clockwork/marauder/cog = new (get_turf(src))
-				if(mind)
-					SSticker.mode.add_clocker(mind)
-					mind.transfer_to(cog)
-				else
-					cog.possess_by_player(client.key)
-			if(2)
-				var/mob/living/silicon/robot/cogscarab/cog = new (get_turf(src))
-				if(mind)
-					SSticker.mode.add_clocker(mind)
-					mind.transfer_to(cog)
-				else
-					cog.possess_by_player(client.key)
-			if(3)
-				var/mob/living/silicon/robot/cog = new (get_turf(src))
-				if(mind)
-					SSticker.mode.add_clocker(mind)
-					mind.transfer_to(cog)
-				else
-					cog.possess_by_player(client.key)
-				cog.ratvar_act()
-	spawn_dust()
-	gib()
 
 /mob/living/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!used_item)

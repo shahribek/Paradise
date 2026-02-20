@@ -366,9 +366,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 			)
 
 
-	if(mmi?.clock || isclocker(src))
-		forced_module = /obj/item/robot_module/clockwork
-
 	if(forced_module)
 		modtype = forced_module
 
@@ -795,13 +792,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 		cell_component.electronics_damage = 0
 
 		var/been_hijacked = FALSE
-		for(var/mob/living/simple_animal/demon/pulse_demon/demon in cell)
-			if(!been_hijacked)
-				demon.do_hijack_robot(src)
-				been_hijacked = TRUE
-			else
-				demon.exit_to_turf()
-
 		if(been_hijacked)
 			cell.rigged = FALSE
 
@@ -906,20 +896,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 		qdel(I)
 
 		return ATTACK_CHAIN_BLOCKED_ALL
-
-	if(istype(I, /obj/item/clockwork/clockslab) && isclocker(src) && isclocker(user) && src != user)
-		add_fingerprint(user)
-		locked = !locked
-
-		visible_message(
-			span_warning("[user] has [locked ? "locked" : "unlocked"] [src]'s interface."),
-			span_notice("[user] has [locked ? "locked" : "unlocked"] your interface."),
-			ignored_mobs = user,
-		)
-
-		to_chat(user, span_notice("You have [locked ? "locked" : "unlocked"] cyborg's interface."))
-		update_icons()
-		return ATTACK_CHAIN_PROCEED_SUCCESS
 
 	return ..()
 
@@ -1092,10 +1068,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 	if(!ishuman(user) && !issilicon(user))
 		return
 
-	if(isclocker(src))
-		to_chat(user, span_danger("As you try to emag, a magic force keeps the cover locked!"))
-		return
-
 	var/mob/living/M = user
 	if(!opened)//Cover is closed
 		if(!is_emaggable)
@@ -1178,21 +1150,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 	laws = new /datum/ai_laws/crewsimov
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
-
-/mob/living/silicon/robot/ratvar_act(weak = FALSE)
-	if(isclocker(src) && module?.type == /obj/item/robot_module/clockwork)
-		return
-
-	if(!weak)
-		if(module)
-			reset_module()
-
-		pick_module("Clockwork")
-		pdahide = TRUE
-
-	SSticker.mode.add_clocker(mind)
-	UnlinkSelf()
-	laws = new /datum/ai_laws/ratvar
 
 /mob/living/silicon/robot/verb/toggle_own_cover()
 	set category = VERB_CATEGORY_ROBOTCOMMANDS
@@ -1289,18 +1246,10 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 	if(stat != DEAD && !HAS_TRAIT(src, TRAIT_INCAPACITATED) && !low_power_mode) //Not dead, not stunned.
 		var/eyes_olay
 		if(selected_skin)
-			if(isclocker(src) && SSticker.mode.power_reveal)
-				eyes_olay = "eyes-[selected_skin.eye_prefix]-clocked"
-
-			else
-				eyes_olay = "eyes-[selected_skin.eye_prefix]"
+			eyes_olay = "eyes-[selected_skin.eye_prefix]"
 
 		else
-			if(isclocker(src) && SSticker.mode.power_reveal)
-				eyes_olay = "eyes-[icon_state]-clocked"
-
-			else
-				eyes_olay = "eyes-[icon_state]"
+			eyes_olay = "eyes-[icon_state]"
 
 		if(eyes_olay)
 			add_overlay(eyes_olay)
@@ -1477,10 +1426,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 /mob/living/silicon/robot/proc/deconstruct()
 	var/turf/T = get_turf(src)
 
-	if((modtype != /obj/item/robot_module/clockwork || !mmi.clock) && isclocker(src))
-		to_chat(src, span_warning("With body torn into pieces, your mind got free from evil cult!"))
-		SSticker.mode.remove_clocker(mind, FALSE)
-
 	if(robot_suit)
 		robot_suit.forceMove(T)
 		robot_suit.l_leg.forceMove(T)
@@ -1629,9 +1574,6 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 	return
 
 /mob/living/silicon/robot/proc/SetLockdown(state = TRUE)
-	if(isclocker(src))
-		return
-
 	// They stay locked down if their wire is cut.
 	if(wires?.is_cut(WIRE_BORG_LOCKED))
 		state = TRUE
@@ -1966,11 +1908,7 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 /mob/living/silicon/robot/destroyer/eyes_overlays()
 	if(stat != DEAD && !HAS_TRAIT(src, TRAIT_INCAPACITATED) && !low_power_mode) //Not dead, not stunned.
 		var/eyes_olay
-		if(isclocker(src) && SSticker.mode.power_reveal)
-			eyes_olay = "eyes-[base_icon]-clocked"
-
-		else
-			eyes_olay = "eyes-[base_icon]"
+		eyes_olay = "eyes-[base_icon]"
 
 		if(eyes_olay)
 			add_overlay(eyes_olay)

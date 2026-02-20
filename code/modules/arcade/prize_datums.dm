@@ -161,12 +161,6 @@ GLOBAL_DATUM_INIT(global_prizes, /datum/prizes, new())
 	typepath = /obj/item/gun/projectile/revolver/capgun
 	cost = 75
 
-/datum/prize_item/codex_gigas
-	name = "Toy Codex Gigas"
-	desc = "Книга, способная хранить имена самых ужасных демонов в галактике. Стоит записать в неё имя вашего клоуна."
-	typepath = /obj/item/toy/codex_gigas/
-	cost = 75
-
 /datum/prize_item/rubberducky
 	name = "Rubber Ducky"
 	desc = "Ваш любимый друг во время купания, лучшая пищялка-крякалка для ванной."
@@ -195,12 +189,6 @@ GLOBAL_DATUM_INIT(global_prizes, /datum/prizes, new())
 	name = "Griffin Action Figure"
 	desc = "Если вы не можете быть лучшим, вы всегда можете быть ХУДШИМ."
 	typepath = /obj/item/toy/griffin
-	cost = 100
-
-/datum/prize_item/fakefingergun
-	name = "Miming Manual : Finger Gun"
-	desc = "..."
-	typepath = /obj/item/spellbook/oneuse/mime/fingergun/fake
 	cost = 100
 
 /datum/prize_item/magic_conch

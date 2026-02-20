@@ -298,16 +298,6 @@
 	popup.open()
 	onclose(user, "blueprints")
 
-//One-use syndicate permits. Sprites by ElGood
-/obj/item/areaeditor/permit/syndicate
-	name = "syndicate construction permit"
-	icon_state = "permit_syndie"
-	desc = "This is a one-use permit that allows the user to officially declare a built room as a property of the syndicate"
-	fluffnotice = "Intellectual Property of the Syndicate. Syndicate Engineering requires all construction projects to be approved by an officer of sufficient authority, as detailed in Syndicate RaMSS Anti-Nanotrasen Company Regulation F##K-NT-027. \
-					By submitting this form, you accept any fines, fees, or personal injury/death that may occur during construction."
-	station_name_overrride = "RaMSS Taipan"
-	new_area_type = /area/syndicate/unpowered/syndicate_space_base
-
 // Basic area creation blueprints.
 /obj/item/areaeditor/create_area_only
 	name = "construction blueprints"

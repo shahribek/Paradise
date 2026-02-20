@@ -367,9 +367,6 @@
 	for(var/turf/T in orange(H, 4))
 		H.add_splatter_floor(T)
 	if(do_after(src, 5 SECONDS, H))
-		if(prob(50) || smiting)
-			H.makeCluwne()
-
 		H.apply_damages(brute = 30, brain = 100, spread_damage = TRUE)
 		var/obj/item/organ/external/chest = H.get_organ(BODY_ZONE_CHEST)
 		chest?.drop_organs()

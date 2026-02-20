@@ -15,8 +15,6 @@
 	var/static/list/areas_under_siege = typecacheof(list(/area/crew_quarters/kitchen,
 														/area/crew_quarters/cafeteria,
 														/area/crew_quarters/bar,
-														/area/syndicate/unpowered/syndicate_space_base/bar,
-														/area/syndicate/unpowered/syndicate_space_base/kitchen,
 														/area/coldcolony/malta/resid_serv/kitchen,
 														/area/coldcolony/malta/resid_serv/bar/atrium,
 														/area/coldcolony/malta/resid_serv/bar

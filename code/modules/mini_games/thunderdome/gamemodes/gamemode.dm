@@ -30,7 +30,6 @@
 		/obj/item/storage/toolbox/surgery = 1,
 		/obj/item/storage/toolbox/mechanical = 1,
 		/obj/item/storage/toolbox/syndicate = 1,
-		/obj/item/storage/box/syndie_kit/mantisblade = 1,
 		/obj/item/CQC_manual = 1,
 		/obj/item/storage/belt/security/judobelt = 1,
 		/obj/item/sleeping_carp_scroll = 1,
@@ -43,11 +42,8 @@
 		/obj/item/pen/edagger = 1,
 		/obj/item/melee/baseball_bat = 1,
 		/obj/item/clothing/gloves/knuckles = 1,
-		/obj/item/storage/box/syndie_kit/combat_baking = 1,
 		/obj/item/twohanded/fireaxe/energized = 1,
-		/obj/item/storage/box/syndie_kit/commando_kit = 1,
 		/obj/item/storage/belt/grenade/frag = 1,
-		/obj/item/storage/box/syndie_kit/dangertray = 1,
 		/obj/item/gun/magic/hook = 1,
 		/obj/item/twohanded/bamboospear = 1,
 		/obj/item/twohanded/chainsaw_handmade = 1,
@@ -58,7 +54,6 @@
 		/obj/item/melee/rapier/syndie = 1,
 		/obj/item/melee/claymore/bone = 1,
 		/obj/item/gun/magic/staff/spellblade = 1,
-		/obj/item/his_grace/no_sound = 1,
 	)
 
 /datum/thunderdome_gamemode/ranged
@@ -172,7 +167,6 @@
 		/obj/item/storage/toolbox/surgery = 1,
 		/obj/item/storage/toolbox/mechanical = 1,
 		/obj/item/storage/toolbox/syndicate = 1,
-		/obj/item/storage/box/syndie_kit/mantisblade = 1,
 		/obj/item/CQC_manual = 1,
 		/obj/item/storage/belt/security/judobelt = 1,
 		/obj/item/sleeping_carp_scroll = 1,
@@ -187,11 +181,8 @@
 		/obj/item/gun/projectile/automatic/sniper_rifle/syndicate = 1,
 		/obj/item/gun/energy/xray = 1,
 		/obj/item/gun/energy/lasercannon = 1,
-		/obj/item/storage/box/syndie_kit/combat_baking = 1,
 		/obj/item/twohanded/fireaxe/energized = 1,
-		/obj/item/storage/box/syndie_kit/commando_kit = 1,
 		/obj/item/storage/belt/grenade/frag = 1,
-		/obj/item/storage/box/syndie_kit/dangertray = 1,
 		/obj/item/gun/energy/emittergun = 1,
 		/obj/item/gun/magic/hook = 1,
 		/obj/item/gun/energy/decloner = 1,
@@ -221,5 +212,4 @@
 		/obj/item/melee/rapier/syndie = 1,
 		/obj/item/melee/claymore/bone = 1,
 		/obj/item/gun/magic/staff/spellblade = 1,
-		/obj/item/his_grace/no_sound = 1,
 	)

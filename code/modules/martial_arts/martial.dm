@@ -473,13 +473,7 @@
 		return
 
 	if(user.mind) //Prevents changelings and vampires from being able to learn it
-		if(ischangeling(user))
-			to_chat(user, span_warning("Как бы мы не пытались, у нас не получается понять даже основы CQC!"))
-			return
-		else if(isvampire(user)) //Vampires
-			to_chat(user, span_warning("Ваша жажда крови отвлекает вас от изучения CQC!"))
-			return
-		else if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		if(HAS_TRAIT(user, TRAIT_PACIFISM))
 			to_chat(user, span_warning("От одной мысли о драке, не говоря уже о CQC, ваша голова идёт кругом!"))
 			return
 
@@ -519,16 +513,6 @@
 		if(isliving(user))
 			var/mob/living/L = user
 			L.apply_damages(burn = 20, brain = 20, spread_damage = TRUE)
-		use_implant(user)
-		return
-
-	if(ischangeling(user))
-		to_chat(user, span_warning("Мы имплантируем себя, но наноботы не успевают достичь своей цели и разрушаются."))
-		use_implant(user)
-		return
-
-	if(isvampire(user))
-		to_chat(user, span_warning("Вы имплантируете себя, но ваша кровь разрушает наноботов быстрее, чем они достигают своей цели."))
 		use_implant(user)
 		return
 

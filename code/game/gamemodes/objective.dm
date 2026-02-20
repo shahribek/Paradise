@@ -314,14 +314,6 @@ GLOBAL_LIST_EMPTY(admin_objective_list)
 	name = "Debrain"
 	antag_menu_name = "Украсть мозг"
 
-/datum/objective/debrain/is_invalid_target(datum/mind/possible_target)
-	. = ..()
-	if(.)
-		return
-	// If the target is a changeling, then it's an invalid target. Since changelings can not be debrained.
-	if(ischangeling(possible_target))
-		return TARGET_INVALID_CHANGELING
-
 /datum/objective/debrain/find_target(list/target_blacklist)
 	..()
 	if(target?.current)
@@ -502,22 +494,6 @@ GLOBAL_LIST_EMPTY(admin_objective_list)
 			return FALSE
 		return TRUE
 	return FALSE
-
-/datum/objective/protect/mindslave //subytpe for mindslave implants
-	antag_menu_name = "Защитить хозяина"
-	needs_target = FALSE // To be clear, this objective should have a target, but it will always be manually set to the mindslaver through the mindslave antag datum.
-
-// This objective should only be given to a single owner. We can use `owner` and not `get_owners()`.
-/datum/objective/protect/mindslave/on_target_cryo()
-	if(owner?.current)
-		SEND_SOUND(owner.current, sound('sound/ambience/alarm4.ogg'))
-		owner.remove_antag_datum(/datum/antagonist/mindslave)
-		to_chat(owner.current, "<br>[span_userdanger("Вы замечаете, что ваш хозяин вошёл в криогенное хранилище и возвращаетесь к своему обычному состоянию.")]")
-		log_admin("[key_name(owner.current)]'s mindslave master has cryo'd, and is no longer a mindslave.")
-		message_admins("[key_name_admin(owner.current)]'s mindslave master has cryo'd, and is no longer a mindslave.") //Since they were on antag hud earlier, this feels important to log
-		qdel(src)
-
-/datum/objective/protect/contractor //subtype for support units
 
 /datum/objective/hijack
 	name = "Hijack"
@@ -1002,13 +978,6 @@ GLOBAL_LIST_EMPTY(admin_objective_list)
 
 	explanation_text = "Заполучите [target_amount] совместим[declension_ru(target_amount, "ый геном", "ых генома", "ых геномов")]. 'Extract DNA Sting' можно использовать, чтобы незаметно получить геномы, не убивая кого-либо."
 	return target_amount
-
-/datum/objective/absorb/check_completion()
-	for(var/datum/mind/user in get_owners())
-		var/datum/antagonist/changeling/cling = user?.has_antag_datum(/datum/antagonist/changeling)
-		if(cling?.absorbed_dna && (cling.absorbed_count >= target_amount))
-			return TRUE
-	return FALSE
 
 /datum/objective/destroy
 	name = "Destroy AI"

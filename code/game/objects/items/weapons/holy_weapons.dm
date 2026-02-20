@@ -416,12 +416,6 @@
 	..()
 	desc = "What a terrible night to be on the [station_name()]."
 
-/obj/item/nullrod/whip/afterattack(atom/movable/AM, mob/user, proximity, params)
-	if(!proximity)
-		return
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
-
 /obj/item/nullrod/fedora
 	name = "binary fedora"
 	desc = "The brim of the hat is as sharp as the division between 0 and 1. It makes a mighty throwing weapon."
@@ -769,10 +763,6 @@
 /obj/item/nullrod/missionary_staff/proc/do_convert(mob/living/carbon/human/target, mob/living/carbon/human/missionary)
 
 	if(!target || !ishuman(target) || !missionary || !ishuman(missionary))
-		return
-	if(ismindslave(target) || target.mind.zealot_master)	//mindslaves and zealots override the staff because the staff is just a temporary mindslave
-		to_chat(missionary, span_warning("Your faith is strong, but [target.p_their()] mind is already slaved to someone else's ideals. Perhaps an inquisition would reveal more..."))
-		faith -= 25		//same faith cost as losing sight of them mid-conversion, but did you just find someone who can lead you to a fellow traitor?
 		return
 	if(ismindshielded(target))
 		faith -= 75

@@ -166,7 +166,6 @@
 							"Абдукторы — ([length(SSticker.mode.abductors)])" = (mind in SSticker.mode.abductors),
 							"Демоны — ([length(SSticker.mode.demons)])" = (mind in SSticker.mode.demons),
 							"Ивент роли — ([length(SSticker.mode.eventmiscs)])" = (mind in SSticker.mode.eventmiscs),
-							"Культисты [SSticker.cultdat.entity_name] — ([length(SSticker.mode.cult)])" = (mind in SSticker.mode.cult),
 							"Культисты Ратвара — ([length(SSticker.mode.clockwork_cult)])" = (mind in SSticker.mode.clockwork_cult),
 							"Революционеры — ([length(SSticker.mode.revolutionaries)])" = (mind in SSticker.mode.revolutionaries),
 							"Главы революции — ([length(SSticker.mode.head_revolutionaries)])" = (mind in SSticker.mode.head_revolutionaries),

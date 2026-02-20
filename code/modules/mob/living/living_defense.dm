@@ -90,13 +90,6 @@
 		)
 	return shock_damage
 
-/mob/living/blob_vore_act(obj/structure/blob/special/core/voring_core)
-	. = ..()
-	if(HAS_TRAIT(src, TRAIT_BLOB_ZOMBIFIED) || QDELETED(src))
-		return FALSE
-	if(stat == DEAD)
-		forceMove(voring_core)
-
 /mob/living/emp_act(severity)
 	..()
 	for(var/obj/O in contents)

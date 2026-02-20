@@ -508,16 +508,13 @@
 	var/possible = list(/obj/item/ship_in_a_bottle,
 						/obj/item/gun/energy/pulse,
 						/obj/item/sleeping_carp_scroll,
-						/obj/item/shield/changeling,
 						/obj/item/lava_staff,
 						/obj/item/hierophant_club,
-						/obj/item/his_grace,
 						/obj/item/gun/projectile/automatic/l6_saw,
 						/obj/item/gun/magic/staff/chaos,
 						/obj/item/gun/magic/staff/spellblade,
 						/obj/item/gun/magic/wand/death,
 						/obj/item/gun/magic/wand/fireball,
-						/obj/item/stack/telecrystal/hundred,
 						/obj/item/banhammer)
 
 /obj/item/fakeartefact/New()

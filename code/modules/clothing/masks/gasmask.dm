@@ -401,18 +401,9 @@
 		return
 
 	//var/obj/effect/proc_holder/spell/mime/speak/mask/mask_spell = null
-	for(var/obj/effect/proc_holder/spell/mime/speak/spell in user.mind.spell_list)
-		if(istype(spell, /obj/effect/proc_holder/spell/mime/speak/mask))
-			//mask_spell = spell
-			continue
-		if(spell)
-			return
-
 	// if(mask_spell)
 	// 	mask_spell.action.enable_invisibility(FALSE)
 	// 	return
-
-	user.mind.AddSpell(new /obj/effect/proc_holder/spell/mime/speak/mask)
 
 /obj/item/clothing/mask/gas/mime/dropped(mob/user, slot, silent = FALSE)
 	. = ..()
@@ -420,17 +411,11 @@
 	if(!user?.mind || slot != ITEM_SLOT_MASK)
 		return
 
-	var/obj/effect/proc_holder/spell/mime/speak/mask/spell = locate() in user.mind.spell_list
-	if(!spell)
-		return
 
 	// if(spell.cooldown_handler.is_on_cooldown())
 	// 	spell.action.enable_invisibility(TRUE)
 	// 	return
 
-	if(user.mind.miming)
-		spell.cast(list(user))
-	user.mind.RemoveSpell(spell)
 
 /obj/item/clothing/mask/gas/mime/sad
 	name = "sad mime mask"

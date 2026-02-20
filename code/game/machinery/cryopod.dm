@@ -741,10 +741,7 @@
 	var/list/free_cryopods = list()
 	var/list/free_syndie_cryopods = list()
 	for(var/obj/machinery/cryopod/P in SSmachines.get_by_type(/obj/machinery/cryopod))
-		if(!P.occupant && istype(get_area(P), /area/syndicate/unpowered/syndicate_space_base) && istype(P, /obj/machinery/cryopod/syndie))
-			free_syndie_cryopods += P
-		else if(!P.occupant && istype(get_area(P), /area/crew_quarters/sleep))
-			free_cryopods += P
+		free_cryopods += P
 	var/obj/machinery/cryopod/target_cryopod = null
 	if(length(free_cryopods))
 		if(person_to_cryo.find_taipan_hud_number_by_job()) //Если вернёт хоть что то значит тайпановец. Иначе вернёт null

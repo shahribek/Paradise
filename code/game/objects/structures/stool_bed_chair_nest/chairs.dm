@@ -18,17 +18,6 @@
 	var/comfort = 0.3
 	var/flip_on_buckled_move = TRUE
 
-/obj/structure/chair/narsie_act()
-	if(prob(20))
-		var/obj/structure/chair/wood/W = new/obj/structure/chair/wood(get_turf(src))
-		W.setDir(dir)
-		qdel(src)
-
-/obj/structure/chair/ratvar_act()
-	var/obj/structure/chair/brass/B = new(get_turf(src))
-	B.setDir(dir)
-	qdel(src)
-
 /obj/structure/chair/Move(atom/newloc, direct = NONE, glide_size_override = 0, update_dir = TRUE)
 	. = ..()
 	handle_rotation()

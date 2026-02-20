@@ -113,17 +113,6 @@
 	var/time_left = max(0, (old_anomaly.death_time - world.time) / 10)
 	return round(time_left)
 
-/obj/effect/countdown/clockworkgate
-	name = "gateway countdown"
-	color = "#BE8700"
-
-/obj/effect/countdown/clockworkgate/get_value()
-	var/obj/structure/clockwork/functional/celestial_gateway/gateway = attached_to
-	if(!istype(gateway))
-		return
-	else if(gateway.obj_integrity && !gateway.purpose_fulfilled)
-		return "<div align='center' valign='middle' style='position:relative; top:0px; left:6px'>[GATEWAY_RATVAR_ARRIVAL - gateway.seconds_until_activation]</div>"
-
 /obj/effect/countdown/hourglass
 	name = "hourglass countdown"
 

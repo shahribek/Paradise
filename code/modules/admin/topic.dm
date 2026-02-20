@@ -1569,76 +1569,6 @@
 			to_chat(M, span_notice("You have been sent to the Thunderdome."))
 		log_and_message_admins("has sent [key_name_admin(M)] to the thunderdome. (Observer.)")
 
-	else if(href_list["contractor_stop"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/mob/M = locateUID(href_list["contractor_stop"])
-		if(!istype(M))
-			to_chat(usr, span_warning("This can only be used on instances of type /mob."), confidential = TRUE)
-			return
-
-		var/datum/syndicate_contract/contract = LAZYACCESS(GLOB.prisoner_belongings.prisoners, M)
-		if(!contract)
-			to_chat(usr, span_warning("[M] is currently not imprisoned by the Syndicate."), confidential = TRUE)
-			return
-		if(!contract.prisoner_timer_handle)
-			to_chat(usr, span_warning("[M] is already NOT scheduled to return from the Syndicate Jail."), confidential = TRUE)
-			return
-
-		deltimer(contract.prisoner_timer_handle)
-		contract.prisoner_timer_handle = null
-		to_chat(usr, "Stopped automatic return of [M] from the Syndicate Jail.", confidential = TRUE)
-		message_admins("[key_name_admin(usr)] has stopped the automatic return of [key_name_admin(M)] from the Syndicate Jail")
-		log_admin("[key_name(usr)] has stopped the automatic return of [key_name(M)] from the Syndicate Jail")
-
-	else if(href_list["contractor_start"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/mob/M = locateUID(href_list["contractor_start"])
-		if(!istype(M))
-			to_chat(usr, span_warning("This can only be used on instances of type /mob."), confidential = TRUE)
-			return
-
-		var/datum/syndicate_contract/contract = LAZYACCESS(GLOB.prisoner_belongings.prisoners, M)
-		if(!contract)
-			to_chat(usr, span_warning("[M] is currently not imprisoned by the Syndicate."), confidential = TRUE)
-			return
-		if(contract.prisoner_timer_handle)
-			to_chat(usr, span_warning("[M] is already scheduled to return from the Syndicate Jail."), confidential = TRUE)
-			return
-
-		var/time_seconds = tgui_input_number(usr, "Enter the jail time in seconds:", "Start Syndicate Jail Timer")
-		time_seconds = text2num(time_seconds)
-		if(time_seconds < 0)
-			return
-
-		contract.prisoner_timer_handle = addtimer(CALLBACK(contract, TYPE_PROC_REF(/datum/syndicate_contract, handle_target_return), M), time_seconds * 10, TIMER_STOPPABLE)
-		to_chat(usr, "Started automatic return of [M] from the Syndicate Jail in [time_seconds] second\s.", confidential = TRUE)
-		message_admins("[key_name_admin(usr)] has started the automatic return of [key_name_admin(M)] from the Syndicate Jail in [time_seconds] second\s")
-		log_admin("[key_name(usr)] has started the automatic return of [key_name(M)] from the Syndicate Jail in [time_seconds] second\s")
-
-	else if(href_list["contractor_release"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/mob/M = locateUID(href_list["contractor_release"])
-		if(!istype(M))
-			to_chat(usr, span_warning("This can only be used on instances of type /mob."), confidential = TRUE)
-			return
-
-		var/datum/syndicate_contract/contract = LAZYACCESS(GLOB.prisoner_belongings.prisoners, M)
-		if(!contract)
-			to_chat(usr, span_warning("[M] is currently not imprisoned by the Syndicate."), confidential = TRUE)
-			return
-
-		deltimer(contract.prisoner_timer_handle)
-		contract.handle_target_return(M)
-		to_chat(usr, "Immediately returned [M] from the Syndicate Jail.", confidential = TRUE)
-		message_admins("[key_name_admin(usr)] has immediately returned [key_name_admin(M)] from the Syndicate Jail")
-		log_admin("[key_name(usr)] has immediately returned [key_name(M)] from the Syndicate Jail")
-
 	else if(href_list["aroomwarp"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1802,21 +1732,6 @@
 			return
 
 		check_teams()
-
-	else if(href_list["send_warning"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		var/message = tgui_input_text(usr, "Введите предупреждение", "Предупреждение", encode = FALSE)
-		if(tgui_alert(usr,"Вы действительно хотите отправить предупреждение всем блобам?", "", list("Да", "Нет")) == "Нет")
-			return
-
-		if(!SSticker || !SSticker.mode)
-			return
-
-		SSticker.mode.show_warning(message)
-		log_admin("[key_name(usr)] has send warning to all blobs: [message]")
-		message_admins("[key_name_admin(usr)] has send warning to all blobs: [message]")
 
 	else if(href_list["team_command"])
 		if(!check_rights(R_ADMIN))
@@ -2669,12 +2584,6 @@
 			if("striketeam")
 				if(usr.client.strike_team())
 					SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Send Team - Deathsquad")
-			if("striketeam_syndicate")
-				if(usr.client.syndicate_strike_team())
-					SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Send Team - Syndie Strike Team")
-			if("infiltrators_syndicate")
-				if(usr.client.syndicate_infiltration_team())
-					SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Send Team - Syndicate Infiltration Team")
 			if("gimmickteam")
 				if(usr.client.gimmick_team())
 					SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Send Team - Gimmick Team")
@@ -2888,40 +2797,6 @@
 					pod.target = human
 					pod.security = security
 					new /obj/effect/pod_landingzone(human, pod)
-
-			if("traitor_all")
-				if(!SSticker)
-					tgui_alert(usr, "The game hasn't started yet!")
-					return
-				if(!you_realy_want_do_this())
-					return
-				var/objective_text = sanitize(tgui_input_text(usr, "Enter an objective", encode = FALSE))
-				var/datum/objective/objective
-
-				if(objective_text)
-					objective = new(objective_text)
-					objective.needs_target = FALSE
-					objective.antag_menu_name = "Цель предателей"
-
-				if(!objective)
-					return
-
-				SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Traitor All ([objective])")
-				var/datum/antagonist/traitor/antag_datum
-				for(var/mob/living/carbon/human/H in GLOB.player_list)
-					if(H.stat == 2 || !H.client || !H.mind) continue
-					if(is_special_character(H)) continue
-					//traitorize(H, objective, 0)
-					antag_datum = new
-					antag_datum.add_objective(objective)
-					H.mind.add_antag_datum(antag_datum)
-
-				for(var/mob/living/silicon/A in GLOB.player_list)
-					antag_datum = new
-					antag_datum.add_objective(objective)
-					A.mind.add_antag_datum(antag_datum)
-
-				log_and_message_admins(span_notice("used everyone is a traitor secret. Objective is [objective]"))
 
 			if("togglebombcap")
 				if(!you_realy_want_do_this())
@@ -3555,11 +3430,6 @@
 	var/mob/living/carbon/human/hunter_mob = new /mob/living/carbon/human(pick(GLOB.latejoin))
 	hunter_mind.transfer_to(hunter_mob)
 	hunter_mob.equipOutfit(O, FALSE)
-	var/obj/item/pinpointer/advpinpointer/N = new /obj/item/pinpointer/advpinpointer(hunter_mob)
-	hunter_mob.equip_to_slot_or_del(N, ITEM_SLOT_BACKPACK)
-	N.setting = 2 //SETTING_OBJECT, not defined here
-	N.pinpoint_at(H)
-	N.modelocked = TRUE
 	if(!locate(/obj/item/implant/dust, hunter_mob))
 		var/obj/item/implant/dust/D = new /obj/item/implant/dust(hunter_mob)
 		D.implant(hunter_mob)

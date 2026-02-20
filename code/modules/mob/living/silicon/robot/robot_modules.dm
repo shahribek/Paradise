@@ -781,8 +781,6 @@
 	modules += new /obj/item/card/emag(src)
 	modules += new /obj/item/extinguisher/mini(src)
 	modules += new /obj/item/crowbar/cyborg(src)
-	modules += new /obj/item/pinpointer/operative(src)
-	modules += new /obj/item/pinpointer/nukeop(src)
 	modules += new /obj/item/gripper/nuclear(src)
 	emag = null
 
@@ -835,8 +833,6 @@
 	modules += new /obj/item/stack/medical/bruise_pack/advanced/syndicate(src)
 	modules += new /obj/item/stack/medical/ointment/advanced/syndicate(src)
 	modules += new /obj/item/reagent_scanner/adv(src)
-	modules += new /obj/item/pinpointer/operative(src)
-	modules += new /obj/item/pinpointer/nukeop(src)
 	modules += new /obj/item/roller_holder(src)
 	emag = null
 
@@ -885,8 +881,6 @@
 	modules += new /obj/item/melee/energy/sword/cyborg(src)
 	modules += new /obj/item/gripper/nuclear(src)
 	modules += new /obj/item/extinguisher(src)
-	modules += new /obj/item/pinpointer/operative(src)
-	modules += new /obj/item/pinpointer/nukeop(src)
 	modules += new /obj/item/borg_chameleon(src)
 	modules += new /obj/item/stack/sheet/metal/cyborg(src)
 	modules += new /obj/item/stack/sheet/glass/cyborg(src)
@@ -1073,81 +1067,6 @@
 	qdel(robot)
 
 	return TRUE
-
-/obj/item/robot_module/cogscarab/Initialize(mapload)
-	. = ..()
-	modules += new /obj/item/screwdriver/brass(src)
-	modules += new /obj/item/wirecutters/brass(src)
-	modules += new /obj/item/crowbar/brass(src)
-	modules += new /obj/item/wrench/brass(src)
-	modules += new /obj/item/weldingtool/experimental/brass(src)
-	modules += new /obj/item/multitool/brass(src)
-	modules += new /obj/item/gripper/cogscarab(src)
-	modules += new /obj/item/stack/sheet/brass/cyborg(src)
-	modules += new /obj/item/clockwork/brassmaker(src)
-	modules += new /obj/item/extinguisher(src)
-	emag = null
-
-	fix_modules()
-	handle_storages()
-
-/obj/item/robot_module/cogscarab/add_default_robot_items()
-	return
-
-/obj/item/robot_module/cogscarab/respawn_consumable(mob/living/silicon/robot/R)
-	return
-
-/obj/item/robot_module/cogscarab/handle_death(mob/living/silicon/robot/R, gibbed)
-	var/obj/item/gripper/cogscarab/G = locate(/obj/item/gripper/cogscarab) in modules
-	G?.drop_gripped_item(silent = TRUE)
-
-/obj/item/robot_module/clockwork
-	name = "Clockwork"
-	module_type = "Cogscarab" //icon_state
-	default_skin = /datum/robot_skin/clockwork
-	borg_skins = list(/datum/robot_skin/clockwork)
-
-/obj/item/robot_module/clockwork/on_apply(mob/living/silicon/robot/robot)
-	robot.status_flags &= ~CANPUSH
-	QDEL_NULL(robot.mmi)
-
-	robot.mmi = new /obj/item/mmi/robotic_brain/clockwork(src)
-
-	return TRUE
-
-/obj/item/robot_module/clockwork/set_appearance(mob/living/silicon/robot/robot)
-	robot.icon = 'icons/mob/clockwork_mobs.dmi'
-	robot.icon_state = "cyborg"
-
-/obj/item/robot_module/clockwork/Initialize(mapload)
-	. = ..()
-	modules += new /obj/item/clockwork/clockslab(src)
-	modules += new /obj/item/clock_borg_spear(src)
-	modules += new /obj/item/weldingtool/experimental/brass(src)
-	modules += new /obj/item/screwdriver/brass(src)
-	modules += new /obj/item/wrench/brass(src)
-	modules += new /obj/item/crowbar/brass(src)
-	modules += new /obj/item/wirecutters/brass(src)
-	modules += new /obj/item/multitool/brass(src)
-	modules += new /obj/item/gripper/cogscarab(src)
-	modules += new /obj/item/t_scanner(src)
-	modules += new /obj/item/stack/sheet/brass/cyborg(src)
-	modules += new /obj/item/clockwork/brassmaker(src)
-	modules += new /obj/item/extinguisher(src)
-	emag = new /obj/item/toy/carpplushie/gold(src)
-
-	fix_modules()
-	handle_storages()
-
-/obj/item/robot_module/clockwork/add_default_robot_items()
-	return
-
-/obj/item/robot_module/clockwork/respawn_consumable(mob/living/silicon/robot/R)
-	return
-
-/obj/item/robot_module/clockwork/handle_death(mob/living/silicon/robot/R, gibbed)
-	var/obj/item/gripper/cogscarab/G = locate() in modules
-	G?.drop_gripped_item(silent = TRUE)
 
 //checks whether this item is a module of the robot it is located in.
 /obj/item/proc/is_robot_module()
