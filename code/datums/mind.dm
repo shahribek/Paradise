@@ -299,18 +299,6 @@
 	else
 		. += "<a href='byond://?src=[UID()];eventmisc=eventmisc'>Event Role</a>|<b>NO</b>"
 
-/datum/mind/proc/memory_edit_malf_ai()
-	. = _memory_edit_header("traitor", list("traitorchan", "traitorvamp", "traitorthief"))
-	var/datum/antagonist/malf_ai/malf_datum = has_antag_datum(/datum/antagonist/malf_ai)
-	if(malf_datum)
-		. += "<b><font color='red'>MALF AI</font></b>|<a href='byond://?src=[UID()];malf_ai=clear'>no</a>"
-		if(!length(malf_datum.objectives))
-			. += "<br>Objectives are empty! <a href='byond://?src=[UID()];malf_ai=autoobjectives'>Randomize!</a>"
-	else
-		. += "<a href='byond://?src=[UID()];malf_ai=malf_ai'>malf AI</a>|<b>NO</b>"
-
-	. += _memory_edit_role_enabled(ROLE_MALF_AI)
-
 /datum/mind/proc/memory_edit_silicon()
 	. = "<i><b>Silicon</b></i>: "
 	var/mob/living/silicon/silicon = current
@@ -892,37 +880,6 @@
 		text.Add(span_notice("Your current objectives:"))
 	text.Add(gen_objective_text())
 	return text
-
-/datum/mind/proc/find_syndicate_uplink()
-	var/datum/antagonist/traitor/traitor_datum = has_antag_datum(/datum/antagonist/traitor)
-	if(traitor_datum)
-		return traitor_datum.hidden_uplink
-
-	var/datum/antagonist/nuclear_operative/nuclear_datum = has_antag_datum(/datum/antagonist/nuclear_operative)
-	if(nuclear_datum)
-		return nuclear_datum.uplink
-
-	// We will return first found uplink in mob contents if its not a traitor
-	var/list/uplinks = current?.collect_all_atoms_of_type(/obj/item/uplink/hidden)
-	return length(uplinks) ? uplinks[1] : null
-
-/datum/mind/proc/take_uplink()
-	var/obj/item/uplink/hidden/uplink = find_syndicate_uplink()
-	if(!uplink)
-		return
-
-	var/obj/item/uplink_holder = uplink.loc
-	uplink_holder.hidden_uplink = null
-
-	var/datum/antagonist/traitor/traitor_datum = has_antag_datum(/datum/antagonist/traitor)
-	if(traitor_datum?.hidden_uplink == uplink)
-		traitor_datum.hidden_uplink = null
-
-	var/datum/antagonist/nuclear_operative/nuclear_datum = has_antag_datum(/datum/antagonist/nuclear_operative)
-	if(nuclear_datum)
-		return nuclear_datum.uplink = null
-
-	qdel(uplink)
 
 /datum/mind/proc/AddSpell(obj/effect/proc_holder/spell/spell)
 	if(!istype(spell))

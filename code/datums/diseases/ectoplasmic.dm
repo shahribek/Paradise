@@ -46,12 +46,8 @@
 				to_chat(human, span_warning("Вы внезапно чувствуете [pick("тошноту и усталость", "тошноту", "головокружение", "острую боль в голове")]."))
 				create_effect = TRUE
 		if(5)
-			if(prob(SYMPTOM_ACTIVATION_PROB * 10))
-				human.mind?.add_antag_datum(/datum/antagonist/sintouched)
-				to_chat(human, span_revenbignotice("Вы внезапно чувствуете, как ваша душа искажается."))
-			else
-				human.apply_damage(80, STAMINA)
-				to_chat(human, "Вы чувствуете сильную усталость, но болезнь покинула вас.")
+			human.apply_damage(80, STAMINA)
+			to_chat(human, "Вы чувствуете сильную усталость, но болезнь покинула вас.")
 
 			create_effect = TRUE
 			cure()

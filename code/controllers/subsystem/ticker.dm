@@ -559,6 +559,10 @@ SUBSYSTEM_DEF(ticker)
 		set_observer_default_invisibility(0) //spooks things up
 
 	var/speed_round = FALSE
+
+	var/list/end_of_round_info = list()
+	end_of_round_info += "<br>[TAB]Shift Duration: <b>[SHIFT_TIME_TEXT()]</b>"
+
 	if(world.time - SSticker.round_start_time <= SPEEDRUN_ROUND_TIME)
 		speed_round = TRUE
 

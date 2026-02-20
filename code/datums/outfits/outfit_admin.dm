@@ -139,14 +139,6 @@
 	if(!visualsOnly)
 		H.faction += "syndicate"
 
-/datum/outfit/admin/syndicate_strike_team/officer
-	name = "Syndicate Stirke Team Officer"
-	pda = /obj/item/pinpointer
-
-/datum/outfit/admin/syndicate_strike_team/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	.=..()
-	H.back.contents += new /obj/item/disk/nuclear/unrestricted
-
 /datum/outfit/admin/syndicate_strike_team/full_gear
 	can_be_admin_equipped = TRUE
 	toggle_helmet = TRUE
