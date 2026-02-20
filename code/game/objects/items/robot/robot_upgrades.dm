@@ -45,11 +45,6 @@
 	if(!..())
 		return FALSE
 
-	if(isclocker(robot))
-		if(user)
-			to_chat(user, "[span_danger("UPGRADE ERROR: ")]" + "[span_notice("this unit somehow refuses to reset!")]")
-		return FALSE
-
 	robot.reset_module()
 	return TRUE
 
@@ -391,14 +386,7 @@
 	for(var/obj/item/surgicaldrill/surgical_drill in robot.module.modules)
 		qdel(surgical_drill)
 
-	robot.module.modules += new /obj/item/scalpel/laser/laser3(robot.module) //no abductor laser scalpel, so next best thing.
-	robot.module.modules += new /obj/item/hemostat/alien(robot.module)
-	robot.module.modules += new /obj/item/retractor/alien(robot.module)
-	robot.module.modules += new /obj/item/bonegel/alien(robot.module)
-	robot.module.modules += new /obj/item/FixOVein/alien(robot.module)
-	robot.module.modules += new /obj/item/bonesetter/alien(robot.module)
-	robot.module.modules += new /obj/item/circular_saw/alien(robot.module)
-	robot.module.modules += new /obj/item/surgicaldrill/alien(robot.module)
+	robot.module.modules += new /obj/item/scalpel/laser/laser3(robot.module)
 	robot.module.rebuild()
 	return TRUE
 
@@ -408,20 +396,6 @@
 
 	for(var/obj/item/scalpel/laser/laser3/scalpel in robot.module.modules)
 		qdel(scalpel)
-	for(var/obj/item/hemostat/alien/hemostat in robot.module.modules)
-		qdel(hemostat)
-	for(var/obj/item/retractor/alien/retractor in robot.module.modules)
-		qdel(retractor)
-	for(var/obj/item/bonegel/alien/bonegel in robot.module.modules)
-		qdel(bonegel)
-	for(var/obj/item/FixOVein/alien/fix_o_vein in robot.module.modules)
-		qdel(fix_o_vein)
-	for(var/obj/item/bonesetter/alien/bonesetter in robot.module.modules)
-		qdel(bonesetter)
-	for(var/obj/item/circular_saw/alien/circular_saw in robot.module.modules)
-		qdel(circular_saw)
-	for(var/obj/item/surgicaldrill/alien/surgical_drill in robot.module.modules)
-		qdel(surgical_drill)
 
 	robot.module.modules += new /obj/item/scalpel/laser/laser1(robot.module)
 	robot.module.modules += new /obj/item/hemostat(robot.module)

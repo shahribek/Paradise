@@ -237,7 +237,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 
 	//Clockwork enchantment
 	/// What's the type on enchantment on it? 0
-	var/enchant_type = NO_SPELL
 	/// List(datum)
 	var/list/enchants = null
 
@@ -450,14 +449,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 			msg += span_danger("Пригодные материалы отсутствуют.<br>")
 		msg += "*--------*"
 		. += msg
-
-	if(isclocker(user) && enchant_type)
-		if(enchant_type == CASTING_SPELL)
-			. += span_notice("Предыдущее заклинание еще активно!<br>")
-		for(var/datum/spell_enchant/S in enchants)
-			if(S.enchantment == enchant_type)
-				. += span_notice("Обнаружено запечатанное заклинание \"[S.name]\" внутри.<br>")
-				break
 
 	if(exists_skin_change)
 		. += span_notice("Используйте <b>Alt+ЛКМ</b>, чтобы выбрать скин.")
@@ -1253,16 +1244,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 		materials_coeff = 1 / new_coeff
 	for(var/material in materials)
 		materials[material] *= materials_coeff
-
-/obj/item/proc/deplete_spell()
-	enchant_type = NO_SPELL
-	var/enchant_action = locate(/datum/action/item_action/activate/enchant) in actions
-	if(enchant_action)
-		qdel(enchant_action)
-	update_icon()
-
-/obj/item/proc/add_enchant()
-	return
 
 /obj/item/update_atom_colour()
 	. = ..()

@@ -334,10 +334,6 @@
 	for(var/obj/structure/falsewall/plastitanium/wall in src)
 		INVOKE_ASYNC(wall, TYPE_PROC_REF(/obj/structure/falsewall, toggle))
 
-/area/syndicate_depot/core/proc/toggle_teleport_beacon()
-	for(var/obj/machinery/bluespace_beacon/syndicate/B in machinery_cache)
-		return B.toggle()
-
 /area/syndicate_depot/core/proc/announce_here(a_header = "Depot Defense Alert", a_text = "")
 	var/msg_text = "<font size=4 color='red'>[a_header]</font><br><font color='red'>[a_text]</font>"
 	var/list/receivers = list()

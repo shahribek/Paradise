@@ -255,20 +255,6 @@ ADMIN_VERB(bless, R_EVENT, "Bless", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_HI
 				H.force_gene_block(gene, TRUE)
 			H.gene_stability = 100
 			logmsg = "superpowers."
-		if("Scarab Guardian")
-			var/obj/item/guardiancreator/biological/scarab = new /obj/item/guardiancreator/biological(H)
-			var/list/possible_guardians = list("Chaos", "Standard", "Ranged", "Support", "Explosive", "Random")
-			var/typechoice = tgui_input_list(user, "Select Guardian Type", "Type", possible_guardians)
-			if(isnull(typechoice))
-				return
-			if(typechoice != "Random")
-				possible_guardians -= "Random"
-				scarab.possible_guardians = list()
-				scarab.possible_guardians += typechoice
-			scarab.attack_self(H)
-			spawn(700)
-				qdel(scarab)
-			logmsg = "scarab guardian."
 		if("Sentient Pet")
 			var/pets = subtypesof(/mob/living/simple_animal)
 			var/petchoice = tgui_input_list(user, "Select pet type", "Pets", pets)

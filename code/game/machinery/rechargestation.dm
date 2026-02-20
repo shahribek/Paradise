@@ -92,11 +92,6 @@
 	new /obj/effect/gibspawner/generic(get_turf(loc)) //I REPLACE YOUR TECHNOLOGY WITH FLESH!
 	qdel(src)
 
-/obj/machinery/recharge_station/ratvar_act()
-	go_out()
-	new /obj/effect/decal/cleanable/blood/gibs/clock(get_turf(loc))
-	qdel(src)
-
 /obj/machinery/recharge_station/Bumped(atom/movable/moving_atom)
 	. = ..()
 	if(ismob(moving_atom))

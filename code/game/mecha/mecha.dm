@@ -1335,9 +1335,6 @@
 	if(user.has_buckled_mobs()) //mob attached to us
 		to_chat(user, span_warning("You can't enter the exosuit with other creatures attached to you!"))
 		return TRUE
-	if(ratvarized && !isclocker(user))
-		balloon_alert(user, "запечатано!")
-		return TRUE
 	visible_message(span_notice("[user] starts to climb into [src]"))
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/mecha, put_in), user)
 	return TRUE
@@ -1891,13 +1888,5 @@
 		repair_damage(max_integrity / 2)
 		return
 	ratvar_convert()
-
-/obj/mecha/proc/ratvar_convert()
-	for(var/rat_mecha in GLOB.ratvar_mechas)
-		var/datum/ratvar_mecha/converter = new rat_mecha
-		if(mech_type in converter.mech_types)
-			converter.convert(src)
-			visible_message(span_clocklarge("[DECLENT_RU_CAP(src, NOMINATIVE)] начинает громко грохотать, его механизмы заменяются шестернями!"))
-		QDEL_NULL(converter)
 
 #undef OCCUPANT_LOGGING

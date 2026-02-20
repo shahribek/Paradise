@@ -189,10 +189,6 @@
 	dat += "Body Temperature: [target.bodytemperature-T0C] &deg;C ([target.bodytemperature*1.8-459.67] &deg;F)<br>"
 
 	dat += "<hr>"
-
-	if(target.borer?.controlling)
-		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
-
 	var/blood_percent =  round((target.blood_volume / BLOOD_VOLUME_NORMAL))
 	blood_percent *= 100
 

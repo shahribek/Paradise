@@ -10,23 +10,7 @@
 	. = ..()
 	if(!.)
 		return .
-
-	if(is_shadow_or_thrall(target))
-		target.visible_message(
-			span_warning("[target] seems to resist the implant!"),
-			span_warning("You feel the corporate tendrils of Nanotrasen try to invade your mind!"),
-		)
-		removed(target, silent = TRUE)
-		qdel(src)
-
-	else if(iscultist(target) || is_head_revolutionary(target))
-		to_chat(target, span_warning("You feel the corporate tendrils of Nanotrasen try to invade your mind!"))
-
-	else if(is_revolutionary(target))
-		SSticker.mode.remove_revolutionary(target.mind)
-
-	else
-		to_chat(target, span_notice("Your mind feels hardened - more resistant to brainwashing."))
+	to_chat(target, span_notice("Your mind feels hardened - more resistant to brainwashing."))
 
 /obj/item/implant/mindshield/removed(mob/target, silent = FALSE)
 	. = ..()

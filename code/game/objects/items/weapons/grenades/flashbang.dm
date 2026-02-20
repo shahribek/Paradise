@@ -30,10 +30,6 @@
 		do_sparks(rand(5, 9), FALSE, src)
 		playsound(T, 'sound/effects/bang.ogg', 100, TRUE)
 		new /obj/effect/dummy/lighting_obj(T, range + 2, light_power, light_color, light_time)
-		// Blob damage
-		for(var/obj/structure/blob/B in get_hear(range + 1, T))
-			var/damage = round(30 / (get_dist(B, T) + 1))
-			B.take_damage(damage * power, BURN, MELEE, FALSE)
 
 		// Stunning & damaging mechanic
 		bang(T, src, range)

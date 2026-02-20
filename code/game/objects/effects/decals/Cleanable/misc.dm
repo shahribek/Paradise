@@ -241,19 +241,3 @@
 
 /obj/effect/decal/cleanable/ashrune/is_cleanable()
 	return FALSE
-
-/obj/effect/decal/cleanable/devil
-	name = "Sinister rune"
-	desc = "Безобразно выглядящая руна, писанная кровью."
-
-	icon = 'icons/effects/crayondecal.dmi'
-	icon_state = "rune6"
-	color = "#661b1b"
-
-	mergeable_decal = FALSE
-
-	var/datum/antagonist/devil/devil
-
-/obj/effect/decal/cleanable/devil/update_desc()
-	. = ..()
-	desc = "[initial(desc)][devil ? " На руне видна подпись: <b>[devil.info?.truename]</b>." : null]"

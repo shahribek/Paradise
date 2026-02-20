@@ -94,6 +94,3 @@
 /obj/item/grenade/attack_hand(mob/user)
 	GLOB.move_manager.stop_looping(src)
 	. = ..()
-
-/obj/item/grenade/blob_vore_act(obj/structure/blob/special/core/voring_core)
-	obj_destruction(MELEE)

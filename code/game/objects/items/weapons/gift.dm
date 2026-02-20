@@ -177,7 +177,6 @@
 		/obj/item/melee/energy/sword/pirate,
 		/obj/item/stack/spacecash/c5000,
 		/obj/item/stack/spacecash/c1000,
-		/obj/item/storage/box/wizard/hardsuit,
 		/obj/item/storage/box/syndie_kit/hardsuit,
 		/obj/item/mod/control/pre_equipped/traitor,
 		/obj/item/clothing/suit/space/hardsuit/champion/templar/premium,

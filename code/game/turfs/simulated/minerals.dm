@@ -69,7 +69,6 @@
 /turf/simulated/mineral/ComponentInitialize()
 	if(!is_station_level(z))
 		return
-	AddComponent(/datum/component/blob_turf_consuming, 2)
 
 /// Generates typecache of tools allowed to dig this mineral
 /turf/simulated/mineral/proc/generate_picks()

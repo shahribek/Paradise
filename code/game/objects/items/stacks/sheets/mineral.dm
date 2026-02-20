@@ -98,17 +98,6 @@ GLOBAL_LIST_INIT(tranquillite_recipes, list ( \
 	new/datum/stack_recipe("Mime Statue", /obj/structure/statue/tranquillite/mime, 5, one_per_turf = 1, on_floor = 1), \
 	))
 
-GLOBAL_LIST_INIT(abductor_recipes, list ( \
-	new/datum/stack_recipe("alien bed", /obj/structure/bed/abductor, 2, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("alien locker", /obj/structure/closet/abductor, 1, time = 15, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("alien table frame", /obj/structure/table_frame/abductor, 1, time = 15, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("alien airlock assembly", /obj/structure/door_assembly/door_assembly_abductor, 4, time = 20, one_per_turf = 1, on_floor = 1), \
-	null, \
-	new/datum/stack_recipe("alien floor tile", /obj/item/stack/tile/mineral/abductor, 1, 4, 20), \
-	new/datum/stack_recipe("alien chair", /obj/structure/chair/comfy/abductor,  2, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("alien computer frame", /obj/structure/computerframe/abductor,  4, time = 25, one_per_turf = 1, on_floor = 1)
-	))
-
 GLOBAL_LIST_INIT(adamantine_recipes, list(
 	new /datum/stack_recipe("incomplete servant golem shell", /obj/item/golem_shell/servant, req_amount = 1, res_amount = 1), \
 	))

@@ -421,10 +421,6 @@
 		return
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
-		if(is_shadow(H))
-			var/phrase = pick("Die monster! You don't belong in this world!!!", "You steal men's souls and make them your slaves!!!", "Your words are as empty as your soul!!!", "Mankind ill needs a savior such as you!!!")
-			user.say("[phrase]")
-			H.adjustBruteLoss(12) //Bonus damage
 
 /obj/item/nullrod/fedora
 	name = "binary fedora"
@@ -587,16 +583,6 @@
 		to_chat(user, span_notice("Your prayer to [SSticker.Bible_deity_name] was interrupted."))
 		praying = FALSE
 		return .
-
-	if(iscultist(target))
-		SSticker.mode.remove_cultist(target.mind) // This proc will handle message generation.
-		praying = FALSE
-		return .|ATTACK_CHAIN_SUCCESS
-
-	if(isclocker(target))
-		SSticker.mode.remove_clocker(target.mind)
-		praying = FALSE
-		return .|ATTACK_CHAIN_SUCCESS
 
 	if(!prob(25))
 		praying = FALSE

@@ -251,7 +251,6 @@
 
 /obj/machinery/bodyscanner/ratvar_act()
 	go_out()
-	new /obj/effect/decal/cleanable/blood/gibs/clock(get_turf(src))
 	qdel(src)
 
 /obj/machinery/bodyscanner/ui_interact(mob/user, datum/tgui/ui = null)
@@ -297,7 +296,6 @@
 		occupantData["bodyTempC"] = occupant.bodytemperature-T0C
 		occupantData["bodyTempF"] = (((occupant.bodytemperature-T0C) * 1.8) + 32)
 
-		occupantData["hasBorer"] = occupant.borer?.controlling
 
 		var/bloodData[0]
 		bloodData["hasBlood"] = FALSE
@@ -483,8 +481,6 @@
 
 		dat += "<hr>"
 
-		if(occupant.borer?.controlling)
-			dat += "В лобной доле обнаружено крупное образование, возможно, злокачественное. Рекомендуется хирургическое удаление."
 
 		var/blood_percent =  round((occupant.blood_volume / BLOOD_VOLUME_NORMAL))
 		blood_percent *= 100

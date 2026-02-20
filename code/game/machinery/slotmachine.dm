@@ -66,24 +66,12 @@ GLOBAL_LIST_EMPTY(slotmachine_prizes)
 	resultlvl = "green"
 	say_phrase = "Победитель!"
 
-/datum/slotmachine_prize/minimal/New(list/allowed_uplink_items)
-	..(allowed_uplink_items)
-	for(var/datum/uplink_item/uplink_item as anything in allowed_uplink_items)
-		if(uplink_item.cost <= 5)
-			available_prizes += uplink_item.item
-
 /datum/slotmachine_prize/small
 	id = "small"
 	chance = 8
 	credits = 200
 	resultlvl = "green"
 	say_phrase = "Победитель!"
-
-/datum/slotmachine_prize/small/New(list/allowed_uplink_items)
-	..(allowed_uplink_items)
-	for(var/datum/uplink_item/uplink_item as anything in allowed_uplink_items)
-		if(uplink_item.cost > 5 && uplink_item.cost <= 20)
-			available_prizes += uplink_item.item
 
 /datum/slotmachine_prize/medium
 	id = "medium"
@@ -103,12 +91,6 @@ GLOBAL_LIST_EMPTY(slotmachine_prizes)
 	resultlvl = "green"
 	say_phrase = "Большой победитель!"
 	sound = 'sound/goonstation/misc/klaxon.ogg'
-
-/datum/slotmachine_prize/big/New(list/allowed_uplink_items)
-	..(allowed_uplink_items)
-	for(var/datum/uplink_item/uplink_item as anything in allowed_uplink_items)
-		if(uplink_item.cost >= 30 && uplink_item.cost <= 60)
-			available_prizes += uplink_item.item
 
 /datum/slotmachine_prize/jackpot
 	id = "jackpot"

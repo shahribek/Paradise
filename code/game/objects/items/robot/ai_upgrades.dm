@@ -1,24 +1,5 @@
 ///AI Upgrades
 
-//Malf Picker
-/obj/item/malf_upgrade
-	name = "combat software upgrade"
-	desc = "A highly illegal, highly dangerous upgrade for artificial intelligence units, granting them a variety of powers as well as the ability to hack APCs."
-	icon = 'icons/obj/module.dmi'
-	icon_state = "datadisk3"
-
-/obj/item/malf_upgrade/afterattack(mob/living/silicon/ai/AI, mob/user, proximity, params)
-	if(!istype(AI))
-		return
-	if(AI.malf_picker)
-		AI.malf_picker.processing_time += 50
-		to_chat(AI, span_userdanger("[user] has attempted to upgrade you with combat software that you already possess. You gain 50 points to spend on Malfunction Modules instead."))
-	else
-		to_chat(AI, span_userdanger("[user] has upgraded you with combat software!"))
-		AI.add_malf_picker()
-	to_chat(user, span_notice("You upgrade [AI]. [src] is consumed in the process."))
-	qdel(src)
-
 //Lipreading
 /obj/item/surveillance_upgrade
 	name = "surveillance software upgrade"

@@ -310,8 +310,6 @@
 		/obj/item/reagent_containers/glass/bottle/reagent/omnizine = 50,
 		/obj/item/reagent_containers/glass/bottle/reagent/strange_reagent = 50,
 		/obj/item/scalpel/laser/manager = 50,
-		/obj/item/organ/internal/heart/gland/ventcrawling = 50,
-		/obj/item/organ/internal/heart/gland/heals = 50,
 		/obj/item/dnainjector/regenerate = 50,
 		/obj/item/dnainjector/nobreath = 50,
 		/obj/item/dnainjector/telemut = 50,

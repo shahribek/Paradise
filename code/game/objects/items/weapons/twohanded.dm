@@ -1085,59 +1085,6 @@
 	user.visible_message(span_suicide("[DECLENT_RU_CAP(user, NOMINATIVE)] пронза[PLUR_ET_YUT(user)] свой живот [declent_ru(INSTRUMENTAL)]! Похоже, [GEND_HE_SHE(user)] пытается покончить с собой..."))
 	return BRUTELOSS
 
-/obj/item/twohanded/pitchfork/demonic/pickup(mob/user)
-	. = ..()
-	if(!isliving(user))
-		return
-
-	var/mob/living/living_user = user
-
-	if(living_user.mind?.has_antag_datum(/datum/antagonist/devil) || living_user.mind.soulOwner != living_user.mind || isdevil(living_user)) //Burn hands unless they are a devil or have sold their soul
-		return
-
-	living_user.visible_message(span_warning("Когда [living_user.declent_ru(NOMINATIVE)] поднима[PLUR_ET_YUT(living_user)] [declent_ru(ACCUSATIVE)], [GEND_HIS_HER(living_user)] руки на мгновение загораются."), \
-					span_warning("Когда вы поднимаете [declent_ru(ACCUSATIVE)], ваши руки воспламеняются, напоминая вам обо всех ваших прошлых грехах."))
-
-	if(!ishuman(living_user))
-		living_user.adjustFireLoss(rand(living_user.health / 4, force))
-		return
-
-	var/mob/living/carbon/human/human = living_user
-	human.apply_damage(rand(living_user.health / 4, living_user.health / 2), BURN, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
-
-/obj/item/twohanded/pitchfork/demonic/attack(mob/living/target, mob/living/user, params, def_zone, skip_attack_anim = FALSE)
-	. = ..()
-
-	if(!ATTACK_CHAIN_SUCCESS_CHECK(.))
-		return .
-
-	if(user.mind?.has_antag_datum(/datum/antagonist/devil) || (user.mind.soulOwner != user.mind) || isdevil(user))
-		return .
-
-	to_chat(user, span_warning("[DECLENT_RU_CAP(src, NOMINATIVE)] пылают в ваших руках!"))
-	user.apply_damage(rand(user.health / 2, force), BURN, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
-
-// It's no fun being the lord of all hell if you can't get out of a simple room
-/obj/item/twohanded/pitchfork/demonic/ascended/afterattack(atom/target, mob/user, proximity, params)
-	if(!proximity || !HAS_TRAIT(src, TRAIT_WIELDED))
-		return
-
-	if(iswallturf(target))
-		var/turf/simulated/wall/wall = target
-		user.visible_message(span_danger("[DECLENT_RU_CAP(user, NOMINATIVE)] разрушает [target.declent_ru(ACCUSATIVE)] с помощью [declent_ru(INSTRUMENTAL)]"))
-		playsound(target, 'sound/magic/Disintegrate.ogg', 100, TRUE)
-		wall.dismantle_wall(TRUE)
-		return TRUE
-
-	if(ismineralturf(target))
-		var/turf/simulated/mineral/mineral = target
-		user.visible_message(span_danger("[DECLENT_RU_CAP(user, NOMINATIVE)] разрушает [target.declent_ru(ACCUSATIVE)] с помощью [declent_ru(INSTRUMENTAL)]"))
-		playsound(target, 'sound/magic/Disintegrate.ogg', 100, TRUE)
-		mineral.gets_drilled(user)
-		return TRUE
-
-	..()
-
 /obj/item/twohanded/bamboospear
 	icon_state = "bamboo_spear0"
 	name = "bamboo spear"

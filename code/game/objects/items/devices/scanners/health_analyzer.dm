@@ -481,9 +481,6 @@
 	if(H.getCloneLoss())
 		data["cloneStatus"] = H.getCloneLoss()
 
-	if(H.borer?.controlling)
-		data["brainWorms"] = TRUE
-
 	if(H.get_int_organ(/obj/item/organ/internal/brain))
 		data["brainDamage"] = H.getBrainLoss()
 	else
@@ -640,8 +637,6 @@
 		scan_data += span_notice("Обнаружено переутомление.")
 	if(H.getCloneLoss())
 		scan_data += span_warning("Обнаружено [H.getCloneLoss() > 30 ? "серьёзное" : "незначительное"] клеточное повреждение.")
-	if(H.borer?.controlling)
-		scan_data += span_warning("Обнаружены отклонения в работе мозга.")
 
 	if(H.get_int_organ(/obj/item/organ/internal/brain))
 		if(H.getBrainLoss() >= 100)

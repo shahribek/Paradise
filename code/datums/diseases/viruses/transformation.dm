@@ -205,7 +205,6 @@
 	if(!prom.mind)
 		return
 	prom.mind.wipe_memory()
-	prom.mind.objectives += new /datum/objective/xeno_genocide
 	var/list/messages = prom.mind.prepare_announce_objectives()
 	to_chat(prom, chat_box_red(messages.Join("<br>")))
 

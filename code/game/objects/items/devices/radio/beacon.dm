@@ -37,30 +37,6 @@
 /obj/item/beacon/bacon/proc/digest_delay()
 	QDEL_IN(src, 60 SECONDS)
 
-// SINGULO BEACON SPAWNER
-/obj/item/beacon/syndicate
-	name = "suspicious beacon"
-	desc = "A label on it reads: <i>Activate to have a singularity beacon teleported to your location</i>."
-	origin_tech = "bluespace=6;syndicate=5"
-	syndicate = TRUE
-	var/obj/machinery/computer/syndicate_depot/teleporter/mycomputer
-
-/obj/item/beacon/syndicate/Destroy()
-	if(mycomputer)
-		mycomputer.mybeacon = null
-	return ..()
-
-/obj/item/beacon/syndicate/attack_self(mob/user)
-	if(!user)
-		return
-	if(!isturf(user.loc))
-		to_chat(user, span_warning("You need space to call in!"))
-		return
-	to_chat(user, span_notice("Locked In"))
-	new /obj/machinery/power/singularity_beacon/syndicate( user.loc )
-	playsound(src, 'sound/effects/pop.ogg', 100, TRUE, 1)
-	user.temporarily_remove_item_from_inventory(src)
-	qdel(src)
 
 /obj/item/beacon/syndicate/bomb
 	desc = "A label on it reads: <i>Warning: Activating this device will send a high-ordinance explosive to your location</i>."

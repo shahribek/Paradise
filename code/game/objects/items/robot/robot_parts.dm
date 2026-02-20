@@ -254,12 +254,6 @@
 		to_chat(user, span_warning("The MMI must go in after everything else!"))
 		return .
 
-	if(new_mmi.clock && !isclocker(user))
-		to_chat(user, span_danger("An overwhelming feeling of dread comes over you as you attempt to put the soul vessel into the frame."))
-		user.Confused(20 SECONDS)
-		user.Jitter(12 SECONDS)
-		return ATTACK_CHAIN_BLOCKED_ALL
-
 	if(!isturf(loc))
 		to_chat(user, span_warning("You can't put [new_mmi] in, the frame has to be standing on the ground to be perfectly precise."))
 		return .
@@ -362,10 +356,6 @@
 	new_borg.robot_suit = src
 
 	new_borg.mmi.apply_effects(new_borg)
-
-	if(new_borg.mmi.clock) // so robots created from vessel have magic
-		new_borg.UnlinkSelf()
-		SSticker.mode.add_clock_actions(new_borg.mind)
 
 	if(!locomotion)
 		new_borg.set_lockcharge(TRUE)

@@ -478,36 +478,6 @@
 /obj/item/storage/toolbox/surgery/advanced/empty/populate_contents()
 	return
 
-/obj/item/storage/toolbox/surgery/alien
-	name = "Alien Surgery Kit"
-	desc = "Контейнер, предназначенный для хранения и транспортировки хирургических инструментов. Выглядит очень необычно."
-	icon_state = "surgerykit_alien"
-	item_state = "surgerykit_alien"
-
-/obj/item/storage/toolbox/surgery/alien/get_ru_names()
-	return list(
-		NOMINATIVE = "инородный хирургический набор",
-		GENITIVE = "инородного хирургического набора",
-		DATIVE = "инородному хирургическому набору",
-		ACCUSATIVE = "инородный хирургический набор",
-		INSTRUMENTAL = "инородным хирургическим набором",
-		PREPOSITIONAL = "инородном хирургическом наборе",
-	)
-
-/obj/item/storage/toolbox/surgery/alien/populate_contents()
-	new /obj/item/scalpel/alien(src)
-	new /obj/item/hemostat/alien(src)
-	new /obj/item/retractor/alien(src)
-	new /obj/item/circular_saw/alien(src)
-	new /obj/item/surgicaldrill/alien(src)
-	new /obj/item/cautery/alien(src)
-	new /obj/item/bonegel/alien(src)
-	new /obj/item/bonesetter/alien(src)
-	new /obj/item/FixOVein/alien(src)
-
-/obj/item/storage/toolbox/surgery/alien/empty/populate_contents()
-	return
-
 /obj/item/storage/toolbox/surgery/ashwalker
 	name = "surgery bag"
 	desc = "Небольшой кожанный футляр, предназначенный для хранения и транспортировки хирургических инструментов. От него исходит едва заметный запах пепла."

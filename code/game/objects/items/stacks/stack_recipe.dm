@@ -91,42 +91,6 @@
 			to_chat(usr, span_warning("\The [title] must be constructed on the floor or lattice!"))
 			return FALSE
 
-	if(cult_structure)
-		if(!is_level_reachable(usr.z))
-			to_chat(usr, span_warning("The energies of this place interfere with the metal shaping!"))
-			return FALSE
-		if(locate(/obj/structure/cult) in usr.drop_location())
-			to_chat(usr, span_warning("There is a structure here!"))
-			return FALSE
-		if(locate(/obj/structure/clockwork) in usr.drop_location())
-			to_chat(usr, span_warning("There is a structure here!"))
-			return FALSE
-		if(locate(/obj/structure/falsewall) in usr.drop_location())
-			to_chat(usr, span_warning("There is a structure here!"))
-			return FALSE
-
-	var/area/A = get_area(usr)
-	if(result_type == /obj/structure/clockwork/functional/beacon)
-		if(!is_station_level(usr.z))
-			to_chat(usr, span_warning("The beacon cannot guide from this place! It must be on station!"))
-			return FALSE
-		if(istype(A, /area/space))
-			to_chat(usr, span_warning("The beacon must be inside the station itself to properly work."))
-			return FALSE
-		if(!A.type == /area) //The only one that is made by blueprints
-			to_chat(usr, span_warning("This area is too fresh for the beacon!"))
-			return FALSE
-		if(locate(/obj/structure/clockwork/functional/beacon) in A)
-			to_chat(usr, span_warning("This area already has beacon!"))
-			return FALSE
-	if(result_type == /obj/structure/clockwork/functional/cogscarab_fabricator)
-		if(length(GLOB.clockwork_fabricators) >= MAX_COG_FABRICATORS)
-			to_chat(usr, span_warning("You can't build more than [MAX_COG_FABRICATORS] fabricators!"))
-			return FALSE
-		if(usr.type == /mob/living/silicon/robot/cogscarab)
-			to_chat(usr, span_warning("You're too small to build this machinery."))
-			return FALSE
-
 	return TRUE
 
 /// Creates the atom defined by the recipe. Should always return the object it creates or FALSE. This proc assumes that the construction is already possible; for checking whether a recipe *can* be built before construction, use try_build()
@@ -135,14 +99,6 @@
 		to_chat(user, span_notice("Building [title]..."))
 		if(!do_after(user, time, target = material.loc))
 			return FALSE
-
-	if(cult_structure && locate(/obj/structure/cult) in get_turf(src)) //Check again after do_after to prevent queuing construction exploit.
-		to_chat(usr, span_warning("There is a structure here!"))
-		return FALSE
-
-	if(cult_structure && locate(/obj/structure/clockwork) in get_turf(src))
-		to_chat(usr, span_warning("There is a structure here!"))
-		return FALSE
 
 	if(material.get_amount() < req_amount * multiplier) // Check they still have enough.
 		return FALSE

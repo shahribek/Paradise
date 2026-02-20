@@ -166,18 +166,6 @@
 	target.set_nutrition(nutrition)
 	to_chat(target, span_userdanger("Вы чувствуете [nutrition < old_nutrition ? "голод" : "что съели слишком много"]. Боги наказали вас за [reason]!"))
 
-// MARK: Cluwne
-/datum/smite/cluwne
-	name = SMITE_CLUWNE
-	desc = "Извратите сущность грешника, сделав его Клуней."
-	logmsg = "cluwned."
-	category = SMITE_CATEGORY_TRANSFORMATION
-
-/datum/smite/cluwne/apply_effect(mob/living/carbon/human/target, reason)
-	to_chat(target, span_userdanger("Вы чувствуете как ваша сущность координально меняется. Боги наказали вас за [reason]!"))
-	target.makeCluwne()
-	ADD_TRAIT(target, TRAIT_NO_CLONE, ADMIN_TRAIT)
-
 // MARK: Cookie (off)
 /datum/smite/cookie
 	name = SMITE_COOKIE

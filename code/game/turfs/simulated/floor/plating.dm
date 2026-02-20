@@ -233,45 +233,6 @@
 			if(prob(50))
 				ChangeTurf(baseturf)
 
-/turf/simulated/floor/engine/blob_consume()
-	ChangeTurf(baseturf)
-
-/turf/simulated/floor/engine/cult
-	name = "engraved floor"
-	icon_state = "cult"
-	var/holy = FALSE
-
-/turf/simulated/floor/engine/cult/Initialize(mapload)
-	. = ..()
-	update_icon(UPDATE_ICON_STATE)
-
-/turf/simulated/floor/engine/cult/update_icon_state()
-	if(SSticker?.cultdat && !holy)
-		icon_state = SSticker.cultdat.cult_floor_icon_state
-		return
-	icon_state = initial(icon_state)
-
-/turf/simulated/floor/engine/cult/narsie_act()
-	return
-
-/turf/simulated/floor/engine/cult/ratvar_act()
-	. = ..()
-	if(istype(src, /turf/simulated/floor/engine/cult)) //if we haven't changed type
-		var/previouscolor = color
-		color = "#FAE48C"
-		animate(src, color = previouscolor, time = 8)
-
-/turf/simulated/floor/engine/cult/holy
-	icon_state = "holy"
-	holy = TRUE
-
-/turf/simulated/floor/engine/cult/lavaland_air
-	oxygen = LAVALAND_OXYGEN
-	nitrogen = LAVALAND_NITROGEN
-	temperature = LAVALAND_TEMPERATURE
-	atmos_mode = ATMOS_MODE_EXPOSED_TO_ENVIRONMENT
-	atmos_environment = ENVIRONMENT_LAVALAND
-
 //air filled floors; used in atmos pressure chambers
 
 /turf/simulated/floor/engine/n20

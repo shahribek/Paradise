@@ -51,7 +51,7 @@
 	var/mob/living/silicon/robot/R = holder
 	switch(wire)
 		if(WIRE_AI_CONTROL) //pulse the AI wire to make the borg reselect an AI
-			if(!R.emagged && !isclocker(R))
+			if(!R.emagged)
 				R.connect_to_ai(select_active_ai())
 				R.show_laws()
 

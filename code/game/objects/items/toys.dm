@@ -1694,44 +1694,6 @@
 		return
 	..()
 
-/obj/item/toy/codex_gigas
-	name = "Toy Codex Gigas"
-	desc = "A tool to help you write fictional devils!"
-	icon = 'icons/obj/library.dmi'
-	lefthand_file = 'icons/mob/inhands/equipment/library_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/library_righthand.dmi'
-	icon_state = "demonomicon"
-	item_state = "demonomicon"
-	w_class = WEIGHT_CLASS_SMALL
-	COOLDOWN_DECLARE(cooldown)
-
-/obj/item/toy/codex_gigas/attack_self(mob/user)
-	if(!COOLDOWN_FINISHED(src, cooldown))
-		return
-
-	user.visible_message(
-		span_notice("[user] нажима[PLUR_ET_YUT(user)] кнопку на [declent_ru(PREPOSITIONAL)]."),
-		span_notice("Вы нажимаете кнопку на [declent_ru(PREPOSITIONAL)]."),
-		span_sinister("Слышишь тихий щелчок."))
-
-	var/list/messages = list()
-	var/datum/devilinfo/devil = new
-
-	LAZYADD(messages, "Интересные факты о: [devil.truename]")
-	LAZYADD(messages, devil.bane.law)
-	LAZYADD(messages, devil.ban.law)
-	LAZYADD(messages, devil.obligation.law)
-	LAZYADD(messages, devil.banish.law)
-
-	playsound(loc, 'sound/machines/click.ogg', 20, TRUE)
-	COOLDOWN_START(src, cooldown, 2 SECONDS)
-
-	for(var/message in messages)
-		user.loc.visible_message(span_danger("[icon2html(src, viewers(user.loc))] [message]"))
-		sleep(1 SECONDS)
-
-	return
-
 /obj/item/toy/owl
 	name = "owl action figure"
 	desc = "An action figure modeled after 'The Owl', defender of justice."

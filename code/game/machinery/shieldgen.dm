@@ -79,20 +79,6 @@
 	. = ..()
 	invisibility = INVISIBILITY_ABSTRACT
 
-/obj/machinery/shield/cult/barrier/Destroy()
-	if(parent_rune && !QDELETED(parent_rune))
-		QDEL_NULL(parent_rune)
-	return ..()
-
-/obj/machinery/shield/cult/barrier/attack_hand(mob/living/user)
-	parent_rune.attack_hand(user)
-
-/obj/machinery/shield/cult/barrier/attack_animal(mob/living/simple_animal/user)
-	if(iscultist(user))
-		parent_rune.attack_animal(user)
-	else
-		..()
-
 /**
 * Turns the shield on and off.
 *

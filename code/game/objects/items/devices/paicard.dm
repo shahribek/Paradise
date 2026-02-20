@@ -238,9 +238,6 @@
 
 	pai.reset_software()
 
-	SSticker.mode.update_cult_icons_removed(pai.mind)
-	SSticker.mode.update_rev_icons_removed(pai.mind)
-
 	var/list/welcome_message = list()
 	welcome_message.Add(span_notice("<b>Вы — персональный ИИ!</b>"))
 	welcome_message.Add("<b>Как личность, вы являетесь сложно мыслящим разумным существом. В отличие от станционных версий ИИ, вы способны понимать комплексные нюансы человеческого языка. Вы способны чувствовать „дух“ директивы и следовать ей, не попадая в ловушку обычных формальностей законов.</b>")

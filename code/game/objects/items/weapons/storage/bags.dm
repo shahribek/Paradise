@@ -534,7 +534,7 @@
 	max_combined_w_class = 21
 	max_w_class = WEIGHT_CLASS_NORMAL
 	w_class = WEIGHT_CLASS_BULKY //Bigger than a book because physics
-	can_hold = list(/obj/item/book, /obj/item/storage/bible, /obj/item/tome, /obj/item/spellbook)
+	can_hold = list(/obj/item/book, /obj/item/storage/bible, /obj/item/tome)
 	resistance_flags = FLAMMABLE
 
 /obj/item/storage/bag/books/get_ru_names()

@@ -415,12 +415,6 @@
 	build_path = /obj/machinery/computer/supplyquest/workers
 	origin_tech = "programming=3"
 
-/obj/item/circuitboard/syndicatesupplycomp
-	board_name = "Syndicate Supply Pad Console"
-	greyscale_colors = CIRCUIT_COLOR_SUPPLY
-	build_path = /obj/machinery/computer/syndie_supplycomp
-	origin_tech = "programming=3;syndicate=3"
-
 /obj/item/circuitboard/syndicatesupplycomp/public
 	board_name = "Syndicate Public Supply Pad Console"
 	build_path = /obj/machinery/computer/syndie_supplycomp/public

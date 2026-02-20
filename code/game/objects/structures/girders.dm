@@ -123,9 +123,6 @@
 	if(!isfloorturf(loc))
 		to_chat(user, span_warning("A floor must be present to build a false wall!"))
 		return .
-	if(locate(/obj/structure/clockwork) in loc.contents)
-		to_chat(user, span_warning("There is a structure here!"))
-		return .
 	if(locate(/obj/structure/falsewall) in loc.contents)
 		to_chat(user, span_warning("There is already a false wall present!"))
 		return .
@@ -422,16 +419,6 @@
 		new remains(loc)
 	qdel(src)
 
-/obj/structure/girder/narsie_act()
-	if(prob(25))
-		new /obj/structure/girder/cult(loc)
-		qdel(src)
-
-/obj/structure/girder/ratvar_act()
-	if(prob(25))
-		new /obj/structure/clockwork/wall_gear(loc)
-		qdel(src)
-
 /obj/structure/girder/displaced
 	name = "displaced girder"
 	icon_state = "displaced"
@@ -446,116 +433,3 @@
 	state = GIRDER_REINF
 	girderpasschance = 0
 	max_integrity = 350
-
-/obj/structure/girder/cult
-	name = "runed girder"
-	desc = "Framework made of a strange and shockingly cold metal. It doesn't seem to have any bolts."
-	icon = 'icons/obj/cult.dmi'
-	icon_state = "cultgirder"
-	can_displace = FALSE
-	metalUsed = 1
-	metal_type = /obj/item/stack/sheet/runed_metal
-
-/obj/structure/girder/cult_fake
-	name = "runed girder"
-	desc = "Framework made of a strange and shockingly cold metal. It does seem to have bolts, wow."
-	icon = 'icons/obj/cult.dmi'
-	icon_state = "cultgirder"
-	metalUsed = 1
-	metal_type = /obj/item/stack/sheet/runed_metal_fake
-
-/obj/structure/girder/cult/Initialize(mapload)
-	. = ..()
-	icon_state = SSticker.cultdat?.cult_girder_icon_state
-
-/obj/structure/girder/cult_fake/Initialize(mapload)
-	. = ..()
-	icon_state = SSticker.cultdat?.cult_girder_icon_state
-
-/obj/structure/girder/cult/attackby(obj/item/I, mob/user, params)
-	if(user.a_intent == INTENT_HARM)
-		return ..()
-
-	if(istype(I, /obj/item/melee/cultblade/dagger))
-		if(!iscultist(user))	//Cultists can demolish cult girders instantly with their dagger
-			return ..()
-		user.visible_message(
-			span_warning("[user] strikes [src] with [I]!"),
-			span_notice("You demolish [src]."),
-		)
-		refundMetal(metalUsed)
-		qdel(src)
-		return ATTACK_CHAIN_BLOCKED_ALL
-
-	if(istype(I, /obj/item/stack/sheet/runed_metal))
-		add_fingerprint(user)
-		var/obj/item/stack/sheet/runed_metal/metal = I
-		if(metal.get_amount() < 1)
-			to_chat(user, span_warning("You need at least one sheet of runed metal to construct a runed wall!"))
-			return ATTACK_CHAIN_PROCEED
-		user.visible_message(
-			span_notice("[user] starts laying runed metal on [src]."),
-			span_notice("You start constructing a runed wall..."),
-		)
-		if(!do_after(user, 1 SECONDS * metal.toolspeed, src, category = DA_CAT_TOOL) || !isfloorturf(loc) || QDELETED(metal) || !metal.use(1))
-			return ATTACK_CHAIN_PROCEED
-		user.visible_message(
-			span_notice("[user] plates [name] with runed metal."),
-			span_notice("You have constructed the runed wall."),
-		)
-		var/turf/floor = loc
-		floor.ChangeTurf(/turf/simulated/wall/cult)
-		transfer_fingerprints_to(floor)
-		floor.add_fingerprint(user)
-		qdel(src)
-		return ATTACK_CHAIN_BLOCKED_ALL
-
-	return ..()
-
-/obj/structure/girder/cult_fake/attackby(obj/item/I, mob/user, params)
-	if(user.a_intent == INTENT_HARM)
-		return ..()
-
-	if(istype(I, /obj/item/melee/cultblade/dagger))
-		if(!iscultist(user))	//Cultists can demolish cult girders instantly with their dagger
-			return ..()
-		user.visible_message(
-			span_warning("[user] strikes [src] with [I]!"),
-			span_notice("You demolish [src]."),
-		)
-		refundMetal(metalUsed)
-		qdel(src)
-		return ATTACK_CHAIN_BLOCKED_ALL
-
-	if(istype(I, /obj/item/stack/sheet/runed_metal_fake))
-		add_fingerprint(user)
-		var/obj/item/stack/sheet/runed_metal_fake/metal = I
-		if(metal.get_amount() < 1)
-			to_chat(user, span_warning("You need at least one sheet of runed metal to construct a runed wall!"))
-			return ATTACK_CHAIN_PROCEED
-		user.visible_message(
-			span_notice("[user] starts laying runed metal on [src]."),
-			span_notice("You start constructing a runed wall..."),
-		)
-		if(!do_after(user, 1 SECONDS * metal.toolspeed, src, category = DA_CAT_TOOL) || !isfloorturf(loc) || QDELETED(metal) || !metal.use(1))
-			return ATTACK_CHAIN_PROCEED
-		user.visible_message(
-			span_notice("[user] plates [name] with runed metal."),
-			span_notice("You have constructed the runed wall."),
-		)
-		var/turf/floor = loc
-		floor.ChangeTurf(/turf/simulated/wall/cult_fake)
-		transfer_fingerprints_to(floor)
-		floor.add_fingerprint(user)
-		qdel(src)
-		return ATTACK_CHAIN_BLOCKED_ALL
-
-	return ..()
-
-/obj/structure/girder/cult/narsie_act()
-	return
-
-/obj/structure/girder/cult/deconstruct(disassembled = TRUE)
-	if(!(obj_flags & NODECONSTRUCT))
-		new /obj/item/stack/sheet/runed_metal(drop_location(), 1)
-	qdel(src)

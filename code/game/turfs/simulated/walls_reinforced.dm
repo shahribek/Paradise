@@ -18,7 +18,6 @@
 /turf/simulated/wall/r_wall/ComponentInitialize()
 	if(!is_station_level(z))
 		return
-	AddComponent(/datum/component/blob_turf_consuming, 3)
 
 /turf/simulated/wall/r_wall/examine(mob/user)
 	. = ..()

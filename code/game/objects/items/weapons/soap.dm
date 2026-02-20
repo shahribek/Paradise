@@ -33,7 +33,7 @@
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	if(user.client && (target in user.client.screen))
 		user.balloon_alert(user, "снимите это с себя!")
-	else if(istype(target, /obj/effect/decal/cleanable) || istype(target, /obj/effect/rune))
+	else if(istype(target, /obj/effect/decal/cleanable))
 		user.balloon_alert(user, "чистка...")
 		if(do_after(user, cleanspeed, target) && target)
 			user.balloon_alert(user, "очищено")

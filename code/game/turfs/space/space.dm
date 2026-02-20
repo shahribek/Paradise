@@ -68,7 +68,6 @@
 /turf/space/ComponentInitialize()
 	if(!is_station_level(z))
 		return
-	AddComponent(/datum/component/blob_turf_consuming, 4)
 
 /turf/space/BeforeChange()
 	..()
@@ -221,9 +220,6 @@
 	var/list/y_arr
 
 	if(src.x <= 1)
-		if(istype(A, /obj/effect/meteor))
-			qdel(A)
-			return
 
 		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return
@@ -246,9 +242,6 @@
 				if(A?.loc)
 					A.loc.Entered(A)
 	else if(src.x >= world.maxx)
-		if(istype(A, /obj/effect/meteor))
-			qdel(A)
-			return
 
 		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return
@@ -271,9 +264,6 @@
 				if(A?.loc)
 					A.loc.Entered(A)
 	else if(src.y <= 1)
-		if(istype(A, /obj/effect/meteor))
-			qdel(A)
-			return
 		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]
@@ -296,9 +286,6 @@
 					A.loc.Entered(A)
 
 	else if(src.y >= world.maxy)
-		if(istype(A, /obj/effect/meteor))
-			qdel(A)
-			return
 		var/list/cur_pos = src.get_global_map_pos()
 		if(!cur_pos) return
 		cur_x = cur_pos["x"]

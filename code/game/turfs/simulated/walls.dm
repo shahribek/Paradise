@@ -72,7 +72,6 @@
 /turf/simulated/wall/ComponentInitialize()
 	if(!is_station_level(z))
 		return
-	AddComponent(/datum/component/blob_turf_consuming, 2)
 
 /turf/simulated/wall/MouseDrop_T(atom/dropping, mob/user, params)
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
@@ -539,15 +538,6 @@
 					P.setDir(user.dir)
 				P.forceMove(src)
 				P.level = 2
-		return TRUE
-	return FALSE
-
-/turf/simulated/wall/proc/try_reform(obj/item/I, mob/user, params)
-	if(I.enchant_type == REFORM_SPELL && (src.type == /turf/simulated/wall)) //fuck
-		I.deplete_spell()
-		ChangeTurf(/turf/simulated/floor/plating)
-		new /obj/structure/falsewall/clockwork(src) //special falsewalls
-		playsound(src, 'sound/magic/cult_spell.ogg', 100, TRUE)
 		return TRUE
 	return FALSE
 
