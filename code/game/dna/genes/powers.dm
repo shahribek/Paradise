@@ -196,12 +196,4 @@
 /datum/dna/gene/basic/farvision/New()
 	..()
 	block = GLOB.farvisionblock
-
-/datum/dna/gene/basic/farvision/activate(mob/living/mutant, flags)
-	. = ..()
-	mutant.AddSpell(new /obj/effect/proc_holder/spell/view_range/genetic)
-
-/datum/dna/gene/basic/farvision/deactivate(mob/living/mutant, flags)
-	. = ..()
-	mutant.RemoveSpell(/obj/effect/proc_holder/spell/view_range/genetic)
-
+// make a normal farvision instead of old one

@@ -634,8 +634,6 @@ GLOBAL_VAR_INIT(captain_auth_access, ACCESS_CAPTAIN)
 	return
 
 /proc/cancel_call_proc(mob/user)
-	if(GAMEMODE_IS_METEOR)
-		return
 
 	if(SSshuttle.cancelEvac(user))
 		add_game_logs("has recalled the shuttle.", user)

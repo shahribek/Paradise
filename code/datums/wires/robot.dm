@@ -30,7 +30,7 @@
 					if(R.connected_ai?.laws)
 						SSticker?.score?.save_silicon_laws(R, usr, "laws sync with AI", log_all_laws = TRUE)
 			else
-				if(!R.lawupdate && !R.emagged && !isclocker(R))
+				if(!R.lawupdate && !R.emagged)
 					R.lawupdate = TRUE
 
 		if(WIRE_AI_CONTROL) //Cut the AI wire to reset AI control

@@ -126,9 +126,4 @@
 		var/cold_protection = 1 - human_target.get_cold_protection(simulatuon_temp)
 		temp_drop *= cold_protection
 
-	else if(istype(target, /mob/living/simple_animal/borer))
-		var/mob/living/simple_animal/borer/borer = target
-		var/cold_protection = 1 - borer.host?.get_cold_protection(simulatuon_temp)
-		temp_drop *= cold_protection
-
 	target.adjust_bodytemperature(temp_drop)

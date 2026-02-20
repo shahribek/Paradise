@@ -236,7 +236,6 @@
 
 		return
 
-	var/mob/living/simple_animal/borer/B = has_brain_worms()
 	// To the right of health bar
 	if(stat == DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH))
 		var/can_reenter = ghost_can_reenter() && !suiciding && mind
@@ -254,8 +253,6 @@
 		set_hud_image_state(STATUS_HUD, STATUS_HUD_XENO)
 	else if(HAS_TRAIT(src, TRAIT_LEGION_TUMOUR))
 		set_hud_image_state(STATUS_HUD, STATUS_HUD_TUMOUR)
-	else if(B?.controlling && !B.sneaking)
-		set_hud_image_state(STATUS_HUD, STATUS_HUD_BRAINWORM)
 	else if(is_in_crit())
 		set_hud_image_state(STATUS_HUD, STATUS_HUD_DEFIB)
 	else if(has_heavy_bleeding())

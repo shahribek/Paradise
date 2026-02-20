@@ -94,10 +94,6 @@
 		var/mob/living/carbon/human/human_mob = mob_to_check
 		if(human_mob.get_main_thermal_protection() >= FIRE_IMMUNITY_MAX_TEMP_PROTECT)
 			return FALSE
-	else if(istype(mob_to_check, /mob/living/simple_animal/borer))
-		var/mob/living/simple_animal/borer/borer = mob_to_check
-		if(borer.host?.get_main_thermal_protection() >= FIRE_IMMUNITY_MAX_TEMP_PROTECT)
-			return FALSE
 
 /datum/weather/ash_storm/weather_act(mob/living/target)
 	if(!target.mind && target.stat == DEAD || !ishuman(target)) //mind&stat check for optimization against dead roundstart dolls

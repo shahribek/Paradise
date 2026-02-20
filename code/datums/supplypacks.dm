@@ -3066,25 +3066,6 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		/obj/item/scalpel/laser/manager,
 	)
 
-/datum/supply_packs/medical/menderindustrial
-	name = "Продвинутый авто-мендер"
-	containername = "ящик продвинутых авто-мендеров"
-	container_ru_names = list(
-		NOMINATIVE = "ящик продвинутых авто-мендеров",
-		GENITIVE = "ящика продвинутых авто-мендеров",
-		DATIVE = "ящику продвинутых авто-мендеров",
-		ACCUSATIVE = "ящик продвинутых авто-мендеров",
-		INSTRUMENTAL = "ящиком продвинутых авто-мендеров",
-		PREPOSITIONAL = "ящике продвинутых авто-мендеров",
-	)
-	cost = 180
-	required_tech = list(RESEARCH_TREE_BIOTECH = 7, RESEARCH_TREE_MATERIALS = 7, RESEARCH_TREE_MAGNETS = 6, RESEARCH_TREE_PROGRAMMING = 6)
-	contains = list(
-		/obj/item/reagent_containers/applicator/abductor/industrial,
-		/obj/item/reagent_containers/applicator/abductor/industrial,
-		/obj/item/reagent_containers/applicator/abductor/industrial,
-	)
-
 //////////////////////////////////////////////////////////////////////////////
 // MARK: Science
 //////////////////////////////////////////////////////////////////////////////
@@ -3343,7 +3324,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		INSTRUMENTAL = "ящиком блюспейс-ранцев",
 		PREPOSITIONAL = "ящике блюспейс-ранцев",
 	)
-	
+
 /datum/supply_packs/science/soduffelbag
 	name = "Блюспейс сумки хранения"
 	contains = list(

@@ -499,21 +499,6 @@
 	opacity = FALSE
 	glass = TRUE
 
-/obj/machinery/door/airlock/abductor
-	name = "alien airlock"
-	desc = "With humanity's current technological level, it could take years to hack this advanced airlock... or maybe we should give a screwdriver a try?"
-	icon = 'icons/obj/doors/airlocks/abductor/abductor_airlock.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/abductor/overlays.dmi'
-	note_overlay_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
-	assemblytype = /obj/structure/door_assembly/door_assembly_abductor
-	damage_deflection = 30
-	explosion_block = 3
-	hackProof = TRUE
-	aiControlDisabled = AICONTROLDISABLED_ON
-	normal_integrity = 700
-	security_level = 1
-	paintable = FALSE
-
 //////////////////////////////////
 /*
 	Cult Airlocks
@@ -550,61 +535,6 @@
 	icon = 'icons/obj/doors/airlocks/cult/runed/cult.dmi'
 	overlays_file = 'icons/obj/doors/airlocks/cult/runed/cult-overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_cult_fake
-
-/obj/machinery/door/airlock/cult_fake/Initialize(mapload)
-	. = ..()
-	icon = SSticker.cultdat?.airlock_runed_icon_file
-	overlays_file = SSticker.cultdat?.airlock_runed_overlays_file
-	update_icon()
-
-/obj/machinery/door/airlock/cult/Initialize(mapload)
-	. = ..()
-	icon = SSticker.cultdat?.airlock_runed_icon_file
-	overlays_file = SSticker.cultdat?.airlock_runed_overlays_file
-	update_icon()
-	new openingoverlaytype(loc)
-
-/obj/machinery/door/airlock/cult/canAIControl(mob/user)
-	return (iscultist(user) && !isAllPowerLoss())
-
-/obj/machinery/door/airlock/cult/allowed(mob/living/L)
-	if(!density)
-		return TRUE
-	if(friendly || iscultist(L) || isshade(L)|| isconstruct(L))
-		if(!stealthy)
-			new openingoverlaytype(loc)
-		return TRUE
-	else
-		if(!stealthy)
-			new /obj/effect/temp_visual/cult/sac(loc)
-			var/atom/throwtarget
-			throwtarget = get_edge_target_turf(src, get_dir(src, get_step_away(L, src)))
-			SEND_SOUND(L, pick(sound('sound/hallucinations/turn_around1.ogg', 0, TRUE, 50), sound('sound/hallucinations/turn_around2.ogg', 0, TRUE, 50)))
-			L.Weaken(4 SECONDS)
-			L.throw_at(throwtarget, 5, 1,src)
-		return FALSE
-
-/obj/machinery/door/airlock/cult/cult_conceal()
-	icon = stealth_icon
-	overlays_file = stealth_overlays
-	set_opacity(stealth_opacity)
-	glass = stealth_glass
-	airlock_material = stealth_airlock_material
-	name = "airlock"
-	desc = "It opens and closes."
-	stealthy = TRUE
-	update_icon()
-
-/obj/machinery/door/airlock/cult/cult_reveal()
-	icon = SSticker.cultdat?.airlock_runed_icon_file
-	overlays_file = SSticker.cultdat?.airlock_runed_overlays_file
-	set_opacity(initial(opacity))
-	glass = initial(glass)
-	airlock_material = initial(airlock_material)
-	name = initial(name)
-	desc = initial(desc)
-	stealthy = initial(stealthy)
-	update_icon()
 
 /obj/machinery/door/airlock/cult/narsie_act()
 	return
@@ -684,23 +614,6 @@
 /obj/machinery/door/airlock/clockwork/Initialize(mapload)
 	. = ..()
 	new /obj/effect/temp_visual/ratvar/door(get_turf(src))
-
-/obj/machinery/door/airlock/clockwork/canAIControl(mob/user)
-	return (isclocker(user) && !isAllPowerLoss())
-
-/obj/machinery/door/airlock/clockwork/allowed(mob/living/L)
-	if(!density)
-		return TRUE
-	if(friendly || isclocker(L))
-		return TRUE
-	else
-		new /obj/effect/temp_visual/ratvar/door(loc)
-		var/atom/throwtarget
-		throwtarget = get_edge_target_turf(src, get_dir(src, get_step_away(L, src)))
-		SEND_SOUND(L, pick(sound('sound/hallucinations/turn_around1.ogg', 0, TRUE, 50), sound('sound/hallucinations/turn_around2.ogg', 0, TRUE, 50)))
-		L.Weaken(4 SECONDS)
-		L.throw_at(throwtarget, 5, 1,src)
-		return FALSE
 
 /obj/machinery/door/airlock/clockwork/narsie_act()
 	new /obj/machinery/door/airlock/cult(get_turf(src))

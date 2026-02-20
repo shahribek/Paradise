@@ -269,8 +269,6 @@
 	name = "AVD-CNED surgical toolset implant"
 	contents = newlist(
 		/obj/item/scalpel/laser/manager/debug,
-		/obj/item/hemostat/alien, // its needed specifically for some surgeries
-		/obj/item/circular_saw/alien,
 		/obj/item/healthanalyzer/advanced,
 		/obj/item/gun/medbeam,
 		/obj/item/handheld_defibrillator,

@@ -526,7 +526,6 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/ratvar_act()
 	go_out()
-	new /obj/effect/decal/cleanable/blood/gibs/clock(get_turf(src))
 	qdel(src)
 
 /obj/machinery/atmospherics/unary/cryo_cell/verb/move_inside()

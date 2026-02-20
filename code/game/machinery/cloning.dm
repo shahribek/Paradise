@@ -515,17 +515,8 @@ GLOBAL_LIST_INIT(cloner_biomass_items, list(\
 
 /obj/machinery/clonepod/proc/update_clone_antag(mob/living/carbon/human/H)
 	// Check to see if the clone's mind is an antagonist of any kind and handle them accordingly to make sure they get their spells, HUD/whatever else back.
-	if((H.mind in SSticker.mode:revolutionaries) || (H.mind in SSticker.mode:head_revolutionaries))
-		SSticker.mode.update_rev_icons_added() //So the icon actually appears
-	if(H.mind in SSticker.mode.cult)
-		SSticker.mode.update_cult_icons_added(H.mind) // Adds the cult antag hud
-		SSticker.mode.add_cult_actions(H.mind) // And all the actions
-		if(SSticker.mode.cult_risen)
-			SSticker.mode.rise(H)
-			if(SSticker.mode.cult_ascendant)
-				SSticker.mode.ascend(H)
-	if((H.mind in SSticker.mode.shadowling_thralls) || (H.mind in SSticker.mode.shadows))
-		SSticker.mode.update_shadow_icons_added(H.mind)
+	// if((H.mind in SSticker.mode:revolutionaries) || (H.mind in SSticker.mode:head_revolutionaries))
+	// 	SSticker.mode.update_rev_icons_added() //So the icon actually appears
 
 //Put messages in the connected computer's temp var for display.
 /obj/machinery/clonepod/proc/connected_message(message)

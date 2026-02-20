@@ -403,8 +403,7 @@
 		return
 
 	if(H.mind)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe/conjure/build/mime_wall(null))
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/mime/speak(null))
+		// you are cursed to be mute forever because I decided so... and probably because I accidently deleted your spells - SHAH-256
 		H.mind.miming = TRUE
 
 /datum/job/service/janitor

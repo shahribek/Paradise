@@ -231,17 +231,7 @@ GLOBAL_LIST_EMPTY(admin_objective_list)
 	SSticker.mode.victims.Add(target)
 
 /datum/objective/punish/check_completion()
-	. = ..()
-	var/mob/living/carbon/true_devil/krampus/krampus = owner.current
-
-	if(!istype(krampus))
-		return
-
-	for(var/mob/mob as anything in krampus.bag_content)
-		if(mob.mind != target)
-			continue
-		return TRUE
-
+	// you know what to do here
 	return FALSE
 
 /datum/objective/mutiny
@@ -1076,29 +1066,6 @@ GLOBAL_LIST_EMPTY(admin_objective_list)
 	explanation_text = "Украдите минимум 5 стволов!"
 	wanted_items = list(/obj/item/gun)
 
-/datum/objective/blood
-	name = "Spread blood"
-	antag_menu_name = "Накопить кровь"
-	needs_target = FALSE
-
-/datum/objective/blood/New()
-	gen_amount_goal()
-	. = ..()
-
-/datum/objective/blood/proc/gen_amount_goal(low = 150, high = 400)
-	target_amount = rand(low, high)
-	target_amount = round(round(target_amount / 5) * 5)
-	explanation_text = "Накопить не менее [target_amount] единиц крови."
-	return target_amount
-
-/datum/objective/blood/check_completion()
-	for(var/datum/mind/player in get_owners())
-		var/datum/antagonist/vampire/vampire = player.has_antag_datum(/datum/antagonist/vampire)
-		if(vampire && (vampire.bloodtotal >= target_amount))
-			return TRUE
-
-		return FALSE
-
 // /vg/; Vox Inviolate for humans :V
 /datum/objective/minimize_casualties
 	antag_menu_name = "Минимизация потерь"
@@ -1222,100 +1189,7 @@ GLOBAL_LIST_EMPTY(admin_objective_list)
 			if(total_amount >= target_amount)
 				return TRUE
 
-	var/datum/game_mode/heist/H = SSticker.mode
-	for(var/datum/mind/raider in H.raiders)
-		if(raider.current)
-			for(var/obj/O in raider.current.get_contents())
-				if(istype(O,target))
-					total_amount++
-				if(total_amount >= target_amount)
-					return TRUE
-
 	return FALSE
-
-/datum/objective/heist/salvage
-	antag_menu_name = "Добыть материалы"
-
-/datum/objective/heist/salvage/choose_target()
-	switch(rand(1,6))
-		if(1)
-			target = "plasteel"
-			target_amount = 100
-		if(2)
-			target = "solid plasma"
-			target_amount = 100
-		if(3)
-			target = "silver"
-			target_amount = 50
-		if(4)
-			target = "gold"
-			target_amount = 20
-		if(5)
-			target = "uranium"
-			target_amount = 20
-		if(6)
-			target = "diamond"
-			target_amount = 20
-
-	explanation_text = "Разграбьте или поторгуйтесь со станцией, заполучите [target] в количестве [target_amount] [declension_ru(target_amount, "штуки", "штук", "штук")] и сбегите отсюда."
-
-/datum/objective/heist/salvage/check_completion()
-	var/total_amount = 0
-
-	for(var/obj/item/O in locate(/area/shuttle/vox))
-		var/obj/item/stack/sheet/S
-		if(istype(O,/obj/item/stack/sheet))
-			if(O.name == target)
-				S = O
-				total_amount += S.get_amount()
-
-		for(var/obj/I in O.contents)
-			if(istype(I,/obj/item/stack/sheet))
-				if(I.name == target)
-					S = I
-					total_amount += S.get_amount()
-
-	for(var/obj/item/O in locate(/area/vox_station))
-		var/obj/item/stack/sheet/S
-		if(istype(O,/obj/item/stack/sheet))
-			if(O.name == target)
-				S = O
-				total_amount += S.get_amount()
-
-		for(var/obj/I in O.contents)
-			if(istype(I,/obj/item/stack/sheet))
-				if(I.name == target)
-					S = I
-					total_amount += S.get_amount()
-
-	var/datum/game_mode/heist/H = SSticker.mode
-	for(var/datum/mind/raider in H.raiders)
-		if(raider.current)
-			for(var/obj/item/O in raider.current.get_contents())
-				if(istype(O,/obj/item/stack/sheet))
-					if(O.name == target)
-						var/obj/item/stack/sheet/S = O
-						total_amount += S.get_amount()
-
-	if(total_amount >= target_amount) return TRUE
-	return FALSE
-
-/datum/objective/heist/inviolate_crew
-	antag_menu_name = "Не бросать своих"
-	explanation_text = "Не бросайте ни одного вокса, живого или мёртвого.."
-
-/datum/objective/heist/inviolate_crew/check_completion()
-	var/datum/game_mode/heist/H = SSticker.mode
-	if(H.is_raider_crew_safe())
-		return TRUE
-	return FALSE
-
-/datum/objective/heist/inviolate_death
-	antag_menu_name = "Ненасилие"
-	explanation_text = "Следуйте Ненасилию. Минимизируйте смерть и потерю ресурсов."
-
-/datum/objective/heist/inviolate_death/check_completion()
-	return TRUE
 
 // Traders
 // These objectives have no check_completion, they exist only to tell Sol Traders what to aim for.
@@ -1618,44 +1492,6 @@ GLOBAL_LIST_EMPTY(admin_objective_list)
 	explanation_text = "Используя свои перчатки, загрузите в ИИ станции специальный вирус через консоль для смены законов которая стоит в загрузочной. \
 	Подойдёт только консоль в этой зоне из-за уязвимости оставленной заранее для вируса. \
 	Учтите, что установка займёт время и ИИ скорее всего будет уведомлён о вашей попытке взлома!"
-
-/datum/objective/blob_critical_mass
-	needs_target = FALSE
-	antag_menu_name = "Достичь критической массы"
-	//Total blob tiles count
-	var/critical_mass = -2
-	//Needed blob tiles count
-	var/needed_critical_mass = -1
-
-/datum/objective/blob_critical_mass/check_completion()
-	if(!completed)
-		completed = needed_critical_mass <= critical_mass && SSsecurity_level.get_current_level_as_number() < SEC_LEVEL_DELTA
-	return ..()
-
-/datum/objective/blob_critical_mass/proc/set_target()
-	explanation_text = "Наберите критическую массу, распостраняясь по станции. Текущаяя масса [critical_mass]. Необходимо набрать [needed_critical_mass]. Масса может изменяться в зависимости от количества блобов."
-
-/datum/objective/blob_find_place_to_burst
-	needs_target = FALSE
-	antag_menu_name = "Найти укромное место"
-	explanation_text = "Найдите укромное место на станции, в котором вас не смогут найти после вылупления до тех пор, пока вы не наберетесь сил."
-
-/datum/objective/blob_minion
-	name = "protect the blob core"
-	antag_menu_name = "Защищать ядро"
-	explanation_text = "Защищайте ядро блоба и исполняйте приказы надразумов. Любой ценой."
-	var/datum/weakref/overmind
-
-/datum/objective/blob_minion/check_completion()
-	var/mob/camera/blob/resolved_overmind = overmind.resolve()
-	if(!resolved_overmind)
-		return FALSE
-	return resolved_overmind.stat != DEAD
-
-/datum/objective/xeno_genocide
-	name = "Геноцид разумной жизни"
-	needs_target = FALSE
-	explanation_text = "Убивайте всех, кто не является ксеноморфом. Утопите станцию в крови!"
 
 /datum/objective/serve
 	name = "Служить"

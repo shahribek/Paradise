@@ -184,10 +184,10 @@
 				if(open_for_latejoin)
 					GLOB.empty_playable_ai_cores += D
 			else
-				if(brain.brainmob.mind)
-					SSticker.mode.remove_cultist(brain.brainmob.mind, 1)
-					SSticker.mode.remove_clocker(brain.brainmob.mind, 1)
-					SSticker.mode.remove_revolutionary(brain.brainmob.mind, 1)
+				// if(brain.brainmob.mind)
+				// 	SSticker.mode.remove_cultist(brain.brainmob.mind, 1)
+				// 	SSticker.mode.remove_clocker(brain.brainmob.mind, 1)
+				// 	SSticker.mode.remove_revolutionary(brain.brainmob.mind, 1)
 
 				var/mob/living/silicon/ai/A = new /mob/living/silicon/ai(loc, laws, brain)
 				if(A) //if there's no brain, the mob is deleted and a structure/AIcore is created

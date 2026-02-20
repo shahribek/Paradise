@@ -123,17 +123,3 @@
 
 	for(var/datum/dna/gene/gene as anything in GLOB.dna_genes)
 		GLOB.assigned_gene_blocks[gene.block] = gene
-
-/proc/setupcult()
-	var/static/datum/cult_info/picked_cult // Only needs to get picked once
-
-	if(picked_cult)
-		return picked_cult
-
-	var/random_cult = pick(typesof(/datum/cult_info))
-	picked_cult = new random_cult()
-
-	if(!picked_cult)
-		log_runtime(EXCEPTION("Cult datum creation failed"))
-	//todo:add adminonly datum var, check for said var here...
-	return picked_cult

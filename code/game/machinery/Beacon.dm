@@ -64,26 +64,3 @@
 		if(Beacon)
 			destroy_beacon()
 			update_icon(UPDATE_ICON_STATE)
-
-/obj/machinery/bluespace_beacon/syndicate
-	syndicate = TRUE
-	enabled = FALSE
-	area_bypass = TRUE // This enables teleports to this beacon to bypass the tele_proof flag of /area/s. Intended for depot syndi teleport computer.
-	var/obj/machinery/computer/syndicate_depot/teleporter/mycomputer
-
-/obj/machinery/bluespace_beacon/syndicate/Initialize(mapload)
-	. = ..()
-	if(!GAMEMODE_IS_NUCLEAR && prob(50))
-		enabled = TRUE
-
-/obj/machinery/bluespace_beacon/syndicate/Destroy()
-	if(mycomputer)
-		mycomputer.mybeacon = null
-	return ..()
-
-/obj/machinery/bluespace_beacon/syndicate/infiltrator //beacon guaranteed offline at roundstart for infiltrator base
-	cc_beacon = TRUE
-
-/obj/machinery/bluespace_beacon/syndicate/infiltrator/Initialize(mapload)
-	. = ..()
-	enabled = FALSE

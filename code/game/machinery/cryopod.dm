@@ -395,9 +395,6 @@
 		SSticker.score.save_antag_info(occupant.mind)
 
 	// Find a new sacrifice target if needed, if unable allow summoning
-	if(is_sacrifice_target(occupant.mind))
-		if(!SSticker.mode.cult_objs.find_new_sacrifice_target())
-			SSticker.mode.cult_objs.ready_to_summon()
 
 	// We should track when taipan players get despawned
 	if(occupant.mind in GLOB.taipan_players_active)

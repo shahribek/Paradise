@@ -128,7 +128,6 @@
 
 	/// A list of all minds currently in the cult
 	var/list/datum/mind/cult = list()
-	var/datum/cult_objectives/cult_objs = new
 	/// Does the cult have glowing eyes
 	var/cult_risen = FALSE
 	/// Does the cult have halos
@@ -144,7 +143,6 @@
 
 	/// A list of all minds currently in the cult
 	var/list/datum/mind/clockwork_cult = list()
-	var/datum/clockwork_objectives/clocker_objs = new
 	/// Does the clockers have significant power stored
 	var/power_reveal = FALSE
 	/// Does the cult have halos
@@ -864,16 +862,10 @@
 	. = list()
 	. += auto_declare_completion_sst()
 	. += auto_declare_completion_sit()
-	. += auto_declare_completion_sintouched()
 	list_clear_nulls(.)
 
 /datum/game_mode/proc/apocalypse_cinema(obj/singularity/god/god, inevitable = FALSE)
-	if(istype(god, /obj/singularity/god/narsie))
-		return SSticker.cultdat.apocalypse_cinema
-
-	if(istype(god, /obj/singularity/god/ratvar))
-		return /datum/cinematic/cult_arm_ratvar
-
+	// you may add cinematics here
 	return FALSE
 
 /datum/game_mode/proc/apocalypse(god_name)

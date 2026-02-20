@@ -850,7 +850,6 @@
 			/obj/item/stack/medical/bruise_pack/military,
 			/obj/item/stack/medical/suture/advanced,
 		),
-		/obj/item/reagent_containers/glass/bottle/abductor/rezadone,
 		list(
 			/obj/item/handheld_defibrillator,
 			/obj/item/defibrillator/compact/loaded

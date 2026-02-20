@@ -60,21 +60,6 @@
 	var/list/modifiers = params2list(params)
 
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
-		if(LAZYACCESS(modifiers, SHIFT_CLICK))
-			if(LAZYACCESS(modifiers, ALT_CLICK))
-				MiddleShiftAltClickOn(A)
-				return
-			if(LAZYACCESS(modifiers, CTRL_CLICK))
-				MiddleControlClickOn(A)
-				return
-			MiddleShiftClickOn(A)
-			return
-		if(LAZYACCESS(modifiers, CTRL_CLICK))
-			MiddleControlClickOn(A)
-			return
-		if(LAZYACCESS(modifiers, ALT_CLICK))
-			MiddleAltClickOn(A)
-			return
 		MiddleClickOn(A)
 		if(controlled_mech)
 			controlled_mech.click_action(A, src, params)

@@ -734,9 +734,6 @@
 /atom/proc/ex_act(severity, target)
 	return
 
-/atom/proc/blob_vore_act(obj/structure/blob/special/core/voring_core)
-	return TRUE
-
 /atom/proc/fire_act(exposed_temperature, exposed_volume)
 	SEND_SIGNAL(src, COMSIG_ATOM_FIRE_ACT, exposed_temperature, exposed_volume)
 	if(reagents)
