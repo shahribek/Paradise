@@ -103,10 +103,6 @@
 	if(our_rpd.mode == RPD_DELETE_MODE)//No pipes on shuttles
 		our_rpd.delete_all_pipes(user, src)
 
-/turf/simulated/wall/shuttle/narsie_act()
-	if(prob(20))
-		ChangeTurf(/turf/simulated/wall/cult)
-
 // sub-type to be used for interior shuttle walls
 // won't get an underlay of the destination turf on shuttle move
 // it's underlay must be preadded by using underlay_floor variables
@@ -149,10 +145,6 @@
 
 /turf/simulated/floor/shuttle/tool_act()
 	return FALSE
-
-/turf/simulated/floor/shuttle/ratvar_act()
-	if(prob(20))
-		ChangeTurf(/turf/simulated/floor/clockwork)
 
 /turf/simulated/floor/shuttle/rcd_act()
 	return RCD_NO_ACT

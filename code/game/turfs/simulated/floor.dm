@@ -273,14 +273,6 @@ GLOBAL_LIST_INIT(icons_to_ignore_at_floor_init, list("damaged1","damaged2","dama
 		else if(prob(50))
 			ReplaceWithLattice()
 
-/turf/simulated/floor/narsie_act()
-	if(prob(20))
-		ChangeTurf(/turf/simulated/floor/engine/cult)
-
-/turf/simulated/floor/ratvar_act()
-	if(prob(20))
-		ChangeTurf(/turf/simulated/floor/clockwork)
-
 /turf/simulated/floor/acid_melt()
 	ChangeTurf(baseturf)
 

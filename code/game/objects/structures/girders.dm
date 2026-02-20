@@ -126,10 +126,6 @@
 	if(locate(/obj/structure/falsewall) in loc.contents)
 		to_chat(user, span_warning("There is already a false wall present!"))
 		return .
-	if(istype(I, /obj/item/stack/sheet/runed_metal) || istype(I, /obj/item/stack/sheet/runed_metal_fake))
-		to_chat(user, span_warning("You can't seem to make the metal bend."))
-		return .
-
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/rods = stack
 		if(state == GIRDER_DISPLACED)

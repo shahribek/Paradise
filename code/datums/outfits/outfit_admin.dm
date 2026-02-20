@@ -67,7 +67,6 @@
 	shoes = /obj/item/clothing/shoes/combat
 	l_ear = /obj/item/radio/headset/syndicate
 	id = /obj/item/card/id/syndicate
-	r_pocket = /obj/item/radio/uplink
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/flashlight = 1,
@@ -87,11 +86,6 @@
 	if(istype(I))
 		apply_to_card(I, H, get_syndicate_access(id_access), name, "syndie")
 
-	var/obj/item/radio/uplink/U = H.r_store
-	if(istype(U))
-		U.hidden_uplink.uplink_owner = "[H.key]"
-		if(!isnull(uplink_uses))
-			U.hidden_uplink.uses = uplink_uses
 
 	var/obj/item/radio/R = H.l_ear
 	if(istype(R))
@@ -119,7 +113,6 @@
 	id = /obj/item/card/id/syndicate
 	box = /obj/item/storage/box/survival/survival_syndi
 	backpack_contents = list(
-		/obj/item/radio/uplink/sst = 1,
 		/obj/item/grenade/plastic/x4 = 2,
 		/obj/item/reagent_containers/hypospray/combat/nanites = 1,
 		/obj/item/gun/projectile/revolver = 1,
@@ -150,7 +143,6 @@
 
 	backpack_contents = list(
 		/obj/item/tank/jetpack/oxygen/harness = 1,
-		/obj/item/radio/uplink/sst = 1,
 		/obj/item/ammo_box/magazine/a762x51 = 1,
 		/obj/item/grenade/plastic/x4 = 2,
 		/obj/item/reagent_containers/hypospray/combat/nanites = 1,
@@ -545,7 +537,6 @@
 		/obj/item/ammo_box/magazine/m10mm = 1,
 		/obj/item/gun_module/muzzle/suppressor = 1,
 		/obj/item/card/emag = 1,
-		/obj/item/radio/uplink = 1,
 		/obj/item/reagent_containers/food/snacks/syndidonkpocket = 1,
 		/obj/item/flashlight = 1,
 	)

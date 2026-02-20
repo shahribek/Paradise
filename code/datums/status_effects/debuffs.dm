@@ -1,38 +1,5 @@
 //OTHER DEBUFFS
 
-// MARK: his_wrath
-/datum/status_effect/his_wrath //does minor damage over time unless holding His Grace
-	id = "his_wrath"
-	tick_interval = 0.4 SECONDS
-	alert_type = /atom/movable/screen/alert/status_effect/his_wrath
-
-/atom/movable/screen/alert/status_effect/his_wrath
-	name = "Его Гнев"
-	desc = "Вы предпочли бегство повиновению Его Светлости — и вот ваша расплата."
-	icon_state = "his_grace"
-	alerttooltipstyle = "hisgrace"
-
-/datum/status_effect/his_wrath/tick(seconds_between_ticks)
-	if(owner.find_item(/obj/item/his_grace))
-		qdel(src)
-		return
-	var/need_mob_update
-	need_mob_update = owner.adjustBruteLoss(0.5 * seconds_between_ticks, updating_health = FALSE)
-	need_mob_update += owner.adjustFireLoss(0.5 * seconds_between_ticks, updating_health = FALSE)
-	need_mob_update += owner.adjustToxLoss(0.08 * seconds_between_ticks, updating_health = FALSE, forced = TRUE)
-	if(!need_mob_update)
-		return
-	owner.updatehealth()
-
-// MARK: cultghost
-/datum/status_effect/cultghost //is a cult ghost and can't use manifest runes
-	id = "cult_ghost"
-	alert_type = null
-
-/datum/status_effect/cultghost/tick(seconds_between_ticks)
-	if(owner.reagents)
-		owner.reagents.del_reagent("holywater") //can't be deconverted
-
 // MARK: crusher_mark
 /datum/status_effect/crusher_mark
 	id = "crusher_mark"

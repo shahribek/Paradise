@@ -169,7 +169,6 @@
 
 /obj/item/gift/proc/get_evil_santa_gift()
 	var/static/list/evil_santa_gifts = list(
-		/obj/item/storage/box/syndie_kit/mr_chang_technique,
 		/obj/item/documents/syndicate/yellow/trapped,
 		/obj/item/documents/nanotrasen,
 		/obj/item/documents/syndicate/mining,
@@ -177,7 +176,6 @@
 		/obj/item/melee/energy/sword/pirate,
 		/obj/item/stack/spacecash/c5000,
 		/obj/item/stack/spacecash/c1000,
-		/obj/item/storage/box/syndie_kit/hardsuit,
 		/obj/item/mod/control/pre_equipped/traitor,
 		/obj/item/clothing/suit/space/hardsuit/champion/templar/premium,
 		/obj/item/clothing/suit/space/hardsuit/soviet,

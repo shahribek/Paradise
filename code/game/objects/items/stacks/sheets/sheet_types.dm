@@ -117,14 +117,6 @@ GLOBAL_LIST_INIT(metal_recipes, list(
 /obj/item/stack/sheet/metal/fifty
 	amount = 50
 
-/obj/item/stack/sheet/metal/ratvar_act()
-	new /obj/item/stack/sheet/brass(loc, amount)
-	qdel(src)
-
-/obj/item/stack/sheet/metal/narsie_act()
-	new /obj/item/stack/sheet/runed_metal(loc, amount)
-	qdel(src)
-
 /obj/item/stack/sheet/metal/Initialize(mapload, new_amount, merge = TRUE)
 	. = ..()
 	recipes = GLOB.metal_recipes

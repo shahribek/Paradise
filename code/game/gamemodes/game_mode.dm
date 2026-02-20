@@ -912,7 +912,6 @@
 /datum/game_mode/proc/late_join(mob/new_player/player)
 	return FALSE
 
-
 /datum/game_mode/proc/end_game()
 	if(!SSticker)
 		return

@@ -166,30 +166,6 @@
 	target.set_nutrition(nutrition)
 	to_chat(target, span_userdanger("Вы чувствуете [nutrition < old_nutrition ? "голод" : "что съели слишком много"]. Боги наказали вас за [reason]!"))
 
-// MARK: Cookie (off)
-/datum/smite/cookie
-	name = SMITE_COOKIE
-	desc = "Выдайте жертве печенье с выбранным веществом, которое она не сможет выбросить."
-	category = SMITE_CATEGORY_CONTROL
-
-/datum/smite/cookie/apply_effect(mob/living/carbon/human/target, reason)
-	target.makeCluwne()
-	ADD_TRAIT(target, TRAIT_NO_CLONE, ADMIN_TRAIT)
-
-	var/obj/item/reagent_containers/food/snacks/cookie/empty/evilcookie = new()
-	var/datum/reagent/reagent = tgui_input_list(usr, "Выберите реагент который будет находиться в печенье.", "Выбор вещества", GLOB.typecache_reagent)
-	var/amount = tgui_input_number(usr, "Выберите количество вещества в печенье.", "Выбор количества", 10, 10000, 0)
-	var/id = reagent::id ? reagent::id : "mutagen"
-	evilcookie.volume = max(100, amount)
-	evilcookie.reagents.add_reagent(id, amount)
-	evilcookie.bitesize = evilcookie.volume
-	evilcookie.item_flags |= DROPDEL
-	ADD_TRAIT(evilcookie, TRAIT_NODROP, ADMIN_TRAIT)
-	target.drop_l_hand()
-	target.equip_to_slot_or_del(evilcookie, ITEM_SLOT_HAND_LEFT)
-	to_chat(target, span_userdanger("В ваших руках появляется печенье. По воле божьей, вы должны его съесть. Это наказание за [reason]!"))
-	logmsg = "an antidrop cookie with [reagent] units of [id]."
-
 // MARK: Hunter
 /datum/smite/hunter
 	name = SMITE_HUNTER

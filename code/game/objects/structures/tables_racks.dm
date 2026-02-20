@@ -683,40 +683,6 @@
 		to_chat(user, span_notice("Вы [deconstruction_ready ? "усилили" : "ослабили"] стол."))
 		deconstruction_ready = !deconstruction_ready
 
-/obj/structure/table/reinforced/brass
-	name = "brass table"
-	desc = "A solid, slightly beveled brass table."
-	icon = 'icons/obj/smooth_structures/brass_table.dmi'
-	icon_state = "brass_table-0"
-	base_icon_state = "brass_table"
-	resistance_flags = FIRE_PROOF | ACID_PROOF
-	can_be_flipped = FALSE
-	frame = /obj/structure/table_frame/brass
-	framestack = /obj/item/stack/sheet/brass
-	buildstack = /obj/item/stack/sheet/brass
-	framestackamount = 1
-	canSmoothWith = SMOOTH_GROUP_BRONZE_TABLES
-	smoothing_groups = SMOOTH_GROUP_BRONZE_TABLES
-
-/obj/structure/table/reinforced/brass/fake
-	desc = "A solid, slightly beveled and totally not magic brass table."
-	frame = /obj/structure/table_frame/brass/fake
-	framestack = /obj/item/stack/sheet/brass_fake
-	buildstack = /obj/item/stack/sheet/brass_fake
-
-/obj/structure/table/reinforced/brass/narsie_act()
-	take_damage(rand(15, 45), BRUTE)
-	if(src) //do we still exist?
-		var/previouscolor = color
-		color = COLOR_CULT_RED
-		animate(src, color = previouscolor, time = 8)
-
-/obj/structure/table/reinforced/brass/ratvar_act()
-	update_integrity(max_integrity)
-
-/obj/structure/table/reinforced/brass/fake/ratvar_act()
-	return
-
 /obj/structure/table/tray
 	name = "surgical tray"
 	desc = "A small metal tray with wheels."

@@ -418,10 +418,6 @@
 /obj/item/gem/bloodstone/afterattack(obj/item/I, mob/user, proximity, params)
 	if(!proximity)
 		return
-	if(istype(I) && I.hidden_uplink && I.hidden_uplink.active)
-		I.hidden_uplink.uses += charges
-		qdel(src)
-		to_chat(user, span_notice("Вы вставляете [declent_ru(ACCUSATIVE)] внутрь вашего апплинка, заряжая его."))
 
 //vetus gem
 /obj/item/gem/data

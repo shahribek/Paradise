@@ -23,11 +23,6 @@
 		cross = image('icons/obj/library.dmi',"bible_kingyellow")
 		font_color = "blue"
 		prayer_type = "CHAPLAIN PRAYER"
-	else if(iscultist(usr))
-		cross = image('icons/obj/cult.dmi',"tome")
-		font_color = "red"
-		prayer_type = "CULTIST PRAYER"
-		deity = SSticker.cultdat.entity_name
 
 	add_game_logs("Prayed to the gods: [msg]", usr)
 	GLOB.requests.pray(client, msg, job == JOB_TITLE_CHAPLAIN)

@@ -408,25 +408,6 @@ GLOBAL_LIST_INIT(plastitanium_recipes, list(
 	. = ..()
 	recipes = GLOB.plastitanium_recipes
 
-//Alien Alloy
-/obj/item/stack/sheet/mineral/abductor
-	name = "alien alloy"
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "sheet-abductor"
-	item_state = "sheet-abductor"
-	singular_name = "alien alloy sheet"
-	throw_speed = 1
-	origin_tech = "materials=6;abductor=1"
-	sheettype = "abductor"
-	materials = list(MAT_METAL = 4000, MAT_PLASMA = 4000)
-
-/obj/item/stack/sheet/mineral/abductor/fifty
-	amount = 50
-
-/obj/item/stack/sheet/mineral/abductor/Initialize(mapload, new_amount, merge = TRUE)
-	. = ..()
-	recipes = GLOB.abductor_recipes
-
 /obj/item/stack/sheet/mineral/adamantine
 	name = "adamantine"
 	desc = "A strange mineral used in the construction of sentient golems."

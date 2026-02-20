@@ -252,7 +252,7 @@ GLOBAL_LIST_INIT(default_pirate_channels, list(
 		radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
 /obj/item/radio/emag_act(mob/user)
-	if(!user.mind.special_role && !is_admin(user) || !hidden_uplink)
+	if(!user.mind.special_role && !is_admin(user))
 		var/turf/T = get_turf(loc)
 
 		if(ismob(loc))
@@ -263,8 +263,6 @@ GLOBAL_LIST_INIT(default_pirate_channels, list(
 			T.hotspot_expose(700, 125)
 			explosion(T, devastation_range = -1, heavy_impact_range = -1, light_impact_range = 2, flash_range = 3, cause = src)
 		qdel(src)
-	else
-		hidden_uplink.trigger(user)
 
 /obj/item/radio/attack_ghost(mob/user)
 	return interact(user)
@@ -320,9 +318,6 @@ GLOBAL_LIST_INIT(default_pirate_channels, list(
 				tune = tune * 10
 			else
 				. = FALSE
-			if(hidden_uplink)
-				if(hidden_uplink.check_trigger(usr, frequency, traitor_frequency))
-					close_window(usr, "radio")
 			if(.)
 				set_frequency(sanitize_frequency(tune, freerange))
 

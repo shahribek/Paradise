@@ -402,10 +402,6 @@
 		user.changeNext_move(I.attack_speed)
 		return .|ATTACK_CHAIN_BLOCKED_ALL
 
-	if(try_reform(I, user, params))
-		user.changeNext_move(I.attack_speed)
-		return .|ATTACK_CHAIN_BLOCKED_ALL
-
 /turf/simulated/wall/welder_act(mob/user, obj/item/I)
 	. = TRUE
 	if(reagents?.get_reagent_amount("thermite") && I.use_tool(src, user, volume = I.tool_volume))
@@ -553,14 +549,6 @@
 	if(current_size == STAGE_FOUR)
 		if(prob(30))
 			dismantle_wall()
-
-/turf/simulated/wall/narsie_act()
-	if(prob(20))
-		ChangeTurf(/turf/simulated/wall/cult)
-
-/turf/simulated/wall/ratvar_act()
-	if(prob(20))
-		ChangeTurf(/turf/simulated/wall/clockwork)
 
 /turf/simulated/wall/acid_act(acidpwr, acid_volume)
 	if(explosion_block >= 2)

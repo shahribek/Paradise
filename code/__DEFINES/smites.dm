@@ -51,7 +51,6 @@ GLOBAL_LIST_INIT(smites_not_human, list(
 GLOBAL_LIST_INIT(smites_human, list(
 	SMITE_BRAINLOSS = /datum/smite/brainloss,
 	SMITE_HONKTUMOR = /datum/smite/honktumor,
-	SMITE_CLUWNE = /datum/smite/cluwne,
 	SMITE_HUNGER = /datum/smite/hunger,
 	SMITE_ANTIDROP_EQUIP = /datum/smite/antidrop_equip,
 	SMITE_NUGGET = /datum/smite/nugget,

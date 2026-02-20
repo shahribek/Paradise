@@ -28,8 +28,7 @@
 
 	/// Extra prize if emagged
 	var/list/emag_prizes = list(/obj/item/storage/box/bombsecurity, /obj/item/storage/box/thunderdome/bombarda, \
-								/obj/item/storage/belt/grenade/frag, /obj/item/grenade/syndieminibomb, \
-								/obj/item/storage/box/syndie_kit/c4)
+								/obj/item/storage/belt/grenade/frag, /obj/item/grenade/syndieminibomb,)
 
 	/// Thing, to make first touch safety
 	var/first_touch = TRUE

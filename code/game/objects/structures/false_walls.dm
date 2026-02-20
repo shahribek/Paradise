@@ -46,10 +46,6 @@
 			. = span_danger("Выглядит сильно повреждённой.")
 	. += span_notice("<br>Использование сварочного инструмента на этом предмете позволит вам разрезать его, в конечном итоге удалив внешний слой.")
 
-/obj/structure/falsewall/ratvar_act()
-	new /obj/structure/falsewall/brass(loc)
-	qdel(src)
-
 /obj/structure/falsewall/Destroy()
 	set_density(FALSE)
 	recalculate_atmos_connectivity()

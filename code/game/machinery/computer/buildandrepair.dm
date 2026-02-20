@@ -415,17 +415,6 @@
 	build_path = /obj/machinery/computer/supplyquest/workers
 	origin_tech = "programming=3"
 
-/obj/item/circuitboard/syndicatesupplycomp/public
-	board_name = "Syndicate Public Supply Pad Console"
-	build_path = /obj/machinery/computer/syndie_supplycomp/public
-
-/obj/item/circuitboard/syndicate_teleporter
-	board_name = "Syndicate Redspace Teleporter"
-	icon_state = "syndicate_circuit"
-	greyscale_config = null
-	build_path = /obj/machinery/computer/syndicate_depot/teleporter/taipan
-	origin_tech = "programming=6;bluespace=5;syndicate=8"
-
 /obj/item/circuitboard/operating
 	board_name = "Operating Computer"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL

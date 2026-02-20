@@ -341,7 +341,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 
 /obj/item/Destroy()
 	item_flags &= ~DROPDEL	//prevent reqdels
-	QDEL_NULL(hidden_uplink)
 
 	if(ismob(loc))
 		var/mob/M = loc

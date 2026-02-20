@@ -407,7 +407,6 @@
 	new /obj/item/storage/box/debug/material(src)
 	new /obj/item/storage/box/debug/misc_debug(src)
 	new /obj/item/storage/box/survival/centcomofficer(src)
-	new /obj/item/radio/uplink/admin(src)
 
 /obj/item/storage/box/debug/material
 	name = "box of materials"
@@ -426,7 +425,6 @@
 	new /obj/item/stack/sheet/metal/fifty(src)
 	new /obj/item/stack/sheet/plasteel/fifty(src)
 	new /obj/item/stack/sheet/plastic/fifty(src)
-	new /obj/item/stack/sheet/runed_metal/fifty(src)
 	new /obj/item/stack/sheet/glass/fifty(src)
 	new /obj/item/stack/sheet/rglass/fifty(src)
 	new /obj/item/stack/sheet/plasmaglass/fifty(src)

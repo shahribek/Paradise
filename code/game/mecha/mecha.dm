@@ -1881,12 +1881,5 @@
 				occupant_message(span_boldnotice("Короткое замыкание устранено."))
 	internal_damage &= ~int_dam_flag
 	diag_hud_set_mechstat()
-/obj/mecha/ratvar_act(convert_mecha)
-	if(!convert_mecha)
-		return
-	if(ratvarized)
-		repair_damage(max_integrity / 2)
-		return
-	ratvar_convert()
 
 #undef OCCUPANT_LOGGING

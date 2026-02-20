@@ -285,7 +285,6 @@
 		/obj/item/clothing/mask/gas/syndicate = 1,
 		/obj/item/gun_module/muzzle/suppressor = 1,
 		/obj/item/coin/antagtoken/syndicate = 1,
-		/obj/item/storage/box/syndie_kit/cutouts = 1,
 	)
 
 /obj/effect/spawner/random_spawners/syndicate/loot/stetchkin
@@ -306,7 +305,6 @@
 	// Loot schema: space gear, basic armor, basic ammo (10mm, rcd), drugs, more dangerous/useful gimmick items, lower-value minerals
 	result = list(
 		/datum/nothing = 27,
-		/obj/item/storage/box/syndie_kit/space = 1,
 		/obj/item/mod/control/pre_equipped/traitor = 1,
 		/obj/item/clothing/shoes/magboots/syndie = 1,
 		/obj/item/clothing/suit/armor/vest/combat = 1,
@@ -327,7 +325,6 @@
 		/obj/item/clothing/gloves/fingerless/rapid = 1,
 		/obj/item/grenade/spawnergrenade/manhacks = 1,
 		/obj/item/grenade/syndieminibomb = 1,
-		/obj/item/storage/box/syndie_kit/throwing_weapons = 1,
 		/obj/item/pen/edagger = 1,
 		/obj/item/stack/sheet/mineral/plasma{amount = 20} = 1,
 		/obj/item/stack/sheet/mineral/silver{amount = 20} = 1,
@@ -344,7 +341,6 @@
 		/datum/nothing = 25,
 		/obj/item/jammer = 1,
 		/obj/item/storage/firstaid/regular = 1,
-		/obj/item/storage/box/syndie_kit/bonerepair = 1,
 		/obj/item/card/emag_broken = 2,
 		/obj/item/stock_parts/cell/bluespace = 1,
 		/obj/item/card/emag = 1,
@@ -363,7 +359,6 @@
 		/obj/item/ammo_box/magazine/m10mm/fire = 1,
 		/obj/item/ammo_box/magazine/m10mm/hp = 1,
 		/obj/item/rad_laser = 1,
-		/obj/item/storage/box/syndie_kit/emp = 1,
 		/obj/item/batterer = 1,
 		/obj/item/toy/carpplushie/dehy_carp = 1,
 		/obj/item/clothing/glasses/hud/security/chameleon = 1,

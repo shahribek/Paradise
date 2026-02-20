@@ -20,7 +20,6 @@
 	if(!prob(modules_spawn_chance))
 		return
 
-	new /obj/item/storage/box/syndie_kit/gun_mods/super(crate)
 
 /datum/loot_tier/first
 	name = "снаряжение зеленого кода"
@@ -415,7 +414,6 @@
 		/obj/item/shield/riot/buckler,
 		/obj/item/storage/belt/champion/wrestling,
 		/obj/item/shield/riot/roman,
-		/obj/item/storage/box/syndie_kit/commando_kit,
 		/obj/item/shield/riot,
 		/obj/item/melee/rapier/captain,
 		/obj/item/kitchen/knife/butcher/meatcleaver,
@@ -464,7 +462,6 @@
 		/obj/item/clothing/suit/hooded/drake,
 		/obj/item/implanter/adrenalin/prototype,
 		/obj/item/implanter/krav_maga,
-		/obj/item/storage/box/syndie_kit/blackops_kit,
 	)
 
 /datum/loot_tier/fourth
@@ -573,7 +570,6 @@
 		),
 		/obj/item/CQC_manual,
 		/obj/item/mimejutsu_scroll,
-		/obj/item/storage/box/syndie_kit/mantisblade,
 		/obj/item/twohanded/dualsaber,
 		/obj/item/weldingtool/sword/double,
 		/obj/item/dnainjector/regenerate,

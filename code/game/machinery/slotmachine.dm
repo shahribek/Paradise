@@ -81,9 +81,6 @@ GLOBAL_LIST_EMPTY(slotmachine_prizes)
 	say_phrase = "Победитель!"
 	sound = 'sound/goonstation/misc/bell.ogg'
 
-/datum/slotmachine_prize/medium/apply_emagged_effect(obj/machinery/computer/slot_machine/slotmachine, mob/user)
-	slotmachine.give_custom_prize(user, /obj/item/storage/box/random_syndi)
-
 /datum/slotmachine_prize/big
 	id = "big"
 	chance = 0.38
@@ -106,9 +103,6 @@ GLOBAL_LIST_EMPTY(slotmachine_prizes)
 		message = "Поздравляем [user.name] с выигрышем джекпота в [prize_credits] кредитов!",
 		new_title = "Обладатель джекпота!"
 	)
-
-/datum/slotmachine_prize/jackpot/apply_emagged_effect(obj/machinery/computer/slot_machine/slotmachine, mob/user)
-	slotmachine.give_custom_prize(user, /obj/item/radio/uplink)
 
 /obj/machinery/computer/slot_machine
 	name = "slot machine"
