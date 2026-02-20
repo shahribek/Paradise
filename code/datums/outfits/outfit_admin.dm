@@ -145,7 +145,6 @@
 	suit = /obj/item/clothing/suit/space/hardsuit/syndi/elite/sst
 	belt = /obj/item/storage/belt/military/sst
 	shoes = /obj/item/clothing/shoes/magboots/syndie/advance
-	mask = /obj/item/clothing/mask/gas/syndicate
 	glasses = /obj/item/clothing/glasses/thermal/sunglasses
 	l_hand = /obj/item/gun/projectile/automatic/l6_saw
 

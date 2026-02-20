@@ -608,23 +608,18 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell))
 
 	if(ishuman(user))
 
-		var/mob/living/carbon/human/h_user = user
-		var/clothcheck = locate(/obj/effect/proc_holder/spell/noclothes) in h_user.mob_spell_list
-		var/clothcheck2 = h_user.mind && (locate(/obj/effect/proc_holder/spell/noclothes) in h_user.mind.spell_list)
+		var/obj/item/clothing/robe = h_user.wear_suit
+		var/obj/item/clothing/hat = h_user.head
+		var/obj/item/clothing/shoes = h_user.shoes
+		if(!robe || !hat || !shoes)
+			if(show_message)
+				to_chat(h_user, span_notice("Your outfit isn't complete, you should put on your robe and wizard hat, as well as sandals"))
+			return FALSE
 
-		if(clothes_req && !clothcheck && !clothcheck2) //clothes check
-			var/obj/item/clothing/robe = h_user.wear_suit
-			var/obj/item/clothing/hat = h_user.head
-			var/obj/item/clothing/shoes = h_user.shoes
-			if(!robe || !hat || !shoes)
-				if(show_message)
-					to_chat(h_user, span_notice("Your outfit isn't complete, you should put on your robe and wizard hat, as well as sandals"))
-				return FALSE
-
-			if(!robe.magical || !hat.magical || !shoes.magical)
-				if(show_message)
-					to_chat(h_user, span_notice("Your outfit isn't magical enough, you should put on your robe and wizard hat, as well as your sandals."))
-				return FALSE
+		if(!robe.magical || !hat.magical || !shoes.magical)
+			if(show_message)
+				to_chat(h_user, span_notice("Your outfit isn't magical enough, you should put on your robe and wizard hat, as well as your sandals."))
+			return FALSE
 
 	else
 		if(clothes_req || human_req)
