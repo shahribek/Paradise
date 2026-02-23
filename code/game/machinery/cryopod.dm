@@ -226,7 +226,7 @@
 		/obj/item/mmi,
 		/obj/item/paicard,
 		/obj/item/gun,
-		/obj/item/pinpointer,
+
 		/obj/item/clothing/shoes/magboots,
 		/obj/item/areaeditor/blueprints,
 		/obj/item/clothing/head/helmet/space,

@@ -95137,7 +95137,7 @@
 /area/security/brig)
 "qFx" = (
 /obj/structure/table/wood,
-/obj/item/pinpointer,
+
 /obj/item/disk/nuclear,
 /obj/machinery/status_display{
 	pixel_y = 32

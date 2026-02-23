@@ -195,8 +195,7 @@
 	icon_state = "ninja_walls_corners";
 	underlay_floor_icon = 'icons/turf/shuttle/floors.dmi';
 	underlay_floor_icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "acN" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/indestructible/iron,
@@ -2103,8 +2102,7 @@
 /obj/structure/window/plasmareinforced{
 	color = "#00f700"
 	},
-/turf/simulated/floor/shuttle/plating,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/plating)
 "aTZ" = (
 /turf/simulated/floor/plasteel{
 	icon_state = "darkbluecorners"
@@ -2174,9 +2172,6 @@
 	},
 /area/vox_station)
 "aVH" = (
-/obj/structure/table/abductor{
-	name = "table"
-	},
 /obj/effect/spawner/lootdrop{
 	loot = list(/obj/item/reagent_containers/food/snacks/baguette=10,/obj/item/reagent_containers/food/snacks/applepie=10,/obj/item/reagent_containers/food/snacks/applepie=10,/obj/item/reagent_containers/food/snacks/soup/bloodsoup=10,/obj/item/reagent_containers/food/snacks/boiledrice=10,/obj/item/reagent_containers/food/snacks/carrotfries=10,/obj/item/reagent_containers/food/drinks/cans/cola=10,""=70);
 	name = "Food CC Spawner #1"
@@ -2912,8 +2907,7 @@
 	dir = 8;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_T_alt"
-	},
-/area/shuttle/ninja)
+	})
 "bqb" = (
 /obj/structure/sign/poster/official/safety_internals{
 	pixel_x = 32
@@ -3057,14 +3051,12 @@
 /turf/simulated/floor/carpet/black,
 /area/centcom/zone2)
 "bvu" = (
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/vox{
 	icon_state = "darkfull";
 	name = "floor"
 	},
 /area/vox_station)
 "bvz" = (
-/obj/structure/table/reinforced/brass,
 /obj/item/clothing/head/collectable/petehat{
 	desc = "It smells faintly of reptile.";
 	name = "fancy leader hat"
@@ -3152,8 +3144,7 @@
 /obj/structure/chair/comfy/shuttle/dark,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "byz" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
@@ -3245,7 +3236,6 @@
 	},
 /area/ninja/holding)
 "bzh" = (
-/obj/structure/table/reinforced/brass,
 /obj/item/toy/plushie/voxplushie{
 	desc = "Он хоть и прималис, но еще обязательно вырастет";
 	name = "Кикитаячи"
@@ -3395,7 +3385,6 @@
 /obj/structure/chair{
 	dir = 8
 	},
-/obj/effect/landmark/spawner/raider_spawn,
 /turf/simulated/floor/indestructible/vox{
 	icon_state = "darkfull";
 	name = "floor"
@@ -3549,10 +3538,6 @@
 	},
 /area/centcom/zone1)
 "bGP" = (
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
-	},
 /obj/item/toy/figure/ninja{
 	pixel_x = 8;
 	pixel_y = 14
@@ -3586,9 +3571,6 @@
 /area/ninja/holding)
 "bHo" = (
 /obj/effect/turf_decal/box,
-/obj/structure/ninjatele{
-	pixel_y = 25
-	},
 /turf/simulated/floor/indestructible{
 	icon_state = "floorgrime"
 	},
@@ -3610,7 +3592,6 @@
 /turf/simulated/floor/mineral/plastitanium,
 /area/syndicate_mothership)
 "bHR" = (
-/obj/machinery/ninja_mindscan_machine,
 /turf/simulated/floor/indestructible{
 	icon_state = "floorgrime"
 	},
@@ -3646,9 +3627,6 @@
 	},
 /area/syndicate_mothership/control)
 "bJL" = (
-/obj/structure/ninjatele{
-	pixel_y = 25
-	},
 /obj/effect/turf_decal/box,
 /turf/simulated/floor/indestructible{
 	icon_state = "floorgrime"
@@ -3678,18 +3656,13 @@
 /turf/simulated/floor/carpet/black,
 /area/syndicate_mothership/jail)
 "bLb" = (
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /obj/item/tank/internals/emergency_oxygen/double/ninja,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "bLi" = (
 /obj/effect/turf_decal{
 	dir = 1;
@@ -3772,7 +3745,6 @@
 /area/centcom/specops)
 "bNW" = (
 /obj/item/flashlight/lamp,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/vox{
 	icon_state = "darkfull";
 	name = "floor"
@@ -3787,9 +3759,6 @@
 	},
 /area/syndicate_mothership/cargo)
 "bPp" = (
-/obj/machinery/syndiepad/admin/loadpad{
-	target_id = "syndie_cargo_port2"
-	},
 /obj/structure/curtain/black{
 	pixel_y = 32
 	},
@@ -3820,8 +3789,7 @@
 	dir = 6;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_corners"
-	},
-/area/shuttle/ninja)
+	})
 "bQZ" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/drinks/coffee{
@@ -3906,7 +3874,6 @@
 /turf/simulated/floor/shuttle/objective_check/vox,
 /area/shuttle/vox)
 "bSu" = (
-/obj/structure/table/reinforced/brass,
 /obj/item/clothing/glasses/welding,
 /obj/item/multitool,
 /obj/item/t_scanner,
@@ -3948,7 +3915,6 @@
 	},
 /area/syndicate_mothership/jail)
 "bTx" = (
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/electrical{
 	pixel_x = 3;
 	pixel_y = 4
@@ -4213,8 +4179,7 @@
 	icon_state = "ninja_walls_corners";
 	underlay_floor_icon = 'icons/turf/shuttle/floors.dmi';
 	underlay_floor_icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "bYH" = (
 /obj/machinery/cryopod{
 	dir = 8
@@ -4998,10 +4963,6 @@
 /turf/simulated/floor/carpet/royalblack,
 /area/shuttle/administration)
 "cqi" = (
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
-	},
 /obj/item/storage/box/manacles{
 	pixel_x = 1;
 	pixel_y = 5
@@ -5807,8 +5768,7 @@
 /obj/machinery/computer/shuttle/ninja,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "cIh" = (
 /obj/structure/table/glass,
 /obj/item/circular_saw,
@@ -6189,14 +6149,9 @@
 	},
 /area/ninja/holding)
 "cRm" = (
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
-	},
 /obj/structure/sign/poster/contraband/cc64k_ad{
 	pixel_y = 32
 	},
-/obj/machinery/ninja_bloodscan_machine,
 /turf/simulated/floor/indestructible{
 	icon_state = "floorgrime"
 	},
@@ -8011,9 +7966,6 @@
 	},
 /area/syndicate_mothership/cargo)
 "dIE" = (
-/obj/machinery/computer/syndicate_depot/teleporter{
-	lifespan = 0
-	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "dark"
@@ -8422,8 +8374,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "dVa" = (
 /obj/effect/decal/warning_stripes/yellow,
 /obj/machinery/door/airlock/centcom{
@@ -8451,7 +8402,6 @@
 	},
 /area/shuttle/administration)
 "dVl" = (
-/obj/machinery/computer/syndie_supplycomp,
 /turf/simulated/floor/carpet,
 /area/syndicate_mothership/control)
 "dVZ" = (
@@ -9467,8 +9417,7 @@
 /turf/simulated/floor/plasteel,
 /area/ninja/outpost)
 "eul" = (
-/turf/simulated/floor/shuttle/transparent_floor,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/transparent_floor)
 "euy" = (
 /obj/structure/chair/sofa/corp/right,
 /turf/simulated/floor/plasteel{
@@ -10146,7 +10095,6 @@
 "eMS" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/delivery/red,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plasteel{
 	icon_state = "darkfull"
 	},
@@ -11689,10 +11637,6 @@
 /obj/effect/turf_decal/siding{
 	color = "#444444"
 	},
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
-	},
 /turf/simulated/floor/plasteel,
 /area/ninja/outpost)
 "fxZ" = (
@@ -11703,10 +11647,6 @@
 	alpha = 128;
 	color = "#363636";
 	icon_state = "diagonal_edge"
-	},
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
 	},
 /obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/plasteel,
@@ -11762,8 +11702,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "fAD" = (
 /obj/effect/turf_decal/stripes/line{
 	icon = 'icons/turf/floors.dmi';
@@ -13124,8 +13063,7 @@
 	dir = 4;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_corners"
-	},
-/area/shuttle/ninja)
+	})
 "gfR" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -14225,8 +14163,7 @@
 	dir = 4;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_direction"
-	},
-/area/shuttle/ninja)
+	})
 "gLX" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -15167,10 +15104,6 @@
 	color = "#444444";
 	dir = 1
 	},
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
-	},
 /obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/plasteel,
 /area/ninja/outpost)
@@ -15451,8 +15384,7 @@
 	dir = 10;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_T_alt"
-	},
-/area/shuttle/ninja)
+	})
 "hua" = (
 /obj/machinery/light,
 /obj/effect/turf_decal/tile{
@@ -16121,8 +16053,7 @@
 /turf/simulated/wall/shuttle/nosmooth{
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_direction"
-	},
-/area/shuttle/ninja)
+	})
 "hNh" = (
 /obj/machinery/vending/shoedispenser,
 /turf/simulated/floor/wood,
@@ -18437,8 +18368,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "iVX" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/floor/plating/airless,
@@ -19506,7 +19436,7 @@
 /turf/simulated/floor/indestructible/grass,
 /area/syndicate_mothership/outside)
 "jsZ" = (
-/obj/structure/table/abductor,
+
 /obj/item/retractor/alien,
 /obj/item/hemostat/alien,
 /turf/simulated/floor/indestructible/abductor,
@@ -19723,7 +19653,7 @@
 	},
 /area/shuttle/trade/sol)
 "jxF" = (
-/obj/structure/table/abductor,
+
 /obj/item/storage/box/alienhandcuffs,
 /obj/item/storage/firstaid_abductor{
 	pixel_x = 5;
@@ -20580,10 +20510,6 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/mining)
 "jOk" = (
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
-	},
 /obj/item/stack/nanopaste{
 	pixel_x = -7
 	},
@@ -20872,7 +20798,7 @@
 /turf/simulated/floor/wood/fancy/light,
 /area/centcom/evac)
 "jXB" = (
-/obj/structure/table/abductor,
+
 /obj/item/paper/abductor,
 /obj/item/scalpel/alien,
 /obj/item/cautery/alien,
@@ -21190,8 +21116,7 @@
 /obj/structure/fans/tiny/invisible,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "kgq" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
@@ -21815,7 +21740,7 @@
 	},
 /area/centcom/specops)
 "ktf" = (
-/obj/structure/table/abductor,
+
 /obj/item/bonegel/alien,
 /obj/item/bonesetter/alien,
 /obj/item/FixOVein/alien,
@@ -22140,7 +22065,7 @@
 	},
 /area/centcom/specops)
 "kAj" = (
-/obj/structure/table/abductor,
+
 /obj/item/surgicaldrill/alien,
 /obj/item/circular_saw/alien,
 /obj/item/FixOVein/alien,
@@ -22569,8 +22494,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "kMT" = (
 /obj/structure/grille,
 /obj/structure/window/full/shuttle,
@@ -23918,8 +23842,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "lrP" = (
 /obj/structure/chair/stool/bar{
 	icon = 'icons/obj/lighting.dmi';
@@ -24275,8 +24198,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "lxT" = (
 /obj/structure/table/wood,
 /obj/item/kitchen/knife,
@@ -25045,9 +24967,6 @@
 	},
 /area/shuttle/specops)
 "lQY" = (
-/obj/structure/table/abductor{
-	name = "table"
-	},
 /obj/effect/spawner/lootdrop{
 	loot = list(/obj/item/reagent_containers/food/snacks/lasagna=10,/obj/item/reagent_containers/food/snacks/sliceable/pizza/hawaiianpizza=10,/obj/item/reagent_containers/food/snacks/sushi_TobikoEgg=10,/obj/item/reagent_containers/food/snacks/bigbiteburger=10,/obj/item/reagent_containers/food/snacks/sushi_SmokedSalmon=10,""=70);
 	name = "Food CC Spawner #2"
@@ -25928,8 +25847,7 @@
 	dir = 6;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_T_alt"
-	},
-/area/shuttle/ninja)
+	})
 "mls" = (
 /obj/structure/table/wood/fancy/black,
 /turf/simulated/floor/plating{
@@ -26646,8 +26564,7 @@
 	icon_state = "heater2x2_side";
 	tag = "icon-heater (NORTH)"
 	},
-/turf/simulated/floor/shuttle/plating,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/plating)
 "mBj" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
@@ -26718,8 +26635,7 @@
 /obj/structure/shuttle/engine/platform{
 	layer = 2.9
 	},
-/turf/simulated/floor/shuttle/transparent_floor,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/transparent_floor)
 "mCQ" = (
 /obj/structure/urinal{
 	pixel_y = 32
@@ -28267,10 +28183,6 @@
 	color = "#444444";
 	dir = 1
 	},
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
-	},
 /turf/simulated/floor/plasteel,
 /area/ninja/outpost)
 "njy" = (
@@ -29089,8 +29001,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "nzM" = (
 /obj/item/twohanded/required/kirbyplants,
 /obj/item/radio/intercom/syndicate/directional/east,
@@ -30505,8 +30416,7 @@
 	icon_state = "ninja_walls_corners";
 	underlay_floor_icon = 'icons/turf/shuttle/floors.dmi';
 	underlay_floor_icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "odZ" = (
 /turf/simulated/floor/wood/fancy/light,
 /area/centcom/evac)
@@ -31425,8 +31335,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "oyw" = (
 /obj/effect/turf_decal{
 	dir = 9;
@@ -33136,8 +33045,7 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/ninja,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "psn" = (
 /obj/effect/decal/warning_stripes/yellow/hollow,
 /obj/machinery/portable_atmospherics/canister/oxygen{
@@ -33324,8 +33232,7 @@
 /obj/structure/chair/comfy/shuttle/dark,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "pvx" = (
 /obj/effect/decal/warning_stripes/white,
 /turf/simulated/floor/plasteel{
@@ -33481,8 +33388,7 @@
 	icon_state = "heater3x3";
 	tag = "icon-heater (NORTH)"
 	},
-/turf/simulated/floor/shuttle/plating,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/plating)
 "pyu" = (
 /turf/simulated/floor/plasteel,
 /area/centcom/evac)
@@ -34351,8 +34257,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "pUO" = (
 /obj/machinery/door/airlock/syndicate/public{
 	name = "Bar";
@@ -34546,8 +34451,7 @@
 "pYK" = (
 /obj/structure/grille,
 /obj/structure/window/full/shuttle/ninja,
-/turf/simulated/floor/shuttle/plating,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/plating)
 "pYT" = (
 /turf/simulated/floor/plasteel{
 	dir = 6;
@@ -37149,8 +37053,7 @@
 /turf/simulated/wall/shuttle/nosmooth{
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_corners"
-	},
-/area/shuttle/ninja)
+	})
 "rgL" = (
 /turf/simulated/floor/plasteel{
 	dir = 8;
@@ -37699,8 +37602,7 @@
 	dir = 5;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_corners"
-	},
-/area/shuttle/ninja)
+	})
 "ruh" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 1;
@@ -37979,8 +37881,7 @@
 	dir = 8;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_direction"
-	},
-/area/shuttle/ninja)
+	})
 "rAG" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/plasteel{
@@ -38067,8 +37968,7 @@
 	icon_state = "heater2x2";
 	tag = "icon-heater (NORTH)"
 	},
-/turf/simulated/floor/shuttle/plating,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/plating)
 "rDb" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -40388,8 +40288,7 @@
 	icon_state = "heater3x3_side_inv";
 	tag = "icon-heater (NORTH)"
 	},
-/turf/simulated/floor/shuttle/plating,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/plating)
 "sIz" = (
 /obj/machinery/light{
 	dir = 8
@@ -41319,8 +41218,7 @@
 	dir = 1;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_T_alt"
-	},
-/area/shuttle/ninja)
+	})
 "tcs" = (
 /turf/simulated/floor/wood{
 	icon_state = "fancy-wood-oak-broken7"
@@ -41801,8 +41699,7 @@
 	dir = 1;
 	opacity = 0
 	},
-/turf/simulated/floor/shuttle/transparent_floor,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/transparent_floor)
 "tmi" = (
 /obj/machinery/vending/cigarette,
 /obj/machinery/light{
@@ -42848,8 +42745,7 @@
 	dir = 1;
 	opacity = 0
 	},
-/turf/simulated/floor/shuttle/transparent_floor,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/transparent_floor)
 "tIk" = (
 /obj/machinery/door/poddoor/shutters/invincible{
 	dir = 2;
@@ -43711,8 +43607,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "ubI" = (
 /obj/structure/chair/sofa{
 	dir = 5
@@ -45014,10 +44909,6 @@
 	},
 /area/shuttle/escape)
 "uFn" = (
-/obj/structure/table/abductor{
-	color = "#99ff99";
-	name = "table"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
@@ -45032,8 +44923,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "uFt" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -45055,8 +44945,7 @@
 /obj/structure/fans/tiny/invisible,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "uFG" = (
 /obj/item/flag/species/machine,
 /turf/simulated/floor/plasteel{
@@ -45123,8 +45012,7 @@
 	dir = 8;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_direction"
-	},
-/area/shuttle/ninja)
+	})
 "uHO" = (
 /obj/effect/turf_decal/siding/wideplating{
 	color = "#55391A";
@@ -45261,8 +45149,7 @@
 	icon_state = "heater3x3_side";
 	tag = "icon-heater (NORTH)"
 	},
-/turf/simulated/floor/shuttle/plating,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/plating)
 "uLg" = (
 /obj/effect/turf_decal/stripes/line{
 	icon = 'icons/turf/floors.dmi';
@@ -45440,8 +45327,7 @@
 	dir = 4;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_direction"
-	},
-/area/shuttle/ninja)
+	})
 "uNq" = (
 /obj/effect/turf_decal/siding{
 	color = "#444444";
@@ -47503,8 +47389,7 @@
 	dir = 4;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_T_alt"
-	},
-/area/shuttle/ninja)
+	})
 "vOe" = (
 /obj/effect/turf_decal{
 	dir = 8;
@@ -48285,8 +48170,7 @@
 	dir = 9;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_corners"
-	},
-/area/shuttle/ninja)
+	})
 "whO" = (
 /obj/effect/turf_decal/number/number_6{
 	dir = 4
@@ -48510,8 +48394,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "woR" = (
 /obj/effect/turf_decal{
 	dir = 4;
@@ -49442,8 +49325,7 @@
 	dir = 1;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_direction"
-	},
-/area/shuttle/ninja)
+	})
 "wQS" = (
 /obj/structure/flora/tree/jungle,
 /obj/structure/flora/ausbushes/sunnybush,
@@ -49479,8 +49361,7 @@
 /obj/structure/chair/comfy/shuttle/dark,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "wSW" = (
 /obj/effect/turf_decal{
 	dir = 9;
@@ -49930,8 +49811,7 @@
 	},
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "xaN" = (
 /obj/effect/turf_decal{
 	icon = 'icons/obj/syndie_logo.dmi';
@@ -50135,8 +50015,7 @@
 	icon_state = "ninja_walls_corners";
 	underlay_floor_icon = 'icons/turf/shuttle/floors.dmi';
 	underlay_floor_icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "xfD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -50300,8 +50179,7 @@
 "xhP" = (
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
-	},
-/area/shuttle/ninja)
+	})
 "xhT" = (
 /obj/machinery/computer/med_data,
 /obj/structure/railing{
@@ -51267,8 +51145,7 @@
 	dir = 10;
 	icon = 'icons/turf/walls/shuttle/ninja_shuttle_wall.dmi';
 	icon_state = "ninja_walls_corners"
-	},
-/area/shuttle/ninja)
+	})
 "xDL" = (
 /obj/machinery/door/airlock/syndicate/public{
 	name = "Toilet"
@@ -51472,8 +51349,7 @@
 /obj/structure/window/plasmareinforced{
 	color = "#00f700"
 	},
-/turf/simulated/floor/shuttle/plating,
-/area/shuttle/ninja)
+/turf/simulated/floor/shuttle/plating)
 "xIm" = (
 /turf/simulated/floor/plasteel{
 	dir = 8;

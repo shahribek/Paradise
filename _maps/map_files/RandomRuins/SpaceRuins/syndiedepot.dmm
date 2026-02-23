@@ -277,7 +277,6 @@
 	},
 /area/syndicate_depot/core)
 "aS" = (
-/obj/machinery/computer/syndicate_depot/teleporter,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},

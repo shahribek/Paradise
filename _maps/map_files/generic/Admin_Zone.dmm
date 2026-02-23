@@ -478,7 +478,6 @@
 /area/tdome/arena_source)
 "eP" = (
 /obj/structure/table/wood,
-/obj/item/gun/magic/tentacle,
 /turf/simulated/floor/wood,
 /area/admin)
 "eR" = (
@@ -580,13 +579,6 @@
 /area/admin)
 "fI" = (
 /obj/structure/table/wood,
-/obj/item/melee/baton/abductor,
-/obj/item/abductor/silencer,
-/obj/item/abductor/mind_device,
-/obj/item/abductor/gizmo,
-/obj/structure/ninjatele{
-	pixel_x = -28
-	},
 /turf/simulated/floor/wood,
 /area/admin)
 "fL" = (
@@ -894,9 +886,6 @@
 /turf/simulated/floor/wood,
 /area/admin)
 "je" = (
-/obj/machinery/computer/syndicate_depot/teleporter{
-	use_power = 0
-	},
 /turf/simulated/floor/wood,
 /area/admin)
 "ji" = (
@@ -1113,7 +1102,6 @@
 /obj/structure/table,
 /obj/random/tool,
 /obj/item/clothing/gloves/color/yellow,
-/obj/item/pinpointer/advpinpointer,
 /turf/simulated/floor/wood,
 /area/admin)
 "lc" = (
@@ -1825,11 +1813,6 @@
 /turf/simulated/floor/wood,
 /area/admin)
 "vi" = (
-/obj/machinery/computer/syndicate_depot/teleporter{
-	lifespan = 0;
-	name = "Redspace Teleporter Console";
-	use_power = 0
-	},
 /turf/simulated/floor/plasteel{
 	icon_state = "grimy"
 	},
@@ -2008,9 +1991,6 @@
 /area/holodeck/source_knightarena)
 "wZ" = (
 /obj/structure/table/wood,
-/obj/item/multisword,
-/obj/item/multisword/pike,
-/obj/item/multisword/pure_evil,
 /turf/simulated/floor/plasteel{
 	icon_state = "hierophant1"
 	},

@@ -43,7 +43,7 @@
 /turf/simulated/floor/mineral/abductor/lavaland_air,
 /area/ruin/unpowered/misc_lavaruin)
 "m" = (
-/obj/structure/table/abductor,
+
 /obj/item/storage/box/alienhandcuffs,
 /turf/simulated/floor/mineral/abductor/lavaland_air,
 /area/ruin/unpowered/misc_lavaruin)
@@ -61,7 +61,7 @@
 /turf/simulated/floor/mineral/abductor/lavaland_air,
 /area/ruin/unpowered/misc_lavaruin)
 "q" = (
-/obj/structure/table/abductor,
+
 /obj/item/surgicaldrill/alien,
 /obj/item/circular_saw/alien,
 /turf/simulated/floor/mineral/abductor/lavaland_air,

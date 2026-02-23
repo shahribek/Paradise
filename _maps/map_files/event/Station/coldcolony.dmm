@@ -4430,7 +4430,7 @@
 	},
 /area/coldcolony/ruin/sm_division)
 "bEv" = (
-/obj/structure/table/abductor,
+
 /obj/item/storage/box/alienhandcuffs,
 /turf/simulated/floor/mineral/abductor{
 	nitrogen = 82;
@@ -44481,7 +44481,7 @@
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
-/obj/item/pinpointer,
+
 /obj/item/disk/nuclear,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -55039,7 +55039,7 @@
 	},
 /area/coldcolony/malta/outer/roadblock)
 "ueG" = (
-/obj/structure/table/abductor,
+
 /obj/item/hemostat/alien,
 /turf/simulated/floor/mineral/abductor{
 	nitrogen = 82;
@@ -65579,7 +65579,7 @@
 /turf/simulated/floor/plating,
 /area/coldcolony/malta/maintenance/bar)
 "xVN" = (
-/obj/structure/table/abductor,
+
 /obj/item/retractor/alien,
 /turf/simulated/floor/mineral/abductor{
 	nitrogen = 82;

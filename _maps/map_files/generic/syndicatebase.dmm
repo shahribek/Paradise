@@ -87,7 +87,7 @@
 	},
 /area/ruin/unpowered)
 "ajL" = (
-/obj/structure/table/abductor,
+
 /obj/item/deck/cards/syndicate/black,
 /obj/item/flashlight/lamp/green{
 	pixel_x = -6;
@@ -5685,7 +5685,6 @@
 	},
 /area/syndicate/unpowered/syndicate_space_base/armory/hall_middle)
 "fij" = (
-/obj/machinery/computer/syndicate_depot/teleporter/taipan,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "dark"
