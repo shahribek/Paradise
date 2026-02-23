@@ -256,23 +256,6 @@
 /**
  * Deadchat Moves Things
  *
- * A special variant of the deadchat_control component that comes pre-baked with all the hottest inputs for spicy
- * immovable rod.
- */
-/datum/component/deadchat_control/immovable_rod/Initialize(_deadchat_mode, _inputs, _input_cooldown, _on_removal)
-	if(!istype(parent, /obj/effect/immovablerod))
-		return COMPONENT_INCOMPATIBLE
-
-	_inputs["вверх"] = CALLBACK(parent, TYPE_PROC_REF(/obj/effect/immovablerod, walk_in_direction), NORTH)
-	_inputs["вниз"] = CALLBACK(parent, TYPE_PROC_REF(/obj/effect/immovablerod, walk_in_direction), SOUTH)
-	_inputs["влево"] = CALLBACK(parent, TYPE_PROC_REF(/obj/effect/immovablerod, walk_in_direction), WEST)
-	_inputs["вправо"] = CALLBACK(parent, TYPE_PROC_REF(/obj/effect/immovablerod, walk_in_direction), EAST)
-
-	return ..()
-
-/**
- * Deadchat Moves Things
- *
  * A special variant of the deadchat_control component that comes pre-baked with basic inputs for moving humans around,
  * with special behavior that has them resist while moving.
  */

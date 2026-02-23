@@ -89,7 +89,6 @@
 		/obj/vehicle/ridden/speedbike/red = 10,
 		/obj/item/grenade/clusterbuster/honk = 10,
 		/obj/item/toy/katana = 10,
-		/obj/item/stack/sheet/mineral/abductor/fifty = 20,
 		/obj/item/sord = 20,
 		/obj/item/toy/syndicateballoon = 15,
 		/obj/item/lighter/zippo/gonzofist = 5,

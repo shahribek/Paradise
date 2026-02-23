@@ -351,21 +351,6 @@
 /turf/simulated/wall/attack_hand(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 
-	if(isalien(user))
-		var/mob/living/carbon/alien/A = user
-		A.do_attack_animation(src)
-
-		if(A.environment_smash & ENVIRONMENT_SMASH_RWALLS)
-			dismantle_wall(1)
-			to_chat(A, span_notice("Вы проламываете стену."))
-			return
-		if(A.environment_smash & ENVIRONMENT_SMASH_WALLS)
-			to_chat(A, span_notice("Вы ударяетесь о стену."))
-			take_damage(A.obj_damage)
-			return
-
-		to_chat(A, span_notice("Вы толкаете стену, но ничего не происходит"))
-		return
 	if(rotting)
 		if(hardness <= 10)
 			to_chat(user, span_notice("Эта стена кажется довольно ненадёжной."))

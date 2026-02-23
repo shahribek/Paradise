@@ -332,15 +332,6 @@
 	locked = TRUE
 	category = list(PROTOLATHE_CATEGORY_ILLEGAL)
 
-/datum/design/chameleon_kit
-	id = "chameleon_kit"
-	req_tech = list(RESEARCH_TREE_COMBAT = 4, RESEARCH_TREE_ENGINEERING = 6, RESEARCH_TREE_ILLEGAL = 3, RESEARCH_TREE_MAGNETS = 5)
-	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 4500, MAT_GLASS = 3000, MAT_SILVER = 2000, MAT_DIAMOND = 1000)
-	build_path = /obj/item/storage/box/syndie_kit/chameleon
-	locked = TRUE
-	category = list(PROTOLATHE_CATEGORY_ILLEGAL)
-
 /datum/design/chameleon_hud
 	id = "chameleon_hud"
 	req_tech = list(RESEARCH_TREE_COMBAT = 4, RESEARCH_TREE_ENGINEERING = 6, RESEARCH_TREE_ILLEGAL = 3, RESEARCH_TREE_MAGNETS = 5)
@@ -402,15 +393,6 @@
 	build_type = PROTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 3000, MAT_SILVER = 1500)
 	build_path = /obj/item/multitool/ai_detect
-	locked = TRUE
-	category = list(PROTOLATHE_CATEGORY_ILLEGAL)
-
-/datum/design/adv_pointer
-	id = "adv_pointer"
-	req_tech = list(RESEARCH_TREE_MATERIALS = 7, RESEARCH_TREE_PROGRAMMING = 7, RESEARCH_TREE_ILLEGAL = 4)
-	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 20000, MAT_TITANIUM = 4000, MAT_DIAMOND = 5000)
-	build_path = /obj/item/pinpointer/advpinpointer
 	locked = TRUE
 	category = list(PROTOLATHE_CATEGORY_ILLEGAL)
 

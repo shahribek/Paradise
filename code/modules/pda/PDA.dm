@@ -103,12 +103,6 @@ GLOBAL_LIST_EMPTY(name_to_PDAs)
 	var/list/current_painting
 
 /obj/item/pda/emag_act(mob/user)
-	if(!user.mind.special_role && !is_admin(user) || !hidden_uplink)
-		explode()
-	else
-		hidden_uplink.trigger(user)
-		to_chat(usr, "The PDA softly beeps.")
-		close(usr)
 
 /*
  *	The Actual PDA
@@ -179,8 +173,6 @@ GLOBAL_LIST_EMPTY(name_to_PDAs)
 
 /obj/item/pda/attack_self(mob/user as mob)
 	user.set_machine(src)
-	if(active_uplink_check(user))
-		return
 	ui_interact(user)
 
 /obj/item/pda/proc/start_program(datum/data/pda/P)
@@ -552,11 +544,7 @@ GLOBAL_LIST_EMPTY(name_to_PDAs)
 	var/new_tone = tgui_input_text(user, "Please enter new ringtone", name, ttone, max_length = 20, encode = FALSE)
 	if(in_range(src, usr) && loc == usr)
 		if(new_tone)
-			if(hidden_uplink && hidden_uplink.check_trigger(usr, trim(lowertext(new_tone)), lowertext(lock_code)))
-				to_chat(usr, "The PDA softly beeps.")
-				close(usr)
-			else
-				ttone = new_tone
+			ttone = new_tone
 			return 1
 	else
 		close(usr)

@@ -272,10 +272,6 @@
 	if(!stat && ishuman(arrived))
 		to_chat(arrived, span_notice("[icon2html(src, arrived)] Squeek!"))
 
-/mob/living/simple_animal/mouse/ratvar_act()
-	new/mob/living/simple_animal/mouse/clockwork(loc)
-	gib()
-
 /mob/living/simple_animal/mouse/proc/toast()
 	add_atom_colour("#3A3A3A", FIXED_COLOUR_PRIORITY)
 	desc = "It's toast."

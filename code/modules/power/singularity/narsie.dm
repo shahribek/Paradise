@@ -34,14 +34,8 @@
 
 /obj/singularity/god/narsie/large/Initialize(mapload, starting_energy)
 	. = ..()
-	icon_state = SSticker.cultdat?.entity_icon_state
-	name = SSticker.cultdat?.entity_name
 	to_chat(world,  span_fontsize3(span_red("<b> [uppertext(name)] HAS RISEN</b>")))
 	SEND_SOUND(world, sound('sound/effects/narsie_risen.ogg'))
-
-	var/datum/game_mode/gamemode = SSticker.mode
-	if(gamemode)
-		gamemode.cult_objs.succesful_summon()
 
 	var/area/A = get_area(src)
 	if(A)
@@ -62,9 +56,6 @@
 				to_chat(cult_mind.current, span_cultlarge("RETRIBUTION!"))
 				to_chat(cult_mind.current, span_cult("Current goal: Slaughter the heretics!"))
 	return ..()
-
-/obj/singularity/god/narsie/large/attack_ghost(mob/dead/observer/user)
-	make_new_construct(/mob/living/simple_animal/hostile/construct/harvester, user, cult_override = TRUE)
 
 /obj/singularity/god/narsie/process()
 	eat()
@@ -92,14 +83,12 @@
 
 	else if(isturf(A))
 		var/turf/T = A
-		T.ChangeTurf(/turf/simulated/floor/engine/cult)
 
 /obj/singularity/god/narsie/mezzer()
 	for(var/mob/living/carbon/M in oviewers(8, src))
 		if(M.stat == CONSCIOUS)
-			if(!iscultist(M))
-				to_chat(M, span_warning("You feel your sanity crumble away in an instant as you gaze upon [src.name]..."))
-				M.Stun(6 SECONDS)
+			to_chat(M, span_warning("You feel your sanity crumble away in an instant as you gaze upon [src.name]..."))
+			M.Stun(6 SECONDS)
 
 /obj/singularity/god/narsie/consume(atom/A)
 	A.narsie_act(src)
@@ -118,10 +107,7 @@
 		if(pos.z != src.z)
 			continue
 
-		if(iscultist(food))
-			cultists += food
-		else
-			noncultists += food
+		noncultists += food
 
 		if(length(cultists)) //cultists get higher priority
 			acquire(pick(cultists))
@@ -148,12 +134,6 @@
 		return
 	if(!target)
 		return
-	to_chat(target, span_cultlarge("[uppertext(SSticker.cultdat.entity_name)] HAS LOST INTEREST IN YOU"))
-	target = food
-	if(ishuman(target))
-		to_chat(target, "<span class ='cultlarge'>[uppertext(SSticker.cultdat.entity_name)] HUNGERS FOR YOUR SOUL</span>")
-	else
-		to_chat(target, "<span class ='cultlarge'>[uppertext(SSticker.cultdat.entity_name)] HAS CHOSEN YOU TO LEAD HER TO HER NEXT MEAL</span>")
 
 //Wizard narsie
 /obj/singularity/god/narsie/wizard
@@ -169,7 +149,6 @@
 	icon = 'icons/obj/narsie_spawn_anim.dmi'
 	dir = SOUTH
 	move_self = FALSE
-	flick(SSticker.cultdat?.entity_spawn_animation, src)
 	sleep(11)
 	move_self = TRUE
 	icon = initial(icon)

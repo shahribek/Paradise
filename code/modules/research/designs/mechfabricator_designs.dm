@@ -1569,53 +1569,6 @@
 	build_path = /obj/item/mecha_modkit/voice/syndicate
 	category = list(MECH_FAB_CATEGORY_MISC)
 
-//Syndie
-
-/datum/design/syndicate_robotic_brain
-	id = "mmi_robotic_syndicate"
-	req_tech = list(RESEARCH_TREE_PROGRAMMING = 4, RESEARCH_TREE_BIOTECH = 3, RESEARCH_TREE_PLASMA = 2,RESEARCH_TREE_ILLEGAL = 6)
-	build_type = MECHFAB
-	materials = list(MAT_METAL = 1700, MAT_GLASS = 2700, MAT_GOLD = 1000, MAT_TITANIUM = 1000)
-	construction_time = 7.5 SECONDS
-	build_path = /obj/item/mmi/robotic_brain/syndicate
-	category = list(MECH_FAB_CATEGORY_SYNDICATE)
-
-/datum/design/syndicate_quantumpad
-	id = "syndicate_quantumpad"
-	req_tech = list(RESEARCH_TREE_PROGRAMMING = 3, RESEARCH_TREE_ENGINEERING = 3, RESEARCH_TREE_PLASMA = 3,RESEARCH_TREE_ILLEGAL = 6)
-	build_type = MECHFAB
-	materials = list(MAT_GLASS = 1000, MAT_BLUESPACE = 2000)
-	construction_time = 5 SECONDS
-	build_path = /obj/item/circuitboard/quantumpad/syndiepad
-	category = list(MECH_FAB_CATEGORY_SYNDICATE)
-
-/datum/design/syndicate_cargo_console
-	id = "syndicate_supply_pad"
-	req_tech = list(RESEARCH_TREE_PROGRAMMING = 3, RESEARCH_TREE_ILLEGAL = 3)
-	build_type = MECHFAB
-	materials = list(MAT_GLASS = 1000)
-	construction_time = 5 SECONDS
-	build_path = /obj/item/circuitboard/syndicatesupplycomp
-	category = list(MECH_FAB_CATEGORY_SYNDICATE)
-
-/datum/design/syndicate_public_cargo_console
-	id = "syndicate_public_supply_pad"
-	req_tech = list(RESEARCH_TREE_PROGRAMMING = 3, RESEARCH_TREE_ILLEGAL = 3)
-	build_type = MECHFAB
-	materials = list(MAT_GLASS = 1000)
-	construction_time = 5 SECONDS
-	build_path = /obj/item/circuitboard/syndicatesupplycomp/public
-	category = list(MECH_FAB_CATEGORY_SYNDICATE)
-
-/datum/design/syndicate_borg_RCD_upgrade
-	id = "syndicate_cyborg_RCD_upgrade"
-	req_tech = list(RESEARCH_TREE_ENGINEERING = 6, RESEARCH_TREE_MATERIALS = 6, RESEARCH_TREE_ILLEGAL = 5)
-	build_type = MECHFAB
-	materials = list(MAT_METAL = 2000, MAT_GLASS = 2000, MAT_GOLD = 1000, MAT_TITANIUM = 5000, MAT_PLASMA = 5000)
-	construction_time = 5 SECONDS
-	build_path = /obj/item/borg/upgrade/syndie_rcd
-	category = list(MECH_FAB_CATEGORY_SYNDICATE)
-
 //Paintkits
 /datum/design/paint_ripley_titan
 	id = "p_titan"

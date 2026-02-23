@@ -227,21 +227,6 @@
 	to_chat(target, span_userdanger("Вы чувствуете резкую боль в руках и ногах! Что-то отрывает их от вашего тела! Боги наказали вас за [reason]!"))
 	addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human, make_nugget)), 6 SECONDS)
 
-// MARK: Rod
-/datum/smite/rod
-	name = SMITE_ROD
-	desc = "Отправьте несдвигаемый стержень убить грешника."
-	logmsg = "a rod"
-	category = SMITE_CATEGORY_DEATH
-
-/datum/smite/rod/apply_effect(mob/living/target, reason)
-	var/starting_turf_x = target.x + rand(10, 15) * pick(1, -1)
-	var/starting_turf_y = target.y + rand(10, 15) * pick(1, -1)
-	var/turf/start = locate(starting_turf_x, starting_turf_y, target.z)
-	var/obj/effect/immovablerod/smite/rod = new (start, target)
-	rod.reason = reason
-	rod.go_for_a_walk(target)
-
 // MARK: Summon
 /datum/smite/summon
 	name = SMITE_SUMMON

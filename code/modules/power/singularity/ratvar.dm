@@ -19,10 +19,6 @@
 	to_chat(world, span_ratvar("ONCE AGAIN MY LIGHT SHINES AMONG THESE PATHETIC STARS"))
 	SEND_SOUND(world, sound('sound/effects/ratvar_reveal.ogg'))
 
-	var/datum/game_mode/gamemode = SSticker.mode
-	if(gamemode)
-		gamemode.clocker_objs.succesful_summon()
-
 	var/area/A = get_area(src)
 	if(A)
 		var/image/alert_overlay = image('icons/effects/clockwork_effects.dmi', "ghostalert")
@@ -37,13 +33,6 @@
 /obj/singularity/god/ratvar/Destroy()
 	to_chat(world, span_ratvar("RATVAR HAS FALLEN"))
 	SEND_SOUND(world, sound('sound/hallucinations/wail.ogg'))
-	var/datum/game_mode/gamemode = SSticker.mode
-	if(gamemode)
-		gamemode.clocker_objs.ratvar_death()
-		for(var/datum/mind/clock_mind in SSticker.mode.clockwork_cult)
-			if(clock_mind?.current)
-				to_chat(clock_mind.current, span_clocklarge("RETRIBUTION!"))
-				to_chat(clock_mind.current, span_clock("Current goal: Slaughter the heretics!"))
 	return ..()
 
 /obj/singularity/god/ratvar/attack_ghost(mob/dead/observer/user)
@@ -73,16 +62,11 @@
 		O.ex_act(EXPLODE_DEVASTATE)
 		if(O) qdel(O)
 
-	else if(isturf(A))
-		var/turf/T = A
-		T.ChangeTurf(/turf/simulated/floor/clockwork)
-
 /obj/singularity/god/ratvar/mezzer()
 	for(var/mob/living/carbon/M in oviewers(8, src))
 		if(M.stat == CONSCIOUS)
-			if(!isclocker(M))
-				to_chat(M, span_warning("You feel your sanity crumble away in an instant as you gaze upon [src.name]..."))
-				M.Stun(6 SECONDS)
+			to_chat(M, span_warning("You feel your sanity crumble away in an instant as you gaze upon [src.name]..."))
+			M.Stun(6 SECONDS)
 
 /obj/singularity/god/ratvar/consume(atom/A)
 	A.ratvar_act(FALSE, src)

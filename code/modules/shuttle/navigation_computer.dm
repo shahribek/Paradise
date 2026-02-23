@@ -265,9 +265,6 @@
 		if(!(ispath(turf_type, /turf/space) || ispath(turf_type, /turf/space/openspace)) && !is_mining_level(T.z))
 			return SHUTTLE_DOCKER_BLOCKED
 
-	if(istype(T.loc.type, /area/syndicate_depot))
-		return SHUTTLE_DOCKER_BLOCKED
-
 	// Checking for overlapping dock boundaries
 	for(var/i in 1 to length(overlappers))
 		var/obj/docking_port/port = overlappers[i]

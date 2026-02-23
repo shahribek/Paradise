@@ -40,7 +40,6 @@
 
 	// paradise balance moment
 	var/static/list/whitelisted_implants = list(
-		/obj/item/implant/traitor,
 		/obj/item/implant/mindshield,
 		/obj/item/implant/mindshield/ert,
 	)

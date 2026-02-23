@@ -285,23 +285,6 @@
 	name = "Докурить"
 
 /**
- * MARK: Alien
- */
-/datum/keybinding/emote/carbon/alien
-	category = KB_CATEGORY_EMOTE_ALIEN
-
-/datum/keybinding/emote/carbon/alien/can_use(client/user)
-	return isalien(user.mob)
-
-/datum/keybinding/emote/carbon/alien/humanoid/hiss
-	linked_emote = /datum/emote/living/carbon/alien/humanoid/hiss
-	name = "Шипеть"
-
-/datum/keybinding/emote/carbon/alien/humanoid/gnarl
-	linked_emote = /datum/emote/living/carbon/alien/humanoid/gnarl
-	name = "Рычать"
-
-/**
  * MARK: MMI-brain
  */
 /datum/keybinding/emote/carbon/brain

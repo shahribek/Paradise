@@ -108,8 +108,6 @@
 
 /obj/item/pen/fancy/bomb/examine(mob/user)
 	. = ..()
-	if(istraitor(user))
-		. += span_specialnotice("They always said the pen is mightier than the sword.")
 
 /obj/item/pen/fancy/bomb/attack_self(mob/user)
 	..()

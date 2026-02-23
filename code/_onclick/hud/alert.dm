@@ -541,30 +541,6 @@
 	var/mob/dead/observer/G = usr
 	G.reenter_corpse()
 
-/atom/movable/screen/alert/ghost
-	name = "Призрак"
-	desc = "Хотите стать призраком? Вы получите уведомление, когда ваше тело извлекут из гнезда."
-	icon_state = "template"
-	timeout = 5 MINUTES // longer than any infection should be
-
-/atom/movable/screen/alert/ghost/Initialize(mapload, datum/hud/hud_owner)
-	. = ..()
-	var/image/I = image('icons/mob/mob.dmi', icon_state = "ghost", layer = FLOAT_LAYER, dir = SOUTH)
-	I.layer = FLOAT_LAYER
-	I.plane = FLOAT_PLANE
-	add_overlay(I)
-
-/atom/movable/screen/alert/ghost/Click()
-	var/mob/living/carbon/human/infected_user = usr
-	if(!istype(infected_user) || infected_user.stat == DEAD)
-		infected_user.clear_alert("ghost_nest")
-		return
-	var/obj/item/clothing/mask/facehugger/hugger_mask = infected_user.wear_mask
-	if(!istype(hugger_mask) || !(locate(/obj/item/organ/internal/body_egg/alien_embryo) in infected_user.internal_organs) || hugger_mask.sterile)
-		infected_user.clear_alert("ghost_nest")
-		return
-	infected_user.ghostize(TRUE)
-
 #define FLOAT_LAYER_TIME -1
 #define FLOAT_LAYER_STACKS -2
 #define FLOAT_LAYER_SELECTOR -3

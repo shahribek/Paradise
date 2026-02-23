@@ -87,7 +87,6 @@
 				/obj/item/healthupgrade = 5,
 				/obj/item/reagent_containers/hypospray/safety = 3,
 				/obj/item/sensor_device = 2,
-				/obj/item/pinpointer/crew = 2,
 			),
 		),
 		list(

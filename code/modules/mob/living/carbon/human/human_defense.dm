@@ -659,65 +659,6 @@ emp_act
 	dna.species.try_self_supress_bleeding(user)
 	return CLICK_ACTION_SUCCESS
 
-
-/mob/living/carbon/human/attack_larva(mob/living/carbon/alien/larva/L)
-	if(..()) //successful larva bite.
-		if(stat != DEAD)
-			L.evolution_points = min(L.evolution_points + L.attack_damage, L.max_evolution_points)
-			var/obj/item/organ/external/affecting = get_organ(ran_zone(L.zone_selected))
-			var/armor_block = run_armor_check(affecting, MELEE)
-			apply_damage(L.attack_damage, BRUTE, affecting, armor_block)
-
-/mob/living/carbon/human/attack_alien(mob/living/carbon/alien/humanoid/M)
-	if(check_shields(M, 0, M.name))
-		visible_message(span_danger("[M] попытал[GEND_SYA_AS_OS_IS(M)] коснуться [src]!"))
-		return 0
-
-	if(..())
-		if(M.a_intent == INTENT_HARM)
-			if(w_uniform)
-				w_uniform.add_fingerprint(M)
-			var/damage = prob(90) ? M.attack_damage : 0
-			if(!damage)
-				playsound(loc, 'sound/weapons/slashmiss.ogg', 50, TRUE, -1)
-				visible_message(span_danger("[M] бросил[GEND_SYA_AS_OS_IS(M)] на [src]!"))
-				return 0
-			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_selected))
-			var/armor_block = run_armor_check(affecting, MELEE, armour_penetration = M.armour_penetration)
-
-			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
-			visible_message(span_danger("[M] ударил[GEND_A_O_I(M)] [src]!"), \
-				span_userdanger("[M] ударил[GEND_A_O_I(M)] [src]!"))
-
-			apply_damage(damage, BRUTE, affecting, armor_block, TRUE)
-			add_attack_logs(M, src, "Alien attacked")
-			var/all_objectives = M?.mind?.get_all_objectives()
-			if(mind && all_objectives)
-				for(var/datum/objective/pain_hunter/objective in all_objectives)
-					if(mind == objective.target)
-						armor_block = (100 - armor_block) / 100
-						if(armor_block <= 0)
-							armor_block= 0
-						objective.take_damage(damage * armor_block, BRUTE)
-
-		if(M.a_intent == INTENT_DISARM) //Always drop item in hand, if no item, get stun instead.
-			var/obj/item/item = get_active_hand()
-			if(item && drop_item_ground(item))
-				playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
-				visible_message(span_danger("[M] обезоружил[GEND_A_O_I(M)] [src]!"), span_danger("[M] обезоружил[GEND_A_O_I(M)] вас!"), span_hear("Вы слышите агрессивное шарканье!"))
-				to_chat(M, span_danger("Вы обезоружили [src]!"))
-			else
-				var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_selected))
-				playsound(loc, 'sound/weapons/pierce.ogg', 25, TRUE, -1)
-				apply_damage(M.disarm_stamina_damage, STAMINA)
-				if(prob(40))
-					apply_effect(2 SECONDS, WEAKEN, run_armor_check(affecting, MELEE))
-					add_attack_logs(M, src, "Alien tackled")
-					visible_message(span_danger("[M] сбил[GEND_A_O_I(M)] с ног [src]!"))
-				else
-					visible_message(span_danger("[M] попытал[GEND_SYA_AS_OS_IS(M)] сбить с ног [src]!"))
-					add_attack_logs(M, src, "Alien tried to tackle")
-
 /mob/living/carbon/human/attack_animal(mob/living/simple_animal/M)
 	. = ..()
 	if(.)

@@ -256,7 +256,6 @@
 		/obj/item/stack/sheet/mineral/tranquillite/fifty = 50,
 		/obj/item/stack/sheet/mineral/bananium/fifty = 50,
 		/obj/item/stack/sheet/mineral/sandstone/fifty = 50,
-		/obj/item/stack/sheet/mineral/abductor/fifty = 50,
 	)
 
 /obj/machinery/vending/ntc_resources/get_ru_names()

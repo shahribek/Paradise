@@ -52,10 +52,6 @@
 	START_PROCESSING(SSobj, src)
 	GLOB.poi_list |= src
 	GLOB.singularities += src
-	for(var/obj/machinery/power/singularity_beacon/singubeacon in SSmachines.get_by_type(/obj/machinery/power/singularity_beacon))
-		if(singubeacon.active)
-			target = singubeacon
-			break
 
 /obj/singularity/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -312,11 +308,9 @@
 		set_light(10)
 	if(istype(A, /obj/singularity/god/narsie))
 		if(current_size == STAGE_SIX)
-			visible_message(span_userdanger("[SSticker.cultdat?.entity_name] is consumed by [src]!"))
 			investigate_log("consumed Nar'Sie!", INVESTIGATE_ENGINE)
 			qdel(A)
 		else
-			visible_message(span_userdanger("[SSticker.cultdat?.entity_name] strikes down [src]!"))
 			investigate_log("has been destroyed by Nar'Sie", INVESTIGATE_ENGINE)
 			qdel(src)
 

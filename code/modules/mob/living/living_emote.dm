@@ -110,9 +110,6 @@
 /datum/emote/living/deathgasp/select_message_type(mob/user, msg, intentional)
 	if(ishuman(user))
 		. = user.dna?.species?.death_message
-	else if(isalien(user))
-		var/mob/living/carbon/alien/alien = user
-		. = alien.death_message
 	else if(istype(user, /mob/living/simple_animal))
 		var/mob/living/simple_animal/animal = user
 		. = animal.deathmessage	// TODO: translate all death messages

@@ -1485,41 +1485,6 @@ GLOBAL_LIST_EMPTY(airlock_emissive_underlays)
 		if(duration > electrified_until)
 			electrify(duration)
 
-/obj/machinery/door/airlock/attack_alien(mob/living/carbon/alien/humanoid/user)
-	add_fingerprint(user)
-	if(isElectrified())
-		shock(user, 100) //Mmm, fried xeno!
-		return
-
-	if(operating)
-		return
-
-	if(locked || welded)
-		return ..()
-
-	var/is_opening = density
-	if(allowed(user))
-		if(is_opening)
-			open(TRUE)
-		else
-			close(TRUE)
-		return
-
-	var/time_to_action = 0.2 SECONDS
-	if(arePowerSystemsOn())
-		time_to_action = user.time_to_open_doors
-		if(time_to_action > 3 SECONDS)
-			playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
-
-	user.visible_message(span_warning("[user] begins prying [is_opening ? "open":"close"] [src]."),\
-						span_noticealien("You begin digging your claws into [src] with all your might!"),\
-						span_warning("You hear groaning metal..."))
-
-	if(do_after(user, time_to_action, src))
-		var/returns = is_opening ? open(TRUE) : close(TRUE)
-		if(!returns) //The airlock is still closed, but something prevented it opening. (Another player noticed and bolted/welded the airlock in time!)
-			to_chat(user, span_warning("Despite your efforts, [src] managed to resist your attempts!"))
-
 /obj/machinery/door/airlock/power_change(forced = FALSE) //putting this is obj/machinery/door itself makes non-airlock doors turn invisible for some reason
 	..()
 	if(stat & NOPOWER)

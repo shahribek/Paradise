@@ -541,25 +541,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/g
 /obj/item/proc/allow_attack_hand_drop(mob/user)
 	return TRUE
 
-/**
- * If xenos can manipulate with this item.
- */
-/obj/item/proc/allowed_for_alien()
-	return FALSE
-
-/obj/item/attack_alien(mob/user)
-	var/mob/living/carbon/alien/A = user
-
-	if(!A.has_fine_manipulation)
-		to_chat(user, span_warning("Ваши когти не способны к такой точной работе!"))
-		return
-
-	if(!allowed_for_alien())
-		to_chat(user, span_warning("Похоже, [declent_ru(NOMINATIVE)] мне бесполезен!"))
-		return
-
-	attack_hand(A)
-
 /obj/item/attack_ai(mob/user as mob)
 	if(istype(src.loc, /obj/item/robot_module))
 		//If the item is part of a cyborg module, equip it

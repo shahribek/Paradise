@@ -647,8 +647,3 @@
 		INSTRUMENTAL = "лазером часовой энергии",
 		PREPOSITIONAL = "лазере часовой энергии",
 	)
-
-/obj/projectile/beam/laser/light/rat/prehit(atom/target)
-	if(isclocker(target))
-		damage = 0
-	return ..()

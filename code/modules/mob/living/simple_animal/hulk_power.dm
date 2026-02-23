@@ -435,40 +435,6 @@
 				M.Knockdown(4 SECONDS)
 		sleep(1)
 
-//Harchok
-/obj/projectile/energy/hulkspit
-	name = "spit"
-	icon_state = "neurotoxin"
-	damage = 15
-	damage_type = TOX
-
-/obj/projectile/energy/hulkspit/on_hit(atom/target, def_zone = BODY_ZONE_CHEST, blocked = 0)
-	if(iscarbon(target))
-		var/mob/living/carbon/M = target
-		M.Knockdown(4 SECONDS)
-		M.adjust_fire_stacks(20)
-		M.IgniteMob()
-
-/obj/effect/proc_holder/spell/fireball/hulk_spit
-	name = "Fire Spit"
-	desc = "Вы харкаете во врага зеленой соплей и поджигаете его."
-	invocation_type = "none"
-	action_icon_state = "harchok_hulk"
-	action_background_icon_state = "bg_hulk"
-	selection_activated_message	= span_notice("Your prepare to spit fire! <b>Left-click to spit at a target!</b>")
-	selection_deactivated_message = span_notice("You swallow your spit...for now.")
-	fireball_type = /obj/projectile/energy/hulkspit
-	base_cooldown = 25 SECONDS
-	need_active_overlay = TRUE
-
-/obj/effect/proc_holder/spell/fireball/hulk_spit/can_cast(mob/living/user = usr, charge_check = TRUE, show_message = FALSE)
-	if(user.incapacitated())
-		return FALSE
-	return ..()
-
-/obj/effect/proc_holder/spell/fireball/hulk_spit/update_icon_state()
-	return
-
 //Laser
 
 /obj/effect/proc_holder/spell/fireball/hulk_spit/hulk_lazor

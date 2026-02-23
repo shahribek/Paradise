@@ -1,22 +1,6 @@
 /mob/living/silicon/grippedby(mob/living/grabber, grab_state_override)
 	return FALSE //can't upgrade a simple pull into a more aggressive grab.
 
-/mob/living/silicon/attack_alien(mob/living/carbon/alien/humanoid/M)
-	if(..()) //if harm or disarm intent
-		var/damage = M.attack_damage
-		if(prob(90))
-			playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
-			visible_message(span_danger("[M] has slashed at [src]!"), span_userdanger("[M] has slashed at [src]!"))
-			if(prob(8))
-				flash_eyes(affect_silicon = TRUE)
-			add_attack_logs(M, src, "Alien attacked")
-			adjustBruteLoss(damage)
-		else
-			playsound(loc, 'sound/weapons/slashmiss.ogg', 25, TRUE, -1)
-			visible_message(span_danger("[M] took a swipe at [src]!"), \
-							span_userdanger("[M] took a swipe at [src]!"))
-	return
-
 /mob/living/silicon/attack_animal(mob/living/simple_animal/M)
 	. = ..()
 	if(.)

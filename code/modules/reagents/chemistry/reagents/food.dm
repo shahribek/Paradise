@@ -12,8 +12,7 @@
 	var/diet_flags = DIET_OMNI | DIET_HERB | DIET_CARN
 
 /datum/reagent/consumable/on_mob_life(mob/living/M)
-	if(!isvampire(M))
-		M.adjust_nutrition(nutriment_factor)	// For hunger and fatness
+	M.adjust_nutrition(nutriment_factor)	// For hunger and fatness
 	return ..()
 
 /datum/reagent/consumable/nutriment		// Pure nutriment, universally digestable and thus slightly less effective
@@ -482,18 +481,10 @@
 	var/update_flags = STATUS_UPDATE_NONE
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/datum/antagonist/vampire/vamp = H.mind?.has_antag_datum(/datum/antagonist/vampire)
-		if(vamp?.is_garlic_affected && !vamp.get_ability(/datum/vampire_passive/full)) //incapacitating but not lethal.
-			if(prob(min(25, current_cycle)))
-				to_chat(H, span_danger("Аромат чеснока не выветривается из вашего носа! Вы едва можете думать..."))
-				H.Weaken(2 SECONDS)
-				H.Jitter(20 SECONDS)
-				H.fakevomit()
-		else
-			if(H.job == JOB_TITLE_CHEF)
-				if(prob(20)) //stays in the system much longer than sprinkles/banana juice, so heals slower to partially compensate
-					update_flags |= H.adjustBruteLoss(-1, FALSE, affect_robotic = FALSE)
-					update_flags |= H.adjustFireLoss(-1, FALSE, affect_robotic = FALSE)
+		if(H.job == JOB_TITLE_CHEF)
+			if(prob(20)) //stays in the system much longer than sprinkles/banana juice, so heals slower to partially compensate
+				update_flags |= H.adjustBruteLoss(-1, FALSE, affect_robotic = FALSE)
+				update_flags |= H.adjustFireLoss(-1, FALSE, affect_robotic = FALSE)
 	return ..() | update_flags
 
 /datum/reagent/consumable/sprinkles

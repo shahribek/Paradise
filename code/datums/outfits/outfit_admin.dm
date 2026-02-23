@@ -219,7 +219,6 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/flashlight = 1,
-		/obj/item/pinpointer/crew = 1,
 	)
 	implants = list(
 		/obj/item/implant/dust,

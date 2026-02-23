@@ -13,8 +13,7 @@
 	var/list/current_shapes = list()
 	var/list/current_casters = list()
 	var/list/possible_shapes = list(/mob/living/simple_animal/mouse,
-		/mob/living/simple_animal/pet/dog/corgi,
-		/mob/living/simple_animal/hostile/construct/armoured)
+		/mob/living/simple_animal/pet/dog/corgi,)
 
 /obj/effect/proc_holder/spell/shapeshift/create_new_targeting()
 	return new /datum/spell_targeting/self
@@ -112,25 +111,4 @@
 	current_shapes = list(/mob/living/simple_animal/hostile/scarybat/batswarm)
 	current_casters = list()
 	possible_shapes = list(/mob/living/simple_animal/hostile/scarybat/batswarm)
-
-/obj/effect/proc_holder/spell/shapeshift/hellhound
-	name = "Lesser Hellhound Form"
-	desc = "Take on the shape of a Hellhound."
-	invocation = "none"
-	invocation_type = "none"
-	action_background_icon_state = "bg_demon"
-	action_icon_state = "glare"
-	gain_desc = "You have gained the ability to shapeshift into lesser hellhound form. This is a combat form with different abilities, tough but not invincible. It can regenerate itself over time by resting."
-
-	shapeshift_type = /mob/living/simple_animal/hostile/hellhound
-	current_shapes = list(/mob/living/simple_animal/hostile/hellhound)
-	current_casters = list()
-	possible_shapes = list(/mob/living/simple_animal/hostile/hellhound)
-
-/obj/effect/proc_holder/spell/shapeshift/hellhound/greater
-	name = "Greater Hellhound Form"
-	shapeshift_type = /mob/living/simple_animal/hostile/hellhound/greater
-	current_shapes = list(/mob/living/simple_animal/hostile/hellhound/greater)
-	current_casters = list()
-	possible_shapes = list(/mob/living/simple_animal/hostile/hellhound/greater)
 

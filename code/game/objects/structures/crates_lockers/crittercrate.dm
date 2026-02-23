@@ -44,11 +44,6 @@
 		already_opened = 1
 		return ..()
 
-	if(content_mob != null && already_opened == 0)
-		for(var/i = 1, i <= amount, i++)
-			var/mob/living/simple_animal/pet = new content_mob(loc)
-			var/area/SA = get_area(src)
-		already_opened = 1
 	. = ..()
 
 /obj/structure/closet/critter/close()

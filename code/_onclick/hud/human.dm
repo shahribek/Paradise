@@ -341,15 +341,6 @@
 	mymob.nutrition_bar = new /atom/movable/screen/nutrition_bar(null, src)
 	infodisplay += mymob.nutrition_bar
 
-	lingchemdisplay = new /atom/movable/screen/ling/chems(null, src)
-	infodisplay += lingchemdisplay
-
-	lingstingdisplay = new /atom/movable/screen/ling/sting(null, src)
-	infodisplay += lingstingdisplay
-
-	devilsouldisplay = new /atom/movable/screen/devil/soul_counter(null, src)
-	infodisplay += devilsouldisplay
-
 	zone_select =  new /atom/movable/screen/zone_sel(null, src, ui_style, ui_alpha, ui_color)
 	static_inventory += zone_select
 

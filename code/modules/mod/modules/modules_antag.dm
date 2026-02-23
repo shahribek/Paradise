@@ -784,64 +784,6 @@ please, keep this up to date
 	)
 
 //contractor modules
-// MARK: Baton Holster
-///  Baton Holster - secondary holster for baton
-/obj/item/mod/module/baton_holster
-	name = "MOD baton holster module"
-	desc = "Модуль для МЭК, основанный на системе, схожей со стандартным модулем хранилища. Позволяет прятать в костюм \
-			дубинку контрактника и доставать её по желанию пользователя. Совместимо со стандартными модулями кобуры."
-	icon_state = "holster_contractor"
-	module_type = MODULE_USABLE
-	complexity = 1
-	active_power_cost = DEFAULT_CHARGE_DRAIN * 0.3
-	incompatible_modules = list(/obj/item/mod/module/baton_holster)
-	required_slots = list(ITEM_SLOT_BACK|ITEM_SLOT_BELT)
-	cooldown_time = 0.5 SECONDS
-	allow_flags = MODULE_ALLOW_INACTIVE
-	/// Our holstered baton
-	var/obj/item/melee/baton/telescopic/contractor/holstered
-
-/obj/item/mod/module/baton_holster/get_ru_names()
-	return list(
-		NOMINATIVE = "модуль хранения дубинки",
-		GENITIVE = "модуля хранения дубинки",
-		DATIVE = "модулю хранения дубинки",
-		ACCUSATIVE = "модуль хранения дубинки",
-		INSTRUMENTAL = "модулем хранения дубинки",
-		PREPOSITIONAL = "модуле хранения дубинки",
-	)
-
-/obj/item/mod/module/baton_holster/on_use()
-	if(!holstered)
-		var/obj/item/melee/baton/telescopic/contractor/holding = mod.wearer.get_active_hand()
-		if(!holding)
-			return
-		if(!mod.wearer.can_unEquip(holding))
-			balloon_alert(mod.wearer, "нельзя выпустить из рук!")
-			return
-		holstered = holding
-		mod.wearer.balloon_alert_to_viewers("убира[PLUR_ET_UT(mod.wearer)] оружие", "оружие убрано")
-		mod.wearer.temporarily_remove_item_from_inventory(holding)
-		holding.forceMove(src)
-	else if(mod.wearer.put_in_active_hand(holstered))
-		mod.wearer.balloon_alert_to_viewers("извлека[PLUR_ET_UT(mod.wearer)] оружие", "оружие извлечено")
-	else
-		balloon_alert(mod.wearer, "рука занята!")
-
-/obj/item/mod/module/baton_holster/on_uninstall(deleting = FALSE)
-	. = ..()
-	if(holstered)
-		holstered.forceMove(drop_location())
-
-/obj/item/mod/module/baton_holster/Exited(atom/movable/gone, direction)
-	. = ..()
-	if(gone == holstered)
-		holstered = null
-
-/obj/item/mod/module/baton_holster/Destroy()
-	QDEL_NULL(holstered)
-	return ..()
-
 // MARK: Scorpion hook
 ///  Scorpion hook - slight reskin of meat hook
 /obj/item/mod/module/scorpion_hook

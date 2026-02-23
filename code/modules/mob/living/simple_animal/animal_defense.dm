@@ -81,33 +81,6 @@
 			add_attack_logs(M, src, "Melee attacked with fists")
 			return TRUE
 
-/mob/living/simple_animal/attack_alien(mob/living/carbon/alien/humanoid/M)
-	if(..()) //if harm or disarm intent.
-		if(M.a_intent == INTENT_DISARM)
-			playsound(loc, 'sound/weapons/pierce.ogg', 25, TRUE, -1)
-			visible_message(
-				span_danger("[DECLENT_RU_CAP(M, NOMINATIVE)] [response_disarm] [name]!"),
-				span_userdanger("[DECLENT_RU_CAP(M, NOMINATIVE)] [response_disarm] вас!")
-			)
-			add_attack_logs(M, src, "Alien disarmed")
-		else
-			var/damage = M.attack_damage
-			visible_message(
-				span_danger("[DECLENT_RU_CAP(M, NOMINATIVE)] дела[PLUR_ET_YUT(M)] резкий выпад в сторону [declent_ru(ACCUSATIVE)]!"),
-				span_userdanger("[DECLENT_RU_CAP(M, NOMINATIVE)] делает резкий выпад в вашу сторону!")
-			)
-			playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
-			add_attack_logs(M, src, "Alien attacked")
-			attack_threshold_check(damage)
-		return TRUE
-
-/mob/living/simple_animal/attack_larva(mob/living/carbon/alien/larva/L)
-	if(..()) //successful larva bite
-		if(stat != DEAD)
-			. = attack_threshold_check(L.attack_damage)
-			if(.)
-				L.evolution_points = min(L.evolution_points + L.attack_damage, L.max_evolution_points)
-
 /mob/living/simple_animal/attack_animal(mob/living/simple_animal/M)
 	. = ..()
 	if(.)

@@ -158,56 +158,6 @@
 			if(prob(20))
 				affected_mob.say(pick("Бип-буп!", "Биип-буп-бип-буп-бип!", "Уб-бе-ейте мен-н-н-я!", "Я хо-ч-чу ум-м-ме-р-р-ее-е-еть..."))
 
-/datum/disease/virus/transformation/xeno
-	name = "Ксенотрансформация"
-	agent = "Чужеродные микробы рип-ЛИ"
-	desc = "Эта болезнь превращает жертву в ксеноморфа."
-	cures = list("spaceacillin", "glycerol")
-	severity = DISEASE_SEVERITY_BIOHAZARD
-	cure_prob = 5
-	stage1 = null
-	stage2 = list("Ваше горло першит.", span_danger("Убить..."))
-	stage3 = list(span_danger("Ваше горло сильно першит."), "Ваша кожа кажется тугой.", span_danger("Вы чувствуете, как что-то движется... внутри."))
-	stage4 = list(span_danger("Ваша кожа кажется очень тугой."), span_danger("Ваша кровь кипит!"), span_danger("Вы чувствуете... что-то... внутри вас."))
-	transform_message = list(span_danger(span_fontsize5("<b>Теперь вы ксеноморф.</b>") + "\n\
-		<b>Вы чувствуете боль от превращения! Вы желаете укусить того, кто с вами это сделал, благо, память вас не покинула и вы всё помните.</b>"))
-	new_form = null
-
-/datum/disease/virus/transformation/xeno/New()
-	..()
-	new_form = pick(/mob/living/carbon/alien/humanoid/hunter, /mob/living/carbon/alien/humanoid/drone/no_queen, /mob/living/carbon/alien/humanoid/sentinel)
-
-/datum/disease/virus/transformation/xeno/stage_act()
-	if(!..() || !affected_mob)
-		return FALSE
-
-	switch(stage)
-		if(3)
-			if(prob(4))
-				to_chat(affected_mob, span_danger("Вы чувствуете острую головную боль."))
-				affected_mob.Paralyse(4 SECONDS)
-		if(4)
-			if(prob(20))
-				affected_mob.say(pick("Ты выглядишь вкусно.", "Собираюсь... сожрать тебя...", "Хииисссс!"))
-
-/datum/disease/virus/transformation/xeno/phantom
-	name = "dangerous xenomorph transformation"
-	transform_message = list(span_danger(span_fontsize5("<b>Теперь вы ксеноморф.</b>") + "\n\
-	<b>Вы чувствуете боль от превращения! Вы утратили всю память и первобытная жажда убийства охватила вас!</b>"))
-
-/datum/disease/virus/transformation/xeno/phantom/New()
-	..()
-	new_form = pick(/mob/living/carbon/alien/humanoid/hunter, /mob/living/carbon/alien/humanoid/drone/no_queen, /mob/living/carbon/alien/humanoid/sentinel)
-
-/datum/disease/virus/transformation/xeno/phantom/do_disease_transformation()
-	. = ..()
-	var/mob/living/prom = .
-	if(!prom.mind)
-		return
-	prom.mind.wipe_memory()
-	var/list/messages = prom.mind.prepare_announce_objectives()
-	to_chat(prom, chat_box_red(messages.Join("<br>")))
-
 /datum/disease/virus/transformation/slime
 	name = "Продвинутая Мутационная Трансформация"
 	agent = "Токсин Продвинутой Мутации"
@@ -261,22 +211,6 @@
 		if(4)
 			if(prob(20))
 				affected_mob.say(pick("ГАВ!", "АВУУУУ!"))
-
-/datum/disease/virus/transformation/morph
-	name = "Благословение Обжорства"
-	desc = "\"Дар\" из какого-то ужасного места."
-	cure_text = "Ничего"
-	cures = list("adminordrazine")
-	severity = DISEASE_SEVERITY_UNCURABLE
-	stage_prob = 20
-	stage1 = list(span_notice("Ваш желудок урчит."))
-	stage2 = list(span_notice("Ваша кожа кажется обвисшей."))
-	stage3 = list(span_danger("Ваши конечности тают."), span_danger("Ваши конечности начинают терять форму."))
-	stage4 = list(span_danger("Вы ненасытны!"))
-	transform_message = list(span_danger(span_fontsize5("<b>ТЕПЕРЬ ВЫ МОРФ!</b>") + "\n\
-	Хоть Вы и трансформировались в отвратительную зелёную жижу, но это не повлияло на Ваше сознание \
-	и память. Вы не являетесь антагонистом."))
-	new_form = /mob/living/simple_animal/hostile/morph
 
 /datum/disease/virus/transformation/pig
 	name = "Свинофикация"

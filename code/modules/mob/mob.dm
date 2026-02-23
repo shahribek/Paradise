@@ -10,9 +10,6 @@
 		observe.stop_orbit()
 		observe.reset_perspective(null)
 	QDEL_NULL(hud_used)
-	if(mind && mind.current == src)
-		spellremove(src)
-	mobspellremove(src)
 	QDEL_LIST(diseases)
 	for(var/alert in alerts)
 		clear_alert(alert)
@@ -799,11 +796,6 @@
 		to_chat(usr, span_warning("[capitalize(picked_mob)] больше недоступен для возрождения!"))
 		return
 
-	if(istype(picked_mob, /mob/living/simple_animal/borer))
-		var/mob/living/simple_animal/borer/borer = picked_mob
-		borer.transfer_personality(usr.client)
-		return
-
 	to_chat(usr, span_notice(message))
 	GLOB.respawnable_list -= usr
 	picked_mob.possess_by_player(key)
@@ -1193,15 +1185,6 @@ GLOBAL_LIST_INIT(holy_areas, typecacheof(list(
 		return FALSE
 
 	if(!mind)
-		return FALSE
-
-	//Allows cult to bypass holy areas once they summon
-	var/datum/game_mode/gamemode = SSticker.mode
-	if(iscultist(src) && gamemode.cult_objs.cult_status == NARSIE_HAS_RISEN)
-		return FALSE
-
-	//Execption for Holy Constructs
-	if(isconstruct(src) && !iscultist(src))
 		return FALSE
 
 	to_chat(src, span_warning("Your powers are useless on this holy ground."))

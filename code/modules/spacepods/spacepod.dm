@@ -266,15 +266,6 @@
 		add_attack_logs(user, src, "attacked")
 		return TRUE
 
-/obj/spacepod/attack_alien(mob/living/carbon/alien/user)
-	if(user.a_intent == INTENT_HARM)
-		user.do_attack_animation(src)
-		user.changeNext_move(CLICK_CD_MELEE)
-		deal_damage(user.obj_damage)
-		playsound(src.loc, 'sound/weapons/slash.ogg', 50, TRUE, -1)
-		to_chat(user, span_warning("Вы наносите удар по [declent_ru(DATIVE)]!"))
-		visible_message(span_warning("[capitalize(user)] пробива[PLUR_ET_YUT(user)] броню [declent_ru(GENITIVE)]"))
-
 /obj/spacepod/attack_tk()
 	return
 
@@ -825,11 +816,6 @@
 
 	if(get_dist(src, user) > 2)
 		balloon_alert(user, "слишком далеко!")
-		return FALSE
-
-	var/fukkendisk = user.get_type_in_all_contents(/obj/item/disk/nuclear)
-	if(fukkendisk)
-		to_chat(user, span_danger("<b>Диск ядерной аутентификации блокирует двери! Похоже, он не хочет попасть в челнок.</b>"))
 		return FALSE
 
 	if(user.has_buckled_mobs()) //mob attached to us

@@ -84,8 +84,6 @@
 	component_parts += new /obj/item/assembly/igniter(null)
 	component_parts += new /obj/item/stack/sheet/glass(null)
 	RefreshParts()
-	// Special access for built on Taipan machines
-	var/area/area = get_area(src)
 
 /obj/machinery/mineral/ore_redemption/upgraded/Initialize(mapload)
 	. = ..()

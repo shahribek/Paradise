@@ -322,11 +322,6 @@ GLOBAL_LIST_INIT(things_to_shock, typecacheof(list(
 		else if(closest_type >= BLOB)
 			continue
 
-		else if(istype(A, /obj/structure/blob))
-			if(!HAS_TRAIT(A, TRAIT_BEING_SHOCKED))
-				closest_type = BLOB
-				closest_atom = A
-
 		else if(closest_type >= STRUCTURE)
 			continue
 

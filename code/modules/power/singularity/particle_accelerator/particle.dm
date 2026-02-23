@@ -47,9 +47,6 @@
 	else if(istype(thing, /obj/machinery/the_singularitygen))
 		var/obj/machinery/the_singularitygen/singularitygen = thing
 		singularitygen.energy += energy
-	else if(istype(thing, /obj/structure/blob))
-		var/obj/structure/blob/blob = thing
-		blob.take_damage(energy * 0.6)
 
 /obj/effect/accelerated_particle/Bump(obj/singularity/bumped_singulo)
 	. = ..()

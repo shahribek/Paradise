@@ -417,17 +417,6 @@ GLOBAL_LIST_EMPTY(turret_icons)
 		to_chat(M, span_danger("That object is useless to you."))
 	return
 
-/obj/machinery/porta_turret/attack_alien(mob/living/carbon/alien/humanoid/M)
-	M.changeNext_move(CLICK_CD_MELEE)
-	M.do_attack_animation(src)
-	if(!(stat & BROKEN))
-		playsound(src.loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
-		visible_message(span_danger("[M] has slashed at [src]!"))
-		take_damage(M.attack_damage)
-	else
-		to_chat(M, span_noticealien("That object is useless to you."))
-	return
-
 /obj/machinery/porta_turret/emag_act(mob/user)
 	if(!emagged)
 		//Emagging the turret makes it go bonkers and stun everyone. It also makes

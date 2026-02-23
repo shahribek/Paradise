@@ -862,11 +862,6 @@
 		if(!target.get_int_organ(/obj/item/organ/internal/honktumor))
 			new /obj/item/organ/internal/honktumor(target)
 			to_chat(target,span_userdanger("Life seems funnier, somehow."))
-	else if(myeffect == "Cluwne")
-		if(ishuman(target))
-			var/mob/living/carbon/human/H = target
-			to_chat(H, span_userdanger("You feel surrounded by sadness. Sadness... and HONKS!"))
-			H.makeCluwne()
 	else if(myeffect == "Demote")
 		GLOB.major_announcement.announce(
 			message = "[target.real_name] настоящим приказом был понижен до Гражданского. Немедленно обработайте этот запрос. Невыполнение этих распоряжений является основанием для расторжения контракта.",

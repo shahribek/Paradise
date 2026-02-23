@@ -255,14 +255,8 @@
 		/mob/living/simple_animal/pet/cat/Syndi,
 		/mob/living/simple_animal/pet/dog/fox/Syndifox,
 	))
-	if(is_type_in_typecache(passed_mob, safe_respawn_typecache_nuclear))
-		return GAMEMODE_IS_NUCLEAR
-
 	if(check_station_level && !is_admin(src) && !is_station_level(passed_mob.z))
 		return FALSE
-
-	if(istype(passed_mob, /mob/living/simple_animal/borer) && !jobban_isbanned(src, ROLE_BORER) && !jobban_isbanned(src, ROLE_SYNDICATE))
-		return TRUE
 
 	if(isnymph(passed_mob) && !jobban_isbanned(src, ROLE_NYMPH))
 		return TRUE

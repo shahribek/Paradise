@@ -49,19 +49,6 @@ GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 		return UI_INTERACTIVE
 	return UI_CLOSE
 
-/mob/living/simple_animal/revenant/default_can_use_topic(src_object)
-	return UI_UPDATE
-
-/mob/living/simple_animal/demon/pulse_demon/default_can_use_topic(src_object)
-	. = shared_ui_interaction(src_object)
-	if(. < UI_INTERACTIVE)
-		return
-
-	// anything in its APC's area
-	if(get_area(src_object) == controlling_area)
-		return UI_INTERACTIVE
-	return UI_CLOSE
-
 /mob/living/simple_animal/default_can_use_topic(src_object)
 	. = shared_ui_interaction(src_object)
 	if(. > UI_CLOSE)

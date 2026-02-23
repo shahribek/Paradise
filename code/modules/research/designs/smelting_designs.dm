@@ -38,15 +38,6 @@
 	build_path = /obj/item/stack/sheet/plastitaniumglass
 	category = list(PRINTER_CATEGORY_INITIAL)
 
-/datum/design/smelter/alienalloy
-	id = "alienalloy"
-	req_tech = list(RESEARCH_TREE_ALIEN = 1, RESEARCH_TREE_MATERIALS = 7, RESEARCH_TREE_PLASMA = 2)
-	build_type = PROTOLATHE | SMELTER
-	materials = list(MAT_METAL = 4000, MAT_PLASMA = 4000)
-	build_path = /obj/item/stack/sheet/mineral/abductor
-	category = list(PROTOLATHE_CATEGORY_STOCK_PARTS)
-	lathe_time_factor = 5
-
 /datum/design/smelter/alienglass
 	id = "alienglass"
 	req_tech = list(RESEARCH_TREE_ALIEN = 1, RESEARCH_TREE_MATERIALS = 7, RESEARCH_TREE_PLASMA = 2)

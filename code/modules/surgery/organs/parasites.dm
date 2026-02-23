@@ -63,9 +63,6 @@
 	// Safety first.
 	if(!owner)
 		return
-	if(GLOB.global_degenerate && !awaymission_infection && !QDELETED(src))
-		qdel(src)
-		return
 	// Parasite growth
 	cycle_num += 1
 	egg_progress += 1

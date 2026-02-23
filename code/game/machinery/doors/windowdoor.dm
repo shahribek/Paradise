@@ -239,14 +239,6 @@
 
 	qdel(src)
 
-/obj/machinery/door/window/narsie_act()
-	color = NARSIE_WINDOW_COLOUR
-
-/obj/machinery/door/window/ratvar_act()
-	var/obj/machinery/door/window/clockwork/C = new(loc, dir)
-	C.name = name
-	qdel(src)
-
 /obj/machinery/door/window/temperature_expose(exposed_temperature, exposed_volume)
 	..()
 	if(exposed_temperature > T0C + (reinf ? 1600 : 800))

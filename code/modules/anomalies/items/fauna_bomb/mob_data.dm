@@ -70,17 +70,6 @@
 		environment_smash = SA.environment_smash
 		return
 
-	if(isalien(target))
-		var/mob/living/carbon/alien/alien = target
-		rapid_melee = 1.25
-		armour_penetration = alien.armour_penetration
-		melee_damage_lower = alien.attack_damage
-		melee_damage_upper = alien.attack_damage
-		obj_damage = alien.obj_damage
-		environment_smash = alien.environment_smash
-		req_charge = sqrt(max(20, target.maxHealth) * max(5, (melee_damage_lower + melee_damage_upper) / 2)) * 1.2
-		return
-
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		rapid_melee = 1.25

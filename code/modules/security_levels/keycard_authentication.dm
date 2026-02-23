@@ -198,13 +198,6 @@
 				ert_reason = null
 				SSblackbox.record_feedback("nested tally", "keycard_auths", 1, list("ert", "called"))
 			else
-				var/list/excludemodes = list(/datum/game_mode/nuclear, /datum/game_mode/blob)
-				if(SSticker.mode.type in excludemodes)
-					return
-				var/list/excludeevents = list(/datum/event/blob)
-				for(var/datum/event/E in SSevents.active_events|SSevents.finished_events)
-					if(E.type in excludeevents)
-						return
 				// No admins? No problem. Automatically send a code amber ERT.
 				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(trigger_armed_response_team), new /datum/response_team/amber)
 				ert_reason = null

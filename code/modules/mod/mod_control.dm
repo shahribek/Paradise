@@ -567,8 +567,6 @@
 	if(!length(items))
 		return
 	var/radial_anchor = src
-	if(istype(user.loc, /obj/effect/dummy/phased_mob))
-		radial_anchor = get_turf(user.loc) //they're phased out via some module, anchor the radial on the turf so it may still display
 	if(!isnull(anchor_override))
 		radial_anchor = anchor_override
 	var/pick = show_radial_menu(user, radial_anchor, items, require_near = isnull(anchor_override))

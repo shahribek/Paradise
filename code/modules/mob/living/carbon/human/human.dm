@@ -166,9 +166,6 @@
 /mob/living/carbon/human/golem_plastitanium/Initialize(mapload)
 	. = ..(mapload, /datum/species/golem/plastitanium)
 
-/mob/living/carbon/human/golem_alien_alloy/Initialize(mapload)
-	. = ..(mapload, /datum/species/golem/alloy)
-
 /mob/living/carbon/human/golem_uranium/Initialize(mapload)
 	. = ..(mapload, /datum/species/golem/uranium)
 
@@ -189,9 +186,6 @@
 
 /mob/living/carbon/human/golem_tranquillite/Initialize(mapload)
 	. = ..(mapload, /datum/species/golem/tranquillite)
-
-/mob/living/carbon/human/golem_clockwork/Initialize(mapload)
-	. = ..(mapload, /datum/species/golem/clockwork)
 
 /mob/living/carbon/human/wryn/Initialize(mapload)
 	. = ..(mapload, /datum/species/wryn)

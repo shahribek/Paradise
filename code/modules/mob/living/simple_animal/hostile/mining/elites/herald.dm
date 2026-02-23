@@ -368,14 +368,6 @@
 		if(istype(chosen, /obj/structure/mirror))
 			var/obj/structure/mirror/M = chosen
 			M.obj_break("brute")
-		else if(istype(chosen, /obj/item/shield/mirror))
-			var/turf/T = get_turf(usr)
-			new /obj/effect/temp_visual/cult/sparks(T)
-			playsound(T, 'sound/effects/glassbr3.ogg', 100)
-			if(isliving(chosen.loc))
-				var/mob/living/shatterer = loc
-				shatterer.Weaken(6 SECONDS)
-			qdel(chosen)
 
 #undef HERALD_TRISHOT
 #undef HERALD_DIRECTIONALSHOT

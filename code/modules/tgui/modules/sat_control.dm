@@ -79,11 +79,7 @@
 		data["thrown"] = goal.thrown
 		data["defended"] = goal.defended
 		data["collisions"] = goal.collisions
-		var/list/fake_meteors = list()
-		if(goal.is_testing)
-			for(var/obj/effect/meteor/fake/meteor in GLOB.meteor_list)
-				fake_meteors += list(list("x" = meteor.x, "y" = meteor.y, "z" = meteor.z))
-		data["fake_meteors"] = fake_meteors
+
 	data["has_goal"] = !!goal
 	return data
 

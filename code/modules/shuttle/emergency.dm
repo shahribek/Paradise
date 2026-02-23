@@ -177,9 +177,6 @@
 			continue
 		if(isanimal(player)) //Poly does not own the shuttle
 			continue
-		if(isascendeddevil(player))
-			devil_on_shuttle = TRUE
-			continue
 		if(isbrain(player))
 			continue
 		if(ishuman(player)) //hostages allowed on the shuttle, check for restraints

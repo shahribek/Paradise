@@ -360,15 +360,6 @@
 			return
 	return TRUE //Successful completion. Used to prevent child process() continuing if this one is ended early.
 
-/mob/living/simple_animal/bot/attack_alien(mob/living/carbon/alien/user)
-	user.changeNext_move(CLICK_CD_MELEE)
-	user.do_attack_animation(src)
-	apply_damage(user.attack_damage, BRUTE)
-	visible_message(span_danger("[user] руб[PLUR_IT_YAT(user)] [declent_ru(GENITIVE)]!"))
-	playsound(loc, 'sound/weapons/slice.ogg', 25, TRUE, -1)
-	if(prob(10))
-		new /obj/effect/decal/cleanable/blood/oil(loc)
-
 /mob/living/simple_animal/bot/attack_animal(mob/living/simple_animal/user)
 	user.do_attack_animation(src)
 	if(user.melee_damage_upper == 0)

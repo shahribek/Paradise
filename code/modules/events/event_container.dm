@@ -190,9 +190,7 @@ GLOBAL_LIST_EMPTY(event_last_fired)
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Скопление карпов",			/datum/event/carp_migration,			200,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_SECURITY = 20), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Сбойные дроны",			/datum/event/rogue_drone,				0,		list(ASSIGNMENT_SECURITY = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Космолоза",				/datum/event/spacevine,				250,	list(ASSIGNMENT_ENGINEER = 10)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Метеорный дождь",			/datum/event/meteor_wave,				0,		list(ASSIGNMENT_ENGINEER = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Солнечная вспышка",		/datum/event/solar_flare,				0,		list(ASSIGNMENT_ENGINEER = 25)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Мясной дождь",				/datum/event/dust/meaty,				0,		list(ASSIGNMENT_ENGINEER = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Телекоммуникационный сбой",/datum/event/communications_blackout,	500,	list(ASSIGNMENT_AI = 150, ASSIGNMENT_SECURITY = 120)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Побег",					/datum/event/prison_break,				0,		list(ASSIGNMENT_SECURITY = 100)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Проклятое фортепиано",     /datum/event/ghostpiano,                100,    list(ASSIGNMENT_ANY = 1), is_one_shot = TRUE),
@@ -202,24 +200,18 @@ GLOBAL_LIST_EMPTY(event_last_fired)
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Электрический шторм",		/datum/event/electrical_storm,			250,	list(ASSIGNMENT_ENGINEER = 20, ASSIGNMENT_JANITOR = 150)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Радиационный шторм",		/datum/event/radiation_storm,			25,		list(ASSIGNMENT_MEDICAL = 50), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Нашествие пауков",			/datum/event/spider_infestation,		100,	list(ASSIGNMENT_SECURITY = 30), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Несдвигаемый стержень",	/datum/event/immovable_rod,				0,		list(ASSIGNMENT_ENGINEER = 30), TRUE),
 		// NON-BAY EVENTS
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Массовые галлюцинации",	/datum/event/mass_hallucination,		300),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Цифровой вирус",			/datum/event/brand_intelligence,		50,	list(ASSIGNMENT_ENGINEER = 25),	TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Space Dust",				/datum/event/dust,						50,		list(ASSIGNMENT_ENGINEER = 50)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Пространственный разрыв",	/datum/event/tear,						0,		list(ASSIGNMENT_SECURITY = 35)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Хонканомалия",				/datum/event/tear/honk,					0),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Рандомысленный разрыв",	/datum/event/tear/random,				0),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Отходы из вытяжек",		/datum/event/vent_clog,					250),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Червоточины",				/datum/event/wormholes,					150),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Аномалия",					/datum/event/anomaly,					500,	list(ASSIGNMENT_ENGINEER = 30, , ASSIGNMENT_SCIENTIST = 30)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ревенант",				/datum/event/revenant,					150),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Визит абдукторов",		/datum/event/abductor/one_crew,		40,		list(ASSIGNMENT_SECURITY =  3), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Вспышка болезни",			/datum/event/disease_outbreak,			0,		list(ASSIGNMENT_MEDICAL = 150), TRUE),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Хедкрабы",					/datum/event/headcrabs,				0,		list(ASSIGNMENT_SECURITY = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Сбой работы дверей",		/datum/event/door_runtime,				50,		list(ASSIGNMENT_ENGINEER = 25, ASSIGNMENT_AI = 150), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ядерный оперативник",		/datum/event/lone_operative,			40,		list(ASSIGNMENT_SECURITY = 10), is_one_shot = TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Дрейфующий Контрактник",	/datum/event/drifting_contractor,		60,		list(ASSIGNMENT_SECURITY = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Торговцы",					/datum/event/traders,					85,		is_one_shot = TRUE),
 	)
 
@@ -230,13 +222,6 @@ GLOBAL_LIST_EMPTY(event_last_fired)
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Миграция карпов",				/datum/event/carp_migration,			10,		list(ASSIGNMENT_SECURITY =  3), TRUE),	// 4.8% on high pop, 3.4% on low pop
 		//new /datum/event_meta(EVENT_LEVEL_MAJOR, "Containment Breach",		/datum/event/prison_break/station,		0,		list(ASSIGNMENT_ANY = 5)),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Перегрузка ЛКП",				/datum/event/apc_overload,				0),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Метеорный вал",				/datum/event/meteor_wave,				30,		list(ASSIGNMENT_ENGINEER =  5),	TRUE),	// 6.9% on high pop, 5.5% on low pop
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Визит абдукторов",			/datum/event/abductor,					20,		list(ASSIGNMENT_SECURITY =  3), TRUE),	// 5.8% on high pop, 4.5% on low pop
-		new /datum/event_meta/alien(EVENT_LEVEL_MAJOR, "Заражение ксеноморфами",/datum/event/alien_infestation,			20,		list(ASSIGNMENT_SECURITY = 4), TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Пауки Ужаса",					/datum/event/spider_terror,				20,		list(ASSIGNMENT_SECURITY = 4), TRUE),	// 7.1% on high pop, 5.3% on low pop
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Демон Резни",					/datum/event/spawn_slaughter,			20,		is_one_shot = TRUE),					// 3% on high pop, 2.1% on low pop
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Демон Смеха",					/datum/event/spawn_slaughter/laughter,	20,		is_one_shot = TRUE),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Теневой Демон",				/datum/event/spawn_slaughter/shadow,	20,		is_one_shot = TRUE),
 		//new /datum/event_meta(EVENT_LEVEL_MAJOR, "Floor Cluwne",				/datum/event/spawn_floor_cluwne,		15,		is_one_shot = TRUE)
 	)
 

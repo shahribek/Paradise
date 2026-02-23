@@ -26,10 +26,6 @@
 	if(frame)
 		src.frame = frame
 
-	else
-		var/frame_type = abductor ? /obj/structure/computerframe/abductor : src.frame
-		src.frame = new frame_type(src, circuit)
-
 	src.frame.on_construction(src)
 	power_change()
 	update_icon()

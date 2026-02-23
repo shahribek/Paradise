@@ -477,9 +477,6 @@
 	playsound(loc, 'sound/effects/bang.ogg', 100, TRUE)
 	new /obj/effect/dummy/lighting_obj(loc, range + 2, 10, light_color, 0.2 SECONDS)
 	// Blob damage
-	for(var/obj/structure/blob/blob in get_hear(range + 1, loc))
-		var/damage = round(30 / (get_dist(blob, loc) + 1))
-		blob.take_damage(damage, BURN, MELEE, FALSE)
 	// Stunning & damaging mechanic
 	bang(loc, src, 7, direct_bang = FALSE)
 

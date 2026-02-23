@@ -82,7 +82,6 @@
 	if(!owner)
 		return ..() // Probably a redundant removal; just bail
 
-	var/obj/item/organ/internal/brain/our_brain = src
 	if(ishuman(owner))
 		owner.update_hair()
 
@@ -101,16 +100,16 @@
 		H.update_hair()
 
 	if(!brain_already_exists)
-		if(brainmob && !target_changeling)
+		if(brainmob /* && !target_changeling */)
 			if(target.key)
 				target.ghostize()
 			if(brainmob.mind)
 				brainmob.mind.transfer_to(target)
 			else
 				target.possess_by_player(brainmob.key)
-		else if(brainmob?.mind && target_changeling)
-			brainmob.mind.current = null
-			brainmob.ghostize()
+		// else if(brainmob?.mind && target_changeling)
+		// 	brainmob.mind.current = null
+		// 	brainmob.ghostize()
 	else
 		log_debug("Multibrain shenanigans at ([target.x],[target.y],[target.z]), mob '[target]'")
 

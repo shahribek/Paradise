@@ -411,8 +411,6 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	if(!is_thrall(target))
-		return FALSE
 	var/obj/item/organ/internal/brain/B = target.get_int_organ(/obj/item/organ/internal/brain)
 	var/obj/item/organ/external/affected = target.get_organ(user.zone_selected)
 	if(!B)
@@ -480,7 +478,6 @@
 	if(target.vision_type) //Turns off their darksight if it's still active.
 		to_chat(target, span_boldannounceic("Ваши глаза заливает пелена боли, вы теряете возможность видеть в темноте!"))
 		target.set_vision_override(null)
-	SSticker.mode.remove_thrall(target.mind, 0)
 	target.visible_message(span_warning("Кусок чёрной сочащейся плоти выпадает из [affected.declent_ru(GENITIVE)] [target]!"))
 	var/obj/item/organ/thing = new /obj/item/organ/internal/shadowtumor(get_turf(target))
 	thing.update_DNA(target.dna)

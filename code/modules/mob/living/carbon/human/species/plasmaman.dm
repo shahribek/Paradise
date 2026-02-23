@@ -262,12 +262,10 @@
 	switch(R.id)
 		if("plasma")
 			H.heal_overall_damage(0.5, 0.5)
-			H.adjust_alien_plasma(20)
 			H.reagents.remove_reagent(R.id, REAGENTS_METABOLISM)
 			return FALSE //Handling reagent removal on our own. Prevents plasma from dealing toxin damage to Plasmaman
 		if("plasma_dust")
 			H.heal_overall_damage(0.25, 0.25)
-			H.adjust_alien_plasma(20)
 			if(prob(1))
 				var/list/fractured_organs = H.check_fractures()
 				shuffle(fractured_organs)

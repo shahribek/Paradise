@@ -566,14 +566,6 @@
 		user.balloon_alert(user, "нечего извлекать!")
 		return SURGERY_BEGINSTEP_SKIP
 
-	var/mob/living/simple_animal/borer/B = target.has_brain_worms()
-	if(target_zone == BODY_ZONE_HEAD && B && B.host == target)
-		user.visible_message(
-			span_notice("[user] начина[PLUR_ET_YUT(user)] извлекать [B.declent_ru(ACCUSATIVE)][affected ? " из [affected.declent_ru(GENITIVE)]" : ""] [target], используя [tool.declent_ru(ACCUSATIVE)]."),
-			span_notice("Вы начинаете извлекать [B.declent_ru(ACCUSATIVE)][affected ? " из [affected.declent_ru(GENITIVE)]" : ""] [target], используя [tool.declent_ru(ACCUSATIVE)]."),
-		)
-		return ..()
-
 	for(var/obj/item/organ/internal/organ as anything in organs)
 		if(organ.unremovable)
 			continue
@@ -600,15 +592,6 @@
 /datum/surgery_step/internal/manipulate_organs/extract/end_step(mob/living/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/mob/living/simple_animal/borer/B = target.has_brain_worms()
-	if(target_zone == BODY_ZONE_HEAD && B && B.host == target)
-		user.visible_message(
-			span_notice("[user] извлека[PLUR_ET_YUT(user)] [B.declent_ru(ACCUSATIVE)][affected ? " из [affected.declent_ru(GENITIVE)]" : ""] [target], используя [tool.declent_ru(ACCUSATIVE)]."),
-			span_notice("Вы извлекаете [B.declent_ru(ACCUSATIVE)][affected ? " из [affected.declent_ru(GENITIVE)]" : ""] [target], используя [tool.declent_ru(ACCUSATIVE)]."),
-		)
-		add_attack_logs(user, target, "Surgically removed [B]. INTENT: [uppertext(user.a_intent)]")
-		B.leave_host()
-		return SURGERY_STEP_CONTINUE
-
 	if(!extracting || extracting.owner != target)
 		user.visible_message(
 			span_notice("[user] доста[PLUR_YOT_YUT(user)] [tool.declent_ru(ACCUSATIVE)][affected ? " из [affected.declent_ru(GENITIVE)]" : ""] [target], ничего не извлекая."),

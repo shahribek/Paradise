@@ -230,7 +230,6 @@
 		/mob/living/simple_animal/hostile/creature,
 		/mob/living/simple_animal/hostile/pirate/ranged,
 		/mob/living/simple_animal/hostile/hivebot,
-		/mob/living/simple_animal/hostile/viscerator,
 		/mob/living/simple_animal/hostile/pirate,
 	)
 	visible_message(span_warning("Something falls out of the [cached_name]!"))

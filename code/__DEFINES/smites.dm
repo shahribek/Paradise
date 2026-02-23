@@ -35,7 +35,6 @@ GLOBAL_LIST_INIT(smites_not_human, list(
 	SMITE_LIGHTING = /datum/smite/lighting,
 	SMITE_GIB = /datum/smite/gib,
 	SMITE_HUNTER = /datum/smite/hunter,
-	SMITE_TRAITORHUNTER = /datum/smite/traitor_hunter,
 	SMITE_TRANSFORM = /datum/smite/transform,
 	SMITE_ROD = /datum/smite/rod,
 	SMITE_DUST = /datum/smite/dust,

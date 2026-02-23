@@ -177,10 +177,6 @@
 		balloon_alert(activator, "недостаточно энергии!")
 		return FALSE
 	//Used in time travel module, if we port it
-	if(!(allow_flags & MODULE_ALLOW_PHASEOUT) && istype(mod.wearer.loc, /obj/effect/dummy/phased_mob))
-		//specifically a to_chat because the user is phased out.
-		to_chat(activator, span_warning("Сейчас вы не можете использовать данный модуль."))
-		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_MODULE_TRIGGERED, mod.wearer) & MOD_ABORT_USE)
 		return FALSE
 	if(module_type == MODULE_ACTIVE)
@@ -246,10 +242,6 @@
 		return FALSE
 	if(!check_power(use_energy_cost))
 		balloon_alert(activator, "недостаточно энергии!")
-		return FALSE
-	if(!(allow_flags & MODULE_ALLOW_PHASEOUT) && istype(mod.wearer.loc, /obj/effect/dummy/phased_mob))
-		//specifically a to_chat because the user is phased out.
-		to_chat(activator, span_warning("Сейчас вы не можете использовать данный модуль."))
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_MODULE_TRIGGERED, mod.wearer) & MOD_ABORT_USE)
 		return FALSE

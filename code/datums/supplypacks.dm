@@ -5032,12 +5032,9 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	)
 
 /datum/supply_packs/misc/book_crate
-	name = "Кодекс Гигас"
-	contains = list(
-		/obj/item/book/codex_gigas,
-	)
+	name = "Misc book crate"
 	cost = 15
-	containername = "ящик с Кодекс Гигас"
+	containername = "ящик с книгами"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с Кодекс Гигас",
 		GENITIVE = "ящика с Кодекс Гигас",

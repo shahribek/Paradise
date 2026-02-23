@@ -352,8 +352,7 @@
 	activation_sound = 'sound/magic/timeparadox2.ogg'
 	var/list/banned_items_typecache = list(
 		/obj/item/storage, /obj/item/implant, /obj/item/implanter,
-		/obj/projectile, /obj/item/spellbook, /obj/item/clothing/mask/facehugger,
-		/obj/item/gem, /obj/item/dna_upgrader, /obj/item/mod,
+		/obj/projectile, /obj/item/gem, /obj/item/dna_upgrader, /obj/item/mod,
 		/obj/item/autoimplanter
 	)
 

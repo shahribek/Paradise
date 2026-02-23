@@ -116,10 +116,6 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	return take_damage(damage_amount, damage_type, damage_flag, sound_effect, get_dir(src, user), armor_penetration)
 
-/obj/attack_alien(mob/living/carbon/alien/humanoid/user)
-	if(attack_generic(user, user.obj_damage, BRUTE, MELEE, 0, user.armour_penetration))
-		playsound(loc, 'sound/weapons/slash.ogg', 100, TRUE)
-
 /obj/attack_basic_mob(mob/living/basic/user)
 	if(!user.melee_damage && !user.obj_damage) //No damage
 		user.emote("custom", message = "[user.friendly_verb_continuous] [src].")

@@ -19,13 +19,6 @@
 	if(machine)
 		machine.check_eye(src)
 
-	if(malfhack?.aidisabled)
-		to_chat(src, span_danger("ERROR: APC access disabled, hack attempt canceled."))
-		deltimer(malfhacking)
-		// This proc handles cleanup of screen notifications and
-		// messenging the client
-		malfhacked(malfhack)
-
 	if(aiRestorePowerRoutine)
 		adjustOxyLoss(1)
 	else

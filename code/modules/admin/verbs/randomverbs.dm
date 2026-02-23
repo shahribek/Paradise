@@ -319,37 +319,6 @@ ADMIN_VERB(respawn_character, R_SPAWN, "Respawn Character", "Respawn a player th
 		to_chat(user, "<span style='color: red;'>There is no active key like that in the game or the person is not currently a ghost.</span>", confidential = TRUE)
 		return
 
-	if(G_found.mind && !G_found.mind.active)	//mind isn't currently in use by someone/something
-		//Check if they were an alien
-		if(G_found.mind.assigned_role=="Alien")
-			if(tgui_alert(user, "This character appears to have been an alien. Would you like to respawn them as such?",, list("Yes", "No")) == "Yes")
-				var/turf/T
-				if(length(GLOB.xeno_spawn))
-					T = pick(GLOB.xeno_spawn)
-				else
-					T = pick(GLOB.latejoin)
-
-				var/mob/living/carbon/alien/new_xeno
-				switch(G_found.mind.special_role)//If they have a mind, we can determine which caste they were.
-					if("Hunter")
-						new_xeno = new /mob/living/carbon/alien/humanoid/hunter(T)
-					if("Sentinel")
-						new_xeno = new /mob/living/carbon/alien/humanoid/sentinel(T)
-					if("Drone")
-						new_xeno = new /mob/living/carbon/alien/humanoid/drone(T)
-					if("Queen")
-						new_xeno = new /mob/living/carbon/alien/humanoid/queen(T)
-					else//If we don't know what special role they have, for whatever reason, or they're a larva.
-						create_xeno(G_found.ckey)
-						return
-
-				//Now to give them their mind back.
-				G_found.mind.transfer_to(new_xeno)	//be careful when doing stuff like this! I've already checked the mind isn't in use
-				new_xeno.possess_by_player(G_found.key)
-				to_chat(new_xeno, "You have been fully respawned. Enjoy the game.")
-				log_and_message_admins(span_notice("has respawned [new_xeno.key] as a filthy xeno."))
-				return	//all done. The ghost is auto-deleted
-
 	var/mob/living/carbon/human/new_character = new(pick(GLOB.latejoin))//The mob being spawned.
 
 	var/datum/data/record/record_found			//Referenced to later to either randomize or not randomize the character.
@@ -432,50 +401,6 @@ ADMIN_VERB(respawn_character, R_SPAWN, "Respawn Character", "Respawn a player th
 
 	BLACKBOX_LOG_ADMIN_VERB("Respawn Character")
 	return new_character
-
-//I use this proc for respawn character too. /N
-/proc/create_xeno(ckey)
-	if(!ckey)
-		var/list/candidates = list()
-		for(var/mob/M in GLOB.player_list)
-			if(M.stat != DEAD)
-				continue //we are not dead!
-			if(!(ROLE_ALIEN in M.client.prefs.be_special))
-				continue //we don't want to be an alium
-			if(jobban_isbanned(M, "alien") || jobban_isbanned(M, "Syndicate"))
-				continue //we are jobbanned
-			if(M.client.is_afk())
-				continue //we are afk
-			if(M.mind && M.mind.current && M.mind.current.stat != DEAD)
-				continue //we have a live body we are tied to
-			candidates += M.ckey
-		if(length(candidates))
-			ckey = tgui_input_list(usr, "Pick the player you want to respawn as a xeno.", "Suitable Candidates", candidates)
-		else
-			to_chat(usr, span_red("Error: create_xeno(): no suitable candidates."), confidential = TRUE)
-	if(!istext(ckey))
-		return 0
-
-	var/alien_caste = tgui_input_list(usr, "Please choose which caste to spawn.", "Pick a caste", list("Queen", "Hunter", "Sentinel", "Drone", "Larva"), null)
-	var/obj/effect/landmark/spawn_here = length(GLOB.xeno_spawn) ? pick(GLOB.xeno_spawn) : pick(GLOB.latejoin)
-	var/mob/living/carbon/alien/new_xeno
-	switch(alien_caste)
-		if("Queen")
-			new_xeno = new /mob/living/carbon/alien/humanoid/queen/large(spawn_here)
-		if("Hunter")
-			new_xeno = new /mob/living/carbon/alien/humanoid/hunter(spawn_here)
-		if("Sentinel")
-			new_xeno = new /mob/living/carbon/alien/humanoid/sentinel(spawn_here)
-		if("Drone")
-			new_xeno = new /mob/living/carbon/alien/humanoid/drone(spawn_here)
-		if("Larva")
-			new_xeno = new /mob/living/carbon/alien/larva(spawn_here)
-		else
-			return 0
-
-	new_xeno.possess_by_player(ckey)
-	log_and_message_admins(span_notice("has spawned [ckey] as a filthy xeno [alien_caste]."))
-	return 1
 
 /client/proc/get_ghosts(notify = 0, what = 2)
 	// what = 1, return ghosts ass list.

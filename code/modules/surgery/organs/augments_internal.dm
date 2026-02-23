@@ -325,8 +325,6 @@
 		return
 	if(ismachineperson(owner))
 		return
-	if(isvampire(owner))
-		return
 	if(owner.nutrition <= hunger_threshold)
 		synthesizing = TRUE
 		to_chat(owner, span_notice("You feel less hungry..."))

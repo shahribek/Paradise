@@ -273,17 +273,6 @@
 	start_showpiece_type = /obj/item/gun/energy/laser/captain
 	req_access = list(ACCESS_CAPTAIN)
 
-/obj/structure/displaycase/labcage
-	name = "lab cage"
-	desc = "A glass lab container for storing interesting creatures."
-	start_showpiece_type = /obj/item/clothing/mask/facehugger/lamarr
-	req_access = list(ACCESS_RD)
-
-/obj/structure/displaycase/labcage/dump()
-	var/obj/item/clothing/mask/facehugger/hugger = showpiece
-	. = ..()
-	hugger?.check_mob_inside()
-
 /obj/structure/displaycase/stechkin
 	name = "officer's display case"
 	desc = "A display case containing a humble stechkin pistol. Never forget your roots."

@@ -746,11 +746,6 @@
 	playsound(loc, 'sound/weapons/tap.ogg', 40, TRUE, -1)
 	user.visible_message(span_notice("[user] hits [name]. Nothing happens."), span_notice("You hit [name] with no visible effect."))
 
-/obj/mecha/attack_alien(mob/living/carbon/alien/user)
-	add_attack_logs(user, OCCUPANT_LOGGING, "Alien attacked mech [src]")
-	playsound(loc, 'sound/weapons/slash.ogg', 100, TRUE)
-	attack_generic(user, user.obj_damage, BRUTE, MELEE, 0, user.armour_penetration)
-
 /obj/mecha/attack_animal(mob/living/simple_animal/user)
 	if(!user.melee_damage_upper && !user.obj_damage)
 		user.custom_emote(EMOTE_VISIBLE, "[user.friendly] [src].")

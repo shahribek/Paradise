@@ -232,10 +232,6 @@
 		germ_level = max(0, germ_level - 1)
 		return TRUE
 
-	if(istype(loc, /mob/living/simple_animal/hostile/headslug) || istype(loc, /obj/item/organ/internal/body_egg/changeling_egg))
-		germ_level = 0 // weird stuff might happen, best to be safe
-		return TRUE
-
 	if(isturf(loc))
 		var/is_in_freezer = FALSE
 		if(world.time - last_freezer_update_time > freezer_update_period)

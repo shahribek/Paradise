@@ -61,8 +61,6 @@
 		/obj/item/stack/ore/bluespace_crystal = 200,
 		/obj/item/stack/sheet/mineral/bananium/fifty = 100,
 		/obj/item/stack/sheet/mineral/tranquillite/fifty = 100,
-		/obj/item/stack/sheet/mineral/abductor/fifty = 60,
-		/obj/item/stack/telecrystal/five = 30,
 
 		// Items
 		/obj/item/storage/box/beakers/bluespace = 40,
@@ -145,7 +143,6 @@
 		/obj/item/toy/eight_ball/conch,
 		/obj/item/toy/redbutton,
 		/obj/item/toy/nuke,
-		/obj/item/toy/codex_gigas,
 		/obj/item/stack/tile/fakespace/loaded,
 		/obj/item/stack/tile/arcade_carpet/loaded,
 
@@ -190,19 +187,6 @@
 
 		// Magic items
 		/obj/structure/closet/crate/necropolis/tendril = 10,
-		/obj/item/spellbook/oneuse/fireball,
-		/obj/item/spellbook/oneuse/smoke,
-		/obj/item/spellbook/oneuse/blind,
-		/obj/item/spellbook/oneuse/forcewall,
-		/obj/item/spellbook/oneuse/knock,
-		/obj/item/spellbook/oneuse/charge,
-		/obj/item/spellbook/oneuse/summonitem,
-		/obj/item/spellbook/oneuse/fake_gib,
-		/obj/item/spellbook/oneuse/sacredflame,
-		/obj/item/spellbook/oneuse/mime,
-		/obj/item/spellbook/oneuse/mime/fingergun,
-		/obj/item/spellbook/oneuse/mime/greaterwall,
-		/obj/item/spellbook/oneuse/mime/fingergun/fake,
 
 		// Cash
 		/obj/item/stack/spacecash/c1000000 = 1,

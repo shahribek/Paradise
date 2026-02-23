@@ -181,9 +181,6 @@
 	update_flags |= M.adjustToxLoss(0.5, FALSE)
 	if(holder.has_reagent("epinephrine"))
 		holder.remove_reagent("epinephrine", 2)
-	if(iscarbon(M))
-		var/mob/living/carbon/C = M
-		C.adjust_alien_plasma(10)
 	return ..() | update_flags
 
 /datum/reagent/plasma/reaction_mob(mob/living/M, method = REAGENT_TOUCH, volume)//Splashing people with plasma is stronger than fuel!
@@ -488,9 +485,6 @@
 /datum/reagent/plasma_dust/on_mob_life(mob/living/M)
 	var/update_flags = STATUS_UPDATE_NONE
 	update_flags |= M.adjustToxLoss(3, FALSE)
-	if(iscarbon(M))
-		var/mob/living/carbon/C = M
-		C.adjust_alien_plasma(20)
 	return ..() | update_flags
 
 /datum/reagent/plasma_dust/reaction_mob(mob/living/M, method=REAGENT_TOUCH, volume)//Splashing people with plasma dust is stronger than fuel!

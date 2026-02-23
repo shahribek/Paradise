@@ -697,8 +697,6 @@
 	for(var/obj/machinery/nuclearbomb/bomb in SSmachines.get_by_type(/obj/machinery/nuclearbomb))
 		if(is_station_level(bomb.z))
 			nuke_status = NUKE_CORE_MISSING
-			if(bomb.core)
-				nuke_status = NUKE_STATUS_INTACT
 	return nuke_status
 
 /datum/game_mode/proc/replace_jobbanned_player(mob/living/player, role_type)
@@ -873,18 +871,6 @@
 	var/datum/cinematic/cinema = apocalypse_cinema(god, FALSE)
 
 	if(!cinema)
-		var/obj/machinery/nuclearbomb/bomb
-		for(var/obj/machinery/nuclearbomb/bomb_to_find in GLOB.poi_list)
-			if(is_station_level(bomb_to_find.z) && bomb_to_find.core)
-				bomb = bomb_to_find
-				break
-
-		if(bomb)
-			bomb.safety = FALSE
-			bomb.explode()
-			qdel(god)
-			return
-
 		cinema = apocalypse_cinema(god, TRUE)
 
 	play_cinematic(cinema, world)

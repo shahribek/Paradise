@@ -249,8 +249,6 @@
 			var/splatter_dir = Angle
 			if(starting)
 				splatter_dir = !isnull(Angle) ? Angle : round(get_angle(starting, target_loca), 1)
-			if(isalien(L) || isfacehugger(L))
-				new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(target_loca, splatter_dir)
 			else
 				var/blood_color = BLOOD_COLOR_RED
 				if(ishuman(target))

@@ -197,9 +197,6 @@ Difficulty: Hard
 	if(!BUBBLEGUM_SMASH)
 		triple_charge()
 	else
-		if(prob(25) && enraged)
-			hit_up_narsi()
-			return
 		if(prob(50 + anger_modifier))
 			hallucination_charge()
 		else

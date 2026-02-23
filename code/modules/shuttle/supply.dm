@@ -27,9 +27,7 @@
 
 /obj/docking_port/mobile/supply/proc/forbidden_atoms_check(atom/A)
 	var/static/list/cargo_blacklist = list(
-		/obj/structure/blob,
 		/obj/structure/spider/spiderling,
-		/obj/item/disk/nuclear,
 		/obj/machinery/nuclearbomb,
 		/obj/item/beacon,
 		/obj/machinery/the_singularitygen,

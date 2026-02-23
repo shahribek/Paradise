@@ -557,62 +557,6 @@
 		PREPOSITIONAL = "фабрикаторе роботов",
 	)
 
-/obj/machinery/mecha_part_fabricator/syndicate
-	name = "Syndicate exosuit fabricator"
-	desc = "Промышленное оборудование, предназначенное для печати крупногабаритных компонентов экзоскелетов и роботизированных систем. \
-			Использует широкий спектр материалов в качестве сырья. Специализированная версия, используемая на объектах \"Синдиката\"."
-	req_access = list(ACCESS_SYNDICATE)
-	ui_theme = "nologo"
-
-/obj/machinery/mecha_part_fabricator/syndicate/get_ru_names()
-	return list(
-		NOMINATIVE = "фабрикатор экзоскелетов \"Синдиката\"",
-		GENITIVE = "фабрикатора экзоскелетов \"Синдиката\"",
-		DATIVE = "фабрикатору экзоскелетов \"Синдиката\"",
-		ACCUSATIVE = "фабрикатор экзоскелетов \"Синдиката\"",
-		INSTRUMENTAL = "фабрикатором экзоскелетов \"Синдиката\"",
-		PREPOSITIONAL = "фабрикаторе экзоскелетов \"Синдиката\"",
-	)
-
-/obj/machinery/mecha_part_fabricator/syndicate/Initialize(mapload)
-	. = ..()
-	// Components
-	component_parts = list()
-	component_parts += new /obj/item/circuitboard/mechfab/syndicate(null)
-	component_parts += new /obj/item/stock_parts/matter_bin(null)
-	component_parts += new /obj/item/stock_parts/matter_bin(null)
-	component_parts += new /obj/item/stock_parts/manipulator(null)
-	component_parts += new /obj/item/stock_parts/micro_laser(null)
-	component_parts += new /obj/item/stack/sheet/glass(null)
-	RefreshParts()
-	if(is_taipan(z))
-		icon_state = "syndie_fabricator"
-		icon_open = "syndie_fabricator_unscrewed"
-		icon_closed = "syndie_fabricator"
-
-	categories = list(
-		MECH_FAB_CATEGORY_CYBORG,
-		MECH_FAB_CATEGORY_CYBORG_REPAIR,
-		MECH_FAB_CATEGORY_CYBORG_EQUIPMENT,
-		MECH_FAB_CATEGORY_IPC,
-		MECH_FAB_CATEGORY_EXOSUIT_EQUIPMENT,
-		MECH_FAB_CATEGORY_EXOSUIT_PAINTKITS,
-		MECH_FAB_CATEGORY_RIPLEY,
-		MECH_FAB_CATEGORY_FIREFIGHTER,
-		MECH_FAB_CATEGORY_CLARKE,
-		MECH_FAB_CATEGORY_ODYSSEUS,
-		MECH_FAB_CATEGORY_GYGAX,
-		MECH_FAB_CATEGORY_DURAND,
-		MECH_FAB_CATEGORY_HONKER,
-		MECH_FAB_CATEGORY_RETICENCE,
-		MECH_FAB_CATEGORY_PHAZON,
-		PROTOLATHE_CATEGORY_MEDICAL,
-		MECH_FAB_CATEGORY_MISC,
-		MECH_FAB_CATEGORY_ROVER,
-		MECH_FAB_CATEGORY_DARK_GYGAX,
-		MECH_FAB_CATEGORY_SYNDICATE,
-	)
-
 #undef EXOFAB_BASE_CAPACITY
 #undef EXOFAB_CAPACITY_PER_RATING
 #undef EXOFAB_EFFICIENCY_PER_RATING

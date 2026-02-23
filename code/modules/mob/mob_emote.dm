@@ -137,7 +137,7 @@
 	hands_use_check = TRUE
 	emote_type = EMOTE_VISIBLE|EMOTE_FORCE_NO_RUNECHAT  // don't need an emote to see that
 	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer)  // okay but what if we allowed ghosts to flip as well
-	mob_type_blacklist_typecache = list(/mob/living/carbon/brain, /mob/living/captive_brain, /mob/camera, /mob/living/silicon/ai)
+	mob_type_blacklist_typecache = list(/mob/living/carbon/brain, /mob/camera, /mob/living/silicon/ai)
 	mob_type_ignore_stat_typecache = list(/mob/dead/observer)
 
 /datum/emote/flip/run_emote(mob/living/carbon/human/user, params, type_override, intentional)
