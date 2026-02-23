@@ -531,11 +531,7 @@
 	return message
 
 /mob/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
-	spawn(30)
-		for(var/C in GLOB.employmentCabinets)
-			var/obj/structure/filingcabinet/employment/employmentCabinet = C
-			if(employmentCabinet.populated)
-				employmentCabinet.addFile(employee)
+	return
 
 /mob/new_player/proc/AnnounceCyborg(mob/living/character, rank, join_message)
 	if(SSticker.current_state == GAME_STATE_PLAYING)

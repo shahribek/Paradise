@@ -48,7 +48,6 @@
 /obj/singularity/god/narsie/large/Destroy()
 	to_chat(world, span_fontsize3(span_red("<b> [uppertext(name)] HAS FALLEN</b>")))
 	SEND_SOUND(world, sound('sound/hallucinations/wail.ogg'))
-	var/datum/game_mode/gamemode = SSticker.mode
 	return ..()
 
 /obj/singularity/god/narsie/process()

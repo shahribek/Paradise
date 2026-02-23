@@ -20,7 +20,7 @@
 		BODY_ZONE_CHEST,
 		BODY_ZONE_HEAD,
 	)
-	restricted_speciestypes = list(/datum/species/kidan, /datum/species/wryn, /datum/species/plasmaman)
+	restricted_speciestypes = list(/datum/species/kidan, /datum/species/plasmaman)
 
 /datum/surgery/cavity_implant/soft
 	desc = "Имплантация объекта в полость, не защищённую костями."
@@ -56,7 +56,7 @@
 		/datum/surgery_step/finish_bone,
 		/datum/surgery_step/generic/cauterize,
 	)
-	target_speciestypes = list(/datum/species/kidan, /datum/species/wryn)
+	target_speciestypes = list(/datum/species/kidan,)
 	restricted_speciestypes = null
 	possible_locs = list(
 		BODY_ZONE_CHEST,

@@ -187,9 +187,6 @@
 /mob/living/carbon/human/golem_tranquillite/Initialize(mapload)
 	. = ..(mapload, /datum/species/golem/tranquillite)
 
-/mob/living/carbon/human/wryn/Initialize(mapload)
-	. = ..(mapload, /datum/species/wryn)
-
 /mob/living/carbon/human/nucleation/Initialize(mapload)
 	. = ..(mapload, /datum/species/nucleation)
 

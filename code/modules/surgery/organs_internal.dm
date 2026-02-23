@@ -24,7 +24,7 @@
 		BODY_ZONE_CHEST,
 		BODY_ZONE_HEAD,
 	)
-	restricted_speciestypes = list(/datum/species/kidan, /datum/species/wryn, /datum/species/plasmaman)
+	restricted_speciestypes = list(/datum/species/kidan, /datum/species/plasmaman)
 
 /datum/surgery/organ_manipulation/soft
 	possible_locs = list(BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_EYES, BODY_ZONE_PRECISE_MOUTH)
@@ -116,7 +116,7 @@
 		BODY_ZONE_HEAD,
 		BODY_ZONE_PRECISE_GROIN,
 	)
-	target_speciestypes = list(/datum/species/kidan, /datum/species/wryn)
+	target_speciestypes = list(/datum/species/kidan)
 	restricted_speciestypes = null
 
 /datum/surgery/organ_manipulation/insect/soft

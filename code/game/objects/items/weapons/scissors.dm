@@ -32,10 +32,7 @@
 	var/f_new_style = tgui_input_list(user, "Select a facial hair style", "Grooming", target.generate_valid_facial_hairstyles())
 	//handle normal hair
 	var/h_new_style
-	if(iswryn(target))
-		to_chat(user, span_notice("You cannot do anything with that hair."))
-	else
-		h_new_style = tgui_input_list(user, "Select a hair style", "Grooming", target.generate_valid_hairstyles())
+	h_new_style = tgui_input_list(user, "Select a hair style", "Grooming", target.generate_valid_hairstyles())
 	if((isnull(f_new_style) && isnull(h_new_style)) || QDELETED(head) || !user.Adjacent(target))
 		return .
 

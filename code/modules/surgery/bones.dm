@@ -45,7 +45,7 @@
 		BODY_ZONE_CHEST,
 		BODY_ZONE_PRECISE_GROIN,
 	)
-	restricted_speciestypes = list(/datum/species/plasmaman, /datum/species/wryn, /datum/species/kidan)
+	restricted_speciestypes = list(/datum/species/plasmaman, /datum/species/kidan)
 
 /datum/surgery/bone_repair/plasmaman
 	name = "Восстановление повреждённых костей (Плазмолюд)"
@@ -92,7 +92,7 @@
 		BODY_ZONE_CHEST,
 		BODY_ZONE_PRECISE_GROIN,
 	)
-	target_speciestypes = list(/datum/species/wryn, /datum/species/kidan)
+	target_speciestypes = list(/datum/species/kidan)
 	restricted_speciestypes = null
 
 /datum/surgery/bone_repair/skull

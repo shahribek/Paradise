@@ -58,7 +58,7 @@
 		BODY_ZONE_HEAD,
 		BODY_ZONE_PRECISE_GROIN,
 	)
-	restricted_speciestypes = list(/datum/species/wryn, /datum/species/kidan, /datum/species/plasmaman)
+	restricted_speciestypes = list(/datum/species/kidan, /datum/species/plasmaman)
 
 /datum/surgery/bleeding/plasmaman
 	name = "Восстановление повреждённых сосудов (Плазмолюд)"
@@ -107,7 +107,7 @@
 		BODY_ZONE_HEAD,
 		BODY_ZONE_PRECISE_GROIN,
 	)
-	target_speciestypes = list(/datum/species/wryn, /datum/species/kidan)
+	target_speciestypes = list(/datum/species/kidan)
 	restricted_speciestypes = null
 
 /datum/surgery/debridement

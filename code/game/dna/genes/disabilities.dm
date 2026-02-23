@@ -316,7 +316,7 @@
 	block = GLOB.aphasiablock
 
 /datum/dna/gene/disability/aphasia/can_activate(mob/living/carbon/human/H, flags)
-	if(isplasmaman(H) || iswryn(H))
+	if(isplasmaman(H))
 		to_chat(H, span_warning("Вы чувствуете, что что-то не так, но не можете понять, что именно."))
 		return FALSE
 

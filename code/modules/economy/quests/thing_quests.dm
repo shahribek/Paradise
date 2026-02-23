@@ -165,7 +165,6 @@
 	)
 	very_hard_items = list(
 		/obj/item/organ/internal/lantern = 500,
-		/obj/item/organ/internal/wryn/glands = 700,
 		/obj/item/organ/internal/heart/plasmaman = 750,
 		/obj/item/organ/internal/eyes/unathi/ash_walker_shaman = 500,
 	)

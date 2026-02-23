@@ -131,9 +131,6 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	if(iswryn(the_target))
-		var/mob/living/H = the_target
-		return H.bee_friendly()
 	if(!bee_syndicate && isliving(the_target))
 		var/mob/living/H = the_target
 		return !H.bee_friendly()

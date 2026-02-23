@@ -88,8 +88,6 @@
 
 	hulk_powers = list(
 		/obj/effect/proc_holder/spell/hulk_mill,
-		/obj/effect/proc_holder/spell/fireball/hulk_spit,
-		/obj/effect/proc_holder/spell/fireball/hulk_spit/hulk_lazor,
 	)
 
 /mob/living/simple_animal/hulk/Life()

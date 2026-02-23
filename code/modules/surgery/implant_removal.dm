@@ -13,7 +13,7 @@
 		/datum/surgery_step/generic/cauterize,
 	)
 	possible_locs = list(BODY_ZONE_CHEST)
-	restricted_speciestypes = list(/datum/species/kidan, /datum/species/wryn, /datum/species/plasmaman)
+	restricted_speciestypes = list(/datum/species/kidan, /datum/species/plasmaman)
 
 /datum/surgery/implant_removal/plasmamans
 	name = "Извлечение импланта (Плазмолюд)"
@@ -43,7 +43,7 @@
 		/datum/surgery_step/finish_bone,
 		/datum/surgery_step/generic/cauterize,
 	)
-	target_speciestypes = list(/datum/species/kidan, /datum/species/wryn)
+	target_speciestypes = list(/datum/species/kidan,)
 	restricted_speciestypes = null
 
 /datum/surgery/implant_removal/synth
