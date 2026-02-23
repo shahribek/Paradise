@@ -24,12 +24,9 @@
 
 /datum/reagent/consumable/ethanol/reaction_obj(obj/O, volume)
 	if(istype(O,/obj/item/paper))
-		if(istype(O,/obj/item/paper/contract/infernal))
-			O.visible_message(span_warning("Смесь воспламеняется при контакте с [O.declent_ru(INSTRUMENTAL)]."))
-		else
-			var/obj/item/paper/paperaffected = O
-			paperaffected.clearpaper()
-			paperaffected.visible_message(span_notice("Раствор плавит чернила на бумаге."))
+		var/obj/item/paper/paperaffected = O
+		paperaffected.clearpaper()
+		paperaffected.visible_message(span_notice("Раствор плавит чернила на бумаге."))
 	if(istype(O,/obj/item/book))
 		if(volume >= 5)
 			var/obj/item/book/affectedbook = O

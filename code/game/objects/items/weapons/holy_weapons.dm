@@ -312,45 +312,6 @@
 	attack_verb = list("рубанул", "порезал")
 	var/possessed = FALSE
 
-/obj/item/nullrod/scythe/talking/attack_self(mob/living/user)
-	if(possessed)
-		return
-
-	to_chat(user, "You attempt to wake the spirit of the blade...")
-
-	possessed = TRUE
-
-	var/list/mob/dead/observer/candidates = SSghost_spawns.poll_candidates("Do you want to play as the spirit of [user.real_name]'s blade?", ROLE_PAI, FALSE, 10 SECONDS, source = src)
-	var/mob/dead/observer/theghost = null
-
-	if(QDELETED(src))
-		return
-
-	if(length(candidates))
-		theghost = pick(candidates)
-		var/mob/living/simple_animal/shade/sword/S = new(src)
-		S.real_name = name
-		S.name = name
-		S.possess_by_player(theghost.ckey)
-		var/input = tgui_input_text(S, "What are you named?", "Change Name", max_length = MAX_NAME_LEN)
-
-		if(src && input)
-			name = input
-			S.real_name = input
-			S.name = input
-		log_game("[S.ckey] has become spirit of [user.real_name]'s nullrod blade.")
-	else
-		log_game("No one has decided to possess [user.real_name]'s nullrod blade.")
-		to_chat(user, "The blade is dormant. Maybe you can try again later.")
-		possessed = FALSE
-
-/obj/item/nullrod/scythe/talking/Destroy()
-	for(var/mob/living/simple_animal/shade/sword/S in contents)
-		to_chat(S, "You were destroyed!")
-		S.ghostize()
-		qdel(S)
-	return ..()
-
 /obj/item/nullrod/hammmer
 	name = "relic war hammer"
 	icon_state = "hammeron"

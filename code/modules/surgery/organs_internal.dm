@@ -591,7 +591,6 @@
 
 /datum/surgery_step/internal/manipulate_organs/extract/end_step(mob/living/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/mob/living/simple_animal/borer/B = target.has_brain_worms()
 	if(!extracting || extracting.owner != target)
 		user.visible_message(
 			span_notice("[user] доста[PLUR_YOT_YUT(user)] [tool.declent_ru(ACCUSATIVE)][affected ? " из [affected.declent_ru(GENITIVE)]" : ""] [target], ничего не извлекая."),

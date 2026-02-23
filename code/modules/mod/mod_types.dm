@@ -640,7 +640,6 @@ INITIALIZE_IMMEDIATE(/obj/item/mod/control/pre_equipped/empty)
 	theme = /datum/mod_theme/contractor
 	applied_cell = /obj/item/stock_parts/cell/hyper
 	applied_modules = list(
-		/obj/item/mod/module/baton_holster,
 		/obj/item/mod/module/dna_lock/emp_shield,
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/magnetic_harness,
@@ -650,13 +649,11 @@ INITIALIZE_IMMEDIATE(/obj/item/mod/control/pre_equipped/empty)
 	default_pins = list(
 		/obj/item/mod/module/grappling_hook/upgraded,
 		/obj/item/mod/module/active_chameleon/elite,
-		/obj/item/mod/module/baton_holster,
 	)
 
 /obj/item/mod/control/pre_equipped/contractor/upgraded //for future midround contractor
 	applied_cell = /obj/item/stock_parts/cell/bluespace
 	applied_modules = list(
-		/obj/item/mod/module/baton_holster,
 		/obj/item/mod/module/dna_lock/emp_shield,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/storage/syndicate,

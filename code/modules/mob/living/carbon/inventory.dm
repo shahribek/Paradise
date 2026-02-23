@@ -171,9 +171,6 @@
 /mob/living/carbon/is_muzzled()
 	return istype(wear_mask, /obj/item/clothing/mask/muzzle)
 
-/mob/living/carbon/is_facehugged()
-	return istype(wear_mask, /obj/item/clothing/mask/facehugger)
-
 /mob/living/carbon/resist_muzzle()
 	if(!istype(wear_mask, /obj/item/clothing/mask/muzzle))
 		return

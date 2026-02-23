@@ -1380,19 +1380,6 @@
 		return .
 	affected_mob.physiology.siemens_coeff *= 0.5
 
-/datum/reagent/gluttonytoxin
-	name = "Благословение Чревоугодия"
-	id = "gluttonytoxin"
-	description = "Продвинутый токсин, вызывающий разложение, производимый чем-то ужасным."
-	reagent_state = LIQUID
-	color = "#5EFF3B" //RGB: 94, 255, 59
-	can_synth = FALSE
-	taste_description = "разложения"
-
-/datum/reagent/gluttonytoxin/reaction_mob(mob/living/L, method=REAGENT_TOUCH, reac_volume)
-	var/datum/disease/virus/transformation/morph/D = new
-	D.Contract(L)
-
 /datum/reagent/bungotoxin
 	name = "Бунготоксин"
 	id = "bungotoxin"

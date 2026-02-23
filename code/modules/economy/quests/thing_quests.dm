@@ -168,14 +168,6 @@
 		/obj/item/organ/internal/wryn/glands = 700,
 		/obj/item/organ/internal/heart/plasmaman = 750,
 		/obj/item/organ/internal/eyes/unathi/ash_walker_shaman = 500,
-		/obj/item/organ/internal/xenos/plasmavessel/hunter = 550,
-		/obj/item/organ/internal/xenos/plasmavessel/drone = 550,
-		/obj/item/organ/internal/xenos/neurotoxin/sentinel = 650,
-		/obj/item/organ/internal/xenos/hivenode = 700,
-		/obj/item/organ/internal/xenos/acidgland/sentinel = 750,
-		/obj/item/organ/internal/xenos/acidgland/praetorian = 750,
-		/obj/item/organ/internal/xenos/resinspinner = 750,
-		/obj/item/organ/internal/xenos/neurotoxin = 850,
 	)
 	difficultly_flags = (QUEST_DIFFICULTY_EASY|QUEST_DIFFICULTY_NORMAL|QUEST_DIFFICULTY_HARD|QUEST_DIFFICULTY_VERY_HARD)
 

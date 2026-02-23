@@ -126,10 +126,6 @@
 		var/mob/living/carbon/human/human = user
 		. = safepick(human.dna.species.death_sounds)
 
-	else if(isalien(user))
-		var/mob/living/carbon/alien/alien = user
-		. = alien.death_sound
-
 	else if(issilicon(user))
 		var/mob/living/silicon/silicon = user
 		. = silicon.death_sound

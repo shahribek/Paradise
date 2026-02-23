@@ -218,9 +218,6 @@ GLOBAL_LIST_EMPTY(employmentContracts)
 		if(G.fields["reference"])
 			addFile(G.fields["reference"])
 
-/obj/structure/filingcabinet/employment/proc/addFile(mob/living/carbon/human/employee)
-	new /obj/item/paper/contract/employment(src, employee)
-
 /obj/structure/filingcabinet/employment/attack_hand(mob/user)
 	if(cooldown)
 		to_chat(user, span_warning("[src] is jammed, give it a few seconds."))

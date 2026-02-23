@@ -35,11 +35,6 @@
 	SEND_SOUND(world, sound('sound/hallucinations/wail.ogg'))
 	return ..()
 
-/obj/singularity/god/ratvar/attack_ghost(mob/dead/observer/user)
-	var/mob/living/simple_animal/hostile/clockwork/marauder/cog = new (get_turf(src))
-	cog.possess_by_player(user.key)
-	SSticker.mode.add_clocker(cog.mind)
-
 /obj/singularity/god/ratvar/process()
 	eat()
 	move()

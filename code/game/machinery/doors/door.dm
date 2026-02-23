@@ -192,9 +192,6 @@
 
 /obj/machinery/door/proc/pry_open_check(mob/user)
 	. = TRUE
-	if(isterrorspider(user))
-		return .
-
 	if(!HAS_TRAIT(user, TRAIT_FORCE_DOORS))
 		return FALSE
 

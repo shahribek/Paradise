@@ -568,110 +568,6 @@
 		"udi","litchki","casa","linka","toly","anatov","vich","vech","vuch","toi","ka","vod"
 	)
 
-/datum/language/wryn
-	name = LANGUAGE_WRYN
-	desc = "У Вринов есть способность общаться через псионическую связь улья."
-	speech_verbs = list("щебеч%(ет,ут)%")
-	ask_verbs = list("вопросительно щебеч%(ет,ут)%")
-	exclaim_verbs = list("громко жужж%(ит,ат)%")
-	colour = "alien"
-	key = "y"
-	flags = RESTRICTED | HIVEMIND | NOBABEL
-	follow = TRUE
-
-/datum/language/wryn/check_special_condition(mob/other)
-	var/mob/living/carbon/M = other
-	if(!istype(M))
-		return TRUE
-	if(locate(/obj/item/organ/internal/wryn/hivenode) in M.internal_organs)
-		return TRUE
-
-	return FALSE
-
-/datum/language/wryn/get_random_name()
-	var/new_name = "[pick(list("Ба", "Бо", "Бу", "Бы", "Ва", "Во", "Вы", "Га", "Го", "Гу", "Да", "До", "Ду", "Ел", "Жа", "Жо", "Жу", "За", "Зо", "Зу", "Ив", "Из", "Ин", "Йо", "Ла", "Ле", "Ли", "Ма", "Му", "Мы", "Тру"))]"
-	new_name += "[pick(list("ба", "бо", "бу", "бор", "ва", "во", "век", "га", "гор", "ду", "дар", "ел", "жу", "жар", "зо", "зуб", "ив", "изг", "инт", "йод", "ла", "лес", "лим", "ма", "мир", "тыр", "нос", "обл", "орг", "пот", "тень"))]"
-	return new_name
-
-/datum/language/xenocommon
-	name = LANGUAGE_XENOS
-	colour = "alien"
-	desc = "Основной язык Ксеноморфов."
-	speech_verbs = list("шип%(ит,ят)%")
-	ask_verbs = list("вопросительно шип%(ит,ят)%")
-	exclaim_verbs = list("рыч%(ит,ят)%")
-	key = "6"
-	flags = RESTRICTED
-	syllables = list("sss","sSs","SSS")
-
-/datum/language/xenos
-	name = LANGUAGE_HIVE_XENOS
-	desc = "Ксеноморфы обладают способностью общаться через псионический разум улья."
-	speech_verbs = list("шип%(ит,ят)%")
-	ask_verbs = list("вопросительно шип%(ит,ят)%")
-	exclaim_verbs = list("рыч%(ит,ят)%")
-	colour = "alien"
-	key = "a"
-	flags = RESTRICTED | HIVEMIND | NOBABEL
-	follow = TRUE
-
-/datum/language/terrorspider
-	name = LANGUAGE_HIVE_TERRORSPIDER
-	desc = "Пауки Ужаса обладают ограниченной способностью общаться через псионический разум улья, подобно Ксеноморфам."
-	speech_verbs = list("щебеч%(ет,ут)%")
-	ask_verbs = list("вопросительно щебеч%(ет,ут)%")
-	exclaim_verbs = list("громко жужж%(ит,ат)%")
-	colour = "terrorspider"
-	key = "as"
-	flags = RESTRICTED | HIVEMIND | NOBABEL
-	follow = TRUE
-
-/datum/language/shadowling
-	name = LANGUAGE_HIVE_SHADOWLING
-	desc = "Тенеморфы и их рабы способны общаться через псионический коллективный разум."
-	speech_verbs = list("сообща%(ет,ют)%")
-	colour = "shadowling"
-	key = "8"
-	flags = RESTRICTED | HIVEMIND | NOBABEL
-	follow = TRUE
-
-/datum/language/shadowling/broadcast(mob/living/speaker, message, speaker_mask)
-	if(speaker.mind && speaker.mind.special_role == SPECIAL_ROLE_SHADOWLING)
-		..(speaker,"[span_bold(span_fontsize3(message))]", span_shadowling(span_fontsize3("([speaker.mind.special_role]) [speaker]")))
-	else if(speaker.mind && speaker.mind.special_role)
-		..(speaker, message, "([speaker.mind.special_role]) [speaker]")
-	else
-		..(speaker, message)
-
-/datum/language/abductor
-	name = LANGUAGE_HIVE_ABDUCTOR
-	desc = "Абдукторы не способны к речи, но обладают псионической связью для связи с себе подобными."
-	speech_verbs = list("бормоч%(ет,ут)%")
-	ask_verbs = list("бормоч%(ет,ут)%")
-	exclaim_verbs = list("бормоч%(ет,ут)%")
-	colour = "abductor"
-	key = "aa"
-	flags = RESTRICTED | HIVEMIND | NOBABEL
-	follow = TRUE
-
-/datum/language/abductor/broadcast(mob/living/speaker, message, speaker_mask)
-	..(speaker,message,speaker.real_name)
-
-/datum/language/abductor/check_special_condition(mob/living/carbon/human/other, mob/living/carbon/human/speaker)
-	if(isabductor(other) && isabductor(speaker))
-		var/datum/species/abductor/A = speaker.dna.species
-		var/datum/species/abductor/A2 = other.dna.species
-		if(A.team == A2.team)
-			return TRUE
-	return FALSE
-
-/datum/language/abductor/golem
-	name = LANGUAGE_HIVE_GOLEM
-	desc = "Големы могут общаться с себе подобными при помощи псионической связи."
-
-/datum/language/abductor/golem/check_special_condition(mob/living/carbon/human/other, mob/living/carbon/human/speaker)
-	return TRUE
-
 /datum/language/binary
 	name = LANGUAGE_BINARY
 	desc = "Большинство космических станций поддерживают свободные коммуникационные протоколы и маршрутизационные узлы для использования Синтетиками."
@@ -705,7 +601,7 @@
 	for(var/mob/living/S in GLOB.alive_mob_list)
 		if(!S.binarycheck())
 			continue
-		else if(drone_only && !(isdrone(S) || iscogscarab(S)))
+		else if(drone_only && !(isdrone(S)))
 			continue
 		else if(isAI(S))
 			message_start = list("<i><span class='game say'>[name], <a href='byond://?src=[S.UID()];track=[speaker.UID()]'>[span_name("[speaker.name]")]</a>")

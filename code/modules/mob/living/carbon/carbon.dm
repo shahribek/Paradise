@@ -735,12 +735,6 @@
 /mob/living/carbon/get_status_tab_items()
 	var/list/status_tab_data = ..()
 	. = status_tab_data
-	var/obj/item/organ/internal/xenos/plasmavessel/vessel = get_int_organ(/obj/item/organ/internal/xenos/plasmavessel)
-	if(vessel)
-		status_tab_data[++status_tab_data.len] = list("Запас плазмы:", "[vessel.stored_plasma]/[vessel.max_plasma]")
-	var/obj/item/organ/internal/wryn/glands/glands = get_int_organ(/obj/item/organ/internal/wryn/glands)
-	if(glands)
-		status_tab_data[++status_tab_data.len] = list("Запас воска: [glands.wax]")
 
 /mob/living/carbon/slip(weaken, obj/slipped_on, lube_flags, tilesSlipped)
 	if(movement_type & MOVETYPES_NOT_TOUCHING_GROUND)

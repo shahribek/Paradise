@@ -90,7 +90,6 @@
 		brainmob.set_invis_see(initial(brainmob.see_invisible))
 		held_brain = brain
 		ADD_TRAIT(brainmob, TRAIT_NO_SPELLS, UNIQUE_TRAIT_SOURCE(src)) // Dont use spells, little brain.
-		alien = istype(brain, /obj/item/organ/internal/brain/xeno)
 		update_appearance(UPDATE_ICON_STATE|UPDATE_NAME)
 		if(radio_action)
 			radio_action.UpdateButtonIcon()

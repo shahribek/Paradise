@@ -2369,43 +2369,6 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	)
 	required_tech = list(RESEARCH_TREE_BIOTECH = 6, RESEARCH_TREE_PROGRAMMING = 5)
 
-/datum/supply_packs/misc/station_goal/shield_sat
-	name = "Метеоритные щиты"
-	cost = 100
-	contains = list(
-		/obj/machinery/satellite/meteor_shield,
-		/obj/machinery/satellite/meteor_shield,
-		/obj/machinery/satellite/meteor_shield,
-		/obj/machinery/satellite/meteor_shield,
-	)
-	containername = "ящик метеоритных щитов"
-	container_ru_names = list(
-		NOMINATIVE = "ящик метеоритных щитов",
-		GENITIVE = "ящика метеоритных щитов",
-		DATIVE = "ящику метеоритных щитов",
-		ACCUSATIVE = "ящик метеоритных щитов",
-		INSTRUMENTAL = "ящиком метеоритных щитов",
-		PREPOSITIONAL = "ящике метеоритных щитов",
-	)
-	required_tech = list(RESEARCH_TREE_COMBAT = 6, RESEARCH_TREE_PROGRAMMING = 3)
-
-/datum/supply_packs/misc/station_goal/shield_sat_control
-	name = "Плата консоли управления метеоритными щитами"
-	cost = 60
-	contains = list(
-		/obj/item/circuitboard/computer/sat_control,
-	)
-	containername = "ящик с консолью управления метеоритными щитами"
-	container_ru_names = list(
-		NOMINATIVE = "ящик с консолью управления метеоритными щитами",
-		GENITIVE = "ящика с консолью управления метеоритными щитами",
-		DATIVE = "ящику с консолью управления метеоритными щитами",
-		ACCUSATIVE = "ящик с консолью управления метеоритными щитами",
-		INSTRUMENTAL = "ящиком с консолью управления метеоритными щитами",
-		PREPOSITIONAL = "ящике с консолью управления метеоритными щитами",
-	)
-	required_tech = list(RESEARCH_TREE_POWERSTORAGE = 4, RESEARCH_TREE_PROGRAMMING = 5, RESEARCH_TREE_MAGNETS = 4)
-
 /datum/supply_packs/misc/station_goal/bfl
 	name = "Детали ОБЛ"
 	cost = 50

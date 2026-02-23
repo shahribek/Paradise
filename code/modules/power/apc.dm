@@ -260,8 +260,6 @@
 	area.power_equip = 0
 	area.power_environ = 0
 	area.power_change()
-	if(occupier)
-		malfvacate(TRUE)
 	QDEL_NULL(wires)
 	QDEL_NULL(cell)
 	if(terminal)
@@ -1116,7 +1114,7 @@
 /obj/machinery/power/apc/proc/is_authenticated(mob/user)
 	if(user.can_admin_interact())
 		return TRUE
-	if(isAI(user) || (isrobot(user) || user.has_unlimited_silicon_privilege) && !iscogscarab(user))
+	if(isAI(user) || (isrobot(user) || user.has_unlimited_silicon_privilege))
 		return TRUE
 	else
 		return !locked
@@ -1173,15 +1171,6 @@
 		if("overload")
 			if(usr.has_unlimited_silicon_privilege)
 				INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/power/apc, overload_lighting))
-		if("hack")
-			if(get_malf_status(usr))
-				malfhack(usr)
-		if("occupy")
-			if(get_malf_status(usr))
-				malfoccupy(usr)
-		if("deoccupy")
-			if(get_malf_status(usr))
-				malfvacate()
 		if("emergency_lighting")
 			emergency_lights = !emergency_lights
 			for(var/obj/machinery/light/light as anything in area.lights_cache)
@@ -1471,8 +1460,6 @@
 /obj/machinery/power/apc/proc/set_broken()
 	stat |= BROKEN
 	operating = FALSE
-	if(occupier)
-		malfvacate(forced = TRUE)
 	update_icon()
 	update()
 

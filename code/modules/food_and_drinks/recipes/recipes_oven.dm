@@ -176,14 +176,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/meatpie/slime
 
-/datum/recipe/oven/meatpie_wryn
-	items = list(
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
-		/obj/item/reagent_containers/food/snacks/meat/humanoid/wryn,
-		/obj/item/organ/internal/wryn/glands,
-	)
-	result = /obj/item/reagent_containers/food/snacks/meatpie/wryn
-
 /datum/recipe/oven/meatpie_kidan
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,

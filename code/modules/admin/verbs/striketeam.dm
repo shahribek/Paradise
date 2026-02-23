@@ -175,10 +175,8 @@ GLOBAL_VAR_INIT(sent_strike_team, FALSE)
 	new_commando.mind.assigned_role = SPECIAL_ROLE_DEATHSQUAD
 	new_commando.mind.special_role = SPECIAL_ROLE_DEATHSQUAD
 	SSticker.mode.traitors |= new_commando.mind//Adds them to current traitor list. Which is really the extra antagonist list.
-	if(is_leader)
-		new_commando.equipOutfit(/datum/outfit/admin/death_commando/officer)
-	else
-		new_commando.equipOutfit(/datum/outfit/admin/death_commando)
+
+	new_commando.equipOutfit(/datum/outfit/admin/death_commando)
 	return new_commando
 
 #undef COMMANDOS_POSSIBLE

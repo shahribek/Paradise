@@ -279,31 +279,6 @@
 	I.alpha = 0
 	animate(I, pixel_z = 32, alpha = 255, time = 5, easing = ELASTIC_EASING)
 
-/obj/effect/landmark/awaymissions/spacebattle/mob_spawn/melee
-	name = "melee"
-	icon_state = "melee"
-	syndi_mob = /mob/living/simple_animal/hostile/syndicate/melee/autogib/spacebattle
-
-/obj/effect/landmark/awaymissions/spacebattle/mob_spawn/melee_space
-	name = "melee_space"
-	icon_state = "space_melee"
-	syndi_mob = /mob/living/simple_animal/hostile/syndicate/melee/space/autogib/spacebattle
-
-/obj/effect/landmark/awaymissions/spacebattle/mob_spawn/ranged
-	name = "ranged"
-	icon_state = "range"
-	syndi_mob = /mob/living/simple_animal/hostile/syndicate/ranged/autogib/spacebattle
-
-/obj/effect/landmark/awaymissions/spacebattle/mob_spawn/ranged_space
-	name = "ranged_space"
-	icon_state = "space_range"
-	syndi_mob = /mob/living/simple_animal/hostile/syndicate/ranged/space/autogib/spacebattle
-
-/obj/effect/landmark/awaymissions/spacebattle/mob_spawn/drone
-	name = "drone"
-	icon_state = "drone"
-	syndi_mob = /mob/living/simple_animal/hostile/malf_drone/spacebattle
-
 /mob/living/simple_animal/hostile/malf_drone/spacebattle
 	icon = 'icons/mob/custom_synthetic/custom-synthetic.dmi'
 	icon_state = "wisewill-Combat-roll"

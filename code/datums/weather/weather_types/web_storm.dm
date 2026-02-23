@@ -46,7 +46,6 @@
 	var/list/turfs = list()
 	for(var/i = 1; i < turfs_per_tick; i++)
 		var/turf = pick(affected_turfs_list)
-		new/obj/structure/spider/terrorweb(turf)
 		turfs += turf
 	affected_turfs_list -= turfs
 

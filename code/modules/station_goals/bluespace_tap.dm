@@ -124,7 +124,6 @@
 	name = "organic objects"
 	loot = list(
 		/obj/item/seeds/random/labelled = 50,
-		/obj/item/guardiancreator/biological = 5,
 		/obj/item/organ/internal/vocal_cords/adamantine = 15,
 		/obj/item/storage/pill_bottle/random_meds/labelled = 25,
 		/obj/item/reagent_containers/glass/bottle/reagent/omnizine = 15,

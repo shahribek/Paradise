@@ -368,7 +368,6 @@
 	)
 	prize_list["Miscellaneous"] = list(
 		EQUIPMENT("Absinthe", /obj/item/reagent_containers/food/drinks/bottle/absinthe/premium, 500),
-		EQUIPMENT("Alien Toy", /obj/item/clothing/mask/facehugger/toy, 300),
 		EQUIPMENT("Richard & Co cigarettes", /obj/item/storage/fancy/cigarettes/cigpack_richard, 400),
 		EQUIPMENT("Cigar", /obj/item/clothing/mask/cigarette/cigar/havana, 300),
 		EQUIPMENT("GAR Meson Scanners", /obj/item/clothing/glasses/meson/gar, 800),

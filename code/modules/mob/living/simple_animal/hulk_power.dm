@@ -434,16 +434,3 @@
 			if(prob(3))
 				M.Knockdown(4 SECONDS)
 		sleep(1)
-
-//Laser
-
-/obj/effect/proc_holder/spell/fireball/hulk_spit/hulk_lazor
-	name = "LazorZ"
-	desc = "Вы стреляете из глаз слабеньким лазером. Может помочь, если хитрые СБшники прячутся за стеклами."
-	action_icon_state = "lazer_hulk"
-	selection_activated_message	= span_notice("You strained your eyes preparing the LAZOR! <b>Left-click to fire at a target!</b>")
-	selection_deactivated_message = span_notice("You relax your eyes...for now.")
-	fireball_type = /obj/projectile/beam
-	base_cooldown = 7 SECONDS
-	sound = 'sound/weapons/laser.ogg'
-

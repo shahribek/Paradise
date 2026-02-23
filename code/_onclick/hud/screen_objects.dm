@@ -542,9 +542,6 @@
 	if(!user || !istype(I) || user.incapacitated() || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED) || ismecha(user.loc) || is_ventcrawling(user))
 		return FALSE
 
-	if(isalien(user) && !I.allowed_for_alien())	// We need to do this here
-		return FALSE
-
 	if(!in_range(get_turf(I), get_turf(user)))
 		return FALSE
 

@@ -47,7 +47,7 @@
 	. = ..()
 	if(checkpass(mover))
 		return TRUE
-	if(istype(mover, /mob/living/simple_animal/hostile/poison/giant_spider) || isterrorspider(mover))
+	if(istype(mover, /mob/living/simple_animal/hostile/poison/giant_spider) )
 		return TRUE
 	if(isliving(mover) && prob(50))
 		to_chat(mover, span_danger("You get stuck in [src] for a moment."))

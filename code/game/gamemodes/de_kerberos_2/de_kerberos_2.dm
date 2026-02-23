@@ -73,7 +73,6 @@
 
 	for(var/i in 1 to AIRDROP_GUARD_COUND + 1)
 		var/obj/structure/closet/supplypod/pod = new /obj/structure/closet/supplypod/bluespacepod/airdrop_guard()
-		new /mob/living/simple_animal/hostile/syndicate/ranged/space/autogib/spacebattle(pod)
 		new /obj/effect/pod_landingzone(pick(GLOB.airdrops_points), pod)
 
 	var/obj/structure/closet/supplypod/pod = new /obj/structure/closet/supplypod/bluespacepod/airdrop_guard()

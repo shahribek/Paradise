@@ -368,14 +368,6 @@
 				M.change_mob_type( /mob/living/simple_animal/parrot , null, null, delmob, 1)
 			if("polyparrot")
 				M.change_mob_type( /mob/living/simple_animal/parrot/Poly , null, null, delmob, 1)
-			if("constructarmoured")
-				M.change_mob_type( /mob/living/simple_animal/hostile/construct/armoured , null, null, delmob, 1)
-			if("constructbuilder")
-				M.change_mob_type( /mob/living/simple_animal/hostile/construct/builder , null, null, delmob, 1)
-			if("constructwraith")
-				M.change_mob_type( /mob/living/simple_animal/hostile/construct/wraith , null, null, delmob, 1)
-			if("shade")
-				M.change_mob_type( /mob/living/simple_animal/shade , null, null, delmob, 1)
 
 		log_and_message_admins("has used rudimentary transformation on [key_name(M)]. Transforming to [href_list["simplemake"]]; deletemob=[delmob]")
 

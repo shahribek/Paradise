@@ -1057,17 +1057,6 @@
 	if(G)
 		G.drop_gripped_item(silent = TRUE)
 
-/obj/item/robot_module/cogscarab
-	name = "Cogscarab"
-	module_type = "Cogscarab"
-
-/obj/item/robot_module/cogscarab/on_apply(mob/living/silicon/robot/robot)
-	var/mob/living/silicon/robot/cogscarab/cogscarab = new(get_turf(robot))
-	robot.mind?.transfer_to(cogscarab)
-	qdel(robot)
-
-	return TRUE
-
 //checks whether this item is a module of the robot it is located in.
 /obj/item/proc/is_robot_module()
 	if(!istype(loc, /mob/living/silicon/robot))

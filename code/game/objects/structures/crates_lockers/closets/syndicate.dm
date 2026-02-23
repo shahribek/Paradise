@@ -172,7 +172,6 @@
 	new /obj/item/storage/backpack/syndicate/command(src)
 	new /obj/item/storage/backpack/fluff/syndiesatchel(src)
 	new /obj/item/storage/backpack/duffel/syndie(src)
-	new /obj/item/storage/box/syndicate_permits(src)
 	new /obj/item/door_remote/taipan(src)
 	new /obj/item/clothing/neck/cloak/syndiecap/comms(src)
 
@@ -201,7 +200,6 @@
 	new /obj/item/storage/backpack/syndicate/command(src)
 	new /obj/item/storage/backpack/fluff/syndiesatchel(src)
 	new /obj/item/storage/backpack/duffel/syndie(src)
-	new /obj/item/storage/box/syndicate_permits(src)
 
 /obj/structure/closet/secure_closet/syndicate/cargo
 	name = "Syndicate Cargo Technician's Locker"

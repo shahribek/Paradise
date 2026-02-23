@@ -343,9 +343,6 @@ GLOBAL_LIST_INIT(diseases_carrier_reagents, list(
 /datum/reagent/holywater/reaction_turf(turf/simulated/T, volume)
 	if(!istype(T))
 		return
-	if(volume>=10)
-		for(var/obj/effect/rune/R in T)
-			qdel(R)
 	T.Bless()
 
 /datum/reagent/fuel/unholywater		//if you somehow managed to extract this from someone, dont splash it on yourself and have a smoke
@@ -357,23 +354,12 @@ GLOBAL_LIST_INIT(diseases_carrier_reagents, list(
 
 /datum/reagent/fuel/unholywater/on_mob_life(mob/living/M)
 	var/update_flags = STATUS_UPDATE_NONE
-	if(iscultist(M))
-		M.AdjustDrowsy(-10 SECONDS)
-		M.AdjustParalysis(-2 SECONDS)
-		M.AdjustStunned(-4 SECONDS)
-		M.AdjustWeakened(-4 SECONDS)
-		M.AdjustKnockdown(-4 SECONDS)
-		update_flags |= M.adjustToxLoss(-2, FALSE)
-		update_flags |= M.adjustFireLoss(-2, FALSE)
-		update_flags |= M.adjustOxyLoss(-2, FALSE)
-		update_flags |= M.adjustBruteLoss(-2, FALSE)
-	else
-		update_flags |= M.adjustBrainLoss(3, FALSE)
-		update_flags |= M.adjustToxLoss(1, FALSE)
-		update_flags |= M.adjustFireLoss(2, FALSE)
-		update_flags |= M.adjustOxyLoss(2, FALSE)
-		update_flags |= M.adjustBruteLoss(2, FALSE)
-		M.AdjustCultSlur(20 SECONDS) //CUASE WHY THE HELL NOT
+	update_flags |= M.adjustBrainLoss(3, FALSE)
+	update_flags |= M.adjustToxLoss(1, FALSE)
+	update_flags |= M.adjustFireLoss(2, FALSE)
+	update_flags |= M.adjustOxyLoss(2, FALSE)
+	update_flags |= M.adjustBruteLoss(2, FALSE)
+	M.AdjustCultSlur(20 SECONDS) //CUASE WHY THE HELL NOT
 	return ..() | update_flags
 
 /datum/reagent/hellwater

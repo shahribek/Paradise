@@ -29,33 +29,6 @@
 		D.Contract(M)
 	return ..()
 
-/datum/reagent/xenomicrobes
-	name = "Ксеномикробы"
-	id = "xenomicrobes"
-	description = "Микробы с совершенно чужеродной клеточной структурой."
-	color = "#535E66" // rgb: 83, 94, 102
-	can_synth = FALSE
-	taste_mult = 0
-
-/datum/reagent/xenomicrobes/on_mob_life(mob/living/carbon/M)
-	if(volume > 1.5)
-		var/datum/disease/virus/transformation/xeno/D = new
-		D.Contract(M)
-	return ..()
-
-//I was told that someone will soon change the logic of their work, so I keep the old behavior.
-/datum/reagent/xenomicrobes/phantom
-	id = "xenomicrobes_phantom"
-	description = "Микробы с совершенно чужеродной клеточной структурой. Кажутся более активными чем обычно."
-	metabolization_rate = 1
-
-/datum/reagent/xenomicrobes/phantom/on_mob_life(mob/living/carbon/M)
-	. = ..()
-	if(volume < REAGENT_UNITS_1)
-		return
-	var/datum/disease/virus/transformation/xeno/phantom/D = new
-	D.Contract(M)
-
 /datum/reagent/fungalspores
 	name = "Микробы Космического Туберкулёза"
 	id = "fungalspores"

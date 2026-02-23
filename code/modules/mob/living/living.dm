@@ -1578,10 +1578,6 @@
 			playsound(victim.loc, SFX_DESECRATION, 35, TRUE, -1)
 			add_attack_logs(attacker, victim, "Headbutted")
 
-		if(INTENT_GRAB)
-			if(grabber == src)
-				target.devoured(grabber)
-
 /mob/living/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
 	..()
 	update_z(new_turf?.z)

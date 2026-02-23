@@ -44,7 +44,6 @@
 	for(var/i = 1; i < vents_per_tick; i++)
 		var/obj/machinery/atmospherics/unary/vent_pump/vent = pick(affected_vents_list)
 		vent.set_welded(TRUE)
-		new/obj/structure/alien/weeds/node(get_turf(vent))
 		vents += vent
 	affected_vents_list -= vents
 

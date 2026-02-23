@@ -26,9 +26,8 @@
 
 /datum/reagent/consumable/nutriment/on_mob_life(mob/living/M)
 	var/update_flags = STATUS_UPDATE_NONE
-	if(!isvampire(M))
-		update_flags |= M.adjustBruteLoss(-brute_heal, FALSE, affect_robotic = FALSE)
-		update_flags |= M.adjustFireLoss(-burn_heal, FALSE, affect_robotic = FALSE)
+	update_flags |= M.adjustBruteLoss(-brute_heal, FALSE, affect_robotic = FALSE)
+	update_flags |= M.adjustFireLoss(-burn_heal, FALSE, affect_robotic = FALSE)
 	return ..() | update_flags
 
 /datum/reagent/consumable/nutriment/on_new(list/supplied_data)

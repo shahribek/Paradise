@@ -49,12 +49,6 @@
 	to_chat(world, span_fontsize3(span_red("<b> [uppertext(name)] HAS FALLEN</b>")))
 	SEND_SOUND(world, sound('sound/hallucinations/wail.ogg'))
 	var/datum/game_mode/gamemode = SSticker.mode
-	if(gamemode)
-		gamemode.cult_objs.narsie_death()
-		for(var/datum/mind/cult_mind in SSticker.mode.cult)
-			if(cult_mind?.current)
-				to_chat(cult_mind.current, span_cultlarge("RETRIBUTION!"))
-				to_chat(cult_mind.current, span_cult("Current goal: Slaughter the heretics!"))
 	return ..()
 
 /obj/singularity/god/narsie/process()
@@ -81,8 +75,6 @@
 		O.ex_act(EXPLODE_DEVASTATE)
 		if(O) qdel(O)
 
-	else if(isturf(A))
-		var/turf/T = A
 
 /obj/singularity/god/narsie/mezzer()
 	for(var/mob/living/carbon/M in oviewers(8, src))

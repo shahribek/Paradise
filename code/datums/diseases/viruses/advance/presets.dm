@@ -45,7 +45,6 @@
 	name = "Некроэйроз"
 	symptoms = list(new/datum/symptom/flesh_eating, new/datum/symptom/viraladaptation, new/datum/symptom/youth, new/datum/symptom/dizzy)
 	mutation_reagents = list("mutagen", "histamine")
-	possible_mutations = list(/datum/disease/virus/transformation/xeno)
 
 //Facial Hypertrichosis + Voice Change + Itching
 /datum/disease/virus/advance/preset/pre_kingstons

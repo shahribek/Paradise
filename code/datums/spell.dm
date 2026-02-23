@@ -596,7 +596,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell))
 					to_chat(user, span_notice("You can't use <b>[name]</b> while dead."))
 			return FALSE
 
-		if(!phase_allowed && istype(user.loc, /obj/effect/dummy) || istype(user.loc, /obj/effect/immovablerod/wizard))
+		if(!phase_allowed && istype(user.loc, /obj/effect/dummy))
 			if(show_message)
 				to_chat(user, span_notice("[name] cannot be cast unless you are completely manifested in the material plane!"))
 			return FALSE
