@@ -82,7 +82,6 @@
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
 "t" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
 "u" = (

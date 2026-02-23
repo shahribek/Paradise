@@ -8489,7 +8489,6 @@
 	},
 /area/hallway/primary/command/west)
 "bni" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/trading)
@@ -11837,7 +11836,6 @@
 	security_level = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/preopen{
 	id_tag = "Prison Gate";
 	name = "Prison Lockdown Blast Doors"
@@ -21557,7 +21555,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fsmaint2)
 "dhS" = (
-/obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/preopen{
 	id_tag = "Prison Gate";
 	name = "Prison Lockdown Blast Doors"
@@ -23939,7 +23936,6 @@
 	name = "Prison Lockdown Blast Doors"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -25913,7 +25909,6 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
 	},
@@ -32284,7 +32279,6 @@
 	},
 /area/bridge)
 "eNa" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -32583,7 +32577,6 @@
 	},
 /area/bridge)
 "ePP" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/apmaint)
@@ -34758,7 +34751,6 @@
 /turf/simulated/floor/carpet/royalblue,
 /area/blueshield)
 "fgQ" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/maintenance/trading)
 "fgT" = (
@@ -55253,7 +55245,6 @@
 	},
 /area/security/permabrig)
 "ilu" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
 	dir = 1
@@ -58672,7 +58663,6 @@
 /area/maintenance/starboard)
 "iMa" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	icon_state = "freezerfloor"
 	},
@@ -62783,7 +62773,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/poddoor/preopen{
 	id_tag = "Prison Gate";
@@ -82031,7 +82020,6 @@
 	name = "Prison Lockdown Blast Doors"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "darkred"
@@ -87798,7 +87786,6 @@
 	id_tag = "Prison Gate";
 	name = "Prison Lockdown Blast Doors"
 	},
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel,
 /area/security/permabrig)
 "neW" = (
@@ -94357,7 +94344,6 @@
 /obj/structure/chair{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/shower{
 	dir = 4
 	},
@@ -108562,7 +108548,6 @@
 /area/security/lobby)
 "qgB" = (
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/delivery/red,
 /turf/simulated/floor/plasteel/dark,
 /area/maintenance/starboardaux)
 "qgK" = (
@@ -112035,7 +112020,6 @@
 /obj/structure/sign/poster/contraband/c20r{
 	pixel_y = 32
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -124185,7 +124169,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor{
 	density = 0;
 	icon_state = "open";
@@ -124674,7 +124657,6 @@
 /turf/simulated/floor/plating,
 /area/security/permahallway)
 "szv" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel,
 /area/maintenance/apmaint)
@@ -125932,7 +125914,6 @@
 	},
 /area/maintenance/detectives_office)
 "sIx" = (
-/obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/preopen{
 	id_tag = "Prison Gate";
 	name = "Prison Lockdown Blast Doors"
@@ -128799,7 +128780,6 @@
 /area/maintenance/starboard)
 "tdm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/maintenance/fsmaint)
 "tdn" = (
@@ -130243,7 +130223,6 @@
 	id_tag = "Prison Gate";
 	name = "Prison Lockdown Blast Doors"
 	},
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel,
 /area/security/permabrig)
 "tow" = (
@@ -131306,7 +131285,6 @@
 	id_tag = "Prison Gate";
 	name = "Prison Lockdown Blast Doors"
 	},
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel,
 /area/security/permabrig)
 "tvS" = (
@@ -131879,7 +131857,6 @@
 	},
 /area/crew_quarters/fitness)
 "tzy" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -132035,7 +132012,6 @@
 /turf/simulated/floor/plasteel/freezer,
 /area/crew_quarters/toilet2)
 "tAV" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	dir = 1
 	},
@@ -133987,7 +133963,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plating,
 /area/security/permabrig)
 "tPF" = (
@@ -144833,7 +144808,6 @@
 	id_tag = "Prison Gate";
 	name = "Prison Lockdown Blast Doors"
 	},
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel,
 /area/security/permabrig)
 "vwt" = (
@@ -147328,7 +147302,6 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "vPK" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/maintenance/apmaint)
 "vPS" = (
@@ -150362,7 +150335,6 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/poddoor{
@@ -154942,7 +154914,6 @@
 	desc = "Этот красивый стул был отлит из двух трофейных боргов \"Синдиката\".";
 	name = "Дизайнерский стул"
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster/secret/Viper{
 	pixel_y = 32
@@ -160118,7 +160089,6 @@
 	input_dir = 8;
 	output_dir = 1
 	},
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel,
 /area/quartermaster/miningstorage)
 "xKT" = (

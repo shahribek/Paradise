@@ -18620,7 +18620,6 @@
 /obj/structure/bed,
 /obj/item/clothing/under/color/orange/prison,
 /obj/item/restraints/handcuffs,
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/remains/human,
 /turf/simulated/floor/plating,
 /area/maintenance/brig)
@@ -28574,7 +28573,6 @@
 	},
 /area/bridge/checkpoint/south)
 "deO" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/maintenance/kitchen)
 "deS" = (
@@ -51218,7 +51216,6 @@
 /area/solar/port)
 "gNL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -58280,7 +58277,6 @@
 /area/bridge/vip)
 "iut" = (
 /obj/structure/kitchenspike,
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light_switch/directional/east,
 /turf/simulated/floor/plasteel{
@@ -65751,7 +65747,6 @@
 /obj/machinery/shower{
 	pixel_y = 5
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -105051,7 +105046,6 @@
 	},
 /area/medical/medbay)
 "sQz" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint4)
 "sQB" = (
@@ -113811,7 +113805,6 @@
 	},
 /area/crew_quarters/chief)
 "uKb" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10

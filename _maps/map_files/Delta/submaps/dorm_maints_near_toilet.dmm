@@ -311,7 +311,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/chair/stool,
 /obj/machinery/light/small{
 	dir = 8
@@ -437,7 +436,6 @@
 "wh" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/item/chair/stool,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "wn" = (

@@ -581,7 +581,6 @@
 	},
 /area/ruin/space/pirate_base/black_market)
 "BJ" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/closet/crate/syndicate,
 /turf/simulated/floor/indestructible/plating{
 	icon_state = "dark";
@@ -606,7 +605,6 @@
 	dir = 2;
 	use_power = 0
 	},
-/obj/effect/turf_decal/delivery/red,
 /turf/simulated/floor/indestructible/plating{
 	icon_state = "dark";
 	icon = 'icons/turf/floors.dmi'

@@ -30,7 +30,6 @@
 "g" = (
 /obj/structure/bed,
 /obj/item/bedsheet,
-/obj/effect/decal/cleanable/blood/old,
 /obj/item/toy/carpplushie/dehy_carp,
 /turf/simulated/floor/indestructible/carpet,
 /area/template_noop)

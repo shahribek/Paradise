@@ -28,7 +28,6 @@
 /area/ruin/unpowered/misc_lavaruin)
 "w" = (
 /obj/effect/decal/remains/human,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/engine/cult/lavaland_air,
 /area/ruin/unpowered/misc_lavaruin)
 "y" = (
@@ -42,7 +41,6 @@
 /obj/effect/decal/remains/human,
 /obj/item/clothing/shoes/cult,
 /obj/item/clothing/suit/hooded/cultrobes,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/engine/cult/lavaland_air,
 /area/ruin/unpowered/misc_lavaruin)
 "G" = (
@@ -71,7 +69,6 @@
 /turf/simulated/floor/engine/cult/lavaland_air,
 /area/ruin/unpowered/misc_lavaruin)
 "K" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/engine/cult/lavaland_air,
 /area/ruin/unpowered/misc_lavaruin)
 "L" = (

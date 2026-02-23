@@ -1125,7 +1125,6 @@
 /area/admin)
 "lq" = (
 /obj/effect/decal/warning_stripes/yellow,
-/obj/machinery/bluespace_beacon/syndicate,
 /turf/simulated/floor/wood,
 /area/admin)
 "lx" = (
@@ -1270,7 +1269,6 @@
 /area/holodeck/source_knightarena)
 "ne" = (
 /obj/structure/table/wood,
-/obj/item/whetstone/cult,
 /turf/simulated/floor/plasteel{
 	icon_state = "hierophant1"
 	},
@@ -2581,7 +2579,6 @@
 /area/admin)
 "CY" = (
 /obj/structure/table/wood,
-/obj/item/gun/projectile/shotgun/boltaction/enchanted/arcane_barrage/blood,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "darkgrey"
@@ -2989,7 +2986,6 @@
 /area/tdome/newtdome/CQC)
 "If" = (
 /obj/structure/table/wood,
-/obj/item/gun/energy/alien,
 /turf/simulated/floor/wood,
 /area/admin)
 "Iq" = (
@@ -3867,17 +3863,6 @@
 /area/admin)
 "TF" = (
 /obj/structure/table/wood,
-/obj/item/clothing/head/helmet/space/space_ninja,
-/obj/item/clothing/shoes/space_ninja,
-/obj/item/clothing/mask/gas/space_ninja,
-/obj/item/clothing/gloves/space_ninja,
-/obj/item/clothing/suit/space/space_ninja,
-/obj/item/clothing/under/ninja,
-/obj/item/storage/backpack/ninja,
-/obj/item/melee/energy_katana,
-/obj/item/melee/energy_katana/borg{
-	pixel_y = 6
-	},
 /turf/simulated/floor/wood,
 /area/admin)
 "TU" = (
@@ -3997,7 +3982,6 @@
 "Vq" = (
 /obj/structure/table/wood,
 /obj/item/radio/headset,
-/obj/item/radio/headset/abductor,
 /obj/item/radio/headset/alt,
 /obj/item/radio/headset/binary{
 	name = "binary radio headset"

@@ -1516,7 +1516,6 @@
 	tag = "icon-bulb1 (WEST)";
 	throw_range = 2
 	},
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/north)
 "bmH" = (
@@ -6136,7 +6135,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/double,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/south)
@@ -6634,7 +6632,6 @@
 /obj/effect/spawner/lootdrop/maintenance/tripple,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/north)
@@ -7633,7 +7630,6 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "dark"
@@ -10179,7 +10175,6 @@
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/tripple,
 /obj/random/toolbox,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/south)
 "jkz" = (
@@ -12270,7 +12265,6 @@
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance/tripple,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/south)
 "lho" = (
@@ -13880,7 +13874,6 @@
 /area/syndicate/unpowered/syndicate_space_base/torture_room)
 "mpP" = (
 /obj/structure/chair,
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17123,7 +17116,6 @@
 /area/syndicate/unpowered/syndicate_space_base/engineering)
 "oTI" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/south)
 "oTR" = (
@@ -17684,7 +17676,6 @@
 	},
 /obj/item/stack/tape_roll,
 /obj/effect/spawner/lootdrop/maintenance/double,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/central)
 "ppf" = (
@@ -21474,7 +21465,6 @@
 /obj/structure/closet/crate,
 /obj/effect/spawner/lootdrop/maintenance/tripple,
 /obj/item/storage/wallet/random,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/east)
 "smz" = (
@@ -21859,7 +21849,6 @@
 "sJO" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/lootdrop/maintenance/double,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "dark"
@@ -21878,7 +21867,6 @@
 "sLk" = (
 /obj/effect/spawner/lootdrop/maintenance/tripple,
 /obj/structure/closet/crate,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/south)
 "sLL" = (
@@ -22415,7 +22403,6 @@
 	},
 /area/syndicate/unpowered/syndicate_space_base/medbay/surgery2)
 "tmf" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/smartfridge/secure/extract/syndie,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/east)
@@ -23912,7 +23899,6 @@
 /obj/effect/spawner/lootdrop/maintenance/tripple,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/east)
 "ujO" = (
@@ -23942,7 +23928,6 @@
 	dir = 4
 	},
 /obj/structure/rack,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/east)
 "ulz" = (
@@ -23993,7 +23978,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/lootdrop/maintenance/tripple,
 /obj/structure/rack,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plating,
 /area/syndicate/unpowered/syndicate_space_base/maintenance/south)
 "umD" = (
@@ -26911,7 +26895,6 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
-/obj/machinery/computer/syndie_supplycomp,
 /obj/item/paper/syndicate{
 	info = "Для отправки особо важных посылок используйте только наши ящики! Вместо того чтобы направиться на сортировку по протоколу, эти ящики будут отправлены запросившим поставки от вас офицерам, после рутинной проверки. Под особо важными посылками мы подразумеваем уникальные заказы офицеров и только их! Технологии, плазму и так далее шлите в обычных ящиках.";
 	name = "Особое напоминание"
@@ -28299,7 +28282,6 @@
 "xfh" = (
 /obj/effect/decal/warning_stripes/west,
 /obj/effect/decal/warning_stripes/yellow,
-/obj/machinery/computer/syndie_supplycomp,
 /obj/item/paper/syndicate{
 	info = "Для отправки особо важных посылок используйте только наши ящики! Вместо того чтобы направиться на сортировку по протоколу, эти ящики будут отправлены запросившим поставки от вас офицерам, после рутинной проверки. Под особо важными посылками мы подразумеваем уникальные заказы офицеров и только их! Технологии, плазму и так далее шлите в обычных ящиках.";
 	name = "Особое напоминание"
@@ -29428,7 +29410,6 @@
 	},
 /area/syndicate/unpowered/syndicate_space_base/cargo)
 "xUq" = (
-/obj/machinery/syndiepad/receivepad,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "SQMLoad2"
@@ -29877,7 +29858,6 @@
 	},
 /area/syndicate/unpowered/syndicate_space_base/cargo)
 "yhV" = (
-/obj/machinery/syndiepad/receivepad,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "SQMLoad2"

@@ -158,7 +158,6 @@
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "aS" = (
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel,
 /area/mine/living_quarters)
 "aY" = (
@@ -289,7 +288,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "cG" = (
@@ -821,7 +819,6 @@
 "gi" = (
 /obj/structure/stone_tile/surrounding,
 /obj/structure/stone_tile/center/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "gn" = (
@@ -854,7 +851,6 @@
 	c_tag = "Labor Camp Airlock";
 	network = list("Labor    Camp")
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "brown"
@@ -1128,7 +1124,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -1151,7 +1146,6 @@
 /area/lavaland/surface/outdoors)
 "hX" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/camera{
 	c_tag = "Labor Bedroom 2";
 	dir = 1;
@@ -2359,7 +2353,6 @@
 "pd" = (
 /obj/structure/stone_tile/slab,
 /obj/item/wrench/brass,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "pg" = (
@@ -2559,7 +2552,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/twohanded/ratvarian_spear,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -2729,7 +2721,6 @@
 "rc" = (
 /obj/structure/stone_tile/slab,
 /obj/item/storage/toolbox/brass,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "rl" = (
@@ -3745,7 +3736,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -4261,7 +4251,6 @@
 /obj/structure/stone_tile{
 	dir = 4
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Ab" = (
@@ -5159,7 +5148,6 @@
 "ED" = (
 /obj/structure/stone_tile/slab,
 /obj/item/clockwork/clockgolem_remains,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "EG" = (
@@ -7305,7 +7293,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Rc" = (
@@ -8555,7 +8542,6 @@
 /area/mine/living_quarters)
 "Yv" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Yz" = (
@@ -8829,7 +8815,6 @@
 "ZW" = (
 /obj/structure/stone_tile/slab,
 /obj/item/clockwork/fallen_armor,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "ZZ" = (

@@ -4277,7 +4277,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/main)
 "jG" = (
-/obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -4635,7 +4634,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/main)
 "kk" = (
-/obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/yellow{
 	d1 = 1;

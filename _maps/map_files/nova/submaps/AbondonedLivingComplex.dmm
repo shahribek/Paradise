@@ -41,7 +41,6 @@
 /area/maintenance/livingcomplex)
 "aO" = (
 /obj/structure/weightmachine/stacklifter,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/carpet/arcade,
 /area/maintenance/livingcomplex)
 "aQ" = (
@@ -1703,7 +1702,6 @@
 /area/maintenance/livingcomplex)
 "UO" = (
 /obj/structure/weightmachine/weightlifter,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/carpet/royalblack,
 /area/maintenance/livingcomplex)
 "UY" = (

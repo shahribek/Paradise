@@ -143,7 +143,6 @@
 /turf/simulated/wall/mineral/wood/nonmetal,
 /area/ruin/unpowered/no_grav)
 "lX" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/engine/cult,
 /area/ruin/unpowered)
 "mw" = (
@@ -472,7 +471,6 @@
 /turf/simulated/floor/plating/airless,
 /area/ruin/unpowered/no_grav)
 "ED" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/item/flag/cult,
 /turf/simulated/floor/wood/fancy/birch,
 /area/ruin/unpowered)
@@ -873,7 +871,6 @@
 /area/ruin/unpowered)
 "Yx" = (
 /obj/effect/mapping_helpers/turfs/damage,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/wood/fancy/birch,
 /area/ruin/unpowered)
 "ZC" = (

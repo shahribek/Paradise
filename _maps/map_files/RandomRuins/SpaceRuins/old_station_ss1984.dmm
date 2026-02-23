@@ -3517,7 +3517,6 @@
 /area/ruin/space/ancientstation/charlie_comm)
 "mo" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/gloves/color/fyellow/old,
 /obj/effect/decal/remains/human,

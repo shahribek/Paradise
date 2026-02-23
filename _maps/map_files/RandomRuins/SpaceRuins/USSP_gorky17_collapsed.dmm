@@ -1208,7 +1208,6 @@
 /area/ruin/space/USSP_gorky17/collapsed/solars)
 "dX" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/gate)
 "dY" = (
@@ -3057,7 +3056,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mob_spawn/human/corpse/usspconscript,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/solmaintsouth)
 "jA" = (
@@ -3965,7 +3963,6 @@
 /area/ruin/space/USSP_gorky17/collapsed/medbay)
 "md" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/mob_spawn/human/corpse/usspconscript,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -4473,7 +4470,6 @@
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/medbay)
 "nE" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/mining)
 "nG" = (
@@ -5956,7 +5952,6 @@
 /obj/structure/decorative_structures/corpse{
 	icon_state = "corpse_soviet_half"
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/engineering)
 "sa" = (
@@ -8636,7 +8631,6 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/decorative_structures/corpse{
 	icon_state = "corpse_soviet_lying_up2"
 	},
@@ -9836,7 +9830,6 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/gate)
 "Dq" = (
@@ -10123,7 +10116,6 @@
 /area/ruin/space/USSP_gorky17/collapsed/solars)
 "Eb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	dir = 1
 	},
@@ -10687,7 +10679,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/engineering)
 "Fu" = (
@@ -12438,7 +12429,6 @@
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/gate)
 "KH" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -13819,7 +13809,6 @@
 	},
 /area/ruin/space/USSP_gorky17/collapsed/kitchen)
 "OL" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating/asteroid/airless,
 /area/ruin/space/USSP_gorky17/collapsed/asteroids)
 "OO" = (
@@ -15314,7 +15303,6 @@
 	},
 /area/ruin/space/USSP_gorky17/collapsed/common)
 "Tp" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/engineering)
 "Tq" = (
@@ -16013,7 +16001,6 @@
 /area/ruin/space/USSP_gorky17/collapsed/dorms)
 "VC" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},

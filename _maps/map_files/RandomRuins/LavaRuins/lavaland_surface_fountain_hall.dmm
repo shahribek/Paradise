@@ -2,7 +2,6 @@
 "af" = (
 /obj/structure/table/wood,
 /obj/item/organ/internal/brain,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/engine/cult,
 /area/ruin/unpowered/misc_lavaruin)
 "aV" = (
@@ -123,7 +122,6 @@
 /turf/simulated/mineral/random/volcanic/hard/double/high_chance,
 /area/ruin/unpowered/misc_lavaruin)
 "wR" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/healingfountain,
 /turf/simulated/floor/engine/cult,
 /area/ruin/unpowered/misc_lavaruin)
@@ -187,7 +185,6 @@
 /turf/simulated/floor/engine/cult,
 /area/ruin/unpowered/misc_lavaruin)
 "Gp" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/remains/human,
 /turf/simulated/floor/engine/cult,
 /area/ruin/unpowered/misc_lavaruin)
@@ -198,7 +195,6 @@
 /turf/simulated/mineral/random/volcanic/hard/double/high_chance,
 /area/ruin/unpowered/misc_lavaruin)
 "It" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/engine/cult,
 /area/ruin/unpowered/misc_lavaruin)
 "Iu" = (

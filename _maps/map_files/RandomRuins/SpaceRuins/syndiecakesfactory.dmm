@@ -289,7 +289,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/unpowered)
 "zY" = (
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel,
 /area/ruin/unpowered)

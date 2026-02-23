@@ -146,14 +146,12 @@
 	dir = 1;
 	on = 1
 	},
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /obj/structure/closet/secure_closet/syndicate/depot,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
 /area/syndicate_depot/core)
 "aB" = (
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -364,7 +362,6 @@
 /turf/simulated/wall/mineral/plastitanium/nodiagonal,
 /area/syndicate_depot/outer)
 "bg" = (
-/obj/effect/spawner/random_spawners/syndicate/layout/spacepod,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -421,7 +418,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /obj/structure/closet/secure_closet/syndicate/depot,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -431,7 +427,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /obj/structure/closet/secure_closet/syndicate/depot,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -1175,7 +1170,6 @@
 	},
 /area/syndicate_depot/core)
 "UV" = (
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /obj/structure/closet/secure_closet/syndicate/depot,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"

@@ -9,7 +9,6 @@
 /turf/simulated/floor/carpet/orange,
 /area/ruin/unpowered)
 "aQ" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/wood,
 /area/ruin/unpowered)
 "aT" = (
@@ -21,14 +20,12 @@
 /turf/simulated/floor/carpet/blue,
 /area/ruin/unpowered)
 "by" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/light_construct{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/orange,
 /area/ruin/unpowered)
 "ce" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/carpet/orange,
 /area/ruin/unpowered)
 "ct" = (
@@ -259,7 +256,6 @@
 	},
 /area/ruin/unpowered)
 "kM" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "escape"
@@ -416,7 +412,6 @@
 /area/ruin/unpowered)
 "sp" = (
 /obj/structure/kitchenspike,
-/obj/effect/decal/cleanable/blood/old,
 /obj/item/reagent_containers/food/snacks/meat/humanoid/human,
 /turf/simulated/floor/plasteel{
 	dir = 6;
@@ -427,7 +422,6 @@
 /turf/simulated/floor/carpet/orange,
 /area/ruin/unpowered)
 "sR" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/light_construct,
 /turf/simulated/floor/wood,
 /area/ruin/unpowered)
@@ -524,7 +518,6 @@
 "yW" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/structure/closet/secure_closet/freezer/fridge/open,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "escape"
@@ -745,7 +738,6 @@
 /area/ruin/unpowered)
 "It" = (
 /obj/structure/mineral_door/iron,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	icon_state = "cafeteria"
 	},
@@ -833,7 +825,6 @@
 /turf/simulated/floor/carpet/purple,
 /area/ruin/unpowered)
 "MQ" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/spider/stickyweb,
 /obj/effect/mob_spawn/human/corpse/assistant{
 	name = "Йохан"
@@ -841,12 +832,10 @@
 /turf/simulated/floor/wood,
 /area/ruin/unpowered)
 "Ng" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/carpet/blue,
 /area/ruin/unpowered)
 "Nr" = (
 /obj/machinery/gibber,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	dir = 6;
 	icon_state = "escape"
@@ -1079,7 +1068,6 @@
 /turf/simulated/floor/carpet/black,
 /area/ruin/unpowered)
 "XM" = (
-/obj/effect/decal/cleanable/blood/old,
 /mob/living/simple_animal/hostile/statue,
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 8

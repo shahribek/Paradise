@@ -86,7 +86,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "dJ" = (
@@ -123,7 +122,6 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "ex" = (
@@ -137,7 +135,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/wirecutters/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -207,7 +204,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/structure/window/reinforced/clockwork{
 	dir = 4;
 	move_resist = 45000
@@ -319,7 +315,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/clockwork/clockgolem_remains,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -331,7 +326,6 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 1
 	},
-/obj/structure/table/reinforced/brass,
 /obj/structure/window/reinforced/clockwork{
 	dir = 8;
 	move_resist = 45000
@@ -358,7 +352,6 @@
 /area/mine/necropolis)
 "pc" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /obj/structure/window/reinforced/clockwork{
 	dir = 8;
 	move_resist = 45000
@@ -439,13 +432,11 @@
 /area/mine/necropolis)
 "sw" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "sN" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /obj/item/wrench/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -686,7 +677,6 @@
 /area/mine/necropolis)
 "Gd" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "GU" = (
@@ -704,7 +694,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/wirecutters/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -722,7 +711,6 @@
 "HI" = (
 /obj/structure/stone_tile/surrounding,
 /obj/structure/stone_tile/center/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "HU" = (
@@ -747,7 +735,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass,
 /turf/simulated/floor/lava/lava_land_surface,
 /area/mine/necropolis)
@@ -773,7 +760,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/wirecutters/brass,
 /obj/item/crowbar/brass,
 /turf/simulated/floor/indestructible/boss,
@@ -786,7 +772,6 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 1
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/wirecutters/brass,
 /turf/simulated/floor/lava/lava_land_surface,
 /area/mine/necropolis)
@@ -801,7 +786,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Jx" = (
@@ -817,7 +801,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/wrench/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -856,7 +839,6 @@
 /area/mine/necropolis)
 "KC" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /obj/item/multitool/brass,
 /obj/item/screwdriver/brass,
 /turf/simulated/floor/indestructible/boss,
@@ -944,7 +926,6 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /obj/item/screwdriver/brass,
 /turf/simulated/floor/lava/lava_land_surface,
@@ -973,7 +954,6 @@
 /obj/structure/stone_tile{
 	dir = 4
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "On" = (
@@ -1005,7 +985,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/clockwork/clockgolem_remains,
 /obj/item/multitool/brass,
 /turf/simulated/floor/indestructible/boss,
@@ -1066,7 +1045,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -1140,7 +1118,6 @@
 /area/mine/necropolis)
 "VC" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -1168,7 +1145,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Wp" = (

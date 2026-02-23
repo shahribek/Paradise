@@ -236,7 +236,6 @@
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors/explored)
 "aV" = (
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "brown"
@@ -1025,7 +1024,6 @@
 /area/mine/living_quarters)
 "dp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/camera{
 	c_tag = "Labor Bedroom 2";
 	dir = 1;
@@ -1410,7 +1408,6 @@
 /area/mine/living_quarters)
 "eZ" = (
 /obj/structure/ore_box,
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel,
 /area/mine/production)
 "fa" = (
@@ -1431,7 +1428,6 @@
 	c_tag = "Labor Camp Airlock";
 	network = list("Labor    Camp")
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "brown"
@@ -1713,7 +1709,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/twohanded/ratvarian_spear,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -1749,7 +1744,6 @@
 /area/mine/necropolis)
 "gk" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "gn" = (
@@ -1868,7 +1862,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -2038,7 +2031,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "hm" = (
@@ -2134,7 +2126,6 @@
 /obj/structure/stone_tile{
 	dir = 4
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "ic" = (
@@ -3954,7 +3945,6 @@
 "sb" = (
 /obj/structure/stone_tile/surrounding,
 /obj/structure/stone_tile/center/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "sh" = (
@@ -4958,7 +4948,6 @@
 "zk" = (
 /obj/structure/stone_tile/slab,
 /obj/item/storage/toolbox/brass,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "zl" = (
@@ -5458,7 +5447,6 @@
 "CM" = (
 /obj/structure/stone_tile/slab,
 /obj/item/clockwork/fallen_armor,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "CX" = (
@@ -5577,7 +5565,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -5596,7 +5583,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "DU" = (
@@ -6103,7 +6089,6 @@
 "Hb" = (
 /obj/structure/stone_tile/slab,
 /obj/item/wrench/brass,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Hd" = (
@@ -7676,7 +7661,6 @@
 	},
 /area/mine/laborcamp)
 "St" = (
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel,
 /area/mine/production)
@@ -8509,7 +8493,6 @@
 "XN" = (
 /obj/structure/stone_tile/slab,
 /obj/item/clockwork/clockgolem_remains,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "XW" = (

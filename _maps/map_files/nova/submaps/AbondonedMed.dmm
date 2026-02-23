@@ -76,7 +76,6 @@
 /area/maintenance/medroom)
 "aW" = (
 /obj/item/twohanded/cardboard_cutout,
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel,
 /area/maintenance/medroom)
@@ -675,7 +674,6 @@
 /area/maintenance/abandonedhangar)
 "fv" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster/contraband/missing_gloves{
 	pixel_x = 32
@@ -1576,7 +1574,6 @@
 	dir = 8;
 	pixel_y = 9
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/medroom)
@@ -1956,7 +1953,6 @@
 /obj/effect/decal/remains/robot{
 	pixel_y = 16
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/lootdrop/maintenance,
 /obj/machinery/light_construct/small,
@@ -1964,7 +1960,6 @@
 /area/maintenance/medroom)
 "sN" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/turf_decal/delivery/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/walllocker/emerglocker{
 	pixel_x = 32
@@ -2344,7 +2339,6 @@
 /area/maintenance/medroom)
 "wb" = (
 /obj/structure/reagent_dispensers/watertank/high,
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plasteel{
@@ -2955,7 +2949,6 @@
 /area/maintenance/abandonedhangar)
 "BS" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
 	dir = 6;
@@ -2975,7 +2968,6 @@
 /obj/machinery/atmospherics/unary/portables_connector{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel,
 /area/maintenance/medroom)
@@ -3234,7 +3226,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/apmaint)
 "Ez" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
 	icon_state = "barber"
@@ -3254,7 +3245,6 @@
 "EN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/decal/remains/xeno,
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mob_spawn/human,
 /turf/simulated/floor/plasteel,
@@ -3474,7 +3464,6 @@
 	pixel_x = 19;
 	pixel_y = 4
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/simulated/floor/plasteel,
@@ -3665,9 +3654,6 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/syndicate,
-/obj/effect/spawner/random_spawners/syndicate/loot,
-/obj/effect/spawner/random_spawners/syndicate/loot,
-/obj/effect/spawner/random_spawners/syndicate/loot,
 /obj/structure/sign/poster/contraband/pinup_syn{
 	pixel_x = -32
 	},
@@ -3863,7 +3849,6 @@
 "JM" = (
 /obj/machinery/iv_drip,
 /obj/item/reagent_containers/iv_bag/bloodsynthetic/oxygenis,
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light_construct/small{
 	dir = 8
@@ -3982,7 +3967,6 @@
 /area/maintenance/kitchen)
 "Ll" = (
 /obj/item/radio/intercom/directional/south,
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -4495,7 +4479,6 @@
 /area/maintenance/abandonedhangar)
 "QQ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plasteel{
 	dir = 4;
@@ -4504,7 +4487,6 @@
 /area/maintenance/abandonedhangar)
 "QV" = (
 /obj/effect/spawner/lootdrop/maintenance,
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/table_frame,
 /obj/effect/decal/cleanable/glass,
 /obj/item/shard,

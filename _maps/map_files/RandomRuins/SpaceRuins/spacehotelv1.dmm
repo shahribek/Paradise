@@ -1228,7 +1228,6 @@
 	},
 /area/ruin/space/spacehotelv1/entryhallway)
 "ju" = (
-/obj/structure/table/reinforced/brass,
 /obj/item/flashlight/lamp/green,
 /turf/simulated/floor/wood,
 /area/ruin/space/spacehotelv1/guestroom1)
@@ -1237,7 +1236,6 @@
 /turf/simulated/floor/wood,
 /area/ruin/space/spacehotelv1/guestroom5)
 "jw" = (
-/obj/structure/table/reinforced/brass,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -2042,7 +2040,6 @@
 /turf/simulated/floor/wood,
 /area/ruin/space/spacehotelv1/restoraunt)
 "pM" = (
-/obj/structure/table/reinforced/brass,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -2756,7 +2753,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/flashlight/lamp/green,
 /turf/simulated/floor/wood,
 /area/ruin/space/spacehotelv1/guestroom1)
@@ -2806,7 +2802,6 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/plasteel{
@@ -5151,7 +5146,6 @@
 	},
 /area/ruin/space/spacehotelv1/bar)
 "LQ" = (
-/obj/structure/table/reinforced/brass,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/plasteel{

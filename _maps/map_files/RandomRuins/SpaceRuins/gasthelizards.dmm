@@ -16,7 +16,6 @@
 /obj/effect/decal/cleanable/blood{
 	pixel_x = -32
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -264,7 +263,6 @@
 /area/ruin/space/gasthelizards/engineering)
 "jD" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -383,7 +381,6 @@
 	},
 /area/ruin/space/gasthelizards/engineering)
 "pe" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/light_switch/directional/north,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -889,7 +886,6 @@
 /area/ruin/space/gasthelizards/engineering)
 "IJ" = (
 /obj/machinery/optable,
-/obj/effect/decal/cleanable/blood/old,
 /obj/item/organ/external/tail/unathi,
 /obj/effect/decal/cleanable/blood{
 	pixel_y = 32
@@ -939,7 +935,6 @@
 /area/ruin/space/gasthelizards/jail)
 "KE" = (
 /obj/structure/kitchenspike,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -1034,7 +1029,6 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -1120,7 +1114,6 @@
 /area/ruin/space/gasthelizards/viewzone)
 "PT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
@@ -1300,7 +1293,6 @@
 /area/ruin/space/gasthelizards/viewzone)
 "UW" = (
 /obj/structure/chair,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/engine,
 /area/ruin/space/gasthelizards/viewzone)
 "Vk" = (

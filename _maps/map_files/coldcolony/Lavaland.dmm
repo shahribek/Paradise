@@ -462,7 +462,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/twohanded/ratvarian_spear,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -493,7 +492,6 @@
 /area/mine/necropolis)
 "gk" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "gn" = (
@@ -555,7 +553,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -674,7 +671,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "hj" = (
@@ -728,7 +724,6 @@
 /obj/structure/stone_tile{
 	dir = 4
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "id" = (
@@ -2145,7 +2140,6 @@
 "sb" = (
 /obj/structure/stone_tile/surrounding,
 /obj/structure/stone_tile/center/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "sc" = (
@@ -2793,7 +2787,6 @@
 "zk" = (
 /obj/structure/stone_tile/slab,
 /obj/item/storage/toolbox/brass,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "zl" = (
@@ -3134,7 +3127,6 @@
 "CM" = (
 /obj/structure/stone_tile/slab,
 /obj/item/clockwork/fallen_armor,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "CT" = (
@@ -3184,7 +3176,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -3203,7 +3194,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Ea" = (
@@ -3478,7 +3468,6 @@
 "Hb" = (
 /obj/structure/stone_tile/slab,
 /obj/item/wrench/brass,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Hg" = (
@@ -4994,7 +4983,6 @@
 "XN" = (
 /obj/structure/stone_tile/slab,
 /obj/item/clockwork/clockgolem_remains,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "XW" = (

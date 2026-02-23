@@ -287,7 +287,6 @@
 /turf/simulated/floor/plating,
 /area/ruin/unpowered)
 "aZ" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/unpowered)
 "ba" = (
@@ -321,7 +320,6 @@
 	density = 0;
 	icon_state = "brokengrille"
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/wood,
 /area/ruin/unpowered)
 "bf" = (
@@ -346,7 +344,6 @@
 /area/ruin/unpowered)
 "bj" = (
 /obj/item/reagent_containers/food/snacks/meat/humanoid/human,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	icon_state = "chapel"
 	},
@@ -453,7 +450,6 @@
 "bC" = (
 /obj/structure/rack,
 /obj/item/kitchen/knife/ritual,
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/light{
 	dir = 1
 	},

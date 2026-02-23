@@ -247,7 +247,6 @@
 /turf/simulated/floor/plasteel/dark,
 /area/ruin/space/crashedipcship/middle)
 "dG" = (
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/warning_stripes/northeastcorner,
 /obj/structure/ore_box,
 /obj/structure/railing{
@@ -1611,7 +1610,6 @@
 /area/ruin/space/crashedipcship/middle)
 "Am" = (
 /obj/structure/ore_box,
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/warning_stripes/southeastcorner,
 /obj/structure/railing,
 /turf/simulated/floor/plasteel,

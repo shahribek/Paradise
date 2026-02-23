@@ -35,7 +35,6 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/multitool/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -63,7 +62,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -88,7 +86,6 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/wirecutters/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -102,7 +99,6 @@
 /obj/structure/stone_tile{
 	dir = 4
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass/prefilled,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -123,7 +119,6 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -211,7 +206,6 @@
 /area/mine/necropolis)
 "eM" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -254,7 +248,6 @@
 	dir = 8
 	},
 /obj/structure/stone_tile/center,
-/obj/structure/table/reinforced/brass,
 /obj/item/wirecutters/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -265,7 +258,6 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass/prefilled,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -292,7 +284,6 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 1
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/wirecutters/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -328,7 +319,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -353,7 +343,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/clockwork/clockgolem_remains,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -460,7 +449,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/multitool/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -569,7 +557,6 @@
 	dir = 8
 	},
 /obj/structure/stone_tile/center,
-/obj/structure/table/reinforced/brass,
 /obj/item/clockwork/clockgolem_remains,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -634,13 +621,11 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass/prefilled,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Ck" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /obj/item/clockwork/clockgolem_remains,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -717,7 +702,6 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 1
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/clockwork/clockgolem_remains,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -790,7 +774,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/wrench/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -860,7 +843,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile/block,
-/obj/structure/table/reinforced/brass,
 /obj/item/clockwork/clockgolem_remains,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
@@ -892,7 +874,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Ok" = (
@@ -908,7 +889,6 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 1
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Or" = (
@@ -917,13 +897,11 @@
 /area/mine/necropolis)
 "OH" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /obj/item/multitool/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "OM" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "OW" = (
@@ -1010,7 +988,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "SV" = (
@@ -1098,7 +1075,6 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/mine/necropolis)
 "Yn" = (

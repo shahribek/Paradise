@@ -307,7 +307,6 @@
 /turf/simulated/floor/plasteel,
 /area/mine/laborcamp)
 "aV" = (
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "brown"
@@ -1331,7 +1330,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel,
 /area/mine/production)
 "dt" = (
@@ -2997,7 +2995,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/wrench/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
@@ -3045,7 +3042,6 @@
 "ii" = (
 /obj/structure/stone_tile/slab,
 /obj/item/storage/toolbox/brass,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "ij" = (
@@ -3383,7 +3379,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
@@ -4129,7 +4124,6 @@
 "nm" = (
 /obj/structure/stone_tile/surrounding,
 /obj/structure/stone_tile/center/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "nz" = (
@@ -4394,7 +4388,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/twohanded/ratvarian_spear,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
@@ -4411,7 +4404,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
@@ -4766,7 +4758,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "sR" = (
@@ -4832,7 +4823,6 @@
 	c_tag = "Labor Camp Airlock";
 	network = list("Labor    Camp")
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "brown"
@@ -4846,7 +4836,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /obj/item/wirecutters/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
@@ -5314,7 +5303,6 @@
 "xZ" = (
 /obj/structure/stone_tile/slab,
 /obj/item/clockwork/fallen_armor,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "yf" = (
@@ -5395,7 +5383,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "yK" = (
@@ -5590,7 +5577,6 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "AQ" = (
@@ -6190,7 +6176,6 @@
 	dir = 1
 	},
 /obj/structure/stone_tile,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "Hi" = (
@@ -6515,7 +6500,6 @@
 /area/lavaland/surface/outdoors/necropolis)
 "JP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/camera{
 	c_tag = "Labor Bedroom 2";
 	dir = 1;
@@ -6749,7 +6733,6 @@
 "Me" = (
 /obj/structure/stone_tile/slab,
 /obj/item/wrench/brass,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "Mi" = (
@@ -7251,7 +7234,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/storage/toolbox/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
@@ -7442,7 +7424,6 @@
 /area/lavaland/surface/outdoors)
 "SM" = (
 /obj/structure/stone_tile/slab/cracked,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "ST" = (
@@ -7596,7 +7577,6 @@
 /obj/structure/stone_tile{
 	dir = 4
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "Uh" = (
@@ -7631,7 +7611,6 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 1
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "UD" = (
@@ -7642,7 +7621,6 @@
 "UH" = (
 /obj/structure/stone_tile/slab,
 /obj/item/clockwork/clockgolem_remains,
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "UQ" = (
@@ -7907,7 +7885,6 @@
 /obj/structure/stone_tile{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)
 "Xj" = (
@@ -7972,7 +7949,6 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/structure/table/reinforced/brass,
 /obj/item/weldingtool/experimental/brass,
 /turf/simulated/floor/indestructible/boss,
 /area/lavaland/surface/outdoors/necropolis)

@@ -147,7 +147,6 @@
 "dp" = (
 /obj/structure/kitchenspike,
 /obj/effect/clockwork/overlay/floor/bloodcult,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/graveyard/church)
 "dy" = (
@@ -614,7 +613,6 @@
 /turf/simulated/floor/carpet,
 /area/ruin/space/graveyard/church)
 "nX" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/graveyard/church)
 "oj" = (
@@ -910,7 +908,6 @@
 /obj/structure/decorative_structures/corpse{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dust{
 	icon = 'icons/obj/rune.dmi';
 	icon_state = "revive";
@@ -1765,7 +1762,6 @@
 /turf/simulated/floor/wood/oak,
 /area/ruin/space/graveyard/church)
 "Oo" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/clockwork/overlay/floor/bloodcult,
 /turf/simulated/floor/plating,
 /area/ruin/space/graveyard/church)
@@ -1849,7 +1845,6 @@
 	},
 /area/ruin/space/graveyard/church)
 "Qu" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating/asteroid,
 /area/ruin/space/graveyard/church)
 "QD" = (
@@ -2372,7 +2367,6 @@
 /turf/simulated/floor/wood/oak,
 /area/ruin/space/graveyard/graves)
 "Yg" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/door_control{
 	desiredstate = 1;
 	id = "devil_left";

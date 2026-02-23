@@ -16,7 +16,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/turf_decal/delivery/red,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "dark"
@@ -228,7 +227,6 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "dark"
@@ -2516,7 +2514,6 @@
 	},
 /area/ruin/space/pirate_base/lab_medical)
 "hm" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/alien/weeds{
 	icon_state = "weeds2"
 	},
@@ -4740,7 +4737,6 @@
 /obj/machinery/door/window{
 	dir = 1
 	},
-/obj/effect/turf_decal/delivery,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -6933,7 +6929,6 @@
 	},
 /area/ruin/space/pirate_base/lab_medical)
 "uC" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/railing{
 	dir = 1
 	},
@@ -8335,7 +8330,6 @@
 /area/ruin/space/pirate_base/atrium)
 "yj" = (
 /obj/machinery/disposal,
-/obj/effect/turf_decal/delivery,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -9154,7 +9148,6 @@
 	id_tag = "minerspirat_blast";
 	use_power = 0
 	},
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plating,
 /area/ruin/space/pirate_base/mining)
 "AK" = (
@@ -10072,7 +10065,6 @@
 	},
 /area/ruin/space/pirate_base/laboratory)
 "DL" = (
-/obj/effect/turf_decal/delivery/red,
 /obj/machinery/door/poddoor/shutters{
 	id_tag = "prison_block_shutters"
 	},
@@ -10722,7 +10714,6 @@
 /turf/simulated/floor/wood,
 /area/ruin/space/pirate_base/security_atrium)
 "FN" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating/asteroid/airless,
 /area/ruin/unpowered)
 "FO" = (
@@ -11117,7 +11108,6 @@
 /area/space)
 "GP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/pirate_base/prison_maint)
 "GR" = (
@@ -12255,7 +12245,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ruin/space/pirate_base/security_maint)
@@ -13095,7 +13084,6 @@
 /area/ruin/space/pirate_base/kitchen)
 "My" = (
 /obj/machinery/suit_storage_unit/pirate,
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plating,
 /area/shuttle/pirate_corvette)
 "MB" = (
@@ -16681,7 +16669,6 @@
 	use_power = 0
 	},
 /obj/structure/fans/tiny,
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/plating,
 /area/ruin/space/pirate_base/mining)
 "Xj" = (
@@ -17296,7 +17283,6 @@
 	id_tag = "minerspirat_blast";
 	use_power = 0
 	},
-/obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ruin/space/pirate_base/mining)

@@ -3000,7 +3000,6 @@
 /obj/structure/chair/office/light{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plasteel{
 	icon_state = "darkred"
 	},

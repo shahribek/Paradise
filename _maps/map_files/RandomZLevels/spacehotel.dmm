@@ -2002,7 +2002,6 @@
 	name = "Kitchen";
 	req_access = list(150)
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon_state = "white"
 	},
@@ -2012,7 +2011,6 @@
 	name = "Kitchen";
 	req_access = list(150)
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon_state = "whiteyellowfull"
 	},
@@ -2026,7 +2024,6 @@
 	},
 /area/awaymission/spacehotel)
 "hz" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/ladder,
 /turf/simulated/floor/indestructible{
 	icon_state = "whiteyellow";
@@ -2091,7 +2088,6 @@
 	},
 /area/awaymission/spacehotel)
 "hM" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon_state = "whiteyellow";
 	dir = 1
@@ -2135,7 +2131,6 @@
 	},
 /area/awaymission/spacehotel)
 "hW" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon_state = "white"
 	},
@@ -2163,7 +2158,6 @@
 	},
 /area/awaymission/spacehotel)
 "ih" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon_state = "whiteyellow"
 	},
@@ -2210,11 +2204,9 @@
 /turf/simulated/floor/indestructible/carpet,
 /area/awaymission/spacehotel)
 "in" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/wall/indestructible/metal,
 /area/awaymission/spacehotel)
 "io" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/falsewall,
 /turf/simulated/floor/indestructible{
 	icon_state = "cult";
@@ -2315,7 +2307,6 @@
 	},
 /area/awaymission/spacehotel)
 "iE" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon_state = "cult";
 	name = "engraved floor"
@@ -2407,7 +2398,6 @@
 /area/awaymission/spacehotel)
 "iR" = (
 /obj/effect/gibspawner/human,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon_state = "cult";
 	name = "engraved floor"
@@ -2545,7 +2535,6 @@
 /area/awaymission/spacehotel)
 "jg" = (
 /obj/item/candle,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon_state = "cult";
 	name = "engraved floor"
@@ -2672,7 +2661,6 @@
 "jA" = (
 /obj/structure/chair/comfy,
 /obj/item/soulstone,
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/remains/human,
 /obj/effect/visual_portal{
 	id = "cultroom";
@@ -2908,7 +2896,6 @@
 /obj/item/kitchen/knife/butcher{
 	blood_DNA = list("1e+009"="O-")
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon_state = "cult";
 	name = "engraved floor"
@@ -3023,7 +3010,6 @@
 /turf/simulated/floor/indestructible/plating,
 /area/awaymission)
 "kO" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/wall/shuttle,
 /area/awaymission)
 "kP" = (
@@ -3084,7 +3070,6 @@
 /area/space)
 "la" = (
 /obj/effect/decal/remains/human,
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
@@ -3105,7 +3090,6 @@
 	dir = 4
 	},
 /obj/effect/decal/remains/human,
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/indestructible{
 	icon = 'icons/turf/shuttle/floors.dmi';
 	icon_state = "floor"
@@ -3122,7 +3106,6 @@
 	},
 /area/awaymission)
 "lg" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},

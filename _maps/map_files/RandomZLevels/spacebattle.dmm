@@ -215,7 +215,6 @@
 	},
 /area/awaymission/spacebattle/syndicate3)
 "aK" = (
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
 	},
@@ -892,7 +891,6 @@
 	},
 /area/awaymission/spacebattle/hallway12)
 "cP" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/closet/coffin/sarcophagus,
 /obj/item/clothing/gloves/ring/gold,
 /obj/item/coin/gold{
@@ -3150,7 +3148,6 @@
 /turf/simulated/mineral/random,
 /area/awaymission)
 "jh" = (
-/obj/effect/turf_decal/delivery,
 /obj/effect/spawner/lootdrop/maintenance,
 /mob/living/simple_animal/hostile/mimic/crate{
 	faction = list("syndicate");
@@ -3479,7 +3476,6 @@
 	},
 /area/awaymission/spacebattle/hallway6)
 "jW" = (
-/obj/effect/turf_decal/delivery,
 /obj/item/clothing/head/helmet/swat/syndicate,
 /mob/living/simple_animal/hostile/mimic/crate{
 	faction = list("syndicate");
@@ -3574,7 +3570,6 @@
 /turf/simulated/floor/plating,
 /area/awaymission/spacebattle/hallway5)
 "kl" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/closet/crate/secure/syndicate,
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/simulated/floor/shuttle{
@@ -6327,7 +6322,6 @@
 /turf/simulated/floor/plasteel/dark,
 /area/awaymission/spacebattle/server)
 "sg" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/closet/crate/syndicate,
 /obj/machinery/light/small{
 	dir = 8
@@ -7586,7 +7580,6 @@
 	},
 /area/awaymission/spacebattle/syndicate7)
 "vA" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/closet/body_bag,
 /obj/effect/decal/remains/human,
 /turf/simulated/floor/shuttle{
@@ -9907,7 +9900,6 @@
 /turf/space,
 /area/space)
 "BH" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/closet/crate/secure/large/reinforced,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor13"
@@ -10962,7 +10954,6 @@
 /turf/space,
 /area/awaymission/spacebattle/syndicate3)
 "EF" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/reagent_dispensers/beerkeg,
 /obj/machinery/light/small,
 /turf/simulated/floor/shuttle{
@@ -11036,7 +11027,6 @@
 	},
 /area/awaymission/spacebattle/bridge)
 "EP" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/closet/crate/syndicate,
 /obj/effect/spawner/lootdrop/maintenance{
 	lootcount = 2;
@@ -12420,7 +12410,6 @@
 	},
 /area/awaymission/spacebattle/syndicate2)
 "IJ" = (
-/obj/effect/turf_decal/delivery,
 /mob/living/simple_animal/hostile/mimic/crate{
 	faction = list("syndicate");
 	health = 80;
@@ -13072,7 +13061,6 @@
 /turf/simulated/floor/plasteel,
 /area/awaymission/spacebattle/sec_storage)
 "KF" = (
-/obj/effect/turf_decal/delivery,
 /obj/structure/closet/cardboard,
 /obj/effect/spawner/lootdrop/maintenance{
 	lootcount = 3;

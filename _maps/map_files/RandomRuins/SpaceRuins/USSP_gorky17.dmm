@@ -3562,7 +3562,6 @@
 	},
 /area/ruin/space/USSP_gorky17/medbay)
 "nE" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/mining)
 "nG" = (
@@ -11275,7 +11274,6 @@
 	},
 /area/ruin/space/USSP_gorky17/kitchen)
 "OL" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating/asteroid/airless,
 /area/ruin/space/USSP_gorky17/asteroids)
 "OO" = (

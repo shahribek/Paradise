@@ -565,7 +565,6 @@
 /area/shuttle/freegolem)
 "DS" = (
 /obj/structure/ore_box,
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/pod/dark,
 /area/shuttle/freegolem)
 "Ev" = (
@@ -797,7 +796,6 @@
 /turf/simulated/floor/pod/dark,
 /area/shuttle/freegolem)
 "SX" = (
-/obj/effect/turf_decal/delivery,
 /turf/simulated/floor/pod/dark,
 /area/shuttle/freegolem)
 "Tf" = (

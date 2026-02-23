@@ -492,7 +492,6 @@
 /turf/simulated/floor/pod/dark/lavaland_air,
 /area/lavaland/surface/outdoors)
 "kV" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/safe_cave)
 "lc" = (
@@ -537,7 +536,6 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/safe_cave)
 "mm" = (
@@ -601,7 +599,6 @@
 "nl" = (
 /obj/structure/chair/comfy/black,
 /obj/effect/mob_spawn/human/corpse/pirate/ranged,
-/obj/effect/decal/cleanable/blood/old,
 /obj/item/reagent_containers/food/drinks/bottle/rum{
 	pixel_x = 16;
 	pixel_y = -14
@@ -762,7 +759,6 @@
 /turf/simulated/floor/plasteel/stairs/lavaland_air,
 /area/ruin/powered/pirateship)
 "po" = (
-/obj/effect/decal/cleanable/blood/old,
 /obj/effect/mapping_helpers/no_lava,
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
@@ -921,7 +917,6 @@
 	pixel_x = -13;
 	pixel_y = 20
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/safe_cave)
 "uS" = (
@@ -1543,7 +1538,6 @@
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/safe_cave)
 "Ia" = (
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/engine/lavaland_air,
 /area/ruin/powered/pirateship)
 "Ik" = (
@@ -1772,7 +1766,6 @@
 	pixel_x = -8;
 	pixel_y = -6
 	},
-/obj/effect/decal/cleanable/blood/old,
 /turf/simulated/floor/plating/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/safe_cave)
 "Md" = (
