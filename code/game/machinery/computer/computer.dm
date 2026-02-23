@@ -26,6 +26,8 @@
 	if(frame)
 		src.frame = frame
 
+	else
+		src.frame = new src.frame.type(src, circuit)
 	src.frame.on_construction(src)
 	power_change()
 	update_icon()
