@@ -1,7 +1,7 @@
 /obj/item/suit_sensor
 	name = "suit sensor"
 	desc = "Маленькое устройство, которое крепится на одежду и позволяет отслеживать жизненные показатели и местополежние владельца"
-	var/obj/item/clothing/suit = null
+	var/obj/item/clothing/under/suit = null
 	var/sensor_state = SENSOR_OFF
 	var/locked = FALSE
 	var/static/list/modes = list(
@@ -46,7 +46,7 @@
 	else
 		to_chat(src, span_notice("Датчик теперь в режиме \"[modes[sensor_state]]\"."))
 
-/obj/item/suit_sensor/proc/install(obj/item/clothing/under/under, mob.user)
+/obj/item/suit_sensor/proc/install(obj/item/clothing/under/under, mob/user)
 	if(crit_fail)
 		user.balloon_alert(user, "Датчики повреждены!")
 		return FALSE
@@ -73,7 +73,7 @@
 	locked = initial(src.locked)
 	crit_fail = FALSE
 	if(suit)
-		suit.desc = replace(suit.desc, " Проводка датчиков слежки повреждена!", "")
-	desc = replace(desc, " Провода датчиков повреждены!", "")
+		suit.desc -= " Проводка датчиков слежки повреждена!"
+	desc -=" Провода датчиков повреждены!"
 
 

@@ -479,10 +479,10 @@
 				to_chat(user, "Теперь датчики вашего костюма будут отслеживать ваши жизненные показатели и местоположение.")
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if(H.w_uniform == suit)
+			if(H.w_uniform == src)
 				H.update_suit_sensors()
 
-	else if(istype(suit.loc, /mob))
+	else if(istype(src.loc, /mob))
 		switch(sensor_mode)
 			if(SENSOR_OFF)
 				for(var/mob/V in viewers(user, 1))
