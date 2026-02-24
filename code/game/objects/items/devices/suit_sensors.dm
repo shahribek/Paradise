@@ -49,6 +49,7 @@
 /obj/item/suit_sensor/proc/install(obj/item/clothing/under/under, mob.user)
 	if(crit_fail)
 		user.balloon_alert(user, "Датчики повреждены!")
+		return FALSE
 	if(user)
 		if(!user.drop_transfer_item_to_loc(src, under))
 			return FALSE
