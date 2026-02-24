@@ -145,13 +145,18 @@
 
 //suit sensors: sensor_mode defines
 /// Suit sensor is turned off
-#define SENSOR_OFF 0
+#define SENSOR_OFF 1
 /// Suit sensor displays the mob as alive or dead
-#define SENSOR_LIVING 1
+#define SENSOR_LIVING 2
 /// Suit sensor displays the mob damage values
-#define SENSOR_VITALS 2
+#define SENSOR_VITALS 3
 /// Suit sensor displays the mob damage values and exact location
-#define SENSOR_COORDS 3
+#define SENSOR_COORDS 4
+//suit sensor: names
+#define SENSOR_OFF_STRING "Выключен"
+#define SENSOR_LIVING_STRING "Бинарный"
+#define SENSOR_VITALS_STRING "Мониторинг жизненных показателей"
+#define SENSOR_COORDS_STRING "Полный мониторинг"
 
 //flags for muzzle speech blocking
 #define MUZZLE_MUTE_NONE 0 // Does not mute you.

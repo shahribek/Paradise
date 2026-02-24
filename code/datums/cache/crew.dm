@@ -42,7 +42,7 @@ GLOBAL_DATUM_INIT(crew_repository, /datum/repository/crew, new())
 	for(var/thing in GLOB.human_list)
 		var/mob/living/carbon/human/H = thing
 		var/obj/item/clothing/under/C = H.w_uniform
-		if(!C || C.sensor_mode == SUIT_SENSOR_OFF || !C.has_sensor)
+		if(!C || C.sensor_mode == SUIT_SENSOR_OFF || !C.has_sensor())
 			continue
 		var/turf/pos = get_turf(C)
 		if(!istype(pos) || !T)

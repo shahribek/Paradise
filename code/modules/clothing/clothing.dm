@@ -443,61 +443,65 @@
 		if(blood_overlay)
 			. += blood_overlay
 
+/obj/item/clothing/under/proc/has_sensor()
+	return !isnull(suit_sensor)
+
+/obj/item/clothing/under/proc/is_sensor_locked()
+	if(!has_sensor())
+		return
+	return suit_sensor.locked
+
 /obj/item/clothing/under/proc/set_sensors(mob/living/user)
 	if(user.incapacitated() || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		return
 	if(user.pulledby && user.pulledby.grab_state >= GRAB_NECK)
 		balloon_alert(user, "не добраться!")
 		return
-	if(has_sensor >= 2)
+	if(is_sensor_locked())
 		balloon_alert(user, "датчики заблокированы!")
 		return
-	if(has_sensor <= 0)
+	if(!has_sensor())
 		balloon_alert(user, "датчики отсутствуют!")
 		return
 
-	var/list/modes = list("Выключены", "Бинарный режим", "Мониторинг жизненных показателей", "Полный мониторинг")
-	var/switchMode = tgui_input_list(user, "Выберите режим работы датчиков:", "Режим работы датчиков костюма", modes, modes[sensor_mode+1])
-	if(!switchMode)
+	if(!suit_sensor.toggle())
 		return
-	if(get_dist(user, src) > 1)
-		balloon_alert(user, "слишком далеко!")
-		return
-	sensor_mode = modes.Find(switchMode) - 1
 
 	if(src.loc == user)
 		switch(sensor_mode)
-			if(0)
+			if(SENSOR_OFF)
 				to_chat(user, "Вы отключаете датчики вашего костюма.")
-			if(1)
+			if(SENSOR_LIVING)
 				to_chat(user, "Теперь датчики вашего костюма будут отслеживать, живы вы или мертвы.")
-			if(2)
+			if(SENSOR_VITALS)
 				to_chat(user, "Теперь датчики вашего костюма будут отслеживать ваши жизненные показатели.")
-			if(3)
+			if(SENSOR_COORDS)
 				to_chat(user, "Теперь датчики вашего костюма будут отслеживать ваши жизненные показатели и местоположение.")
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if(H.w_uniform == src)
+			if(H.w_uniform == suit)
 				H.update_suit_sensors()
 
-	else if(istype(src.loc, /mob))
+	else if(istype(suit.loc, /mob))
 		switch(sensor_mode)
-			if(0)
+			if(SENSOR_OFF)
 				for(var/mob/V in viewers(user, 1))
 					V.show_message(span_warning("[user] отключа[PLUR_ET_YUT(user)] датчики [src.loc]."), 1)
-			if(1)
+			if(SENSOR_LIVING)
 				for(var/mob/V in viewers(user, 1))
 					V.show_message("[user] устанавлива[PLUR_ET_YUT(user)] датчики [src.loc] в бинарный режим.", 1)
-			if(2)
+			if(SENSOR_VITALS)
 				for(var/mob/V in viewers(user, 1))
 					V.show_message("[user] устанавлива[PLUR_ET_YUT(user)] датчики [src.loc] в режим мониторинга жизненных показателей.", 1)
-			if(3)
+			if(SENSOR_COORDS)
 				for(var/mob/V in viewers(user, 1))
 					V.show_message("[user] устанавлива[PLUR_ET_YUT(user)] датчики [src.loc] в режим мониторинга жизненных показателей и текущего местоположения.", 1)
-		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
-			if(H.w_uniform == src)
-				H.update_suit_sensors()
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		if(H.w_uniform == src)
+			H.update_suit_sensors()
+
 
 /obj/item/clothing/under/verb/toggle()
 	set name = "Датчики костюма"
@@ -1127,6 +1131,7 @@
 	var/can_adjust = TRUE
 	/// If true, it's rolled down.
 	var/rolled_down = FALSE
+	var/obj/item/suit_sensor/suit_sensor = /obj/item/suit_sensor/suit_sensor
 
 /obj/item/clothing/under/rank
 	dying_key = DYE_REGISTRY_UNDER
@@ -1135,6 +1140,8 @@
 	. = ..()
 	if(random_sensor)
 		sensor_mode = pick(SENSOR_OFF, SENSOR_LIVING, SENSOR_VITALS, SENSOR_COORDS)
+	if(ispath(suit_sensor))
+		suit_sensor = new
 
 /obj/item/clothing/under/Destroy()
 	QDEL_LIST(accessories)
@@ -1211,6 +1218,15 @@
 		add_fingerprint(user)
 		for(var/obj/item/clothing/accessory/accessory as anything in accessories)
 			accessory.attackby(I, user, params)
+		return ATTACK_CHAIN_BLOCKED_ALL
+
+	else if(istype(I, /obj/item/suit_sensor))
+		if(suit_sensor)
+			to_chat(user, span_notice("Эта одежда уже имеет датчики."))
+			return ATTACK_CHAIN_BLOCKED_ALL
+		var/obj/item/suit_sensor/new_sensor
+		if(new_sensor.install(src, user))
+			playsound(user, 'sound/machines/click.ogg', 50)
 		return ATTACK_CHAIN_BLOCKED_ALL
 
 	return ..()
