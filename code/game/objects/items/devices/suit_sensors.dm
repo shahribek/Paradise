@@ -28,7 +28,7 @@
 	toggle(user)
 
 /obj/item/suit_sensor/proc/toggle(mob/user)
-	var/switchMode = tgui_input_list(user, "Выберите режим работы датчиков:", "Режим работы датчиков костюма", modes, modes[sensor_state])
+	var/switchMode = tgui_input_list(user, "Выберите режим работы датчиков:", "Режим работы датчиков костюма", modes)
 	if(!switchMode)
 		return
 	if(get_dist(user, src) > 1)
