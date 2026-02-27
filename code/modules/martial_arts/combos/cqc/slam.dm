@@ -4,6 +4,10 @@
 	explaination_text = "Slam opponent into the ground, knocking them down."
 
 /datum/martial_combo/cqc/slam/perform_combo(mob/living/carbon/human/user, mob/living/target, datum/martial_art/MA)
+	var/datum/martial_art/cqc/CQC = MA
+	if(!istype(CQC))
+		return MARTIAL_COMBO_FAIL
+	CQC.slam_combo_time = world.time + 2 SECONDS
 	if(target.body_position != LYING_DOWN)
 		target.visible_message(
 			span_warning("[user] slams [target] into the ground!"), \

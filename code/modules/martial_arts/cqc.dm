@@ -10,6 +10,7 @@
 		MARTIAL_GRAB_NECK = 10,
 		MARTIAL_GRAB_KILL = 5,
 	)
+	var/slam_combo_time
 	combos = list(/datum/martial_combo/cqc/slam, /datum/martial_combo/cqc/kick, /datum/martial_combo/cqc/restrain, /datum/martial_combo/cqc/pressure, /datum/martial_combo/cqc/consecutive)
 	var/restraining = FALSE //used in cqc's disarm_act to check if the disarmed is being restrained and so whether they should be put in a chokehold or not
 	var/static/list/areas_under_siege = typecacheof(list(/area/crew_quarters/kitchen,
@@ -63,6 +64,13 @@
 	if(grab_success && old_grab_state == GRAB_PASSIVE)
 		defender.grippedby(attacker)	//Instant aggressive grab
 		add_attack_logs(attacker, defender, "Melee attacked with martial-art [src] : aggressively grabbed", ATKLOG_ALL)
+		if(world.time <= slam_combo_time)
+			slam_combo_time = world.time + 2 SECONDS
+			var/datum/martial_combo/cqc/slam = new
+			slam.perform_combo(attacker, defender, src)
+			attacker.stop_pulling()
+			qdel(slam)
+
 	return TRUE
 
 /datum/martial_art/cqc/harm_act(mob/living/carbon/human/A, mob/living/carbon/human/D)

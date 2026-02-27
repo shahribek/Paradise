@@ -12,8 +12,11 @@
 		if(I && target.drop_from_active_hand())
 			user.put_in_hands(I, ignore_anim = FALSE)
 		target.apply_damage(50, STAMINA)
-		target.apply_damage(25, BRUTE)
-		objective_damage(user, target, 25, BRUTE)
+		target.apply_damage(15, BRUTE)
+		var/atom/throw_target = get_edge_target_turf(target, get_dir(user, get_step_away(target, user)))
+		target.throw_at(throw_target, 2)
+
+		objective_damage(user, target, 15, BRUTE)
 		add_attack_logs(user, target, "Melee attacked with martial-art [src] : Consecutive", ATKLOG_ALL)
 		return MARTIAL_COMBO_DONE
 	return MARTIAL_COMBO_FAIL
