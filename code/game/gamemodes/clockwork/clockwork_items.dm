@@ -1874,3 +1874,44 @@
 			и удаляющий все мешающие для её установки детали."
 	icon_state = "clocklock"
 	w_class = WEIGHT_CLASS_TINY
+	var/obj/item/gun/attached_to
+
+/obj/item/clockwork/clocklock/get_ru_names()
+	return list(
+		GENITIVE = "часового механизма",
+		DATIVE = "часовому механизму",
+		ACCUSATIVE = "часовой механизм",
+		INSTRUMENTAL = "часовым механизмом",
+		PREPOSITIONAL = "часовом механизме",
+	)
+
+/obj/item/clockwork/clocklock/afterattack(atom/target, mob/user, proximity, params, status)
+	. = ..()
+	if(!isgun(target))
+		return
+	if(!isclocker(user))
+		return
+
+	var/obj/item/gun/G = target
+	if(G.isclockwork)
+		user.balloon_alert(user, span_clockspeech("Она уже наша!"))
+		return
+	install(G, user)
+
+/obj/item/clockwork/clocklock/proc/install(obj/item/gun/G, mob/user)
+	if(G.isclockwork)
+		return
+	G.isclockwork = TRUE
+	G.trigger_guard = TRIGGER_GUARD_NONE
+	enchants = GLOB.gun_and_heart_spells
+
+/obj/item/clockwork/clocklock/add_enchant()
+	. = ..()
+	if(attached_to)
+
+/obj/item/clockwork/clocklock/proc/update_chamber()
+	if(!attached_to)
+		return
+	switch(enchant_type)
+		if(EMP_G_SPELL)
+			attached_to.chambered =

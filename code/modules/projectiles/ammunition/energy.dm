@@ -556,6 +556,17 @@
 	fire_sound = 'sound/weapons/gunshots/1shotgun.ogg'
 	e_cost = 1
 
+/obj/item/ammo_casing/energy/rat/emp
+	projectile_type = /obj/projectile/energy/rat/slug/emp
+
+/obj/item/ammo_casing/energy/rat/ug/heal
+	projectile_type = /obj/projectile/energy/rat/slug/heal
+	fire_sound = 'sound/magic/staff_healing.ogg'
+
+/obj/item/ammo_casing/energy/rat/stun
+	projectile_type = /obj/projectile/energy/rat/slug/stun
+	fire_sound =  'sound/weapons/gunshots/gunshot_mg.ogg'
+
 /obj/item/ammo_casing/energy/rat/get_ru_names()
 	return list(
 		NOMINATIVE = "механическая энергоячейка",
