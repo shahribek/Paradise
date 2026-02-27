@@ -187,6 +187,12 @@
 				force = default_force
 				return
 
+		else if(istype(martial_art, /datum/martial_art/cqc) && can_neck_cut(target, user))
+			. = ATTACK_CHAIN_BLOCKED_ALL
+			neck_cut(target, user, 2 SECONDS)
+			force = default_force
+			return
+
 		else if(can_neck_cut(target, user))
 			. = ATTACK_CHAIN_BLOCKED_ALL
 			neck_cut(target, user)
