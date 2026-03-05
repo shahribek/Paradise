@@ -452,10 +452,13 @@
 	if(amount >= BRONZE_LEVEL)
 		give_award(/datum/award/achievement/donations/bronze_sponsor, mob)
 
-	if(amount < PLATINUM_LEVEL)
+	if(amount >= PLATINUM_LEVEL)
+		give_award(/datum/award/achievement/donations/platinum_sponsor, mob)
+
+	if(amount < VIP_LEVEL)
 		return
 
-	give_award(/datum/award/achievement/donations/platinum_sponsor, mob)
+	give_award(/datum/award/achievement/donations/vip_sponsor)
 
 /client/proc/is_connecting_from_localhost()
 	var/localhost_addresses = list("127.0.0.1", "::1", "0.0.0.0") // Adresses
