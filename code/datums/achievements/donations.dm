@@ -28,3 +28,4 @@
 /datum/award/achievement/donations/vip_sponsor
 	name = "Опора провекта"
 	desc = "Ваш вклад превышает 50000 рублей. У разраба который делал эту ачивку не хватило кретивности что бы написать ничего более чем просто факт того что вы сделали"
+	database_id = MEDAL_DONATION_VIP_SPONSOR
