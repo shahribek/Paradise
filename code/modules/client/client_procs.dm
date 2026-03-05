@@ -458,7 +458,7 @@
 	if(amount < VIP_LEVEL)
 		return
 
-	give_award(/datum/award/achievement/donations/vip_sponsor)
+	give_award(/datum/award/achievement/donations/vip_sponsor, mob)
 
 /client/proc/is_connecting_from_localhost()
 	var/localhost_addresses = list("127.0.0.1", "::1", "0.0.0.0") // Adresses
