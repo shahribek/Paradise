@@ -272,6 +272,15 @@ SUBSYSTEM_DEF(jobs)
 			unassigned -= player
 			break
 
+		if(length(job.required_achievements))
+			var/allowed = TRUE
+			for(var/award in job.required_achievements)
+				if(!player.client.get_award_status(award))
+					allowed = FALSE
+					break
+			if(!allowed)
+				continue
+
 /datum/controller/subsystem/jobs/proc/ResetOccupations()
 	for(var/mob/new_player/player in GLOB.player_list)
 		if(player?.mind)

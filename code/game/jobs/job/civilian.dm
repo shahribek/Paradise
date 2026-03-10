@@ -21,6 +21,17 @@
 
 	uniform = /obj/item/clothing/under/color/random
 
+/datum/job/civilian/investor
+	title = JOB_TITLE_INVESTOR
+	flag = JOB_FLAG_INVESTOR
+	department_flag = JOBCAT_SUPPORT
+	department = STATION_DEPARTMENT_CIVILIAN
+	hidden_from_job_prefs = TRUE
+	required_achievements = list(/datum/award/achievement/donations/vip_sponsor)
+	alt_titles = list("VIP person")
+	insurance_type = INSURANCE_TYPE_DELUXE
+	paycheck = PAYCHECK_MAX
+
 /datum/job/civilian/prisoner
 	title = JOB_TITLE_PRISONER
 	flag = JOB_FLAG_PRISONER

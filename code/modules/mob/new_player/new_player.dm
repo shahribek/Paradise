@@ -298,6 +298,15 @@
 	if(!job.can_novice_play(client))
 		return 0
 
+	if(length(job.required_achievements))
+		var/allowed = TRUE
+		for(var/award in job.required_achievements)
+			if(!client.get_award_status(award))
+				allowed = FALSE
+				break
+		if(!allowed)
+			return 0
+
 	if(CONFIG_GET(flag/assistant_limit))
 		if(job.title == JOB_TITLE_CIVILIAN)
 			var/count = 0

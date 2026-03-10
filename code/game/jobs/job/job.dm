@@ -66,6 +66,7 @@
 	/// If true, job preferences screen never shows this job.
 	var/hidden_from_job_prefs = FALSE
 	var/list/blocked_race_for_job = list()
+	var/required_achievements = list()
 
 	var/admin_only = 0
 	var/spawn_ert = 0
