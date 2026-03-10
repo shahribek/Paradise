@@ -1634,7 +1634,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		/obj/structure/reagent_dispensers/fueltank,
 	)
 	cost = 8
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с баком сварочного топлива"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с баком сварочного топлива",
@@ -1998,7 +1998,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	name = "Канистра азота"
 	contains = list(/obj/machinery/portable_atmospherics/canister/nitrogen)
 	cost = 5
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с канистрой азота"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с канистрой азота",
@@ -2013,7 +2013,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	name = "Канистра кислорода"
 	contains = list(/obj/machinery/portable_atmospherics/canister/oxygen)
 	cost = 5
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с канистрой кислорода"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с канистрой кислорода",
@@ -2028,7 +2028,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	name = "Канистра воздуха"
 	contains = list(/obj/machinery/portable_atmospherics/canister/air)
 	cost = 5
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с канистрой воздуха"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с канистрой воздуха",
@@ -2043,7 +2043,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	name = "Канистра оксида азота"
 	contains = list(/obj/machinery/portable_atmospherics/canister/sleeping_agent)
 	cost = 25
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с канистрой оксида азота"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с канистрой оксида азота",
@@ -2058,7 +2058,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	name = "Канистра углекислого газа"
 	contains = list(/obj/machinery/portable_atmospherics/canister/carbon_dioxide)
 	cost = 25
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с канистрой углекислого газа"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с канистрой углекислого газа",
@@ -2073,7 +2073,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	name = "Канистра плазмы"
 	contains = list(/obj/machinery/portable_atmospherics/canister/toxins)
 	cost = 25
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с канистрой плазмы"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с канистрой плазмы",
@@ -2087,7 +2087,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/engineering/miner
 	required_tech = list(RESEARCH_TREE_TOXINS = 4)
 	cost = 150
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 
 /datum/supply_packs/engineering/miner/n2o
 	name = "Майнер N2O"
@@ -3270,7 +3270,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		/obj/item/reagent_containers/food/drinks/oilcan,
 	)
 	cost = 10
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с ботаническим ранцем для масла"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с ботаническим ранцем для масла",
@@ -3343,7 +3343,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		INSTRUMENTAL = "ящиком блюспейс-ранцев",
 		PREPOSITIONAL = "ящике блюспейс-ранцев",
 	)
-
+	
 /datum/supply_packs/science/soduffelbag
 	name = "Блюспейс сумки хранения"
 	contains = list(
@@ -3885,113 +3885,11 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	)
 	announce_beacons = list("Bar" = list("Bar"))
 
-/datum/supply_packs/organic/coffee_syrups
-	name = "Ящик кофейных сиропов"
-	contains = list(
-		/obj/item/reagent_containers/glass/bottle/syrup_bottle/caramel,
-		/obj/item/reagent_containers/glass/bottle/syrup_bottle/caramel,
-		/obj/item/reagent_containers/glass/bottle/syrup_bottle/liqueur,
-		/obj/item/reagent_containers/glass/bottle/syrup_bottle/liqueur,
-	)
-	cost = 20
-	containername = "ящик кофейных сиропов"
-	container_ru_names = list(
-		NOMINATIVE = "ящик кофейных сиропов",
-		GENITIVE = "ящика кофейных сиропов",
-		DATIVE = "ящику кофейных сиропов",
-		ACCUSATIVE = "ящик кофейных сиропов",
-		INSTRUMENTAL = "ящиком кофейных сиропов",
-		PREPOSITIONAL = "ящике кофейных сиропов",
-	)
-
-/datum/supply_packs/organic/standard_coffeemachine
-	name = "Плата кофемашины \"Моделло 3\""
-	contains = list(/obj/item/circuitboard/coffeemaker/standard)
-	cost = 35
-	containername = "ящик с кофемашиной \"Моделло 3\""
-	container_ru_names = list(
-		NOMINATIVE = "ящик с кофемашиной \"Моделло 3\"",
-		GENITIVE = "ящика с кофемашиной \"Моделло 3\"",
-		DATIVE = "ящику с кофемашиной \"Моделло 3\"",
-		ACCUSATIVE = "ящик с кофемашиной \"Моделло 3\"",
-		INSTRUMENTAL = "ящиком с кофемашиной \"Моделло 3\"",
-		PREPOSITIONAL = "ящике с кофемашиной \"Моделло 3\"",
-	)
-
-/datum/supply_packs/organic/impressa_coffeemachine
-	name = "Плата кофемашины \"Импресса Моделло 5\""
-	contains = list(/obj/item/circuitboard/coffeemaker/impressa)
-	cost = 60
-	containername = "ящик с кофемашиной \"Импресса Моделло 5\""
-	container_ru_names = list(
-		NOMINATIVE = "ящик с кофемашиной \"Импресса Моделло 5\"",
-		GENITIVE = "ящика с кофемашиной \"Импресса Моделло 5\"",
-		DATIVE = "ящику с кофемашиной \"Импресса Моделло 5\"",
-		ACCUSATIVE = "ящик с кофемашиной \"Импресса Моделло 5\"",
-		INSTRUMENTAL = "ящиком с кофемашиной \"Импресса Моделло 5\"",
-		PREPOSITIONAL = "ящике с кофемашиной \"Импресса Моделло 5\"",
-	)
-
-/datum/supply_packs/organic/coffee_cartridges
-	name = "Набор кофейных картриджей"
-	contains = list(
-		/obj/item/coffee_cartridge,
-		/obj/item/coffee_cartridge,
-		/obj/item/coffee_cartridge,
-	)
-	cost = 25
-	containername = "ящик кофейных картриджей"
-	container_ru_names = list(
-		NOMINATIVE = "ящик кофейных картриджей",
-		GENITIVE = "ящика кофейных картриджей",
-		DATIVE = "ящику кофейных картриджей",
-		ACCUSATIVE = "ящик кофейных картриджей",
-		INSTRUMENTAL = "ящиком кофейных картриджей",
-		PREPOSITIONAL = "ящике кофейных картриджей",
-	)
-
-/datum/supply_packs/organic/coffee_cartridges_premium
-	name = "Набор премиальных кофейных картриджей"
-	contains = list(
-		/obj/item/coffee_cartridge/fancy,
-		/obj/item/coffee_cartridge/fancy,
-		/obj/item/coffee_cartridge/fancy,
-	)
-	cost = 35
-	containername = "ящик премиальных кофейных картриджей"
-	container_ru_names = list(
-		NOMINATIVE = "ящик премиальных кофейных картриджей",
-		GENITIVE = "ящика премиальных кофейных картриджей",
-		DATIVE = "ящику премиальных кофейных картриджей",
-		ACCUSATIVE = "ящик премиальных кофейных картриджей",
-		INSTRUMENTAL = "ящиком премиальных кофейных картриджей",
-		PREPOSITIONAL = "ящике премиальных кофейных картриджей",
-	)
-
-/datum/supply_packs/organic/coffee_packs
-	name = "Набор пакетов кофе"
-	contains = list(
-		/obj/item/storage/box/coffeepack,
-		/obj/item/storage/box/coffeepack,
-		/obj/item/storage/box/coffeepack/robusta,
-		/obj/item/storage/box/coffeepack/robusta,
-	)
-	cost = 30
-	containername = "ящик пакетов кофе"
-	container_ru_names = list(
-		NOMINATIVE = "ящик пакетов кофе",
-		GENITIVE = "ящика пакетов кофе",
-		DATIVE = "ящику пакетов кофе",
-		ACCUSATIVE = "ящик пакетов кофе",
-		INSTRUMENTAL = "ящиком пакетов кофе",
-		PREPOSITIONAL = "ящике пакетов кофе",
-	)
-
 //////// livestock
 /datum/supply_packs/organic/cow
 	name = "Корова"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/cow
+	containertype = /obj/structure/closet/critter/cow
 	containername = "ящик с коровой"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с коровой",
@@ -4005,7 +3903,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/pig
 	name = "Свинья"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/pig
+	containertype = /obj/structure/closet/critter/pig
 	containername = "ящик со свиньёй"
 	container_ru_names = list(
 		NOMINATIVE = "ящик со свиньёй",
@@ -4019,7 +3917,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/goat
 	name = "Козёл"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/goat
+	containertype = /obj/structure/closet/critter/goat
 	containername = "ящик с козлом"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с козлом",
@@ -4033,7 +3931,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/chicken
 	name = "Курица"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/chick
+	containertype = /obj/structure/closet/critter/chick
 	containername = "ящик с курицей"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с курицей",
@@ -4047,7 +3945,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/turkey
 	name = "Индейка"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/turkey
+	containertype = /obj/structure/closet/critter/turkey
 	containername = "ящик с индейкой"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с индейкой",
@@ -4060,7 +3958,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/corgi
 	name = "Корги"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/corgi
+	containertype = /obj/structure/closet/critter/corgi
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 	)
@@ -4077,7 +3975,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/dog_pug
 	name = "Мопс"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/dog_pug
+	containertype = /obj/structure/closet/critter/dog_pug
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 	)
@@ -4094,7 +3992,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/dog_bullterrier
 	name = "Бультерьер"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/dog_bullterrier
+	containertype = /obj/structure/closet/critter/dog_bullterrier
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 	)
@@ -4111,7 +4009,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/dog_tamaskan
 	name = "Тамасканская собака"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/dog_tamaskan
+	containertype = /obj/structure/closet/critter/dog_tamaskan
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 	)
@@ -4128,7 +4026,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/dog_german
 	name = "Немецкая овчарка"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/dog_german
+	containertype = /obj/structure/closet/critter/dog_german
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 	)
@@ -4145,7 +4043,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/dog_brittany
 	name = "Бретонский эпаньоль"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/dog_brittany
+	containertype = /obj/structure/closet/critter/dog_brittany
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 	)
@@ -4162,7 +4060,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/cat
 	name = "Кошка"
 	cost = 50 //Cats are worth as much as corgis.
-	containertype = /obj/structure/closet/crate/critter/cat
+	containertype = /obj/structure/closet/critter/cat
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 		/obj/item/toy/cattoy,
@@ -4188,7 +4086,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		INSTRUMENTAL = "ящиком с белой кошкой",
 		PREPOSITIONAL = "ящике с белой кошкой",
 	)
-	containertype = /obj/structure/closet/crate/critter/cat_white
+	containertype = /obj/structure/closet/critter/cat_white
 
 /datum/supply_packs/organic/cat/birman
 	name = "Бирманская кошка"
@@ -4201,12 +4099,12 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		INSTRUMENTAL = "ящиком с бирманской кошкой",
 		PREPOSITIONAL = "ящике с бирманской кошкой",
 	)
-	containertype = /obj/structure/closet/crate/critter/cat_birman
+	containertype = /obj/structure/closet/critter/cat_birman
 
 /datum/supply_packs/organic/fox
 	name = "Лиса"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/fox
+	containertype = /obj/structure/closet/critter/fox
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 	)
@@ -4223,7 +4121,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/fennec
 	name = "Фенёк"
 	cost = 80
-	containertype = /obj/structure/closet/crate/critter/fennec
+	containertype = /obj/structure/closet/critter/fennec
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 	)
@@ -4239,7 +4137,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/butterfly
 	name = "Бабочка"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/butterfly
+	containertype = /obj/structure/closet/critter/butterfly
 	containername = "ящик с бабочкой"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с бабочкой",
@@ -4253,7 +4151,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/deer
 	name = "Олень"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/deer
+	containertype = /obj/structure/closet/critter/deer
 	containername = "ящик с оленем"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с оленем",
@@ -4267,7 +4165,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/sloth
 	name = "Ленивец"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/sloth
+	containertype = /obj/structure/closet/critter/sloth
 	contains = list(
 		/obj/item/clothing/accessory/petcollar,
 	)
@@ -4284,7 +4182,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/goose
 	name = "Гусь"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/goose
+	containertype = /obj/structure/closet/critter/goose
 	containername = "ящик с гусём"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с гусём",
@@ -4298,7 +4196,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/gosling
 	name = "Гусёнок"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/gosling
+	containertype = /obj/structure/closet/critter/gosling
 	containername = "ящик с гусёнком"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с гусёнком",
@@ -4312,7 +4210,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/wooly_mouse
 	name = "Лохматая мышь"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/wooly_mouse
+	containertype = /obj/structure/closet/critter/wooly_mouse
 	containername = "ящик с лохматой мышью"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с лохматой мышью",
@@ -4326,7 +4224,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/frog
 	name = "Лягушка"
 	cost = 90
-	containertype = /obj/structure/closet/crate/critter/frog
+	containertype = /obj/structure/closet/critter/frog
 	containername = "ящик с лягушкой"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с лягушкой",
@@ -4340,7 +4238,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/frog/toxic
 	name = "Токсичная лягушка"
 	cost = 200
-	containertype = /obj/structure/closet/crate/critter/frog/toxic
+	containertype = /obj/structure/closet/critter/frog/toxic
 	containername = "ящик с токсичной лягушкой"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с токсичной лягушкой",
@@ -4355,7 +4253,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/turtle
 	name = "Черепаха"
 	cost = 80
-	containertype = /obj/structure/closet/crate/critter/turtle
+	containertype = /obj/structure/closet/critter/turtle
 	containername = "ящик с черепахой"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с черепахой",
@@ -4369,7 +4267,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/iguana
 	name = "Игуана"
 	cost = 150
-	containertype = /obj/structure/closet/crate/critter/iguana
+	containertype = /obj/structure/closet/critter/iguana
 	containername = "ящик с игуаной"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с игуаной",
@@ -4383,7 +4281,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/gator
 	name = "Аллигатор"
 	cost = 300	//most dangerous
-	containertype = /obj/structure/closet/crate/critter/gator
+	containertype = /obj/structure/closet/critter/gator
 	containername = "ящик с аллигатором"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с аллигатором",
@@ -4397,7 +4295,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/croco
 	name = "Крокодил"
 	cost = 250
-	containertype = /obj/structure/closet/crate/critter/croco
+	containertype = /obj/structure/closet/critter/croco
 	containername = "ящик с крокодилом"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с крокодилом",
@@ -4411,7 +4309,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/snake
 	name = "Змея"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/snake
+	containertype = /obj/structure/closet/critter/snake
 	containername = "ящик со змеёй"
 	container_ru_names = list(
 		NOMINATIVE = "ящик со змеёй",
@@ -4425,7 +4323,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/slime
 	name = "Слайм"
 	cost = 50
-	containertype = /obj/structure/closet/crate/critter/slime
+	containertype = /obj/structure/closet/critter/slime
 	containername = "ящик со слаймом"
 	container_ru_names = list(
 		NOMINATIVE = "ящик со слаймом",
@@ -4498,7 +4396,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/gorilla
 	name = "Горилла"
 	cost = 100
-	containertype = /obj/structure/closet/crate/critter/gorilla
+	containertype = /obj/structure/closet/critter/gorilla
 	containername = "ящик с гориллой"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с гориллой",
@@ -4512,7 +4410,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 /datum/supply_packs/organic/cargororilla
 	name = "Каргорилла"
 	cost = 150
-	containertype = /obj/structure/closet/crate/critter/cargorilla
+	containertype = /obj/structure/closet/critter/cargorilla
 	containername = "ящик с каргориллой"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с каргориллой",
@@ -4881,7 +4779,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		/mob/living/simple_animal/bot/mulebot,
 	)
 	cost = 20
-	containertype = /obj/structure/closet/crate/large/mule
+	containertype = /obj/structure/largecrate/mule
 	containername = "ящик с МУЛботом"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с МУЛботом",
@@ -4934,7 +4832,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		/obj/structure/reagent_dispensers/watertank,
 	)
 	cost = 8
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с баком воды"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с баком воды",
@@ -4951,7 +4849,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		/obj/structure/reagent_dispensers/holywatertank,
 	)
 	cost = 40
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с баком святой воды"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с баком святой воды",
@@ -4968,7 +4866,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		/obj/structure/reagent_dispensers/watertank/high,
 	)
 	cost = 12
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с баком воды повышенной ёмкости"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с баком воды повышенной ёмкости",
@@ -5324,7 +5222,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 		/obj/structure/janitorialcart,
 		/obj/item/clothing/shoes/galoshes,
 	)
-	containertype = /obj/structure/closet/crate/large
+	containertype = /obj/structure/largecrate
 	containername = "ящик с тележкой и галошами уборщика"
 	container_ru_names = list(
 		NOMINATIVE = "ящик с тележкой и галошами уборщика",

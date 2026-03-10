@@ -1475,7 +1475,7 @@
 	if(isapc(loc))
 		apc = loc
 	else
-		stack_trace("Invalid location for Integration cog")
+		log_runtime(EXCEPTION("Invalid location for Integration cog"))
 
 /obj/machinery/integration_cog/emp_act(severity)
 	return

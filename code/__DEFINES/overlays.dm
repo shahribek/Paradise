@@ -12,6 +12,7 @@
 		changed_on.add_overlay(mutable_appearance('icons/testing/greyscale_error.dmi')); \
 	} \
 
+/*
 /// Performs any operations that ought to run after an appearance change
 #define POST_OVERLAY_CHANGE(changed_on) \
 	if(alternate_appearances) { \
@@ -22,6 +23,7 @@
 			}\
 		} \
 	}
+*/
 
 /*
 // Roden's version idk, no implementation

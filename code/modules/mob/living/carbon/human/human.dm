@@ -410,9 +410,6 @@
 /**
  * Gets name from ID or PDA itself, ID inside PDA doesn't matter.
  * Useful when player is being seen by other mobs.
- *
- * Arguments:
- * * if_no_id - What to return if we have no ID or PDA
  */
 /mob/living/carbon/human/proc/get_id_name(if_no_id = UNKNOWN_NAME_RUS)
 	var/obj/item/card/id/id = wear_id?.GetID()
@@ -1714,7 +1711,7 @@ Eyes need to have significantly high darksight to shine unless the mob has the X
 	var/list/equip_list = data["equip"]
 	var/turf/T = get_turf(src)
 	if(!islist(data["limbs"]))
-		CRASH("Expected a limbs list, but found none")
+		throw EXCEPTION("Expected a limbs list, but found none")
 
 	if(islist(data["dna"]))
 		dna.deserialize(data["dna"])

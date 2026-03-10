@@ -45,7 +45,9 @@
 /turf/simulated/floor/noslip,
 /area/shuttle/escape)
 "ao" = (
-/obj/structure/closet/walllocker/emerglocker/directional/west,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -28
+	},
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
@@ -58,7 +60,9 @@
 	},
 /area/shuttle/escape)
 "aq" = (
-/obj/structure/closet/walllocker/emerglocker/directional/east,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 28
+	},
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
@@ -132,7 +136,9 @@
 	},
 /area/shuttle/escape)
 "aG" = (
-/obj/structure/closet/walllocker/emerglocker/directional/west,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -28
+	},
 /turf/simulated/floor/chasm,
 /area/shuttle/escape)
 "aH" = (
@@ -152,7 +158,9 @@
 /turf/simulated/floor/noslip,
 /area/shuttle/escape)
 "aK" = (
-/obj/structure/closet/walllocker/emerglocker/directional/east,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 28
+	},
 /obj/structure/bed,
 /obj/item/bedsheet/rainbow,
 /turf/simulated/floor/noslip,

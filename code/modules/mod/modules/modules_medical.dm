@@ -386,7 +386,8 @@
 	var/obj/projectile/organ/projectile = new /obj/projectile/organ(mod.wearer.loc, fired_organ)
 	projectile.original = target
 	projectile.firer = mod.wearer
-	projectile.preparePixelProjectile(target, mod.wearer)
+	projectile.preparePixelProjectile(target, get_turf(target), mod.wearer)
+	projectile.fire()
 	playsound(src, 'sound/mecha/hydraulic.ogg', 25, TRUE)
 	INVOKE_ASYNC(projectile, TYPE_PROC_REF(/obj/projectile, fire))
 	drain_power(use_energy_cost)
@@ -396,7 +397,6 @@
 	damage = 0
 	hitsound = 'sound/effects/attackblob.ogg'
 	hitsound_wall = 'sound/effects/attackblob.ogg'
-	ricochet_chance = 0
 	/// A reference to the organ we "are".
 	var/obj/item/organ/internal/organ
 

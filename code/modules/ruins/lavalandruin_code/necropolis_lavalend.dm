@@ -8,85 +8,58 @@
 	icon = 'icons/misc/Testing/turf_analysis.dmi'
 	icon_state = "arrow"
 
-	var/static/list/south_necropolisroom_templates
-	var/static/list/north_necropolisroom_templates
-	var/static/list/west_necropolisroom_templates
-	var/static/list/east_necropolisroom_templates
-	var/static/templates_loaded = FALSE
-	var/static/obj/effect/landmark/map_loader/lavaland_room/loader_landmark
-	var/static/list/pending_landmarks = list()
-
 /obj/effect/landmark/map_loader/lavaland_room/Initialize(mapload)
 	. = ..()
-	if(!loader_landmark)
-		loader_landmark = src
-	INVOKE_ASYNC(src, PROC_REF(load_room_async))
-
-/obj/effect/landmark/map_loader/lavaland_room/proc/load_room_async()
-	if(QDELETED(src))
-		return
-
-	if(!templates_loaded)
-		if(src == loader_landmark)
-			load_templates()
-			for(var/obj/effect/landmark/map_loader/lavaland_room/room in pending_landmarks)
-				if(!QDELETED(room))
-					INVOKE_ASYNC(room, PROC_REF(load_room_async))
-			pending_landmarks.Cut()
-		else
-			pending_landmarks |= src
-			return
-
-	// Selecting a template in the direction of the landmark
-	var/list/room_list = get_room_list_by_dir(dir)
-	var/datum/map_template/map_template = safepick(room_list)
-	if(map_template)
-		// Removing the selected template from the list so as not to repeat
-		room_list -= map_template
-		load(map_template)
-
-/obj/effect/landmark/map_loader/lavaland_room/proc/load_templates()
-	if(templates_loaded)
-		return
-
-	// Initializing the lists
-	south_necropolisroom_templates = list()
-	north_necropolisroom_templates = list()
-	west_necropolisroom_templates = list()
-	east_necropolisroom_templates = list()
-
-	var/path = "_maps/map_files/templates/lavaland/"
-	for(var/map in flist(path))
-		if(cmptext(copytext(map, length(map) - 3), ".dmm"))
-			var/datum/map_template/map_template = new(path = "[path][map]", rename = "[map]")
-			switch(copytext(map, 1, 3))
-				if("n_")
-					north_necropolisroom_templates += map_template
-				if("s_")
-					south_necropolisroom_templates += map_template
-				if("e_")
-					east_necropolisroom_templates += map_template
-				if("w_")
-					west_necropolisroom_templates += map_template
+	// load and randomly assign rooms
+	var/global/list/south_necropolisroom_templates = list()
+	var/global/list/north_necropolisroom_templates = list()
+	var/global/list/west_necropolisroom_templates = list()
+	var/global/list/east_necropolisroom_templates = list()
+	var/static/path = "_maps/map_files/templates/lavaland/"
+	var/global/loaded = 0
+	if(!loaded)
+		loaded = 1
+		for(var/map in flist(path))
+			if(cmptext(copytext(map, length(map) - 3), ".dmm"))
+				var/datum/map_template/T = new(path = "[path][map]", rename = "[map]")
+				if(copytext(map, 1, 3) == "n_")
+					north_necropolisroom_templates += T
+				else if(copytext(map, 1, 3) == "s_")
+					south_necropolisroom_templates += T
+				else if(copytext(map, 1, 3) == "e_")
+					east_necropolisroom_templates += T
+				else if(copytext(map, 1, 3) == "w_")
+					west_necropolisroom_templates += T
 				else
-					// Files without a prefix are considered omnidirectional - we distribute them randomly
+					// omnidirectional rooms are randomly assigned
 					if(prob(50))
-						north_necropolisroom_templates += map_template
+						north_necropolisroom_templates += T
 					else
-						south_necropolisroom_templates += map_template
+						south_necropolisroom_templates += T
 
-	templates_loaded = TRUE
-
-/obj/effect/landmark/map_loader/lavaland_room/proc/get_room_list_by_dir(dir)
+	var/list/room
 	switch(dir)
 		if(NORTH)
-			return north_necropolisroom_templates
+			room = north_necropolisroom_templates
 		if(SOUTH)
-			return south_necropolisroom_templates
+			room = south_necropolisroom_templates
 		if(WEST)
-			return west_necropolisroom_templates
+			room = west_necropolisroom_templates
 		else
-			return east_necropolisroom_templates
+			room = east_necropolisroom_templates
+
+	var/datum/map_template/M = safepick(room)
+	if(M)
+		switch(dir)
+			if(NORTH)
+				north_necropolisroom_templates -= M
+			if(SOUTH)
+				south_necropolisroom_templates -= M
+			if(WEST)
+				west_necropolisroom_templates -= M
+			else
+				east_necropolisroom_templates -= M
+	load(M)
 
 //----------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------door-------------------------------------------------------------

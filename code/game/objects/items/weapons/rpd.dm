@@ -96,7 +96,8 @@
 
 /obj/item/rpd/proc/create_atmos_pipe(mob/user, turf/T) //Make an atmos pipe, meter, or gas sensor
 	if(!can_dispense_pipe(whatpipe, RPD_ATMOS_MODE))
-		CRASH("Failed to spawn [get_pipe_name(whatpipe, PIPETYPE_ATMOS)] - possible tampering detected")
+		log_runtime(EXCEPTION("Failed to spawn [get_pipe_name(whatpipe, PIPETYPE_ATMOS)] - possible tampering detected")) //Damn dirty apes -- I mean hackers
+		return
 	var/obj/item/pipe/P
 	if(whatpipe == PIPE_GAS_SENSOR)
 		P = new /obj/item/pipe_gsensor(T)
@@ -122,7 +123,8 @@
 
 /obj/item/rpd/proc/create_disposals_pipe(mob/user, turf/T) //Make a disposals pipe / construct
 	if(!can_dispense_pipe(whatdpipe, RPD_DISPOSALS_MODE))
-		CRASH("Failed to spawn [get_pipe_name(whatdpipe, PIPETYPE_DISPOSAL)] - possible tampering detected")
+		log_runtime(EXCEPTION("Failed to spawn [get_pipe_name(whatdpipe, PIPETYPE_DISPOSAL)] - possible tampering detected"))
+		return
 	var/rotate_dir = iconrotation ? iconrotation : user.dir
 	var/obj/structure/disposalconstruct/construct = new(T, whatdpipe, rotate_dir)
 	to_chat(user, span_notice("[src] rapidly dispenses the [construct.pipename]!"))

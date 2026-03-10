@@ -46,14 +46,18 @@
 /turf/simulated/floor/engine/cult,
 /area/shuttle/escape)
 "al" = (
-/obj/structure/closet/walllocker/emerglocker/directional/west,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -28
+	},
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
 /turf/simulated/floor/engine/cult,
 /area/shuttle/escape)
 "am" = (
-/obj/structure/closet/walllocker/emerglocker/directional/east,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 28
+	},
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
@@ -133,7 +137,9 @@
 /turf/simulated/floor/engine/cult,
 /area/shuttle/escape)
 "ax" = (
-/obj/structure/closet/walllocker/emerglocker/directional/west,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -28
+	},
 /obj/effect/decal/remains/human{
 	desc = "This guy seemed to have died in terrible way! Half his remains are dust.";
 	name = "Human remains"
@@ -152,7 +158,9 @@
 /turf/simulated/floor/engine/cult,
 /area/shuttle/escape)
 "aA" = (
-/obj/structure/closet/walllocker/emerglocker/directional/east,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 28
+	},
 /turf/simulated/floor/engine/cult,
 /area/shuttle/escape)
 "aB" = (
@@ -210,7 +218,9 @@
 /turf/simulated/floor/engine/cult,
 /area/shuttle/escape)
 "aJ" = (
-/obj/structure/closet/walllocker/emerglocker/directional/east,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = 28
+	},
 /obj/machinery/light/spot{
 	tag = "icon-tube1 (EAST)";
 	dir = 4

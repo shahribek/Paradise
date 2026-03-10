@@ -329,7 +329,7 @@
 			qdel(A)
 		else
 			visible_message(span_userdanger("Rat'var strikes down [src]!"))
-			investigate_log("has been destroyed by Ratvar", INVESTIGATE_ENGINE)
+			investigate_log("has been destroyed by Ratvar","singulo")
 			qdel(src)
 
 	return

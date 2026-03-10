@@ -998,9 +998,9 @@
 		if(islist(thing))
 			list_to_object(thing, src)
 		else if(thing == null)
-			stack_trace("Null entry found in storage/deserialize.")
+			log_runtime(EXCEPTION("Null entry found in storage/deserialize."), src)
 		else
-			stack_trace("Non-list thing found in storage/deserialize (Thing: [thing])")
+			log_runtime(EXCEPTION("Non-list thing found in storage/deserialize."), src, list("Thing: [thing]"))
 	..()
 
 /obj/item/storage/AllowDrop()

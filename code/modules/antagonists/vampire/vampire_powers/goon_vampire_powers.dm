@@ -324,41 +324,35 @@
 			enthrall_safe = TRUE
 			break
 
-	. = FALSE
 	if(!target)
-		CRASH("target was null while trying to vampire enthrall, attacker is [user] [user.key] \ref[user]")
+		log_runtime(EXCEPTION("При порабощении моба случилось что-то плохое. Атакующий: [user] [user.key] \ref[user]"), user)
+		return FALSE
 
 	if(!target.mind)
 		to_chat(user, span_warning("Разум [target.name] сейчас не здесь, поэтому порабощение не удастся."))
-		return
+		return FALSE
 
 	if(enthrall_safe || isvampire(target) || isvampirethrall(target))
-		target.visible_message(
-			span_warning("Похоже что [target] сопротивляется захвату!"),
-			span_notice("Вы ощущаете в голове знакомое ощущение, но оно быстро проходит."),
-		)
-		return
+		target.visible_message(span_warning("Похоже что [target] сопротивляется захвату!"), \
+							span_notice("Вы ощущаете в голове знакомое ощущение, но оно быстро проходит."))
+		return FALSE
 
 	if(!affects(target))
-		target.visible_message(
-			span_warning("Похоже что [target] сопротивляется захвату!"),
-			span_notice("Вера в [SSticker.Bible_deity_name] защищает ваш разум от всякого зла."),
-		)
-		return
+		target.visible_message(span_warning("Похоже что [target] сопротивляется захвату!"), \
+							span_notice("Вера в [SSticker.Bible_deity_name] защищает ваш разум от всякого зла."))
+		return FALSE
 
 	if(isninja(target))
 		var/obj/item/clothing/suit/space/space_ninja/ninja_suit = target.wear_suit
 		if(istype(ninja_suit) && ninja_suit.vamp_protection_active && ninja_suit.s_initialized)
-			target.visible_message(
-				span_warning("Похоже что [target] сопротивляется захвату!"),
-				span_notice("Вы ощутили сильную боль, а затем слабый укол в шею. Кажется костюм только, что защитил ваш разум..."),
-			)
+			target.visible_message(span_warning("Похоже что [target] сопротивляется захвату!"), \
+								span_notice("Вы ощутили сильную боль, а затем слабый укол в шею. Кажется костюм только, что защитил ваш разум..."))
 			target.setBrainLoss(20)
-			return
+			return FALSE
 
 	if(!ishuman(target))
 		to_chat(user, span_warning("Вы можете порабощать только гуманоидов!"))
-		return
+		return FALSE
 
 	return TRUE
 

@@ -51,8 +51,9 @@
 	link_password = GenerateKey()
 	var/turf/our_turf = get_turf(loc)
 	if(!isturf(our_turf))
+		log_runtime(EXCEPTION("Tcomms core is in non-turf loc!"))
 		message_admins("Tcomms core is in non-turf loc. Inform maintainrs about it.")
-		CRASH("Tcomms core is in non-turf loc!")
+		return
 	reachable_zlevels |= our_turf.z
 	var/turf/above = GET_TURF_ABOVE(our_turf)
 	while(above)
@@ -149,8 +150,9 @@
 	reachable_zlevels = list()
 	var/turf/our_turf = get_turf(loc)
 	if(!isturf(our_turf))
+		log_runtime(EXCEPTION("Tcomms core is in non-turf loc!"))
 		message_admins("Tcomms core is in non-turf loc. Inform maintainrs about it.")
-		CRASH("Tcomms core is in non-turf loc!")
+		return
 	// Add itself as a reachable Z-level
 	reachable_zlevels |= loc.z
 	// add adjacent zlevels above and below

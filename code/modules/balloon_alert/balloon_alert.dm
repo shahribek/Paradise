@@ -10,27 +10,19 @@
 
 /**
  * Creates text that will float from the atom upwards to the viewer.
- * When you add new balloons, make sure to use as little text as possible, starting with a small letter
+ * When you add new balloons, make sure to use less text, as possible, starting with small letter
  *
- * Arguments:
- * * viewer - The mob the text will be shown to. Nullable (But only in the form of it won't runtime).
- * * text - The text to be shown to viewer. Must not be null.
+ * Args:
+ * * mob/viewer: The mob the text will be shown to. Nullable (But only in the form of it won't runtime).
+ * * text: The text to be shown to viewer. Must not be null.
  */
 /atom/proc/balloon_alert(mob/viewer, text)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	INVOKE_ASYNC(src, PROC_REF(balloon_alert_perform), viewer, text)
 
-/**
- * Create balloon alerts (text that floats up) to everything within range.
- * Will only display to people who can see.
- *
- * Arguments:
- * * message - The message to show to other viewers
- * * self_message - The message to show to the user themselves
- * * vision_distance - The distance within which viewers can see the alert (default: DEFAULT_MESSAGE_RANGE)
- * * ignored_mobs - List of mobs to exclude from seeing the alert
- */
+/// Create balloon alerts (text that floats up) to everything within range.
+/// Will only display to people who can see.
 /atom/proc/balloon_alert_to_viewers(message, self_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs)
 	SHOULD_NOT_SLEEP(TRUE)
 
@@ -40,7 +32,7 @@
 	for(var/mob/hearer in hearers)
 		if(!hearer.has_vision())
 			continue
-		balloon_alert(hearer, (hearer == src && self_message) || message)
+		hearer == usr ? balloon_alert(hearer, self_message) : usr.balloon_alert(hearer, message)
 
 /**
  * Do not use.

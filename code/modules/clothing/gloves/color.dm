@@ -316,7 +316,6 @@
 	item_state = "modified"
 	item_color = "modified"
 	surgeryspeedmod = -0.3
-	clothing_traits = list(TRAIT_QUICKER_CARRY)
 
 /obj/item/clothing/gloves/color/latex/modified/get_ru_names()
 	return list(
@@ -340,7 +339,6 @@
 	actions_types = list(/datum/action/item_action/toggle_defibrillator)
 	surgery_step_time = 0.5 SECONDS
 	surgery_germ_chance = 50
-	clothing_traits = list(TRAIT_QUICKER_CARRY)
 
 /obj/item/clothing/gloves/color/latex/inugami/get_ru_names()
 	return list(

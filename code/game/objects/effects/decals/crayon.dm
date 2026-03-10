@@ -15,6 +15,3 @@
 
 	icon_state = type
 	color = main
-
-/obj/effect/decal/cleanable/crayon/never_should_have_come_here(turf/here_turf)
-	return isgroundlessturf(here_turf)

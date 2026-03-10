@@ -25005,7 +25005,9 @@
 	},
 /area/syndicate/unpowered/syndicate_space_base/medbay/virology)
 "uQL" = (
-/obj/structure/closet/walllocker/emerglocker/directional/west,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -32
+	},
 /obj/structure/rack,
 /obj/effect/spawner/lootdrop/maintenance,
 /obj/item/storage/wallet/random,
@@ -25509,7 +25511,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
-/obj/structure/closet/walllocker/emerglocker/directional/west,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -32
+	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plasteel{
 	dir = 1;
@@ -27252,7 +27256,9 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/structure/closet/walllocker/emerglocker/directional/west,
+/obj/structure/closet/walllocker/emerglocker{
+	pixel_x = -32
+	},
 /turf/simulated/floor/plasteel{
 	dir = 1;
 	icon_state = "dark"

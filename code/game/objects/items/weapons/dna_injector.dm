@@ -88,7 +88,7 @@
 		return .
 
 	if(!buf)
-		stack_trace("[src] used by [user] on [target] failed to initialize properly.")
+		log_runtime(EXCEPTION("[src] used by [user] on [target] failed to initialize properly."), src)
 		return .
 
 	var/attack_log = "injected with the Isolated [name]"

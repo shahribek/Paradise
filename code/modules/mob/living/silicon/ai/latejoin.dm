@@ -64,7 +64,8 @@ GLOBAL_LIST_EMPTY(empty_playable_ai_cores)
 // Before calling this, make sure an empty core exists, or this will no-op
 /mob/living/silicon/ai/proc/moveToEmptyCore()
 	if(!length(GLOB.empty_playable_ai_cores))
-		CRASH("moveToEmptyCore called without any available cores")
+		log_runtime(EXCEPTION("moveToEmptyCore called without any available cores"), src)
+		return
 
 	// IsJobAvailable for AI checks that there is an empty core available in this list
 	var/obj/structure/AIcore/deactivated/C = GLOB.empty_playable_ai_cores[1]

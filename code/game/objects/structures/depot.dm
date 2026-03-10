@@ -1,6 +1,7 @@
+
 /obj/structure/fusionreactor
 	name = "syndicate fusion reactor"
-	desc = "Significantly less cool than a supermatter crystal, but just as likely to fuck up."
+	desc = ""
 	icon = 'icons/obj/device.dmi'
 	icon_state = "powersink1"
 	anchored = TRUE

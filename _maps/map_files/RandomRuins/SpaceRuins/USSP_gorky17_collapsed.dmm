@@ -1891,7 +1891,7 @@
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/common)
 "fQ" = (
-/obj/structure/closet/crate/large/evil{
+/obj/structure/largecrate/evil{
 	name = "large crate"
 	},
 /turf/simulated/floor/plating,
@@ -3020,7 +3020,7 @@
 /turf/simulated/floor/plating/airless,
 /area/ruin/space/USSP_gorky17/collapsed/gate)
 "jq" = (
-/obj/structure/closet/crate/large,
+/obj/structure/largecrate,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/gate)
@@ -3750,7 +3750,7 @@
 /turf/simulated/floor/plating/airless,
 /area/ruin/space/USSP_gorky17/collapsed/dorms)
 "lx" = (
-/obj/structure/closet/crate/large/chick,
+/obj/structure/largecrate/chick,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/gate)
 "lA" = (
@@ -3798,7 +3798,7 @@
 	},
 /area/ruin/space/USSP_gorky17/collapsed/rnd)
 "lE" = (
-/obj/structure/closet/crate/large,
+/obj/structure/largecrate,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/gate)
 "lF" = (
@@ -5730,7 +5730,7 @@
 	},
 /area/ruin/space/USSP_gorky17/collapsed/rnd)
 "rz" = (
-/obj/structure/closet/crate/large/lisa,
+/obj/structure/largecrate/lisa,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/gate)
 "rA" = (
@@ -17382,7 +17382,7 @@
 /turf/simulated/floor/carpet/airless,
 /area/ruin/space/USSP_gorky17/collapsed/dorms)
 "ZK" = (
-/obj/structure/closet/crate/large/schrodinger,
+/obj/structure/largecrate/schrodinger,
 /turf/simulated/floor/plating,
 /area/ruin/space/USSP_gorky17/collapsed/gate)
 "ZL" = (

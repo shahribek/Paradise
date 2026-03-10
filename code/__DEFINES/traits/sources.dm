@@ -177,6 +177,3 @@
 #define TASER_TRAIT "taser"
 
 #define BUTTON_TRAIT "button"
-
-/// Trait given by echolocation component.
-#define ECHOLOCATION_TRAIT "echolocation"

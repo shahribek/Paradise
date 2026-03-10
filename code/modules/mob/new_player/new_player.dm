@@ -717,14 +717,14 @@
 		chosen_species = GLOB.all_species[client.prefs.species]
 	if(!chosen_species)
 		// Have to recheck admin due to no usr at roundstart. Latejoins are fine though.
-		stack_trace("[src] had species [client.prefs.species], though they weren't supposed to. Setting to Human.")
+		log_runtime(EXCEPTION("[src] had species [client.prefs.species], though they weren't supposed to. Setting to Human."), src)
 		client.prefs.species = SPECIES_HUMAN
 
 	var/datum/language/chosen_language
 	if(client.prefs.language)
 		chosen_language = GLOB.all_languages[client.prefs.language]
 	if((!chosen_language && client.prefs.language != LANGUAGE_NONE) || (chosen_language && chosen_language.flags & RESTRICTED))
-		stack_trace("[src] had language [client.prefs.language], though they weren't supposed to. Setting to None.")
+		log_runtime(EXCEPTION("[src] had language [client.prefs.language], though they weren't supposed to. Setting to None."), src)
 		client.prefs.language = LANGUAGE_NONE
 		INVOKE_ASYNC(src, PROC_REF(save_character))
 

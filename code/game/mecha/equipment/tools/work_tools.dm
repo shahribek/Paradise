@@ -572,22 +572,17 @@
 		reagents.trans_to(water_effect, 1)
 
 		for(var/j in 0 to 3)
-			if(QDELETED(water_effect) || !water_effect.reagents)
+			if(!water_effect)
 				return
 
 			step_towards(water_effect, my_target)
 
-			if(QDELETED(water_effect) || !water_effect.reagents)
+			if(!water_effect)
 				return
 
 			var/turf/water_turf = get_turf(water_effect)
-			if(!water_turf)
-				continue
-
 			water_effect.reagents.reaction(water_turf)
 			for(var/atom/atom in water_turf)
-				if(QDELETED(water_effect) || !water_effect.reagents)
-					return
 				water_effect.reagents.reaction(atom)
 				if(isliving(atom)) //For extinguishing mobs on fire
 					var/mob/living/living_mob = atom

@@ -228,7 +228,9 @@
 		D = preview_shuttle.findRoundstartDock()
 
 	if(!D)
-		CRASH("No dock found for preview shuttle ([preview_template.name]), aborting.")
+		var/m = "No dock found for preview shuttle, aborting."
+		WARNING(m)
+		throw EXCEPTION(m)
 
 	var/result = preview_shuttle.canDock(D)
 	if(result == SHUTTLE_LOCKED)
@@ -238,7 +240,11 @@
 	// but we can ignore the someone else docked error because we'll
 	// be moving into their place shortly
 	if((result != SHUTTLE_CAN_DOCK) && (result != SHUTTLE_SOMEONE_ELSE_DOCKED))
-		CRASH("Template shuttle [preview_shuttle] cannot dock at [D] ([result]).")
+
+		var/m = "Unsuccessful dock of [preview_shuttle] ([result])."
+		message_admins("[m]")
+		WARNING(m)
+		return
 
 	existing_shuttle.jumpToNullSpace()
 

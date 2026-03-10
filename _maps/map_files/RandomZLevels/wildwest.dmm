@@ -261,6 +261,10 @@
 	},
 /turf/simulated/floor/plating/ironsand,
 /area/awaymission/wwmines)
+"bf" = (
+/obj/structure/largecrate,
+/turf/simulated/floor/plating,
+/area/awaymission/wwrefine)
 "bg" = (
 /obj/effect/mine/dnascramble,
 /turf/simulated/floor/plating/ironsand,
@@ -1072,6 +1076,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/awaymission/wwgov)
+"dv" = (
+/obj/structure/largecrate,
+/turf/simulated/floor/wood,
+/area/awaymission/wwmines)
 "dw" = (
 /obj/item/paper{
 	info = "We've discovered something floating in space. We can't really tell how old it is, but it is scraped and bent to hell. There object is the size of about a room with double doors that we have yet to break into.   It is a lot sturdier than we could have imagined.  We have decided to call it 'The Vault' ";
@@ -1338,6 +1346,14 @@
 	},
 /turf/simulated/floor/plating/ironsand,
 /area/awaymission/wwgov)
+"ef" = (
+/obj/structure/largecrate,
+/obj/machinery/light/small{
+	dir = 1;
+	tag = "icon-bulb1 (NORTH)"
+	},
+/turf/simulated/floor/wood,
+/area/awaymission/wwmines)
 "eg" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1516,6 +1532,10 @@
 	icon_state = "cafeteria";
 	tag = "icon-cafeteria (NORTHEAST)"
 	},
+/area/awaymission/wwmines)
+"eF" = (
+/obj/item/reagent_containers/food/drinks/coffee,
+/turf/simulated/floor/carpet,
 /area/awaymission/wwmines)
 "eG" = (
 /obj/item/reagent_containers/food/snacks/donut/jelly/slimejelly,
@@ -1828,6 +1848,11 @@
 	tag = "icon-bulb1 (WEST)"
 	},
 /turf/simulated/floor/wood,
+/area/awaymission/wwmines)
+"fw" = (
+/obj/item/reagent_containers/food/drinks/coffee,
+/obj/item/reagent_containers/food/snacks/donut/jelly/slimejelly,
+/turf/simulated/floor/carpet,
 /area/awaymission/wwmines)
 "fx" = (
 /obj/structure/chair/comfy/beige{
@@ -2446,31 +2471,6 @@
 /obj/machinery/door/poddoor/multi_tile/four_tile_ver,
 /turf/simulated/floor/plasteel,
 /area/awaymission/wwrefine)
-"iz" = (
-/obj/structure/closet/crate/large,
-/turf/simulated/floor/plating,
-/area/awaymission/wwrefine)
-"ne" = (
-/obj/item/reagent_containers/food/drinks/cups/coffee_cup/small/coffee,
-/turf/simulated/floor/carpet,
-/area/awaymission/wwmines)
-"DI" = (
-/obj/structure/closet/crate/large,
-/obj/machinery/light/small{
-	dir = 1;
-	tag = "icon-bulb1 (NORTH)"
-	},
-/turf/simulated/floor/wood,
-/area/awaymission/wwmines)
-"Ps" = (
-/obj/structure/closet/crate/large,
-/turf/simulated/floor/wood,
-/area/awaymission/wwmines)
-"RT" = (
-/obj/item/reagent_containers/food/drinks/cups/coffee_cup/small/coffee,
-/obj/item/reagent_containers/food/snacks/donut/jelly/slimejelly,
-/turf/simulated/floor/carpet,
-/area/awaymission/wwmines)
 
 (1,1,1) = {"
 aa
@@ -18366,7 +18366,7 @@ aQ
 aU
 ba
 ba
-iz
+bf
 ba
 ba
 ba
@@ -19139,7 +19139,7 @@ ba
 ba
 ba
 ba
-iz
+bf
 ba
 aU
 ej
@@ -19392,7 +19392,7 @@ aG
 aG
 aQ
 aU
-iz
+bf
 ba
 bl
 ba
@@ -20417,13 +20417,13 @@ aU
 aU
 aU
 aU
-iz
+bf
 ba
 ba
 ba
 ba
 ba
-iz
+bf
 aU
 aU
 aU
@@ -20664,12 +20664,12 @@ aU
 br
 ba
 ba
-iz
+bf
 ba
 ba
 ba
 ba
-iz
+bf
 ba
 ba
 ba
@@ -20914,7 +20914,7 @@ aQ
 aU
 aU
 aU
-iz
+bf
 ba
 ba
 ba
@@ -20927,7 +20927,7 @@ ba
 bm
 ba
 ba
-iz
+bf
 ba
 ba
 ba
@@ -20935,7 +20935,7 @@ ba
 ba
 ba
 ba
-iz
+bf
 ba
 ba
 aU
@@ -21426,7 +21426,7 @@ aU
 aZ
 ba
 ba
-iz
+bf
 ba
 ba
 ba
@@ -21434,7 +21434,7 @@ bo
 ba
 ba
 ba
-iz
+bf
 ba
 ba
 ba
@@ -21447,7 +21447,7 @@ ba
 ba
 ba
 ba
-iz
+bf
 bm
 aU
 aU
@@ -21688,7 +21688,7 @@ ba
 bl
 ba
 ba
-iz
+bf
 ba
 ba
 ba
@@ -21700,7 +21700,7 @@ ba
 ba
 ba
 ba
-iz
+bf
 ba
 bm
 ba
@@ -21949,7 +21949,7 @@ ba
 ba
 ba
 ba
-iz
+bf
 ba
 ba
 ba
@@ -22201,7 +22201,7 @@ ba
 ba
 bm
 ba
-iz
+bf
 ba
 ba
 ba
@@ -22217,7 +22217,7 @@ ba
 ba
 db
 ba
-iz
+bf
 aU
 aN
 aR
@@ -36360,10 +36360,10 @@ eX
 dk
 bD
 eG
-ne
+eF
 eI
 eK
-ne
+eF
 eI
 bD
 gP
@@ -36616,12 +36616,12 @@ bh
 eX
 bh
 dA
-ne
+eF
 bD
 bD
 bD
 bD
-ne
+eF
 fL
 bh
 eX
@@ -37131,10 +37131,10 @@ eX
 dk
 bD
 eI
-ne
+eF
 eI
 eK
-RT
+fw
 eK
 fM
 gP
@@ -38413,11 +38413,11 @@ bh
 bh
 bh
 eX
-Ps
+dv
 bh
 bh
-Ps
-Ps
+dv
+dv
 eX
 bH
 bh
@@ -38670,11 +38670,11 @@ bh
 bh
 bn
 eX
-DI
+ef
 bh
 bh
 bh
-Ps
+dv
 eX
 fz
 bh
@@ -38927,7 +38927,7 @@ bh
 bh
 bh
 eX
-Ps
+dv
 bh
 bh
 bh
@@ -39184,7 +39184,7 @@ bh
 bh
 bh
 eX
-Ps
+dv
 bh
 bh
 bh
@@ -39441,7 +39441,7 @@ bh
 bk
 bh
 eX
-Ps
+dv
 bh
 eo
 bh
@@ -39955,7 +39955,7 @@ aX
 aX
 aX
 eX
-Ps
+dv
 bh
 bh
 bh

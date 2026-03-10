@@ -59,7 +59,8 @@ ADMIN_VERB(poll_panel, R_SERVER, "Server Poll Management", "View and manage poll
 					our_poll = poll_check
 					break
 			if(!our_poll)
-				CRASH("Couldn't find poll to edit with id [params["poll_to_edit"]]")
+				log_runtime(EXCEPTION("Couldn't find poll to edit with id [params["poll_to_edit"]]"))
+				return
 			ui_client.open_poll_management(our_poll)
 		if("deletepoll")
 			var/datum/poll_question/our_poll = null
@@ -68,7 +69,8 @@ ADMIN_VERB(poll_panel, R_SERVER, "Server Poll Management", "View and manage poll
 					our_poll = poll_check
 					break
 			if(!our_poll)
-				CRASH("Couldn't find poll to delete with id [params["poll_to_delete"]]")
+				log_runtime(EXCEPTION("Couldn't find poll to delete with id [params["poll_to_delete"]]"))
+				return
 			our_poll.delete_poll()
 		if("resultspoll")
 			var/datum/poll_question/our_poll = null
@@ -77,7 +79,8 @@ ADMIN_VERB(poll_panel, R_SERVER, "Server Poll Management", "View and manage poll
 					our_poll = poll_check
 					break
 			if(!our_poll)
-				CRASH("Couldn't find poll to result with id [params["poll_to_result"]]")
+				log_runtime(EXCEPTION("Couldn't find poll to result with id [params["poll_to_result"]]"))
+				return
 
 			var/start_index = text2num(params["startat"]) || 0
 			ui_client.holder.poll_results_panel(our_poll, start_index)
