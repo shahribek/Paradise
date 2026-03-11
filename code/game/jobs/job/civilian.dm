@@ -28,9 +28,19 @@
 	department = STATION_DEPARTMENT_CIVILIAN
 	hidden_from_job_prefs = TRUE
 	required_achievements = list(/datum/award/achievement/donations/vip_sponsor)
+	access = list(ACCESS_HEADS, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_HEADS, ACCESS_MAINT_TUNNELS)
 	alt_titles = list("VIP person")
+	outfit = /datum/outfit/job/investor
 	insurance_type = INSURANCE_TYPE_DELUXE
 	paycheck = PAYCHECK_MAX
+
+
+/datum/outfit/job/investor
+	name = JOB_TITLE_CIVILIAN
+	jobtype = /datum/job/civilian/investor
+
+	uniform = /obj/item/clothing/under/color/random
 
 /datum/job/civilian/prisoner
 	title = JOB_TITLE_PRISONER
