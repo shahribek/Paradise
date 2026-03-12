@@ -35,7 +35,6 @@
 	insurance_type = INSURANCE_TYPE_DELUXE
 	paycheck = PAYCHECK_MAX
 
-
 /datum/outfit/job/investor
 	name = JOB_TITLE_CIVILIAN
 	jobtype = /datum/job/civilian/investor
