@@ -14,6 +14,8 @@
 	blood_color = BLOOD_COLOR_NUCLEATION
 	burn_mod = 4 // holy shite, poor guys wont survive half a second cooking smores
 	brute_mod = 2 // damn, double wham, double dam
+	tox_mod = 0
+	clone_mod = 0
 
 	inherent_traits = list(
 		TRAIT_NO_BLOOD,
@@ -27,6 +29,7 @@
 		TRAIT_NO_GERMS,
 		TRAIT_IGNOREDAMAGESLOWDOWN,
 		TRAIT_SUPERMATTER_IMMUNE,
+		TRAIT_NO_NUTRITION_EFFECTS,
 	)
 	bodyflags = HAS_BODY_MARKINGS
 	dies_at_threshold = TRUE
@@ -39,7 +42,7 @@
 	//Default styles for created mobs.
 	default_hair = "Nucleation Crystals"
 
-	reagent_tag = ORGANIC
+	reagent_tag = NUCLEAR // I should refactor it someday
 	has_organ = list(
 		INTERNAL_ORGAN_HEART = /obj/item/organ/internal/heart,
 		INTERNAL_ORGAN_BRAIN = /obj/item/organ/internal/brain/crystal,
@@ -70,6 +73,13 @@
 	H.light_color = null
 	H.set_light_on(FALSE) // turn off light after species loss
 	H.RemoveElement(/datum/element/radiation_healing)
+
+/datum/species/nucleation/handle_life(mob/living/carbon/human/H)
+	// do your "special code" here
+
+/datum/species/nucleation/handle_reagents(mob/living/carbon/human/H, datum/reagent/R)
+	. = ..()
+
 
 /datum/species/nucleation/handle_death(gibbed, mob/living/carbon/human/human)
 	if(human.health <= HEALTH_THRESHOLD_DEAD) // Needed to prevent brain gib on surgery debrain

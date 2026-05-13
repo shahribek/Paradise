@@ -472,7 +472,7 @@
 // (Slime People changing color based on the reagents they consume)
 /datum/species/proc/handle_life(mob/living/carbon/human/H)
 	var/regenerate = TRUE
-	if(HAS_TRAIT(H, TRAIT_NO_BREATH) && H.health <= HEALTH_THRESHOLD_CRIT)
+	if(HAS_TRAIT(H, TRAIT_NO_BREATH) && H.health <= HEALTH_THRESHOLD_CRIT && !ignore_critical_condition)
 		regenerate = FALSE
 		H.adjustBruteLoss(1)
 

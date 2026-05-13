@@ -70,6 +70,7 @@
 // Reagent type flags, defines the types of mobs this reagent will affect and the types of reagents this mob will metabolize
 #define ORGANIC (1<<0)
 #define SYNTHETIC (1<<1)
+#define NUCLEAR (1<<2)
 
 // Reagent tag flags, define reagent behaviour (now use only for anti-stun reagents)
 #define REAGENT_TAG_ANTI_STUN (1<<0)
