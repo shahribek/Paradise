@@ -44,7 +44,6 @@
 
 	reagent_tag = NUCLEAR // I should refactor it someday
 	has_organ = list(
-		INTERNAL_ORGAN_HEART = /obj/item/organ/internal/heart,
 		INTERNAL_ORGAN_BRAIN = /obj/item/organ/internal/brain/crystal,
 		INTERNAL_ORGAN_EYES = /obj/item/organ/internal/eyes/luminescent_crystal, //Standard darksight of 2.
 		INTERNAL_ORGAN_EARS = /obj/item/organ/internal/ears,

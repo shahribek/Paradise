@@ -8,7 +8,7 @@
 	desc = "Жёлтого цвета странно выглядящий кристалл. Судя по всему, он принадлежал нуклеату."
 	icon_state = "resonant-crystal"
 	parent_organ_zone = BODY_ZONE_HEAD
-	slot = INTERNAL_ORGAN_RESONANT_CRYSTAL
+	slot = INTERNAL_ORGAN_EARS
 
 /obj/item/organ/internal/nucleation/resonant_crystal/get_ru_names()
 	return list(
