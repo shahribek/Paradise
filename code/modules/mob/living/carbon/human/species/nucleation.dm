@@ -16,6 +16,7 @@
 	brute_mod = 2 // damn, double wham, double dam
 	tox_mod = 0
 	clone_mod = 0
+	hunger_drain_mod = 0 // we are handling it ourselves with "strange crystal" organ
 
 	inherent_traits = list(
 		TRAIT_NO_BLOOD,
@@ -36,6 +37,7 @@
 	ignore_critical_condition = TRUE // Nucleations do not suffer from complex critical condition
 	var/touched_supermatter = FALSE
 	max_radiation = NUCLEATION_MAX_RADIATION
+	var/internal_charge = 0 // saved charge from getting "zapped"(electrecuted). responsible for the criticality to all buffs/debuff from this source
 
 	speciesbox = /obj/item/storage/box/survival/species/nucleation
 
@@ -65,13 +67,14 @@
 	H.light_color = COLOR_NUCLEATION_LIGHT
 	H.set_light_range(NUCLEATION_LIGHT_RANGE)
 	H.set_light_on(TRUE)
-	H.AddElement(/datum/element/radiation_healing)
+	//H.AddElement(/datum/element/radiation_healing)
+	H.apply_damage(200, IRRADIATE)
 
 /datum/species/nucleation/on_species_loss(mob/living/carbon/human/H)
 	. = ..()
 	H.light_color = null
 	H.set_light_on(FALSE) // turn off light after species loss
-	H.RemoveElement(/datum/element/radiation_healing)
+	//H.RemoveElement(/datum/element/radiation_healing)
 
 /datum/species/nucleation/handle_life(mob/living/carbon/human/H)
 	// do your "special code" here
