@@ -68,7 +68,7 @@
 	H.set_light_range(NUCLEATION_LIGHT_RANGE)
 	H.set_light_on(TRUE)
 	//H.AddElement(/datum/element/radiation_healing)
-	H.apply_damage(200, IRRADIATE)
+	H.apply_damage(200, IRRADIATE) // OUGH, where is my radiation damage
 
 /datum/species/nucleation/on_species_loss(mob/living/carbon/human/H)
 	. = ..()
