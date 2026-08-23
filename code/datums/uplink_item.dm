@@ -996,6 +996,14 @@
 	surplus = 0
 	uplinktypes = list(UPLINK_TYPE_NUCLEAR, UPLINK_TYPE_SST)
 
+/datum/uplink_item/dangerous/berserk
+	name = "Берзерк"
+	desc = "УБЕЙ ИХ ВСЕХ"
+	item = //placeholder
+	cost = 100
+	hijack_only = TRUE
+	surplus = FALSE
+
 /**
  * MARK: Support & Mechas
  */
