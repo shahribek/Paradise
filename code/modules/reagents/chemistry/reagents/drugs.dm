@@ -1175,3 +1175,12 @@
 		M.emote("tremble")
 	return list(0, update_flags)
 
+/datum/reagent/berserk
+	name = "Берсерк"
+	id = "berserk"
+	description = "Экстремально сильный стимулятор, вызывающий у употребившего неконтролируемую агрессию и ярость."
+	reagent_state = LIQUID
+	color = "#FF0000"
+	taste_description = "ярости"
+	metabolization_rate = 0.4 * REAGENTS_METABOLISM
+	metabolized_traits = list()//add some trait moron.

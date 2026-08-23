@@ -736,3 +736,11 @@
 		INSTRUMENTAL = "автоинъектором (Сангвиний)",
 		PREPOSITIONAL = "автоинъекторе (Сангвиний)",
 	)
+
+/obj/item/reagent_containers/hypospray/autoinjector/berserk
+	name = "Berserk autoinjector"
+	desc = "Маленький инъектор в форме ручки, содержащий внутри дозу \"Берсерка\". Вызывает высокую аггрессию и повышает физическую силу. Может вызывать потерю рассудка визуальные и звуковые галлюцинации носителю и окружающим."
+	icon_state = "redinjector"
+	amount_per_transfer_from_this = 30
+	volume = 30
+	list_reagents = list("berserk" = 30)
